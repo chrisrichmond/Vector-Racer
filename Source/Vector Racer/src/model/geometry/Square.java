@@ -22,6 +22,4 @@ public class Square {
         this.end = new Point(startX+1, startY-1);
     }
 
-
-
 }

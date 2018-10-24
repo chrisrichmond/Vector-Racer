@@ -1,5 +1,7 @@
 package model;
 
+import model.geometry.Square;
+
 public interface Terrain {
 
     /**

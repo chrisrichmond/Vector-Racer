@@ -18,13 +18,19 @@ public class Grid {
     [0,1] [1,1] [2,1] [3,1] [4,1] [5,1] [6,1]
 
      */
-    private List<Square> squares;
+    private Square[][] squares;
     private Point startBound;
     private Point endBound;
 
-    public Grid(Point startBound, Point endBound){
+    public Grid(Point startBound, Point endBound){ //todo problems here
         this.startBound = startBound;
         this.endBound = endBound;
+        for(int xCol = startBound.getX(); xCol < endBound.getX(); xCol++){
+            for(int yRow = startBound.getY(); yRow < endBound.getY(); yRow++){
+                squares[yRow][xCol] = new Square(xCol, yRow);
+                System.out.println("Created new Square: "+ squares[yRow][xCol].toString());
+            }
+        }
     }
 
     public Point getStartBound() {
@@ -35,9 +41,14 @@ public class Grid {
         return endBound;
     }
 
-    public List<Square> getSquares() {
+    public Square[][] getSquares() {
         return squares;
     }
 
+    /*
+    public static void main(String[] args){
+        new Grid(new Point(0, 0), new Point(50, 25));
+    }
+    */
 
 }

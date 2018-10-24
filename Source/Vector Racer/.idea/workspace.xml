@@ -1,18 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="MVC foundations">
-      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/controller/Controller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/RacerAPI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/geometry/Point.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/geometry/Vector.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/View.fxml" afterDir="false" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="MVC refactor, model work">
+      <change afterPath="$PROJECT_DIR$/src/model/Terrain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/geometry/Grid.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/ModelAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ModelAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/sample.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/View.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/RacerAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/RacerAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/geometry/Point.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/geometry/Point.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/geometry/Vector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/geometry/Vect.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -80,28 +75,28 @@
         <counts>
           <entry key="class" value="1" />
           <entry key="fxml" value="1" />
-          <entry key="java" value="13" />
+          <entry key="java" value="15" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="1" />
-          <entry key="JAVA" value="13" />
+          <entry key="JAVA" value="15" />
           <entry key="XML" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="dummy" value="9" />
+          <entry key="dummy" value="16" />
           <entry key="fxml" value="35" />
-          <entry key="java" value="955" />
-          <entry key="txt" value="73" />
+          <entry key="java" value="2963" />
+          <entry key="txt" value="98" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="955" />
-          <entry key="PLAIN_TEXT" value="82" />
+          <entry key="JAVA" value="2963" />
+          <entry key="PLAIN_TEXT" value="114" />
           <entry key="XML" value="35" />
         </counts>
       </usages-collector>
@@ -133,11 +128,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/model/RacerAPI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="11" lean-forward="true" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
+            <state relative-caret-position="210">
+              <caret line="14" column="53" selection-start-line="14" selection-start-column="53" selection-end-line="14" selection-end-column="53" />
             </state>
           </provider>
         </entry>
@@ -145,23 +140,56 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/model/geometry/Point.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
+            <state relative-caret-position="465">
+              <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#384#385#0" expanded="true" />
+                <element signature="e#410#411#0" expanded="true" />
+                <element signature="e#404#405#0" expanded="true" />
+                <element signature="e#428#429#0" expanded="true" />
+                <element signature="e#453#454#0" expanded="true" />
+                <element signature="e#477#478#0" expanded="true" />
+                <element signature="e#635#636#0" expanded="true" />
+                <element signature="e#663#664#0" expanded="true" />
+                <element signature="e#720#721#0" expanded="true" />
+                <element signature="e#750#751#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/model/geometry/Vector.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/model/Terrain.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+            <state relative-caret-position="405">
+              <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/model/geometry/Vect.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="390">
+              <caret line="26" column="39" selection-start-line="26" selection-start-column="39" selection-end-line="26" selection-end-column="39" />
               <folding>
                 <element signature="e#197#198#0" expanded="true" />
                 <element signature="e#221#222#0" expanded="true" />
                 <element signature="e#246#247#0" expanded="true" />
                 <element signature="e#270#271#0" expanded="true" />
+                <element signature="e#500#501#0" expanded="true" />
+                <element signature="e#526#527#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/model/geometry/Grid.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -191,8 +219,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="FxmlFile" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -217,8 +245,13 @@
         <option value="$PROJECT_DIR$/src/main/Main.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/model/ModelAPI.java" />
-        <option value="$PROJECT_DIR$/src/model/RacerAPI.java" />
         <option value="$PROJECT_DIR$/src/model/geometry/Vector.java" />
+        <option value="$PROJECT_DIR$/src/model/geometry/Vect.java" />
+        <option value="$PROJECT_DIR$/src/model/geometry/Grid.java" />
+        <option value="$PROJECT_DIR$/src/model/Occupier.java" />
+        <option value="$PROJECT_DIR$/src/model/geometry/Point.java" />
+        <option value="$PROJECT_DIR$/src/model/Terrain.java" />
+        <option value="$PROJECT_DIR$/src/model/RacerAPI.java" />
       </list>
     </option>
   </component>
@@ -273,6 +306,13 @@
             </path>
             <path>
               <item name="Vector Racer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Vector Racer" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+              <item name="geometry" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Vector Racer" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
@@ -291,7 +331,7 @@
     <property name="OverrideImplement.combined" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540392650520" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540397641842" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
@@ -403,7 +443,7 @@
       <workItem from="1538664497319" duration="61000" />
       <workItem from="1539706627615" duration="307000" />
       <workItem from="1539776821701" duration="1578000" />
-      <workItem from="1540385053098" duration="6643000" />
+      <workItem from="1540385053098" duration="9715000" />
     </task>
     <task id="LOCAL-00001" summary="add Observer Pattern change propagation mechanism">
       <created>1540385749867</created>
@@ -419,11 +459,18 @@
       <option name="project" value="LOCAL" />
       <updated>1540386325169</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="MVC refactor, model work">
+      <created>1540393751322</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1540393751322</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9891000" />
+    <option name="totallyTimeSpent" value="12963000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
@@ -475,7 +522,8 @@
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
     <MESSAGE value="add Observer Pattern change propagation mechanism" />
     <MESSAGE value="MVC foundations" />
-    <option name="LAST_COMMIT_MESSAGE" value="MVC foundations" />
+    <MESSAGE value="MVC refactor, model work" />
+    <option name="LAST_COMMIT_MESSAGE" value="MVC refactor, model work" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -575,30 +623,59 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/RacerAPI.java">
+    <entry file="file://$PROJECT_DIR$/src/model/geometry/Vect.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="11" lean-forward="true" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/geometry/Point.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/geometry/Vector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+        <state relative-caret-position="390">
+          <caret line="26" column="39" selection-start-line="26" selection-start-column="39" selection-end-line="26" selection-end-column="39" />
           <folding>
             <element signature="e#197#198#0" expanded="true" />
             <element signature="e#221#222#0" expanded="true" />
             <element signature="e#246#247#0" expanded="true" />
             <element signature="e#270#271#0" expanded="true" />
+            <element signature="e#500#501#0" expanded="true" />
+            <element signature="e#526#527#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/geometry/Grid.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/geometry/Point.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#384#385#0" expanded="true" />
+            <element signature="e#410#411#0" expanded="true" />
+            <element signature="e#404#405#0" expanded="true" />
+            <element signature="e#428#429#0" expanded="true" />
+            <element signature="e#453#454#0" expanded="true" />
+            <element signature="e#477#478#0" expanded="true" />
+            <element signature="e#635#636#0" expanded="true" />
+            <element signature="e#663#664#0" expanded="true" />
+            <element signature="e#720#721#0" expanded="true" />
+            <element signature="e#750#751#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Terrain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/RacerAPI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="53" selection-start-line="14" selection-start-column="53" selection-end-line="14" selection-end-column="53" />
         </state>
       </provider>
     </entry>

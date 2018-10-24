@@ -8,6 +8,7 @@ public class Model implements ModelAPI{
 
     private List<Observer> observers;
     private boolean changed;
+    private RacetrackAPI currentRacetrack;
 
     @Override
     public void attach(Observer o) {
@@ -36,11 +37,11 @@ public class Model implements ModelAPI{
 
     @Override
     public RacetrackAPI getRacetrack() {
-        return null;
+        return currentRacetrack;
     }
 
     @Override
     public void setRacetrack(RacetrackAPI racetrack) {
-
+        currentRacetrack = racetrack;
     }
 }

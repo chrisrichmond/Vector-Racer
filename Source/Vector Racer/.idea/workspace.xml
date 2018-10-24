@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="bump">
-      <change afterPath="$PROJECT_DIR$/src/model/RacetrackAPI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Model.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/ModelAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ModelAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Racetrack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Racetrack.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/geometry/Grid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/geometry/Grid.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -89,14 +85,14 @@
         <counts>
           <entry key="dummy" value="16" />
           <entry key="fxml" value="35" />
-          <entry key="java" value="5384" />
-          <entry key="txt" value="180" />
+          <entry key="java" value="5430" />
+          <entry key="txt" value="184" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="5384" />
-          <entry key="PLAIN_TEXT" value="196" />
+          <entry key="JAVA" value="5430" />
+          <entry key="PLAIN_TEXT" value="200" />
           <entry key="XML" value="35" />
         </counts>
       </usages-collector>
@@ -116,11 +112,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/model/Model.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="9" column="28" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
+            <state relative-caret-position="660">
+              <caret line="44" column="37" selection-start-line="44" selection-start-column="37" selection-end-line="44" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#213#214#0" expanded="true" />
@@ -131,6 +127,8 @@
                 <element signature="e#407#408#0" expanded="true" />
                 <element signature="e#374#375#0" expanded="true" />
                 <element signature="e#401#402#0" expanded="true" />
+                <element signature="e#834#835#0" expanded="true" />
+                <element signature="e#877#878#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -209,7 +207,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/model/ModelAPI.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="120">
@@ -285,8 +283,8 @@
         <option value="$PROJECT_DIR$/src/model/geometry/Square.java" />
         <option value="$PROJECT_DIR$/src/model/Racetrack.java" />
         <option value="$PROJECT_DIR$/src/model/geometry/Grid.java" />
-        <option value="$PROJECT_DIR$/src/model/Model.java" />
         <option value="$PROJECT_DIR$/src/model/ModelAPI.java" />
+        <option value="$PROJECT_DIR$/src/model/Model.java" />
       </list>
     </option>
   </component>
@@ -366,7 +364,7 @@
     <property name="OverrideImplement.combined" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540403817130" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540403889890" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
@@ -501,7 +499,7 @@
       <workItem from="1538664497319" duration="61000" />
       <workItem from="1539706627615" duration="307000" />
       <workItem from="1539776821701" duration="1578000" />
-      <workItem from="1540385053098" duration="15475000" />
+      <workItem from="1540385053098" duration="15546000" />
     </task>
     <task id="LOCAL-00001" summary="add Observer Pattern change propagation mechanism">
       <created>1540385749867</created>
@@ -545,11 +543,18 @@
       <option name="project" value="LOCAL" />
       <updated>1540401763052</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="bump">
+      <created>1540403830062</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1540403830062</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18723000" />
+    <option name="totallyTimeSpent" value="18794000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
@@ -823,6 +828,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/ModelAPI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="53" selection-start-line="8" selection-start-column="53" selection-end-line="8" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/model/RacetrackAPI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -832,8 +844,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/Model.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="9" column="28" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
+        <state relative-caret-position="660">
+          <caret line="44" column="37" selection-start-line="44" selection-start-column="37" selection-end-line="44" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#213#214#0" expanded="true" />
@@ -844,14 +856,9 @@
             <element signature="e#407#408#0" expanded="true" />
             <element signature="e#374#375#0" expanded="true" />
             <element signature="e#401#402#0" expanded="true" />
+            <element signature="e#834#835#0" expanded="true" />
+            <element signature="e#877#878#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/ModelAPI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="53" selection-start-line="8" selection-start-column="53" selection-end-line="8" selection-end-column="53" />
         </state>
       </provider>
     </entry>

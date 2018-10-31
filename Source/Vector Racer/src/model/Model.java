@@ -31,8 +31,8 @@ public class Model implements ModelAPI{
             for (Observer o: observers) {
                 o.notify();
             }
+            changed = false;
         }
-        changed = false;
     }
 
     @Override

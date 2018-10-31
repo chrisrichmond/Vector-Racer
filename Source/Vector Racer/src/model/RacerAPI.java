@@ -16,5 +16,7 @@ public interface RacerAPI {
      */
     public boolean isFinished();
 
+    // getCurrentPos()
+
 
 }

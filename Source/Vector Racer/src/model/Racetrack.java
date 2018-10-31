@@ -1,35 +1,26 @@
 package model;
 
-import model.geometry.Grid;
-import model.geometry.Point;
-
-import java.util.List;
-
 public class Racetrack {
 
-    private Grid grid;
-    private Terrain[][] tiles;
+    private Tile[][] tiles;
 
     public Racetrack(String size) {
 
         switch(size){
             case("small"):
-                grid = new Grid(new Point(0,0), new Point(60, 40));
+                //tiles = new
                 break;
             case("medium"):
-                grid = new Grid(new Point(0,0), new Point(100, 75));
+                //tiles = new
                 break;
             case("large"):
-                grid = new Grid(new Point(0,0), new Point(140, 100));
+                //tiles = new
                 break;
                 default:
 
         }
     }
 
-    public Grid getGrid() {
-        return grid;
-    }
 
     public Terrain[][] getTiles() {
         return tiles;

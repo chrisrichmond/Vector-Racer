@@ -22,7 +22,7 @@ public class Racetrack {
     }
 
 
-    public Terrain[][] getTiles() {
+    public Tile[][] getTiles() {
         return tiles;
     }
 }

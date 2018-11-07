@@ -4,6 +4,15 @@ import model.geometry.Square;
 
 public abstract class Tile extends Square implements Terrain {
 
+    private boolean traversable;
+    private float resistance;
+    private float slide;
+    private float chaos;
+
+    public Tile(){
+
+    }
+
     @Override
     public boolean isTraversable() {
         return false;

@@ -26,4 +26,8 @@ public class Vect {
     public int getXVelo(){
         return end.getX()-start.getX();
     }
+
+    public int getYVelo(){
+        return end.getY()-start.getY();
+    }
 }

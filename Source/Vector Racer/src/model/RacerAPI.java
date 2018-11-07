@@ -1,5 +1,6 @@
 package model;
 
+import model.geometry.Point;
 import model.geometry.Vect;
 
 public interface RacerAPI {
@@ -16,7 +17,7 @@ public interface RacerAPI {
      */
     public boolean isFinished();
 
-    // getCurrentPos()
+    public Point getCurrentPos();
 
 
 }

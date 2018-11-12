@@ -10,14 +10,14 @@ public class Model implements ModelAPI{
     private List<Observer> observers;
     private boolean changed;
     private RacetrackAPI currentRacetrack;
-    private List<RacerAPI> racers;
+    private List<Player> players;
     private List<State> states;
     private State currentState;
 
 
 
     public Model(){
-        racers = new ArrayList<>();
+        players = new ArrayList<>();
         states = new ArrayList<>();
 
 
@@ -38,9 +38,10 @@ public class Model implements ModelAPI{
         // start game loop
             // new round has begun
             // loop for each player
+            for (Player currentPlayer: players) {
                 // loop until valid move
                     // attempt to make a move
-
+            }
             // round ends
 
     }

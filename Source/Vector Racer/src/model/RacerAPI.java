@@ -12,12 +12,17 @@ public interface RacerAPI {
     public Vect getVelocity();
 
     /**
-     * get the Racer's current race status as to whether they have finished or not
+     * Get the Racer's current race status as to whether they have finished or not
      * @return boolean true if finished, false if not
      */
     public boolean isFinished();
 
-    public Point getCurrentPos();
+    /**
+     * Get the Racer's current grid coordinates on the Racetrack in cartesian space
+     * @return the Point bearing the current position of this Racer
+     */
+    public Point getPosition();
 
+    public RacerAPI
 
 }

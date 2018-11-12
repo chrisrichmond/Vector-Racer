@@ -17,4 +17,12 @@ public class Square {
         this.end = new Point(startX+1, startY+1);
     }
 
+    public int getStartX(){
+        return start.getX();
+    }
+
+    public int getStartY(){
+        return start.getY();
+    }
+
 }

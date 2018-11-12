@@ -12,5 +12,7 @@ public class HumanPlayer extends Player {
         super(name, racerAPI);
     }
 
+    public void getMove() {
 
+    }
 }

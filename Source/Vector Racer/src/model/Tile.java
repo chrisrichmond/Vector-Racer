@@ -9,19 +9,20 @@ public class Tile extends Square implements Terrain {
     private float slide;
     private float chaos;
 
-    public Tile(boolean traversable, float resistance, float slide, float chaos){
+    public Tile(int startX, int startY, boolean traversable, float resistance, float slide, float chaos){
+        super(startX, startY);
         this.traversable = traversable;
         this.resistance = resistance;
         this.slide = slide;
         this.chaos = chaos;
     }
 
-    public Tile(boolean traversable){
-        this(traversable, 0.0f, 0.0f, 0.0f);
+    public Tile(int startX, int startY, boolean traversable){
+        this(startX, startY, traversable, 0.0f, 0.0f, 0.0f);
     }
 
-    public Tile(){
-        this(true);
+    public Tile(int startX, int startY){
+        this(startX, startY, true);
     }
 
     @Override

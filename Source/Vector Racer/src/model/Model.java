@@ -11,14 +11,14 @@ public class Model implements ModelAPI{
     private boolean changed;
     private RacetrackAPI currentRacetrack;
     private List<Player> players;
-    private List<State> states;
+    private List<State> history;
     private State currentState;
 
 
 
     public Model(){
         players = new ArrayList<>();
-        states = new ArrayList<>();
+        history = new ArrayList<>();
 
         gameSetup();
     }

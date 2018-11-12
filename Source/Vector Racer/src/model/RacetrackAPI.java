@@ -8,6 +8,6 @@ public interface RacetrackAPI {
      */
     public Tile[][] getTiles();
 
-
+    public boolean addTile(Tile newTile);
 
 }

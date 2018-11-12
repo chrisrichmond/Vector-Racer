@@ -23,6 +23,4 @@ public interface RacerAPI {
      */
     public Point getPosition();
 
-    public RacerAPI
-
 }

@@ -20,7 +20,6 @@ public class Model implements ModelAPI{
         players = new ArrayList<>();
         states = new ArrayList<>();
 
-
         gameSetup();
     }
 

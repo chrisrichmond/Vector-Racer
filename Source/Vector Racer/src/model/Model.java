@@ -45,7 +45,6 @@ public class Model implements ModelAPI{
 
     }
 
-
     @Override
     public void attach(Observer o) {
         observers.add(o);

@@ -31,6 +31,7 @@ public class VectorFileHandler {
                 }
             }
 
+
             br.close();
         }catch(IOException iox){
             System.out.println("Error reading from file '"+filename+"': ");

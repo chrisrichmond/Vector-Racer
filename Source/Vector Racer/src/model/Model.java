@@ -14,8 +14,6 @@ public class Model implements ModelAPI{
     private List<State> history;
     private State currentState;
 
-
-
     public Model(){
         players = new ArrayList<>();
         history = new ArrayList<>();

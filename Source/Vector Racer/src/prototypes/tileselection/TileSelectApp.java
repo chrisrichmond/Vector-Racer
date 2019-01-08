@@ -10,7 +10,6 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.scene.text.Text;
-import java.awt.*;
 
 public class TileSelectApp extends Application {
 

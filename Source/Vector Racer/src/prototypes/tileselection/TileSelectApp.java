@@ -6,8 +6,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-
-import javax.xml.soap.Text;
+import javafx.scene.text.Text;
 import java.awt.*;
 
 public class TileSelectApp extends Application {
@@ -40,16 +39,15 @@ public class TileSelectApp extends Application {
 
     private class Tile extends StackPane {
         private int x, y;
-        private boolean hasBomb;
 
         private Rectangle border = new Rectangle(TILE_SIZE - 2, TILE_SIZE - 2);
-        //private Text text  = new Text();
+        private Text text  = new Text();
 
         public Tile(int x, int y){
             this.x = x;
             this.y = y;
 
-            border.setStroke()
+            //border.setStroke();
         }
     }
 

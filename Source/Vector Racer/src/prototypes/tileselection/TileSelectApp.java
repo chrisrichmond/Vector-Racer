@@ -5,6 +5,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.scene.text.Text;
 import java.awt.*;
@@ -39,15 +42,36 @@ public class TileSelectApp extends Application {
 
     private class Tile extends StackPane {
         private int x, y;
+        private boolean isOpen = false;
 
-        private Rectangle border = new Rectangle(TILE_SIZE - 2, TILE_SIZE - 2);
+        private Rectangle border = new Rectangle(TILE_SIZE , TILE_SIZE );
         private Text text  = new Text();
 
         public Tile(int x, int y){
             this.x = x;
             this.y = y;
 
-            //border.setStroke();
+            border.setStroke(Color.LIGHTGRAY);
+
+            text.setFont(Font.font(18));
+            text.setVisible(false);
+
+            getChildren().addAll(border, text);
+
+            setTranslateX(x * TILE_SIZE);
+            setTranslateY(y * TILE_SIZE);
+
+            setOnMouseClicked(e -> open());
+        }
+
+        public void open(){
+            if(isOpen)
+                return;
+
+            isOpen = true;
+            text.setVisible(true);
+            border.setFill(null);
+
         }
     }
 
@@ -58,5 +82,9 @@ public class TileSelectApp extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
 
+    }
+
+    public static void main(String[] args){
+        launch(args);
     }
 }

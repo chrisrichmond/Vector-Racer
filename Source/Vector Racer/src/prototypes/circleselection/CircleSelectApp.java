@@ -21,6 +21,7 @@ public class CircleSelectApp extends Application{
     private static final int X_TILES = W / TILE_SIZE;
     private static final int Y_TILES = H / TILE_SIZE;
 
+    /*
     private Tile[][] grid = new Tile[X_TILES][Y_TILES];
     private Scene scene;
 
@@ -37,7 +38,7 @@ public class CircleSelectApp extends Application{
             }
         }
     }
-
+*/
     @Override
     public void start(Stage stage) throws Exception {
 

@@ -1,6 +1,7 @@
 package prototypes.tileselection.fxmlversion;
 
 import javafx.application.Application;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -24,6 +25,7 @@ public class TileSelectAppWithFXML extends Application {
     private Tile[][] grid = new Tile[X_TILES][Y_TILES];
     private Scene scene;
 
+    @FXML
     private Parent createTiles(){
         Pane root = new Pane();
         root.setPrefSize(W, H);

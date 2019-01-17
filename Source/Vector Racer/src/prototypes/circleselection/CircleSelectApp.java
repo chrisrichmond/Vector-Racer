@@ -23,6 +23,7 @@ public class CircleSelectApp extends Application{
 
     /*
     private Tile[][] grid = new Tile[X_TILES][Y_TILES];
+
     private Scene scene;
 
     private Parent createContent(){
@@ -38,6 +39,7 @@ public class CircleSelectApp extends Application{
             }
         }
     }
+
 */
     @Override
     public void start(Stage stage) throws Exception {

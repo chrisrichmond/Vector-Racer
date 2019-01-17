@@ -22,6 +22,8 @@ public class Model implements ModelAPI{
     }
 
     public void gameSetup(){
+        // this method is called once the main menu has been passed and
+
         // user selects number of racers
         // currentRacetrack = <default track here>    ---- todo user selects track
 

@@ -2,8 +2,8 @@ package model.geometry;
 
 public class Vect {
 
-    private Point start;
-    private Point end;
+    protected Point start;
+    protected Point end;
 
     public Vect(int startX, int startY, int endX, int endY){
         this.start = new Point(startX, startY);

@@ -8,8 +8,8 @@ public class State {
 
     private List<State> nextStates;
 
-    public State(Vect move){
-        // nextStates = do logic to check if move is legal
+    public State(Player player){
+        for()
     }
 
     public List<State> getNextStates(){

@@ -41,4 +41,8 @@ public abstract class Player {
         return possibleNextPoints;
     }
 
+    public RacerAPI getRacer(){
+        return racer;
+    }
+
 }

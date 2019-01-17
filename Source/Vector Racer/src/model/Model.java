@@ -9,13 +9,10 @@ public class Model implements ModelAPI{
 
     private List<Observer> observers;
     private boolean changed;
-    private RacetrackAPI currentRacetrack;
-    private List<Player> players;
     private List<State> history;
     private State currentState;
 
     public Model(){
-        players = new ArrayList<>();
         history = new ArrayList<>();
 
         gameSetup();
@@ -36,7 +33,7 @@ public class Model implements ModelAPI{
 
         // start game loop
             // new round has begun
-            // loop for each player
+            // loop for each player ???? possibly redundant after redesign pertaining to the way States are implemented now?
             for (Player currentPlayer: players) {
                 // loop until valid move
                     // attempt to make a move
@@ -72,11 +69,7 @@ public class Model implements ModelAPI{
 
     @Override
     public RacetrackAPI getRacetrack() {
-        return currentRacetrack;
+        return currentState.getRacetrack();
     }
 
-    @Override
-    public void setRacetrack(RacetrackAPI racetrack) {
-        currentRacetrack = racetrack;
-    }
 }

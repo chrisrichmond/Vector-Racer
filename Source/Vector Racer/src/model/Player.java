@@ -10,10 +10,12 @@ public abstract class Player {
 
     protected String name;
     protected RacerAPI racer;
+    protected boolean finished;
 
     public Player(String name, RacerAPI racer) {
         this.name = name;
         this.racer = racer;
+        this.finished = false;
     }
 
     public List<Point> getPossibleNextPoints(){
@@ -43,6 +45,10 @@ public abstract class Player {
 
     public RacerAPI getRacer(){
         return racer;
+    }
+
+    public void finish(){
+        finished = true;
     }
 
 }

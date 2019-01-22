@@ -36,9 +36,20 @@ public class State {
     }
 
     public boolean isMoveLegal(Move move){
-
         // compare position/vector of Player in next state against a list of the 9 next legal positions based on the current position of the Player in the current State
 
+        Queue<Player> tempPlayers = players;
+        tempPlayers.poll();
+        tempPlayers.add(currentPlayer);
+        State nextStateAttempt = new State(tempPlayers, racetrack);
+
+        for(State state: getNextLegalStates()){
+            if(nextStateAttempt.equals(state)){
+                return true;
+            }
+        }
+
+        return false;
     }
 
     private List<State> getNextLegalStates(){
@@ -47,7 +58,7 @@ public class State {
 
         for(Point possiblePoint: possibleNextPoints){
             Move possibleMove = new Move(currentPlayer, possiblePoint);
-            nextLegalStates.add(this.makeMove(possibleMove));
+            nextLegalStates.add(this.makeMove(possibleMove));   // todo could lead to duplicate states being added, which doesn't present an immediate issue but could be inefficient so maybe consider some kind of redesign to remove dupes
         }
 
         return nextLegalStates;

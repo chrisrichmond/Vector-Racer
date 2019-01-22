@@ -14,12 +14,12 @@ public class Model implements ModelAPI{
 
     public Model(){
         history = new ArrayList<>();
-
-        gameSetup();
     }
 
     public void gameSetup(){
-        // this method is called once the main menu has been passed and
+        // this method is called once the main menu has been passed (or possibly from the main menu controller itself rather than after it?) and is used to set various parameters for gameplay
+        // may be easier to just call this method from controller and to pass it a parameter for every item to set up a unique game
+        // i.e. list of players/player names racetrack, etc.
 
         // user selects number of racers
         // currentRacetrack = <default track here>    ---- todo user selects track
@@ -34,10 +34,12 @@ public class Model implements ModelAPI{
         // start game loop
             // new round has begun
             // loop for each player ???? possibly redundant after redesign pertaining to the way States are implemented now?
-            for (Player currentPlayer: players) {
-                // loop until valid move
-                    // attempt to make a move
-            }
+
+//            for (Player currentPlayer: players) {
+//                // loop until valid move
+//                    // attempt to make a move
+//            }
+
             // round ends
 
     }

@@ -33,6 +33,17 @@ public class Main extends Application {
         primaryStage.setTitle("Vector Racer");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
+
+        // initial setup done, application running and displayed to user after this point
+
+        // the main game screen size is dynamically set dependent on the user's selection of racetrack and so must be dynamically set using JavaFX code rather than in the static (GAME_FXML)fxml file
+        // do this in the controller for the main game fxml??
+        // OR give the controller reference to this class and have it call a method in here to do the dynamic Scene setup??  (THIS OPTION IS PROBABLY BETTER DUE TO KEEPING THE VISUAL DESIGN OUT OF THE CONTROLLER ITSELF)
+
+
+
+
+
     }
 
 }

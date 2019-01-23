@@ -1,9 +1,6 @@
 package view;
 
-import controller.Controller;
-import controller.GameController;
-import controller.MainMenuController;
-import controller.PlayMenuController;
+import controller.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -26,6 +23,8 @@ public class View extends Application {
     }
 
     private ModelAPI model;
+    private Scene mainScene;
+    private Controller screenController;
     private Controller mainMenuController;
     private Controller playMenuController;
     private Controller gameController;
@@ -45,6 +44,8 @@ public class View extends Application {
         loader = new FXMLLoader(getClass().getResource(MAINMENU_FXML));
         loader.setController(mainMenuController);
         root = loader.load();
+
+        mainScene = new ScreenController(root);
 
         primaryStage.setTitle("Vector Racer");
         primaryStage.setScene(new Scene(root));

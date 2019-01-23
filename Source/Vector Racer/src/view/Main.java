@@ -13,7 +13,6 @@ import model.ModelAPI;
 
 public class Main extends Application {
 
-    // testing git push from new device
     static final String MAINMENU_FXML = "mainmenu.fxml";
     static final String GAME_FXML = "game.fxml";
 
@@ -34,6 +33,8 @@ public class Main extends Application {
         primaryStage.setTitle("Vector Racer");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
+
+        System.out.println("test test blah");
 
         // initial setup done, application running and displayed to user after this point
 

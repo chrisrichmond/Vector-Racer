@@ -14,11 +14,13 @@ public class MainMenuController implements Controller {
 
     public MainMenuController(ModelAPI model, View view){
         this.model = model;
+        this.view = view;
     }
 
     @FXML
     public void playButtonAction(){
-        view.display("play select screen"); // surely can do something better than a String??
+        System.out.println("oudoius");
+        view.display("playmenu"); // surely can do something better than a String??
 
     }
 

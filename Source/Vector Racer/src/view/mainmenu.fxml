@@ -8,8 +8,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ListView layoutX="-254.0" layoutY="24.0" prefHeight="200.0" prefWidth="200.0" />
       <FlowPane layoutX="200.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0" />
@@ -27,7 +26,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Button fx:id="playButton" mnemonicParsing="false" onAction="#playButtonAction" prefHeight="30.0" prefWidth="200.0" text="Play!" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Button layoutX="210.0" layoutY="115.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Button fx:id="quitButton" layoutX="210.0" layoutY="195.0" mnemonicParsing="false" onAction="#quitButtonAction" prefHeight="30.0" prefWidth="200.0" text="Quit" GridPane.columnIndex="1" GridPane.rowIndex="3" />
          </children>

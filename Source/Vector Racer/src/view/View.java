@@ -11,24 +11,32 @@ import javafx.stage.Stage;
 import model.Model;
 import model.ModelAPI;
 
-public class Main extends Application {
+public class View extends Application {
 
-    static final String MAINMENU_FXML = "mainmenu.fxml";
-    static final String GAME_FXML = "game.fxml";
+    private static final String MAINMENU_FXML = "mainmenu.fxml";
+    private static final String GAME_FXML = "game.fxml";
 
     public static void main(String[] args) {
         launch(args);
     }
 
+    private ModelAPI model;
+    private Controller mainMenuController;
+    private Controller gameController;
+    private FXMLLoader loader;
+    private Parent root;
+
+    public View(){
+        model = new Model();
+        mainMenuController = new MainMenuController(model, this);
+        gameController = new GameController(model);   // ???? multiple controllers need to be used
+    }
+
     @Override
     public void start(Stage primaryStage) throws Exception{
-        ModelAPI model = new Model();
-        Controller mainMenuController = new MainMenuController(model);
-        Controller gameController = new GameController(model);   // ???? multiple controllers need to be used
-
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(MAINMENU_FXML));
+        loader = new FXMLLoader(getClass().getResource(MAINMENU_FXML));
         loader.setController(mainMenuController);
-        Parent root = loader.load();
+        root = loader.load();
 
         primaryStage.setTitle("Vector Racer");
         primaryStage.setScene(new Scene(root));
@@ -44,8 +52,12 @@ public class Main extends Application {
 
 
 
+    }
 
-
+    public void gotoPlayScreen(){
+        loader = new FXMLLoader(getClass().getResource(MAINMENU_FXML));
+        loader.setController(mainMenuController);
+        root = loader.load();
     }
 
 }

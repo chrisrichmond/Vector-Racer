@@ -75,7 +75,11 @@ public class View extends Application {
 
     public void display(String screenName) {
         ((FXMLController) screenController).activate(screenName);
-        //primaryStage.getScene().setRoot(playMenuLoader.load());
+    }
+
+    public void setGameGridSize(int rows, int cols){
+
+        ((GameController)gameController).setGridSize();
     }
 
 }

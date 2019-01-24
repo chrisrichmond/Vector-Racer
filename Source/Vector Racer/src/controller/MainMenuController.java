@@ -2,6 +2,7 @@ package controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import model.ModelAPI;
 import view.View;
@@ -12,7 +13,7 @@ public class MainMenuController implements Controller {
 
     private ModelAPI model;
     private View view;
-    @FXML private javafx.scene.control.Button quitButton;
+    @FXML private Button quitButton;
 
     public MainMenuController(ModelAPI model, View view){
         this.model = model;

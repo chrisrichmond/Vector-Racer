@@ -6,6 +6,8 @@ import javafx.stage.Stage;
 import model.ModelAPI;
 import view.View;
 
+import java.io.IOException;
+
 public class MainMenuController implements Controller {
 
     private ModelAPI model;
@@ -20,8 +22,11 @@ public class MainMenuController implements Controller {
     @FXML
     public void playButtonAction(){
         System.out.println("oudoius");
-        view.display("playmenu"); // surely can do something better than a String??
-
+        try {
+            view.display(); // surely can do something better than a String??
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @FXML

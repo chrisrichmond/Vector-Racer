@@ -23,7 +23,7 @@ public class MainMenuController implements Controller {
     public void playButtonAction(){
         System.out.println("oudoius");
         try {
-            view.display(); // surely can do something better than a String??
+            view.display("play menu"); // surely can do something better than a String??
         }catch (Exception e){
             e.printStackTrace();
         }

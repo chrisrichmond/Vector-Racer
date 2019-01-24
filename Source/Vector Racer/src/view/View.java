@@ -4,19 +4,16 @@ import controller.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import model.Model;
 import model.ModelAPI;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class View extends Application implements Initializable {
+public class View extends Application {
 
     private static final String ERROR_FXML = "errorscreen.fxml";
     private static final String MAINMENU_FXML = "mainmenu.fxml";
@@ -28,17 +25,17 @@ public class View extends Application implements Initializable {
     }
 
     private ModelAPI model;
-    private Scene scene;
     private Controller screenController;
     private Controller mainMenuController;
     private Controller playMenuController;
     private Controller gameController;
     private FXMLLoader mainMenuLoader;
     private FXMLLoader playMenuLoader;
+    private FXMLLoader gameLoader;
     private Parent root;
     private Stage primaryStage;
 
-    public View(){
+    public View() {
         model = new Model();
         mainMenuController = new MainMenuController(model, this);
         playMenuController = new PlayMenuController(model, this);
@@ -46,7 +43,7 @@ public class View extends Application implements Initializable {
     }
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) throws Exception {
         mainMenuLoader = new FXMLLoader(getClass().getResource(MAINMENU_FXML));
         mainMenuLoader.setController(mainMenuController);
         root = mainMenuLoader.load();
@@ -54,13 +51,18 @@ public class View extends Application implements Initializable {
         playMenuLoader = new FXMLLoader(getClass().getResource(PLAYMENU_FXML));
         playMenuLoader.setController(playMenuController);
 
+        gameLoader = new FXMLLoader(getClass().getResource(GAME_FXML));
+        gameLoader.setController(gameController);
+
         primaryStage.setTitle("Vector Racer");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
 
         this.primaryStage = primaryStage;
-
-        System.out.println("test test blah");
+        screenController = new FXMLController(primaryStage.getScene());
+        ((FXMLController) screenController).add("main menu", mainMenuLoader);
+        ((FXMLController) screenController).add("play menu", playMenuLoader);
+        ((FXMLController) screenController).add("game", gameLoader);
 
         // initial setup done, application running and displayed to user after this point
 
@@ -69,61 +71,11 @@ public class View extends Application implements Initializable {
         // OR give the controller reference to this class and have it call a method in here to do the dynamic Scene setup??  (THIS OPTION IS PROBABLY BETTER DUE TO KEEPING THE VISUAL DESIGN OUT OF THE CONTROLLER ITSELF)
 
 
-
     }
 
-    public void display() throws Exception {
-        System.out.println("hello from display");
-
-        primaryStage.getScene().setRoot(playMenuLoader.load());
+    public void display(String screenName) {
+        ((FXMLController) screenController).activate(screenName);
+        //primaryStage.getScene().setRoot(playMenuLoader.load());
     }
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-
-    }
-
-    /*
-    public void display(String screenKey){
-        String fxml = ERROR_FXML;
-        Controller controller = mainMenuController;
-
-
-
-        loader = new FXMLLoader(getClass().getResource(fxml));
-        loader.setController(controller);
-        try{
-            root = loader.load();
-        }catch (IOException e){
-            e.printStackTrace();
-        }
-/*
-        switch(screenKey){
-            case("mainmenu"):
-                fxml = MAINMENU_FXML;
-                controller = mainMenuController;
-                break;
-            case("playmenu"):
-                screenController
-                controller = playMenuController;
-                break;
-            case("game"):
-                fxml = GAME_FXML;
-                controller = gameController;
-                break;
-            default:
-                System.out.println("invalid parameter given for View.display(String screenKey) method call");
-        }
-
-        loader = new FXMLLoader(getClass().getResource(fxml));
-        loader.setController(controller);
-        try{
-            root = loader.load();
-            primaryStage.setScene(new Scene(root));
-        }catch (IOException e){
-            e.printStackTrace();
-        }
-    }
-    */
 
 }

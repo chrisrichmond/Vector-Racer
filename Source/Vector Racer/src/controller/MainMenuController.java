@@ -22,7 +22,7 @@ public class MainMenuController implements Controller {
 
     @FXML
     public void playButtonAction(){
-        System.out.println("oudoius");
+        System.out.println("play button pressed");
         try {
             view.display("play menu"); // surely can do something better than a String??
         }catch (Exception e){

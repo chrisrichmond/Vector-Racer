@@ -39,7 +39,7 @@ public class View extends Application {
         model = new Model();
         mainMenuController = new MainMenuController(model, this);
         playMenuController = new PlayMenuController(model, this);
-        gameController = new GameController(model);
+        gameController = new GameController(model, this);
     }
 
     @Override
@@ -80,6 +80,10 @@ public class View extends Application {
     public void setGameGridSize(int rows, int cols){
 
         ((GameController)gameController).setGridSize();
+    }
+
+    public Stage getPrimaryStage(){
+        return primaryStage;
     }
 
 }

@@ -1,6 +1,7 @@
 package model;
 
 import changepropagation.Observer;
+import javafx.beans.property.ObjectProperty;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -69,6 +70,12 @@ public class Model implements ModelAPI{
         }
     }
 
+    /*
+    @Override
+    public ObjectProperty<RacetrackAPI> racetrackProperty(){
+        return currentState.getRacetrack();
+    }
+    */
     @Override
     public RacetrackAPI getRacetrack() {
         return currentState.getRacetrack();

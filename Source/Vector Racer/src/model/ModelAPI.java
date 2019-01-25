@@ -1,6 +1,7 @@
 package model;
 
 import changepropagation.Observable;
+import javafx.beans.property.ObjectProperty;
 
 public interface ModelAPI extends Observable {
 
@@ -8,7 +9,8 @@ public interface ModelAPI extends Observable {
 
     public void start();
 
-    public RacetrackAPI getRacetrack();
+    //public ObjectProperty<RacetrackAPI> racetrackProperty();
 
+    public RacetrackAPI getRacetrack();
 
 }

@@ -59,10 +59,10 @@ public class View extends Application {
         primaryStage.show();
 
         this.primaryStage = primaryStage;
-        screenController = new FXMLController(primaryStage.getScene());
-        ((FXMLController) screenController).add("main menu", mainMenuLoader);
-        ((FXMLController) screenController).add("play menu", playMenuLoader);
-        ((FXMLController) screenController).add("game", gameLoader);
+        screenController = new ScreenController(primaryStage.getScene());
+        ((ScreenController) screenController).add("main menu", mainMenuLoader);
+        ((ScreenController) screenController).add("play menu", playMenuLoader);
+        ((ScreenController) screenController).add("game", gameLoader);
 
         // initial setup done, application running and displayed to user after this point
 
@@ -74,7 +74,7 @@ public class View extends Application {
     }
 
     public void display(String screenName) {
-        ((FXMLController) screenController).activate(screenName);
+        ((ScreenController) screenController).activate(screenName);
     }
 
     public void setGameGridSize(int rows, int cols){

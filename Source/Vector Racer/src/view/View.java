@@ -40,7 +40,7 @@ public class View extends Application {
         mainMenuController = new MainMenuController(model, this);
         playMenuController = new PlayMenuController(model, this);
 
-        gamePane = new GamePane();
+        gamePane = new GamePane(500, 500);
         gameController = new GameController(model, gamePane, this);
     }
 

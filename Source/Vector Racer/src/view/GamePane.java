@@ -9,11 +9,15 @@ public class GamePane extends Pane {
     the racetrack grid and any other surrounding on-screen components
      */
 
+    private TileGridPane tileGridPane;
+    private int tileSize;
 
+    public GamePane(int prefWidth, int prefHeight){
+        setPrefSize(prefWidth, prefHeight);
+    }
 
-
-    public GamePane(){
-
+    public void createGrid(int rows, int cols, int tileSize){
+        tileGridPane = new TileGridPane(rows, cols, 40);
     }
 
 }

@@ -23,6 +23,7 @@ public class View extends Application {
     private static final String PLAYMENU_FXML = "playmenu.fxml";
     private static final int GP_PREFWIDTH = 500;   // preferred width of the game pane
     private static final int GP_PREFHEIGHT = 500;  // preferred height of the game pane
+    private static final int TILESIZE = 40;
 
     public static void main(String[] args) {
         launch(args);
@@ -35,7 +36,7 @@ public class View extends Application {
     private Controller gameController;
     private FXMLLoader mainMenuLoader;
     private FXMLLoader playMenuLoader;
-    private Pane gamePane;
+    private GamePane gamePane;
     private Parent root;
     private Stage primaryStage;
     private Rectangle2D primaryScreenBounds;
@@ -89,9 +90,9 @@ public class View extends Application {
         ((ScreenController) screenController).activate(screenName);
     }
 
-    public void setGameGridSize(int rows, int cols){
+    public void setGameGridSize(String size){
 
-        ((GameController)gameController).setGridSize();
+        ((GameController)gameController).setGridSize(size, TILESIZE);
     }
 
     public Stage getPrimaryStage(){

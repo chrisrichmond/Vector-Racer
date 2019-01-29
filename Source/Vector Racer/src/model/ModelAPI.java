@@ -13,4 +13,8 @@ public interface ModelAPI extends Observable {
 
     public RacetrackAPI getRacetrack();
 
+    public State getCurrentState();
+
+    
+
 }

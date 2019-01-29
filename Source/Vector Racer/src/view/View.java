@@ -46,7 +46,7 @@ public class View extends Application {
         mainMenuController = new MainMenuController(model, this);
         playMenuController = new PlayMenuController(model, this);
 
-        gamePane = new GamePane(GP_PREFWIDTH, GP_PREFHEIGHT);
+        gamePane = new GamePane();
         gameController = new GameController(model, gamePane, this);
     }
 
@@ -70,6 +70,10 @@ public class View extends Application {
         primaryStage.setY(primaryScreenBounds.getMinY());
         primaryStage.setWidth(primaryScreenBounds.getWidth());
         primaryStage.setHeight(primaryScreenBounds.getHeight());
+        System.out.println("primaryScreenBounds: "+primaryScreenBounds.getWidth()+", "+primaryScreenBounds.getHeight());
+        gamePane.setPrefSize(primaryScreenBounds.getWidth(),primaryScreenBounds.getHeight());
+        System.out.println(gamePane.getWidth());
+        System.out.println(gamePane.getHeight());
         primaryStage.show();
 
         screenController = new ScreenController(primaryStage.getScene());

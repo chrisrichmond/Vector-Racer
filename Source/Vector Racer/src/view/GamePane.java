@@ -20,8 +20,7 @@ public class GamePane extends Pane {
     private int tileSize;
     private boolean isGridInitialised;
 
-    public GamePane(int prefWidth, int prefHeight){
-        setPrefSize(prefWidth, prefHeight);
+    public GamePane(){
         isGridInitialised = false;
     }
 
@@ -53,7 +52,12 @@ public class GamePane extends Pane {
     }
 
     private void initGrid(int rows, int cols, int tileSize){
-        tileGridPane = new TileGridPane(rows, cols, tileSize);
+        System.out.println("Initialising grid");
+        System.out.println("rows: "+rows);
+        System.out.println("cols: "+cols);
+        System.out.println("getWidth(): "+getWidth());
+        System.out.println("getHeight(): "+getHeight());
+        tileGridPane = new TileGridPane(rows, cols, tileSize, getWidth(), getHeight());
         this.getChildren().add(tileGridPane);
     }
 

@@ -5,6 +5,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
 import model.ModelAPI;
 import view.View;
@@ -15,13 +16,15 @@ import java.util.ResourceBundle;
 public class GameController implements Controller, Initializable {
 
     private ModelAPI model;
+    private Pane gamePane;
     private View view;
     private Scene scene;
     @FXML private Region tileGrid;
     @FXML private Button testButton;
 
-    public GameController(ModelAPI model, View view){
+    public GameController(ModelAPI model, Pane gamePane, View view){
         this.model = model;
+        this.gamePane = gamePane;
         this.view = view;
     }
 

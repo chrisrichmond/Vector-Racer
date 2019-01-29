@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import model.Model;
 import model.ModelAPI;
@@ -18,7 +19,6 @@ public class View extends Application {
     private static final String ERROR_FXML = "errorscreen.fxml";
     private static final String MAINMENU_FXML = "mainmenu.fxml";
     private static final String PLAYMENU_FXML = "playmenu.fxml";
-    private static final String GAME_FXML = "game.fxml";
 
     public static void main(String[] args) {
         launch(args);
@@ -31,7 +31,7 @@ public class View extends Application {
     private Controller gameController;
     private FXMLLoader mainMenuLoader;
     private FXMLLoader playMenuLoader;
-    private FXMLLoader gameLoader;
+    private Pane gamePane;
     private Parent root;
     private Stage primaryStage;
 
@@ -39,7 +39,9 @@ public class View extends Application {
         model = new Model();
         mainMenuController = new MainMenuController(model, this);
         playMenuController = new PlayMenuController(model, this);
-        gameController = new GameController(model, this);
+
+        gamePane = new GamePane();
+        gameController = new GameController(model, gamePane, this);
     }
 
     @Override
@@ -51,9 +53,6 @@ public class View extends Application {
         playMenuLoader = new FXMLLoader(getClass().getResource(PLAYMENU_FXML));
         playMenuLoader.setController(playMenuController);
 
-        gameLoader = new FXMLLoader(getClass().getResource(GAME_FXML));
-        gameLoader.setController(gameController);
-
         primaryStage.setTitle("Vector Racer");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
@@ -62,7 +61,7 @@ public class View extends Application {
         screenController = new ScreenController(primaryStage.getScene());
         ((ScreenController) screenController).add("main menu", mainMenuLoader);
         ((ScreenController) screenController).add("play menu", playMenuLoader);
-        ((ScreenController) screenController).add("game", gameLoader);
+        ((ScreenController) screenController).add("game", gamePane);
 
         // initial setup done, application running and displayed to user after this point
 

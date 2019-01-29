@@ -38,6 +38,8 @@ public class ScreenController implements Controller {
     }
 
     public void activate(String name){
+
+        System.out.println("Attempting to load '"+name+"'");
         try {
             if(screenMap.get(name) instanceof FXMLLoader) {
                 FXMLLoader fxmlLoader = (FXMLLoader) (screenMap.get(name));

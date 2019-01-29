@@ -18,9 +18,9 @@ public class PlayMenuController implements Controller {
     public void pvpButtonAction(){
         // ask user to select racetrack
         // examine racetrack dimensions
-        // set region dimensions of tile grid from game.fxml using Java, based on racetrack dimensions
+        // set region dimensions of tile grid from game pane using Java, based on racetrack dimensions
         // load tiles in from racetrack from file at appropriate uniform dimensions
-        // display game.fxml
+        // display game pane
 
 
         // testing setting region size from code

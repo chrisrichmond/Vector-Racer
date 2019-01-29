@@ -38,6 +38,7 @@ public class TileGridPane extends Pane {
         public Tile(int row, int col){
             this.row = row;
             this.col = col;
+            this.border = new Rectangle(tileSize, tileSize);
 
             border.setStroke(Color.LIGHTGRAY); // todo look into css or other global styling
 

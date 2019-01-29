@@ -14,10 +14,12 @@ public class GamePane extends Pane {
 
     public GamePane(int prefWidth, int prefHeight){
         setPrefSize(prefWidth, prefHeight);
+        createGrid(10, 10, 40);
     }
 
     public void createGrid(int rows, int cols, int tileSize){
-        tileGridPane = new TileGridPane(rows, cols, 40);
+        tileGridPane = new TileGridPane(rows, cols, tileSize);
+        this.getChildren().add(tileGridPane);
     }
 
 }

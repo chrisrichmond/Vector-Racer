@@ -4,9 +4,11 @@ import controller.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import model.Model;
 import model.ModelAPI;
@@ -19,6 +21,8 @@ public class View extends Application {
     private static final String ERROR_FXML = "errorscreen.fxml";
     private static final String MAINMENU_FXML = "mainmenu.fxml";
     private static final String PLAYMENU_FXML = "playmenu.fxml";
+    private static final int GP_PREFWIDTH = 500;   // preferred width of the game pane
+    private static final int GP_PREFHEIGHT = 500;  // preferred height of the game pane
 
     public static void main(String[] args) {
         launch(args);
@@ -34,18 +38,21 @@ public class View extends Application {
     private Pane gamePane;
     private Parent root;
     private Stage primaryStage;
+    private Rectangle2D primaryScreenBounds;
 
     public View() {
         model = new Model();
         mainMenuController = new MainMenuController(model, this);
         playMenuController = new PlayMenuController(model, this);
 
-        gamePane = new GamePane(500, 500);
+        gamePane = new GamePane(GP_PREFWIDTH, GP_PREFHEIGHT);
         gameController = new GameController(model, gamePane, this);
     }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        this.primaryStage = primaryStage;
+
         mainMenuLoader = new FXMLLoader(getClass().getResource(MAINMENU_FXML));
         mainMenuLoader.setController(mainMenuController);
         root = mainMenuLoader.load();
@@ -55,9 +62,15 @@ public class View extends Application {
 
         primaryStage.setTitle("Vector Racer");
         primaryStage.setScene(new Scene(root));
+
+        primaryScreenBounds = Screen.getPrimary().getVisualBounds();
+
+        primaryStage.setX(primaryScreenBounds.getMinX());
+        primaryStage.setY(primaryScreenBounds.getMinY());
+        primaryStage.setWidth(primaryScreenBounds.getWidth());
+        primaryStage.setHeight(primaryScreenBounds.getHeight());
         primaryStage.show();
 
-        this.primaryStage = primaryStage;
         screenController = new ScreenController(primaryStage.getScene());
         ((ScreenController) screenController).add("main menu", mainMenuLoader);
         ((ScreenController) screenController).add("play menu", playMenuLoader);

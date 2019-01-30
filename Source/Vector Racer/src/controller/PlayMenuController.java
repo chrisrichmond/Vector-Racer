@@ -25,8 +25,6 @@ public class PlayMenuController implements Controller {
 
         // testing setting region size from code
         //view.setGameGridSize(0,0); // TEST
-
-        view.setGameGridSize("small");
         view.display("game");   // todo need to change this later as settings need to be selected after this point such as choosing a racetrack etc.
     }
 

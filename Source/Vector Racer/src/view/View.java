@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import model.Model;
 import model.ModelAPI;
 
@@ -21,6 +22,7 @@ public class View extends Application {
     private static final String ERROR_FXML = "errorscreen.fxml";
     private static final String MAINMENU_FXML = "mainmenu.fxml";
     private static final String PLAYMENU_FXML = "playmenu.fxml";
+    private static final Rectangle2D PRIMARY_SCREEN_BOUNDS = Screen.getPrimary().getVisualBounds();
     private static final int GP_PREFWIDTH = 500;   // preferred width of the game pane
     private static final int GP_PREFHEIGHT = 500;  // preferred height of the game pane
     private static final int TILESIZE = 40;
@@ -39,14 +41,13 @@ public class View extends Application {
     private GamePane gamePane;
     private Parent root;
     private Stage primaryStage;
-    private Rectangle2D primaryScreenBounds;
 
     public View() {
         model = new Model();
         mainMenuController = new MainMenuController(model, this);
         playMenuController = new PlayMenuController(model, this);
 
-        gamePane = new GamePane();
+        gamePane = new GamePane(GP_PREFWIDTH, GP_PREFHEIGHT);
         gameController = new GameController(model, gamePane, this);
     }
 
@@ -64,16 +65,12 @@ public class View extends Application {
         primaryStage.setTitle("Vector Racer");
         primaryStage.setScene(new Scene(root));
 
-        primaryScreenBounds = Screen.getPrimary().getVisualBounds();
-
-        primaryStage.setX(primaryScreenBounds.getMinX());
-        primaryStage.setY(primaryScreenBounds.getMinY());
-        primaryStage.setWidth(primaryScreenBounds.getWidth());
-        primaryStage.setHeight(primaryScreenBounds.getHeight());
-        System.out.println("primaryScreenBounds: "+primaryScreenBounds.getWidth()+", "+primaryScreenBounds.getHeight());
-        gamePane.setPrefSize(primaryScreenBounds.getWidth(),primaryScreenBounds.getHeight());
-        System.out.println(gamePane.getWidth());
-        System.out.println(gamePane.getHeight());
+//        primaryStage.setX(PRIMARY_SCREEN_BOUNDS.getMinX());
+//        primaryStage.setY(PRIMARY_SCREEN_BOUNDS.getMinY());
+//        primaryStage.setWidth(PRIMARY_SCREEN_BOUNDS.getWidth());
+//        primaryStage.setHeight(PRIMARY_SCREEN_BOUNDS.getHeight());
+        primaryStage.setMaximized(true);
+        primaryStage.resizableProperty().setValue(Boolean.FALSE);
         primaryStage.show();
 
         screenController = new ScreenController(primaryStage.getScene());
@@ -94,9 +91,9 @@ public class View extends Application {
         ((ScreenController) screenController).activate(screenName);
     }
 
-    public void setGameGridSize(String size){
+    public void setGameGridSize(int rows, int cols){
 
-        ((GameController)gameController).setGridSize(size, TILESIZE);
+//        ((GameController)gameController).setGridSize();
     }
 
     public Stage getPrimaryStage(){

@@ -1,6 +1,7 @@
 package view;
 
 import javafx.scene.layout.Pane;
+import javafx.scene.shape.Rectangle;
 
 public class GamePane extends Pane {
 
@@ -19,9 +20,15 @@ public class GamePane extends Pane {
     private TileGridPane tileGridPane;
     private int tileSize;
     private boolean isGridInitialised;
+    private Rectangle border;
 
-    public GamePane(){
+    public GamePane(int prefWidth, int prefHeight){
+//        this.border = new Rectangle(prefWidth, prefHeight);
+//        getChildren().add(this.border);
+//        setPrefSize(prefWidth, prefHeight);  // just create rectangle of preferred size and add as child node ??
+        System.out.println(this.getWidth() + " " + this.getHeight());
         isGridInitialised = false;
+        createGrid("small", 40);
     }
 
     public boolean createGrid(String size, int tileSize){

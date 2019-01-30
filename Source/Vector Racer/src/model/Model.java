@@ -81,4 +81,9 @@ public class Model implements ModelAPI{
         return currentState.getRacetrack();
     }
 
+    @Override
+    public State getCurrentState() {
+        return null;
+    }
+
 }

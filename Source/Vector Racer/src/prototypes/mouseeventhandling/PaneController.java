@@ -18,8 +18,4 @@ public class PaneController {
         node.addEventFilter(MouseEvent.MOUSE_CLICKED, mouseHandler);
     }
 
-    public EventHandler<MouseEvent> getMouseHandler(){
-        return mouseHandler;
-    }
-
 }

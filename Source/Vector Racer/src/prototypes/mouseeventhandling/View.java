@@ -31,7 +31,7 @@ public class View extends Application {
         root.getChildren().add(area);
         scene = new Scene(root);
 
-        root.addEventFilter(paneController.getMouseHandler());
+        paneController.assignMouseClickHandler(root);
 
         primaryStage.setScene(scene);
         primaryStage.setTitle("Mouse Handling Prototype");

@@ -33,7 +33,7 @@ public class View extends Application {
 
     // External Model and Controller Declarations
     private ModelAPI model;
-    private Controller screenController;
+    private ScreenController screenController;
     private Controller mainMenuController;
     private Controller playMenuController;
     private Controller gameController;
@@ -77,9 +77,9 @@ public class View extends Application {
         primaryStage.show();
 
         screenController = new ScreenController(primaryStage.getScene());
-        ((ScreenController) screenController).add("main menu", mainMenuLoader);
-        ((ScreenController) screenController).add("play menu", playMenuLoader);
-        ((ScreenController) screenController).add("game", gamePane);
+        screenController.add("main menu", mainMenuLoader);
+        screenController.add("play menu", playMenuLoader);
+        screenController.add("game", gamePane);
 
         // initial setup done, application running and displayed to user after this point
 
@@ -90,10 +90,6 @@ public class View extends Application {
 
     }
 
-    public void display(String screenName) {
-        ((ScreenController) screenController).activate(screenName);
-    }
-
     public void setGameGridSize(int rows, int cols){
 
 //        ((GameController)gameController).setGridSize();
@@ -101,6 +97,10 @@ public class View extends Application {
 
     public Stage getPrimaryStage(){
         return primaryStage;
+    }
+
+    public ScreenController getScreenController(){
+        return screenController;
     }
 
 }

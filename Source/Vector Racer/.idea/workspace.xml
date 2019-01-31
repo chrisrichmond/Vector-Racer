@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="refactored ScreenController to ScreenManager and moved to new utilities package along with all global constants from View">
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="more GamePane tweaking">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utilities/VectorConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilities/VectorConstants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/GamePane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/GamePane.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
@@ -64,8 +63,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/view/View.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="38" column="51" selection-start-line="38" selection-start-column="51" selection-end-line="38" selection-end-column="51" />
+            <state relative-caret-position="208">
+              <caret line="48" column="8" lean-forward="true" selection-start-line="48" selection-start-column="8" selection-end-line="48" selection-end-column="8" />
               <folding>
                 <element signature="e#1049#1050#0" expanded="true" />
                 <element signature="e#1077#1078#0" expanded="true" />
@@ -74,14 +73,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/view/GamePane.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="28" column="8" lean-forward="true" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="8" />
+            <state relative-caret-position="319">
+              <caret line="33" column="42" selection-start-line="33" selection-start-column="42" selection-end-line="33" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/utilities/ScreenManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-500">
+              <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -98,10 +106,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/view/TileGridPane.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
+            <state relative-caret-position="88">
               <caret line="17" column="104" selection-start-line="17" selection-start-column="104" selection-end-line="17" selection-end-column="104" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -187,9 +195,9 @@
         <option value="$PROJECT_DIR$/src/view/TileGridPane.java" />
         <option value="$PROJECT_DIR$/src/utilities/ScreenController.java" />
         <option value="$PROJECT_DIR$/src/utilities/ScreenManager.java" />
-        <option value="$PROJECT_DIR$/src/view/View.java" />
         <option value="$PROJECT_DIR$/src/utilities/BorderDrawer.java" />
         <option value="$PROJECT_DIR$/src/utilities/VectorConstants.java" />
+        <option value="$PROJECT_DIR$/src/view/View.java" />
         <option value="$PROJECT_DIR$/src/view/GamePane.java" />
       </list>
     </option>
@@ -261,7 +269,7 @@
     <property name="OverrideImplement.combined" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548958372185" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548959753821" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
@@ -477,13 +485,6 @@
       <workItem from="1546841736443" duration="10806000" />
       <workItem from="1547550229717" duration="3253000" />
       <workItem from="1547566384896" duration="3847000" />
-    </task>
-    <task id="LOCAL-00001" summary="add Observer Pattern change propagation mechanism">
-      <created>1540385749867</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1540385749867</updated>
     </task>
     <task id="LOCAL-00002" summary="MVC foundations">
       <created>1540386325169</created>
@@ -821,7 +822,14 @@
       <option name="project" value="LOCAL" />
       <updated>1548956801131</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="more GamePane tweaking">
+      <created>1548958394517</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1548958394518</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -840,7 +848,7 @@
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32896304" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.1966627" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.41001192" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -950,7 +958,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
-    <MESSAGE value="circle selection prototype work started" />
     <MESSAGE value="fxml setup" />
     <MESSAGE value="progress on fxml version of tile select prototype" />
     <MESSAGE value="added Move class as high level Vect with Player attribute" />
@@ -975,7 +982,8 @@
     <MESSAGE value="mouse handling progress" />
     <MESSAGE value="refactored some controller functionality that was previously in View (the display() method) into controller package - NOTE: try to keep View class to bare minimum i.e. start() method, static constants, and getters/setters where required" />
     <MESSAGE value="refactored ScreenController to ScreenManager and moved to new utilities package along with all global constants from View" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactored ScreenController to ScreenManager and moved to new utilities package along with all global constants from View" />
+    <MESSAGE value="more GamePane tweaking" />
+    <option name="LAST_COMMIT_MESSAGE" value="more GamePane tweaking" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -1341,24 +1349,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/utilities/ScreenManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/View.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="38" column="51" selection-start-line="38" selection-start-column="51" selection-end-line="38" selection-end-column="51" />
-          <folding>
-            <element signature="e#1049#1050#0" expanded="true" />
-            <element signature="e#1077#1078#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/utilities/BorderDrawer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
@@ -1379,20 +1369,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/GamePane.java">
+    <entry file="file://$PROJECT_DIR$/src/view/TileGridPane.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="28" column="8" lean-forward="true" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="8" />
+        <state relative-caret-position="88">
+          <caret line="17" column="104" selection-start-line="17" selection-start-column="104" selection-end-line="17" selection-end-column="104" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/TileGridPane.java">
+    <entry file="file://$PROJECT_DIR$/src/utilities/ScreenManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="17" column="104" selection-start-line="17" selection-start-column="104" selection-end-line="17" selection-end-column="104" />
+        <state relative-caret-position="-500">
+          <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/View.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="48" column="8" lean-forward="true" selection-start-line="48" selection-start-column="8" selection-end-line="48" selection-end-column="8" />
+          <folding>
+            <element signature="e#1049#1050#0" expanded="true" />
+            <element signature="e#1077#1078#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/GamePane.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="33" column="42" selection-start-line="33" selection-start-column="42" selection-end-line="33" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

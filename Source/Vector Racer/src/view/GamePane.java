@@ -1,5 +1,6 @@
 package view;
 
+import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -16,11 +17,22 @@ public class GamePane extends Pane {
     private int tileSize;
     private boolean isGridInitialised = false;
     private Rectangle border;
+    private Button testButton;
 
     public GamePane(int width, int height){
         System.out.println("In gamePane | width: "+width+", height:" +height);
         drawBorder(width, height);
+        System.out.println(getWidth() + " "+getHeight());
         createGrid("small", 20);
+
+        testButton = new Button("test");
+        testButton.setTranslateX(width/2);
+        testButton.setTranslateY(height/2);
+        getChildren().add(testButton);
+        testButton.setOnAction(event -> {
+            System.out.println(getWidth());
+            System.out.println(getHeight());
+        });
     }
 
     public void drawBorder(int width, int height){

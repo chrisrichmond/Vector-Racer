@@ -1,17 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="refactored some controller functionality that was previously in View (the display() method) into controller package - NOTE: try to keep View class to bare minimum i.e. start() method, static constants, and getters/setters where required">
-      <change afterPath="$PROJECT_DIR$/src/utilities/VectorConstants.java" afterDir="false" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="refactored ScreenController to ScreenManager and moved to new utilities package along with all global constants from View">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/MainMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/MainMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/PlayMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/PlayMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/ScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilities/ScreenManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/prototypes/changepropagation/PersonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/prototypes/changepropagation/PersonController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/prototypes/changepropagation/PersonView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/prototypes/changepropagation/PersonView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utilities/VectorConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilities/VectorConstants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/GamePane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/GamePane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/TileGridPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/TileGridPane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/View.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -81,11 +74,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/view/GamePane.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="296">
-              <caret line="21" column="32" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="32" />
+            <state relative-caret-position="525">
+              <caret line="28" column="8" lean-forward="true" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -97,7 +90,7 @@
         <entry file="file://$PROJECT_DIR$/src/utilities/VectorConstants.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="481">
-              <caret line="20" column="28" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
+              <caret line="20" column="42" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -105,7 +98,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/view/TileGridPane.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="275">
@@ -147,7 +140,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/model/Racer.java" />
         <option value="$PROJECT_DIR$/src/model/PlayerAPI.java" />
         <option value="$PROJECT_DIR$/src/model/RacerAPI.java" />
         <option value="$PROJECT_DIR$/src/model/HumanPlayer.java" />
@@ -196,6 +188,7 @@
         <option value="$PROJECT_DIR$/src/utilities/ScreenController.java" />
         <option value="$PROJECT_DIR$/src/utilities/ScreenManager.java" />
         <option value="$PROJECT_DIR$/src/view/View.java" />
+        <option value="$PROJECT_DIR$/src/utilities/BorderDrawer.java" />
         <option value="$PROJECT_DIR$/src/utilities/VectorConstants.java" />
         <option value="$PROJECT_DIR$/src/view/GamePane.java" />
       </list>
@@ -268,7 +261,7 @@
     <property name="OverrideImplement.combined" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548956746231" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548958372185" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
@@ -821,7 +814,14 @@
       <option name="project" value="LOCAL" />
       <updated>1548952138556</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="refactored ScreenController to ScreenManager and moved to new utilities package along with all global constants from View">
+      <created>1548956801131</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1548956801131</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -829,6 +829,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.16486487" />
       <window_info id="Structure" order="1" weight="0.25" />
@@ -949,7 +950,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
-    <MESSAGE value="basic tile selection prototype finished" />
     <MESSAGE value="circle selection prototype work started" />
     <MESSAGE value="fxml setup" />
     <MESSAGE value="progress on fxml version of tile select prototype" />
@@ -974,14 +974,14 @@
     <MESSAGE value="prototyping" />
     <MESSAGE value="mouse handling progress" />
     <MESSAGE value="refactored some controller functionality that was previously in View (the display() method) into controller package - NOTE: try to keep View class to bare minimum i.e. start() method, static constants, and getters/setters where required" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactored some controller functionality that was previously in View (the display() method) into controller package - NOTE: try to keep View class to bare minimum i.e. start() method, static constants, and getters/setters where required" />
+    <MESSAGE value="refactored ScreenController to ScreenManager and moved to new utilities package along with all global constants from View" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactored ScreenController to ScreenManager and moved to new utilities package along with all global constants from View" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/VRPreloader.java" />
     <entry file="file://$PROJECT_DIR$/src/changepropagation/Observable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -1359,10 +1359,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/TileGridPane.java">
+    <entry file="file://$PROJECT_DIR$/src/utilities/BorderDrawer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="17" column="104" selection-start-line="17" selection-start-column="104" selection-end-line="17" selection-end-column="104" />
+        <state relative-caret-position="250">
+          <caret line="10" column="37" selection-start-line="10" selection-start-column="37" selection-end-line="10" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1372,7 +1372,7 @@
     <entry file="file://$PROJECT_DIR$/src/utilities/VectorConstants.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="481">
-          <caret line="20" column="28" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
+          <caret line="20" column="42" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1381,8 +1381,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/view/GamePane.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="21" column="32" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="32" />
+        <state relative-caret-position="525">
+          <caret line="28" column="8" lean-forward="true" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/TileGridPane.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="17" column="104" selection-start-line="17" selection-start-column="104" selection-end-line="17" selection-end-column="104" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -1,6 +1,7 @@
 package view;
 
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import utilities.VectorConstants;
 
@@ -13,16 +14,20 @@ public class GamePane extends Pane {
 
     private TileGridPane tileGridPane;
     private int tileSize;
-    private boolean isGridInitialised;
+    private boolean isGridInitialised = false;
     private Rectangle border;
 
-    public GamePane(int w, int h){
-        System.out.println("In gamePane | w: "+w+", h:" +h);
-        this.border = new Rectangle(w, h);
+    public GamePane(int width, int height){
+        System.out.println("In gamePane | width: "+width+", height:" +height);
+        drawBorder(width, height);
+        createGrid("small", 20);
+    }
+
+    public void drawBorder(int width, int height){
+        border = new Rectangle(width, height);
+        border.setStroke(Color.BLACK);
         this.border.setFill(null);
         getChildren().add(this.border);
-        isGridInitialised = false;
-        createGrid("small", 20);
     }
 
     public boolean createGrid(String size, int tileSize){

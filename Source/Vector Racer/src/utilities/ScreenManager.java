@@ -1,4 +1,4 @@
-package controller;
+package utilities;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -7,12 +7,12 @@ import javafx.scene.layout.Pane;
 import java.io.IOException;
 import java.util.HashMap;
 
-public class ScreenController implements Controller {
+public class ScreenManager {
 
     private HashMap<String, Object> screenMap;
     private Scene main;
 
-    public ScreenController(Scene main){
+    public ScreenManager(Scene main){
         screenMap = new HashMap<>();
         this.main = main;
     }

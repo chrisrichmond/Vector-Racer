@@ -18,14 +18,12 @@ public class PersonView extends Application {
     private Scene scene;
     private StackPane root;
     private Button button;
-    private MouseHandler mouseHandler;
 
     public static void main(String[] args){
         launch(args);
     }
 
     public PersonView(){
-        mouseHandler = new MouseHandler();
         chrisModel = new PersonModel();
         chrisController = new PersonController(this, chrisModel);
     }

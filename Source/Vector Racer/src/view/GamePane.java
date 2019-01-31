@@ -2,6 +2,7 @@ package view;
 
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
+import utilities.VectorConstants;
 
 public class GamePane extends Pane {
 
@@ -10,25 +11,18 @@ public class GamePane extends Pane {
     the racetrack grid and any other surrounding on-screen components
      */
 
-    private static final int SMALL_ROWS = 40;   // Y
-    private static final int SMALL_COLS = 60;   // X
-    private static final int MEDIUM_ROWS = 60;  // Y
-    private static final int MEDIUM_COLS = 80;  // X
-    private static final int LARGE_ROWS = 80;   // Y
-    private static final int LARGE_COLS = 100;  // X
-
     private TileGridPane tileGridPane;
     private int tileSize;
     private boolean isGridInitialised;
     private Rectangle border;
 
-    public GamePane(int prefWidth, int prefHeight){
-//        this.border = new Rectangle(prefWidth, prefHeight);
-//        getChildren().add(this.border);
-//        setPrefSize(prefWidth, prefHeight);  // just create rectangle of preferred size and add as child node ??
-        System.out.println(this.getWidth() + " " + this.getHeight());
+    public GamePane(int w, int h){
+        System.out.println("In gamePane | w: "+w+", h:" +h);
+        this.border = new Rectangle(w, h);
+        this.border.setFill(null);
+        getChildren().add(this.border);
         isGridInitialised = false;
-        createGrid("small", 40);
+        createGrid("small", 20);
     }
 
     public boolean createGrid(String size, int tileSize){
@@ -42,13 +36,13 @@ public class GamePane extends Pane {
             success = true;
             switch(size.toLowerCase()){
                 case("small"):
-                    initGrid(SMALL_ROWS, SMALL_COLS, tileSize);
+                    initGrid(VectorConstants.SMALL_ROWS, VectorConstants.SMALL_COLS, tileSize);
                     break;
                 case("medium"):
-                    initGrid(MEDIUM_ROWS, MEDIUM_COLS, tileSize);
+                    initGrid(VectorConstants.MEDIUM_ROWS, VectorConstants.MEDIUM_COLS, tileSize);
                     break;
                 case("large"):
-                    initGrid(LARGE_ROWS, LARGE_COLS, tileSize);
+                    initGrid(VectorConstants.LARGE_ROWS, VectorConstants.LARGE_COLS, tileSize);
                     break;
                 default:
                         System.out.println("Invalid size String parameter passed to GamePane.createGrid()");

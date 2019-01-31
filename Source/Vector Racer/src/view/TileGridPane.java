@@ -15,10 +15,10 @@ public class TileGridPane extends Pane {
     private int tileSize;
 
     public TileGridPane(int rows, int cols, int tileSize, double parentWidth, double parentHeight){
-        setPrefSize(parentWidth/2, parentHeight/2);
-        //setTranslateX(parentWidth/4);
+        System.out.println("in tileGridPane | parentWidth: "+parentWidth+", parentHeight: "+parentHeight);
+        setTranslateX(parentWidth/4);
 
-        this.gridBorder = new Rectangle(getWidth(), getHeight());
+        this.gridBorder = new Rectangle(parentWidth/2, parentHeight/2);
         this.grid = new Tile[rows][cols]; // todo rows and cols or X and Y??
         this.rows = rows;
         this.cols = cols;
@@ -28,14 +28,14 @@ public class TileGridPane extends Pane {
         this.gridBorder.setStroke(Color.BLACK);
         getChildren().add(this.gridBorder);
 
-//        for(int col = 0; col < cols; col++){
-//            for(int row = 0; row < rows; row++){
-//                Tile tile = new Tile(row, col);
-//
-//                grid[row][col] = tile;
-//                getChildren().add(tile);
-//            }
-//        }
+        for(int col = 0; col < cols; col++){
+            for(int row = 0; row < rows; row++){
+                Tile tile = new Tile(row, col);
+
+                grid[row][col] = tile;
+                getChildren().add(tile);
+            }
+        }
     }
 
     private class Tile extends StackPane {

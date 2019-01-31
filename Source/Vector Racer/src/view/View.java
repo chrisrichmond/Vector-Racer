@@ -3,29 +3,15 @@ package view;
 import controller.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import model.Model;
 import model.ModelAPI;
-
-import java.net.URL;
-import java.util.ResourceBundle;
+import utilities.ScreenManager;
+import utilities.VectorConstants;
 
 public class View extends Application {
-
-    private static final String ERROR_FXML = "errorscreen.fxml";
-    private static final String MAINMENU_FXML = "mainmenu.fxml";
-    private static final String PLAYMENU_FXML = "playmenu.fxml";
-    private static final Rectangle2D PRIMARY_SCREEN_BOUNDS = Screen.getPrimary().getVisualBounds();
-    private static final int GP_PREFWIDTH = 500;   // preferred width of the game pane
-    private static final int GP_PREFHEIGHT = 500;  // preferred height of the game pane
-    private static final int TILESIZE = 40;
 
     public static void main(String[] args) {
         launch(args);
@@ -33,7 +19,7 @@ public class View extends Application {
 
     // External Model and Controller Declarations
     private ModelAPI model;
-    private ScreenController screenController;
+    private ScreenManager screenManager;
     private Controller mainMenuController;
     private Controller playMenuController;
     private Controller gameController;
@@ -50,7 +36,7 @@ public class View extends Application {
         mainMenuController = new MainMenuController(model, this);
         playMenuController = new PlayMenuController(model, this);
 
-        gamePane = new GamePane(GP_PREFWIDTH, GP_PREFHEIGHT);
+        gamePane = new GamePane(VectorConstants.GP_PREFWIDTH, VectorConstants.GP_PREFHEIGHT);
         gameController = new GameController(model, gamePane, this);
     }
 
@@ -58,11 +44,11 @@ public class View extends Application {
     public void start(Stage primaryStage) throws Exception {
         this.primaryStage = primaryStage;
 
-        mainMenuLoader = new FXMLLoader(getClass().getResource(MAINMENU_FXML));
+        mainMenuLoader = new FXMLLoader(getClass().getResource(VectorConstants.MAINMENU_FXML));
         mainMenuLoader.setController(mainMenuController);
         root = mainMenuLoader.load();
 
-        playMenuLoader = new FXMLLoader(getClass().getResource(PLAYMENU_FXML));
+        playMenuLoader = new FXMLLoader(getClass().getResource(VectorConstants.PLAYMENU_FXML));
         playMenuLoader.setController(playMenuController);
 
         primaryStage.setTitle("Vector Racer");
@@ -76,10 +62,10 @@ public class View extends Application {
         primaryStage.resizableProperty().setValue(Boolean.FALSE);
         primaryStage.show();
 
-        screenController = new ScreenController(primaryStage.getScene());
-        screenController.add("main menu", mainMenuLoader);
-        screenController.add("play menu", playMenuLoader);
-        screenController.add("game", gamePane);
+        screenManager = new ScreenManager(primaryStage.getScene());
+        screenManager.add("main menu", mainMenuLoader);
+        screenManager.add("play menu", playMenuLoader);
+        screenManager.add("game", gamePane);
 
         // initial setup done, application running and displayed to user after this point
 
@@ -99,8 +85,8 @@ public class View extends Application {
         return primaryStage;
     }
 
-    public ScreenController getScreenController(){
-        return screenController;
+    public ScreenManager getScreenManager(){
+        return screenManager;
     }
 
 }

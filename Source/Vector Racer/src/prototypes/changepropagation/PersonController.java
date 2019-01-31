@@ -1,6 +1,9 @@
 package prototypes.changepropagation;
 
-public class PersonController {
+import javafx.event.Event;
+import javafx.event.EventHandler;
+
+public class PersonController implements EventHandler {
 
     private PersonView personView;
     private PersonModel personModel;
@@ -10,4 +13,8 @@ public class PersonController {
         this.personModel = personModel;
     }
 
+    @Override
+    public void handle(Event event) {
+
+    }
 }

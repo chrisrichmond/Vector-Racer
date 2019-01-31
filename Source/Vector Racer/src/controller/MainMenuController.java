@@ -1,13 +1,10 @@
 package controller;
 
 import javafx.fxml.FXML;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import model.ModelAPI;
 import view.View;
-
-import java.io.IOException;
 
 public class MainMenuController implements Controller {
 
@@ -24,7 +21,7 @@ public class MainMenuController implements Controller {
     public void playButtonAction(){
         System.out.println("play button pressed");
         try {
-            view.getScreenController().activate("play menu");
+            view.getScreenManager().activate("play menu");
         }catch (Exception e){
             e.printStackTrace();
         }

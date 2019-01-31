@@ -1,9 +1,8 @@
 package model;
 
-import changepropagation.Observable;
 import javafx.beans.property.ObjectProperty;
 
-public interface ModelAPI extends Observable {
+public interface ModelAPI {
 
     public void gameSetup();
 

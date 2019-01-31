@@ -31,11 +31,14 @@ public class View extends Application {
         launch(args);
     }
 
+    // External Model and Controller Declarations
     private ModelAPI model;
     private Controller screenController;
     private Controller mainMenuController;
     private Controller playMenuController;
     private Controller gameController;
+
+    // Internal View Declarations
     private FXMLLoader mainMenuLoader;
     private FXMLLoader playMenuLoader;
     private GamePane gamePane;

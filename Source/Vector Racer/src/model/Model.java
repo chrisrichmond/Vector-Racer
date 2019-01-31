@@ -1,6 +1,5 @@
 package model;
 
-import changepropagation.Observer;
 import javafx.beans.property.ObjectProperty;
 
 import java.util.ArrayList;
@@ -8,7 +7,6 @@ import java.util.List;
 
 public class Model implements ModelAPI{
 
-    private List<Observer> observers;
     private boolean changed;
     private List<State> history;
     private State currentState;
@@ -43,31 +41,6 @@ public class Model implements ModelAPI{
 
             // round ends
 
-    }
-
-    @Override
-    public void attach(Observer o) {
-        observers.add(o);
-    }
-
-    @Override
-    public void detach(Observer o) {
-        observers.remove(o);
-    }
-
-    @Override
-    public void setChanged() {
-        changed = true;
-    }
-
-    @Override
-    public void notifyObservers() {
-        if(changed){
-            for (Observer o: observers) {
-                o.notify();
-            }
-            changed = false;
-        }
     }
 
     /*

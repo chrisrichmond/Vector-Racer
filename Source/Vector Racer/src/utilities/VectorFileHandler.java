@@ -56,9 +56,23 @@ public class VectorFileHandler {
         opcode = opcode.toLowerCase();
 
         for(String currentOperand: operands){
-            currentOperand = currentOperand.toLowerCase();
+            currentOperand = currentOperand.toLowerCase();  // todo unsure if this works?
         }
 
+        if(opcode.equals("blank")){
+            // blank line/object, do nothing
+        }else if(opcode.equals("tile")){
+            // tile object
+
+
+
+
+        }else{
+            // invalid opcode, do nothing
+            System.out.println("Unrecognised opcode");
+
+
+        }
 
     }
 

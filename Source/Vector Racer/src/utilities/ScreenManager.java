@@ -17,6 +17,11 @@ public class ScreenManager {
         this.main = main;
     }
 
+    /**
+     * Adds an element of type FXMLLoader to the screenMap HashMap
+     * @param name a String keyword to use as the key
+     * @param fxml an FXMLLoader to store as the value
+     */
     public void add(String name, FXMLLoader fxml){
         if(!(screenMap.containsKey(name))) {
             screenMap.put(name, fxml);
@@ -25,6 +30,11 @@ public class ScreenManager {
         }
     }
 
+    /**
+     * Adds an element of type Pane to the screenMap HashMap
+     * @param name a String keyword to use as the key
+     * @param pane a Pane to store as the value
+     */
     public void add(String name, Pane pane){
         if(!(screenMap.containsKey(name))) {
             screenMap.put(name, pane);
@@ -33,10 +43,18 @@ public class ScreenManager {
         }
     }
 
+    /**
+     * Removes the specified element key-value pair from the screenMap HashMap
+     * @param name the key of the key-value pair to be removed
+     */
     public void remove(String name){
         screenMap.remove(name);
     }
 
+    /**
+     * Sets the corresponding value of the specified name as the root content for the main Scene
+     * @param name the key of the content to be displayed from the screenMap HashMap
+     */
     public void activate(String name){
 
         System.out.println("Attempting to load '"+name+"'");

@@ -15,8 +15,9 @@ public class TileGridPane extends Pane {
     private int tileSize;
 
     public TileGridPane(int rows, int cols, int tileSize, double parentWidth, double parentHeight){
+
         System.out.println("in tileGridPane | parentWidth: "+parentWidth+", parentHeight: "+parentHeight);
-        setTranslateX(parentWidth/4);
+        //setTranslateX(parentWidth/4);
 
         this.gridBorder = new Rectangle(parentWidth/2, parentHeight/2);
         this.grid = new Tile[rows][cols]; // todo rows and cols or X and Y??

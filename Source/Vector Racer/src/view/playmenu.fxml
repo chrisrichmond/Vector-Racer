@@ -22,7 +22,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="pvpButton" mnemonicParsing="false" onAction="#pvpButtonAction" text="Player vs Player" GridPane.rowIndex="1" />
+            <Button fx:id="pvpButton" mnemonicParsing="false" onAction="#pvpButtonAction" prefHeight="39.0" prefWidth="219.0" text="Player vs Player" GridPane.rowIndex="1" />
          </children>
       </GridPane>
    </children>

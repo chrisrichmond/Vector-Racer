@@ -1,12 +1,13 @@
 package view;
 
 import javafx.scene.control.Button;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import utilities.VectorConstants;
 
-public class GamePane extends Pane {
+public class GamePane extends BorderPane {
 
     /*
     needs to consist of all elements on screen during gameplay, such as
@@ -20,19 +21,17 @@ public class GamePane extends Pane {
     private Button testButton;
 
     public GamePane(int width, int height){
-        System.out.println("In gamePane | width: "+width+", height:" +height);
         drawBorder(width, height);
-        System.out.println(getWidth() + " "+getHeight());
         createGrid("small", 20);
 
-        testButton = new Button("test");
-        testButton.setTranslateX(width/2);
-        testButton.setTranslateY(height/2);
-        getChildren().add(testButton);
-        testButton.setOnAction(event -> {
-            System.out.println(getWidth());
-            System.out.println(getHeight());
-        });
+//        testButton = new Button("test");
+//        testButton.setTranslateX(width/2);
+//        testButton.setTranslateY(height/2);
+//        getChildren().add(testButton);
+//        testButton.setOnAction(event -> {
+//            System.out.println(getWidth());
+//            System.out.println(getHeight());
+//        });
     }
 
     public void drawBorder(int width, int height){
@@ -76,7 +75,7 @@ public class GamePane extends Pane {
         System.out.println("getWidth(): "+getWidth());
         System.out.println("getHeight(): "+getHeight());
         tileGridPane = new TileGridPane(rows, cols, tileSize, getWidth(), getHeight());
-        this.getChildren().add(tileGridPane);
+        setCenter(tileGridPane);
     }
 
 

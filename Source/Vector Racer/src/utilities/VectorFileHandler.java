@@ -48,6 +48,21 @@ public class VectorFileHandler {
     }
 
     /**
+     * Saves current model objects to file
+     * @param filename the filename to save model objects to
+     */
+    public void saveToFile(String filename){
+        String outputToFile;
+
+
+
+
+        // todo
+
+
+    }
+
+    /**
      * Loads an individual object into the current model
      * @param opcode dictates what kind of object data will be loaded
      * @param operands object metadata

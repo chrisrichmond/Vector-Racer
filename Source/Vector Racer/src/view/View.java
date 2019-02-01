@@ -17,17 +17,27 @@ public class View extends Application {
         launch(args);
     }
 
-    // External Model and Controller Declarations
+    /*
+     External Model and Controller Declarations
+      */
     private ModelAPI model;
-    private ScreenManager screenManager;
-    private Controller mainMenuController;
-    private Controller playMenuController;
-    private Controller gameController;
+    private ScreenManager screenManager;    // used for switching views
+    private Controller mainMenuController;  // provides methods for handling main menu user input
+    private Controller playMenuController;  // provides methods for handling play menu user input
+    private Controller gameController;      // provides methods for handling user input on the main game pane
 
-    // Internal View Declarations
-    private FXMLLoader mainMenuLoader;
-    private FXMLLoader playMenuLoader;
-    private GamePane gamePane;
+    /*
+     Internal View Declarations
+      */
+    // FXML Views
+    private FXMLLoader mainMenuLoader;      // content loader for the main menu fxml
+    private FXMLLoader playMenuLoader;      // content loader for the play menu fxml
+
+    // Pure Java Views
+    private GamePane gamePane;              // content container for the main game
+    private TileGridPane tileGridPane;      // content container for the tile grid inside the main game pane
+
+    // Stage and Root Content Node
     private Parent root;
     private Stage primaryStage;
 
@@ -76,15 +86,18 @@ public class View extends Application {
 
     }
 
-    public void setGameGridSize(int rows, int cols){
-
-//        ((GameController)gameController).setGridSize();
-    }
-
+    /**
+     * Gets reference to the primary stage
+     * @return the primary stage
+     */
     public Stage getPrimaryStage(){
         return primaryStage;
     }
 
+    /**
+     * Gets reference to the screen manager
+     * @return the screen manager
+     */
     public ScreenManager getScreenManager(){
         return screenManager;
     }

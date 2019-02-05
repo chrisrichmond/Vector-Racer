@@ -25,6 +25,7 @@ public class View {
     private GridPane playMenuPane;
     private BorderPane gamePane;
 
+
     public View(ModelAPI model, Stage primaryStage){
         // Model Backend
         this.model = model;
@@ -33,19 +34,22 @@ public class View {
         this.primaryStage = primaryStage;
 
         // Racetrack Game Area Pane
-        racetrackPane = new RacetrackPane();
+//        racetrackPane = new RacetrackPane();
 
         // Views (Full Screen Content Panes)
         createMainMenuPane();
         createPlayMenuPane();
         createGamePane();
 
+        primaryStage.setScene(new Scene(mainMenuPane));
+        primaryStage.show();
+
 
     }
 
     private void createMainMenuPane(){
         mainMenuPane = new GridPane();
-        Button playButton
+//        Button playButton
 
         mainMenuPane.getChildren().addAll();
     }

@@ -43,11 +43,11 @@ public class OldView extends Application {
 
     public OldView() {
         model = new Model();
-        mainMenuController = new MainMenuController(model, this);
-        playMenuController = new PlayMenuController(model, this);
+//        mainMenuController = new MainMenuController(model, this);
+//        playMenuController = new PlayMenuController(model, this);
 
         gamePane = new GamePane(VectorConstants.GP_PREFWIDTH, VectorConstants.GP_PREFHEIGHT);
-        gameController = new GameController(model, gamePane, this);
+//        gameController = new GameController(model, gamePane, this);
     }
 
     @Override

@@ -12,15 +12,15 @@ public class Controller {
 
     // Controllers
     private MainMenuController mainMenuController;
-    private PlayMenuController playMenuController;
-    private GameController gameController;
+//    private PlayMenuController playMenuController;
+//    private GameController gameController;
 
     public Controller(ModelAPI model, View view, Stage primaryStage){
         this.model = model;
         this.view = view;
         this.primaryStage = primaryStage;
 
-        mainMenuController = new MainMenuController(model, view)
+        mainMenuController = new MainMenuController(model, view);
     }
 
 

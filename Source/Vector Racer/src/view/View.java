@@ -5,14 +5,17 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.ColumnConstraints;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.*;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import model.ModelAPI;
 
+import java.io.File;
+
 public class View implements ViewAPI{
+
+    // FileChooser
+    private FileChooser fileChooser;
 
     // Model Backend
     private ModelAPI model;
@@ -29,8 +32,12 @@ public class View implements ViewAPI{
     private GridPane playMenuPane;
     private BorderPane gamePane;
 
-
     public View(ModelAPI model, Stage primaryStage){
+
+        // FileChooser
+        fileChooser = new FileChooser();
+        fileChooser.setInitialDirectory();
+
         // Model Backend
         this.model = model;
 
@@ -43,8 +50,9 @@ public class View implements ViewAPI{
         // Views (Full Screen Content Panes)
         createMainMenuPane();
         createPlayMenuPane();
-        createGamePane();
+        //createGamePane(); // can only be called once model has been populated with a racetrack
 
+        // Create main scene with main menu as default root content, and show
         primaryStage.setScene(new Scene(mainMenuPane));
         primaryStage.show();
 
@@ -56,11 +64,11 @@ public class View implements ViewAPI{
         mainMenuPane = new GridPane();
 
         Button playButton = new Button("Play");
-        playButton.setOnMouseClicked(e -> changeRootContent(playMenuPane));
+        playButton.setOnAction(e -> changeRootContent(playMenuPane));
         Button testButton = new Button("test");
-        testButton.setOnMouseClicked(e -> System.out.println("TEST BUTTON CLICK"));
+        testButton.setOnAction(e -> System.out.println("TEST BUTTON CLICK"));
         Button quitButton = new Button("Quit");
-        quitButton.setOnMouseClicked(e -> primaryStage.close());
+        quitButton.setOnAction(e -> primaryStage.close());
 
         GridPane.setConstraints(playButton, 1,1);
         GridPane.setConstraints(testButton, 1,2);
@@ -79,11 +87,23 @@ public class View implements ViewAPI{
     @Override
     public void createPlayMenuPane(){
         playMenuPane = new GridPane();
+
+        Button pvpButton = new Button("Player vs Player");
+        pvpButton.setOnAction(e -> {
+            File selectedFile = fileChooser.showOpenDialog(primaryStage);
+        });
+
+        playMenuPane.getChildren().addAll(pvpButton);
     }
 
     @Override
     public void createGamePane(){
         gamePane = new BorderPane();
+
+        class Tile extends StackPane {
+            private int row, col;
+
+        }
     }
 
     @Override

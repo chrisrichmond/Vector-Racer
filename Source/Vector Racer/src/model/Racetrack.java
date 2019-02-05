@@ -1,5 +1,7 @@
 package model;
 
+import utilities.VectorConstants;
+
 public class Racetrack {
 
     private Tile[][] tiles;
@@ -11,13 +13,13 @@ public class Racetrack {
 
         switch(size){
             case("small"):
-                tiles = new Tile[60][40];   //todo probably fiddle with these values til something adequate is found
+                tiles = new Tile[VectorConstants.SMALL_ROWS][VectorConstants.SMALL_COLS];
                 break;
             case("medium"):
-                tiles = new Tile[80][60];
+                tiles = new Tile[VectorConstants.MEDIUM_ROWS][VectorConstants.MEDIUM_COLS];
                 break;
             case("large"):
-                tiles = new Tile[100][80];
+                tiles = new Tile[VectorConstants.LARGE_ROWS][VectorConstants.LARGE_COLS];
                 break;
                 default:
 

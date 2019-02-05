@@ -40,6 +40,11 @@ public class MainMenuController implements EventHandler {
 
     @Override
     public void handle(Event event) {
+
+        if(event.getTarget() instanceof Button){
+
+        }
+
         System.out.println("event type: "+ event.getEventType());
         System.out.println("event target: "+ event.getTarget());
         System.out.println("event source: "+ event.getSource());

@@ -4,6 +4,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import model.ModelAPI;
@@ -49,9 +50,22 @@ public class View {
 
     private void createMainMenuPane(){
         mainMenuPane = new GridPane();
-//        Button playButton
+        Button playButton = new Button("Play");
+        Button testButton = new Button("test");
+        Button quitButton = new Button("Quit");
+        GridPane.setConstraints(playButton, 1,1);
+        GridPane.setConstraints(testButton, 1,2);
+        GridPane.setConstraints(quitButton, 1,3);
+        ColumnConstraints column0 = new ColumnConstraints();
+        ColumnConstraints column1 = new ColumnConstraints();
+        ColumnConstraints column2 = new ColumnConstraints();
+        column0.setPercentWidth(25);
+        column1.setPercentWidth(50);
+        column2.setPercentWidth(25);
+        mainMenuPane.getColumnConstraints().addAll(column0, column1, column2);
 
-        mainMenuPane.getChildren().addAll();
+
+        mainMenuPane.getChildren().addAll(playButton, testButton, quitButton);
     }
 
     private void createPlayMenuPane(){

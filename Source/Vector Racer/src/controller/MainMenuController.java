@@ -7,14 +7,14 @@ import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import model.ModelAPI;
-import view.View;
+import view.ViewAPI;
 
 public class MainMenuController implements EventHandler {
 
     private ModelAPI model;
-    private View view;
+    private ViewAPI view;
 
-    public MainMenuController(ModelAPI model, View view){
+    public MainMenuController(ModelAPI model, ViewAPI view){
         this.model = model;
         this.view = view;
 
@@ -41,9 +41,9 @@ public class MainMenuController implements EventHandler {
     @Override
     public void handle(Event event) {
 
-        if(event.getTarget() instanceof Button){
-
-        }
+//        if(event.getTarget() instanceof Button){
+//            (Button)event.getTarget()
+//        }
 
         System.out.println("event type: "+ event.getEventType());
         System.out.println("event target: "+ event.getTarget());

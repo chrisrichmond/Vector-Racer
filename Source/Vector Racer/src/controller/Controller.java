@@ -2,12 +2,12 @@ package controller;
 
 import javafx.stage.Stage;
 import model.ModelAPI;
-import view.View;
+import view.ViewAPI;
 
 public class Controller {
 
     private ModelAPI model;
-    private View view;
+    private ViewAPI view;
     private Stage primaryStage;
 
     // Controllers
@@ -15,7 +15,7 @@ public class Controller {
 //    private PlayMenuController playMenuController;
 //    private GameController gameController;
 
-    public Controller(ModelAPI model, View view, Stage primaryStage){
+    public Controller(ModelAPI model, ViewAPI view, Stage primaryStage){
         this.model = model;
         this.view = view;
         this.primaryStage = primaryStage;

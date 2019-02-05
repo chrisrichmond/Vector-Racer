@@ -9,7 +9,7 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import model.ModelAPI;
 
-public class View {
+public class View implements ViewAPI{
 
     // Model Backend
     private ModelAPI model;
@@ -48,7 +48,7 @@ public class View {
 
     }
 
-    private void createMainMenuPane(){
+    public void createMainMenuPane(){
         mainMenuPane = new GridPane();
         Button playButton = new Button("Play");
         Button testButton = new Button("test");
@@ -64,15 +64,14 @@ public class View {
         column2.setPercentWidth(25);
         mainMenuPane.getColumnConstraints().addAll(column0, column1, column2);
 
-
         mainMenuPane.getChildren().addAll(playButton, testButton, quitButton);
     }
 
-    private void createPlayMenuPane(){
+    public void createPlayMenuPane(){
         playMenuPane = new GridPane();
     }
 
-    private void createGamePane(){
+    public void createGamePane(){
         gamePane = new BorderPane();
     }
 

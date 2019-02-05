@@ -2,16 +2,16 @@ package controller;
 
 import javafx.fxml.FXML;
 import model.ModelAPI;
-import view.View;
+import view.OldView;
 
 public class PlayMenuController implements Controller {
 
     private ModelAPI model;
-    private View view;
+    private OldView oldView;
 
-    public PlayMenuController(ModelAPI model, View view){
+    public PlayMenuController(ModelAPI model, OldView oldView){
         this.model = model;
-        this.view = view;
+        this.oldView = oldView;
     }
 
     @FXML
@@ -24,8 +24,8 @@ public class PlayMenuController implements Controller {
 
 
         // testing setting region size from code
-        //view.setGameGridSize(0,0); // TEST
-        view.getScreenManager().activate("game");   // todo need to change this later as settings need to be selected after this point such as choosing a racetrack etc.
+        //oldView.setGameGridSize(0,0); // TEST
+        oldView.getScreenManager().activate("game");   // todo need to change this later as settings need to be selected after this point such as choosing a racetrack etc.
     }
 
 

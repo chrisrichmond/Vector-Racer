@@ -4,29 +4,27 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
 import model.ModelAPI;
 import view.GamePane;
-import view.View;
+import view.OldView;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class GameController implements Controller, Initializable {
+public class GameController implements Initializable {
 
     private ModelAPI model;
     private GamePane gamePane;
-    private View view;
+    private OldView oldView;
     private Scene scene;
     @FXML private Region tileGrid;
     @FXML private Button testButton;
 
-    public GameController(ModelAPI model, GamePane gamePane, View view){
+    public GameController(ModelAPI model, GamePane gamePane, OldView oldView){
         this.model = model;
         this.gamePane = gamePane;
-        this.view = view;
+        this.oldView = oldView;
     }
 
     public void setGridSize(String size, int tileSize){
@@ -35,7 +33,7 @@ public class GameController implements Controller, Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        this.scene = view.getPrimaryStage().getScene();
+        this.scene = oldView.getPrimaryStage().getScene();
         //this.testButton = (Button) scene.lookup("#testButton");
     }
 }

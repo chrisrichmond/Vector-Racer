@@ -13,7 +13,7 @@ public class PersonView extends Application {
     private PersonModel chrisModel;
     private PersonController chrisController;
 
-    // Internal View Declarations
+    // Internal OldView Declarations
     private Stage primaryStage;
     private Scene scene;
     private StackPane root;

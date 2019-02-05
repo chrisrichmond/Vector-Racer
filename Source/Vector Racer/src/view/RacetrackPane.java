@@ -6,7 +6,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
-public class TileGridPane extends Pane {
+public class RacetrackPane extends Pane {
 
     private Tile[][] grid;
     private Rectangle gridBorder;
@@ -14,7 +14,7 @@ public class TileGridPane extends Pane {
     private int cols;
     private int tileSize;
 
-    public TileGridPane(int rows, int cols, int tileSize, double parentWidth, double parentHeight){
+    public RacetrackPane(int rows, int cols, int tileSize, double parentWidth, double parentHeight){
 
         System.out.println("in tileGridPane | parentWidth: "+parentWidth+", parentHeight: "+parentHeight);
         //setTranslateX(parentWidth/4);

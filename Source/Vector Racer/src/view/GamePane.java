@@ -2,7 +2,6 @@ package view;
 
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import utilities.VectorConstants;
@@ -14,7 +13,7 @@ public class GamePane extends BorderPane {
     the racetrack grid and any other surrounding on-screen components
      */
 
-    private TileGridPane tileGridPane;
+    private RacetrackPane racetrackPane;
     private int tileSize;
     private boolean isGridInitialised = false;
     private Rectangle border;
@@ -74,8 +73,8 @@ public class GamePane extends BorderPane {
         System.out.println("cols: "+cols);
         System.out.println("getWidth(): "+getWidth());
         System.out.println("getHeight(): "+getHeight());
-        tileGridPane = new TileGridPane(rows, cols, tileSize, getWidth(), getHeight());
-        setCenter(tileGridPane);
+        racetrackPane = new RacetrackPane(rows, cols, tileSize, getWidth(), getHeight());
+        setCenter(racetrackPane);
     }
 
 

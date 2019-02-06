@@ -5,6 +5,7 @@
       <file url="file://$PROJECT_DIR$/src/controller/PlayMenuController.java" />
       <file url="file://$PROJECT_DIR$/src/controller/GameController.java" />
       <file url="file://$PROJECT_DIR$/src/view/OldView.java" />
+      <file url="file://$PROJECT_DIR$/src/view/GamePane.java" />
     </excludeFromCompile>
     <wildcardResourcePatterns>
       <entry name="!?*.java" />

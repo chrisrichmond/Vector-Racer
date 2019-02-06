@@ -2,7 +2,7 @@ package model;
 
 import model.geometry.Square;
 
-public class Tile extends Square implements Terrain {
+public abstract class Tile extends Square implements Terrain {
 
     private boolean traversable;
     private float resistance;

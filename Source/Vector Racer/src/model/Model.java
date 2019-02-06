@@ -53,7 +53,7 @@ public class Model implements ModelAPI{
 
     @Override
     public void addAirTile(int row, int col) {
-        if(racetrack.addAirTile(new Tile(col, row, true))){
+        if(racetrack.addAirTile(new AirTile(col, row))){
             System.out.println("Successfully added new air tile to model at row "+row+", col "+col);
         }
 

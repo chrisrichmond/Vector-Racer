@@ -85,7 +85,7 @@ public class Racetrack implements RacetrackAPI{
     }
 
     @Override
-    public boolean addAirTile(Tile newTile) {
+    public boolean addAirTile(AirTile newTile) {
         if(addTile(newTile)){
             airTiles.add(newTile);
             return true;
@@ -109,6 +109,16 @@ public class Racetrack implements RacetrackAPI{
             return true;
         }
         return false;
+    }
+
+    @Override
+    public int getRows() {
+        return rows;
+    }
+
+    @Override
+    public int getCols() {
+        return cols;
     }
 
     @Override

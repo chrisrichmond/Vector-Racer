@@ -37,10 +37,14 @@ public interface RacetrackAPI {
      */
     void clear();
 
-    boolean addAirTile(Tile newTile);
+    boolean addAirTile(AirTile newTile);
 
     boolean addSandTile(SandTile newTile);
 
     boolean addIceTile(IceTile newTile);
+
+    int getRows();
+
+    int getCols();
 
 }

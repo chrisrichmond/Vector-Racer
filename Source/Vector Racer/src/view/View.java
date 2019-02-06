@@ -112,11 +112,9 @@ public class View implements ViewAPI{
     @Override
     public void createGamePane(){
         gamePane = new BorderPane();
-
-        class Tile extends StackPane {
-            private int row, col;
-
-        }
+        racetrackPane = new RacetrackPane(model.getRacetrack());
+        gamePane.getChildren().add(racetrackPane);
+        //gamePane.setCenter(racetrackPane);
     }
 
     @Override

@@ -1,39 +1,31 @@
 package controller;
 
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.Region;
+import javafx.event.Event;
+import javafx.event.EventHandler;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import model.ModelAPI;
-import view.GamePane;
-import view.OldView;
+import view.ViewAPI;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
-public class GameController implements Initializable {
+public class GameController implements EventHandler {
 
     private ModelAPI model;
-    private GamePane gamePane;
-    private OldView oldView;
-    private Scene scene;
-    @FXML private Region tileGrid;
-    @FXML private Button testButton;
+    private ViewAPI view;
+    private Stage primaryStage;
 
-    public GameController(ModelAPI model, GamePane gamePane, OldView oldView){
+    public GameController(ModelAPI model, ViewAPI view, Stage primaryStage){
         this.model = model;
-        this.gamePane = gamePane;
-        this.oldView = oldView;
-    }
+        this.view = view;
+        this.primaryStage = primaryStage;
 
-    public void setGridSize(String size, int tileSize){
-        gamePane.createGrid(size, tileSize);
+        view.setGameController(this);
     }
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        this.scene = oldView.getPrimaryStage().getScene();
-        //this.testButton = (Button) scene.lookup("#testButton");
+    public void handle(Event event) {
+        double x = ((MouseEvent)event).getX();
+        double y = ((MouseEvent)event).getY();
+        System.out.println(x);
+        System.out.println(y);
     }
 }

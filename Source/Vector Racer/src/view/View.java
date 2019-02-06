@@ -23,6 +23,9 @@ public class View implements ViewAPI{
     // Model Backend
     private ModelAPI model;
 
+    // Game Controller
+    private EventHandler gameController;
+
     // Primary Stage and Root Content Node
     private Stage primaryStage;
     private Parent root;
@@ -116,7 +119,8 @@ public class View implements ViewAPI{
         gamePane = new BorderPane();
         racetrackPane = new RacetrackPane(model.getRacetrack());
         gamePane.getChildren().add(racetrackPane);
-        //gamePane.setCenter(racetrackPane);
+        racetrackPane.addEventFilter(MouseEvent.MOUSE_CLICKED, gameController);
+
     }
 
     @Override
@@ -140,4 +144,13 @@ public class View implements ViewAPI{
         primaryStage.getScene().setRoot(pane);
     }
 
+    @Override
+    public Pane getRacetrackPane() {
+        return racetrackPane;
+    }
+
+    @Override
+    public void setGameController(EventHandler gameController){
+        this.gameController = gameController;
+    }
 }

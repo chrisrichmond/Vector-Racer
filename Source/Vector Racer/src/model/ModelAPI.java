@@ -19,7 +19,7 @@ public interface ModelAPI {
 
     void loadFile(File filename) throws FileNotFoundException;
 
-    void setRacetrackDimensions(int rows, int cols);
+    void createEmptyRacetrack(int rows, int cols);
 
     void addAirTile(int row, int col);
 

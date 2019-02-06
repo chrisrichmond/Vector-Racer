@@ -39,8 +39,8 @@ public interface RacetrackAPI {
 
     boolean addAirTile(Tile newTile);
 
-    boolean addSandTile(Tile newTile);
+    boolean addSandTile(SandTile newTile);
 
-    boolean addIceTile(Tile newTile);
+    boolean addIceTile(IceTile newTile);
 
 }

@@ -8,8 +8,8 @@ public class Racetrack implements RacetrackAPI{
 
     private List<Tile> tiles;
     private List<Tile> airTiles;
-    private List<Tile> sandTiles;
-    private List<Tile> iceTiles;
+    private List<SandTile> sandTiles;
+    private List<IceTile> iceTiles;
     private int rows;
     private int cols;
     private boolean fullyFilled; // ensures all tile positions have been filled
@@ -62,32 +62,27 @@ public class Racetrack implements RacetrackAPI{
         return success;
     }
 
-    /*
-    @Override
-    public boolean addTile(Tile newTile){       // todo check all this methods logic again if any problems are encountered
-        boolean success = true;
-
-        positionCheck:
-        for(int row = 0; row < rows; row++){
-            for(int col = 0; col < cols; col++){
-                if((tiles[row][col].getStartX() == newTile.getStartX())&&(tiles[row][col].getStartY() == newTile.getStartY())){
-                    success = false;
-                    break positionCheck;
-                }
-            }
-        }
-
-        if(success){
-            tiles[newTile.getStartY()][newTile.getStartX()] = newTile;
-        }
-
-        return success;
-    }
-    */
-
     @Override
     public boolean removeTile(Tile tile) {
-        return false;
+        boolean success = false;
+
+        if(tiles.contains(tile)){
+            tiles.remove(tile);
+            success = true;
+        }
+        if(airTiles.contains(tile)){
+            airTiles.remove(tile);
+        }
+        if(sandTiles.contains(tile)){
+            sandTiles.remove(tile);
+        }
+        if(iceTiles.contains(tile)){
+            iceTiles.remove(tile);
+        }
+        if(!success){
+            System.out.println("Couldn't find specified tile");
+        }
+        return success;
     }
 
     @Override
@@ -97,7 +92,10 @@ public class Racetrack implements RacetrackAPI{
 
     @Override
     public void clear() {
-
+        tiles.clear();
+        airTiles.clear();
+        sandTiles.clear();
+        iceTiles.clear();
     }
 
     @Override
@@ -110,7 +108,7 @@ public class Racetrack implements RacetrackAPI{
     }
 
     @Override
-    public boolean addSandTile(Tile newTile) {
+    public boolean addSandTile(SandTile newTile) {
         if(addTile(newTile)){
             sandTiles.add(newTile);
             return true;
@@ -119,7 +117,7 @@ public class Racetrack implements RacetrackAPI{
     }
 
     @Override
-    public boolean addIceTile(Tile newTile) {
+    public boolean addIceTile(IceTile newTile) {
         if(addTile(newTile)){
             iceTiles.add(newTile);
             return true;

@@ -79,7 +79,7 @@ public class VectorFileHandler {
                 // blank line/object, do nothing
             } else if (opcode.equals("dimensions")) {
                 // set dimensions of the racetrack in rows and columns
-                model.setRacetrackDimensions(Integer.parseInt(operands.get(0)), Integer.parseInt(operands.get(1)));
+                model.createEmptyRacetrack(Integer.parseInt(operands.get(0)), Integer.parseInt(operands.get(1)));
             } else if (opcode.equals("tile")) {
                 // abstract tile object
                 if(operands.get(0).equals("sand")) {

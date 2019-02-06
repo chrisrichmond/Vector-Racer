@@ -3,6 +3,7 @@ package utilities;
 import model.ModelAPI;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -22,7 +23,7 @@ public class VectorFileHandler {
      * Loads model objects from file into current model
      * @param filename
      */
-    public void loadFromFile(String filename){
+    public void loadFromFile(File filename){
         String currentLine = null;
         String opcode = null;
         List<String> operands = null;
@@ -51,7 +52,7 @@ public class VectorFileHandler {
      * Saves current model objects to file
      * @param filename the filename to save model objects to
      */
-    public void saveToFile(String filename){
+    public void saveToFile(String filename){    // todo String filename or File filename?
         String outputToFile;
 
 
@@ -93,7 +94,8 @@ public class VectorFileHandler {
                     model.addAirTile(Integer.parseInt(operands.get(1)), Integer.parseInt(operands.get(2)));
                 }else{
                     // assume "regular" air tile and add to model
-                    model.addAirTile(Integer.parseInt(operands.get(1)), Integer.parseInt(operands.get(2)));
+                    System.out.println(operands);
+                    model.addAirTile(Integer.parseInt(operands.get(0)), Integer.parseInt(operands.get(1)));
                 }
             } else {
                 // invalid opcode, do nothing

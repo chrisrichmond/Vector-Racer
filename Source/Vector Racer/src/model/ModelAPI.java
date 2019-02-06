@@ -7,7 +7,7 @@ import java.io.FileNotFoundException;
 
 public interface ModelAPI {
 
-    void gameSetup();
+    void setup();
 
     void start();
 

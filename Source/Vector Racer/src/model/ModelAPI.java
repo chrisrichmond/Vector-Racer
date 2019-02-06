@@ -19,6 +19,12 @@ public interface ModelAPI {
 
     void loadFile(File filename) throws FileNotFoundException;
 
-    
+    void setRacetrackDimensions(int rows, int cols);
+
+    void addTile(int row, int col);
+
+    void addSandTile(int row, int col);
+
+    void addIceTile(int row, int col);
 
 }

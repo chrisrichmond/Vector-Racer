@@ -55,7 +55,6 @@ public class View implements ViewAPI{
         // Views (Full Screen Content Panes)
         createMainMenuPane();
         createPlayMenuPane();
-        //createGamePane(); // can only be called once model has been populated with a racetrack
 
         // Create main scene with main menu as default root content, and show
         primaryStage.setScene(new Scene(mainMenuPane));

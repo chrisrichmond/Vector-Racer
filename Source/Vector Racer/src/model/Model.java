@@ -63,6 +63,26 @@ public class Model implements ModelAPI{
 
     @Override
     public void loadFile(File filename) throws FileNotFoundException {
+        clear();
+    }
+
+    @Override
+    public void setRacetrackDimensions(int rows, int cols) {
+
+    }
+
+    @Override
+    public void addTile(int row, int col) {
+
+    }
+
+    @Override
+    public void addSandTile(int row, int col) {
+
+    }
+
+    @Override
+    public void addIceTile(int row, int col) {
 
     }
 

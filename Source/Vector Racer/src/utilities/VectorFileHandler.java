@@ -74,20 +74,33 @@ public class VectorFileHandler {
             currentOperand = currentOperand.toLowerCase();  // todo unsure if this works?
         }
 
-        if(opcode.equals("blank")){
-            // blank line/object, do nothing
-        }else if(opcode.equals("tile")){
-            // tile object
-
-
-
-
-        }else{
-            // invalid opcode, do nothing
-            System.out.println("Unrecognised opcode");
-
-
-        }
+        try {
+            if (opcode.equals("blank")) {
+                // blank line/object, do nothing
+            } else if (opcode.equals("dimensions")) {
+                // set dimensions of the racetrack in rows and columns
+                model.setRacetrackDimensions(Integer.parseInt(operands.get(0)), Integer.parseInt(operands.get(1)));
+            } else if (opcode.equals("tile")) {
+                // abstract tile object
+                if(operands.get(0).equals("sand")) {
+                    // add sand tile to model
+                    model.addSandTile(Integer.parseInt(operands.get(1)), Integer.parseInt(operands.get(2)));
+                }else if(operands.get(0).equals("ice")) {
+                    // add ice tile to model
+                    model.addSandTile(Integer.parseInt(operands.get(1)), Integer.parseInt(operands.get(2)));
+                }else{
+                    // add "regular" tile to model
+                    model.addTile(Integer.parseInt(operands.get(1)), Integer.parseInt(operands.get(2)));
+                }
+            } else {
+                // invalid opcode, do nothing
+                System.out.println("Unrecognised opcode");
+            }
+        }catch(NullPointerException ex){
+        System.out.println("NullPointerException setting racetrack dimensions from file");
+        System.out.println("Operand(s) may be missing");
+        ex.printStackTrace();
+    }
 
     }
 

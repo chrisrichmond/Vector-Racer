@@ -40,11 +40,17 @@ public class Racetrack implements RacetrackAPI{
 
     @Override
     public boolean addTile(Tile newTile){
+        if( (newTile.getStartX()<0) || (newTile.getStartX()>=cols) || (newTile.getStartY()<0) || (newTile.getStartY()>=rows)){
+            System.out.println("Tile to be added was outside Racetrack dimensions");
+            return false;
+        }
+
         boolean success = true;
 
         positionCheck:
         for (Tile currentTile: tiles) {
             if( (newTile.getStartX() == currentTile.getStartX()) && (newTile.getStartY() == currentTile.getStartY()) ){
+                System.out.println("Tile already exists");
                 success = false;
                 break positionCheck;
             }
@@ -53,6 +59,7 @@ public class Racetrack implements RacetrackAPI{
         if(success){
             tiles.add(newTile);
         }
+        return success;
     }
 
     /*
@@ -91,6 +98,33 @@ public class Racetrack implements RacetrackAPI{
     @Override
     public void clear() {
 
+    }
+
+    @Override
+    public boolean addAirTile(Tile newTile) {
+        if(addTile(newTile)){
+            airTiles.add(newTile);
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean addSandTile(Tile newTile) {
+        if(addTile(newTile)){
+            sandTiles.add(newTile);
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean addIceTile(Tile newTile) {
+        if(addTile(newTile)){
+            iceTiles.add(newTile);
+            return true;
+        }
+        return false;
     }
 
     @Override

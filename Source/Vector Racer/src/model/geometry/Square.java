@@ -14,6 +14,7 @@ public class Square {
         this.start = start;
         this.end = new Point(start.getX()+1, start.getY()+1);       //todo need to check which way axes go etc, all this kind of shit might not work properly in JavaFX, used to Swing directions
 
+        corners = new ArrayList<>();
         corners.add(start);
         corners.add(new Point(start.getX()+1, start.getY()));
         corners.add(new Point(start.getX(), start.getY()+1));
@@ -24,6 +25,7 @@ public class Square {
         this.start = new Point(startX, startY);
         this.end = new Point(startX+1, startY+1);
 
+        corners = new ArrayList<>();
         corners.add(start);
         corners.add(new Point(start.getX()+1, start.getY()));
         corners.add(new Point(start.getX(), start.getY()+1));

@@ -75,6 +75,9 @@ public class VectorFileHandler {
             currentOperand = currentOperand.toLowerCase();  // todo unsure if this works?
         }
 
+        System.out.println("opcode: "+ opcode.toString());
+        System.out.println("operands: "+ operands.toString());
+
         try {
             if (opcode.equals("blank")) {
                 // blank line/object, do nothing
@@ -94,7 +97,6 @@ public class VectorFileHandler {
                     model.addAirTile(Integer.parseInt(operands.get(1)), Integer.parseInt(operands.get(2)));
                 }else{
                     // assume "regular" air tile and add to model
-                    System.out.println(operands);
                     model.addAirTile(Integer.parseInt(operands.get(0)), Integer.parseInt(operands.get(1)));
                 }
             } else {
@@ -102,8 +104,8 @@ public class VectorFileHandler {
                 System.out.println("Unrecognised opcode");
             }
         }catch(NullPointerException ex){
-        System.out.println("NullPointerException setting racetrack dimensions from file");
-        System.out.println("Operand(s) may be missing");
+        System.out.println("NullPointerException loading object into model from file");
+        System.out.println("Opcode/Operand(s) may be missing");
         ex.printStackTrace();
     }
 

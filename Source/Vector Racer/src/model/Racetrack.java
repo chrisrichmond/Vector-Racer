@@ -2,6 +2,7 @@ package model;
 
 import utilities.VectorConstants;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Racetrack implements RacetrackAPI{
@@ -14,26 +15,11 @@ public class Racetrack implements RacetrackAPI{
     private int cols;
     private boolean fullyFilled; // ensures all tile positions have been filled
 
-    /*
-    public Racetrack(String size) {
-
-        switch(size){
-            case("small"):
-                tiles = new Tile[VectorConstants.SMALL_ROWS][VectorConstants.SMALL_COLS];
-                break;
-            case("medium"):
-                tiles = new Tile[VectorConstants.MEDIUM_ROWS][VectorConstants.MEDIUM_COLS];
-                break;
-            case("large"):
-                tiles = new Tile[VectorConstants.LARGE_ROWS][VectorConstants.LARGE_COLS];
-                break;
-                default:
-
-        }
-    }
-    */
-
     public Racetrack(int rows, int cols){
+        tiles = new ArrayList<>();
+        airTiles = new ArrayList<>();
+        sandTiles = new ArrayList<>();
+        iceTiles = new ArrayList<>();
         this.rows = rows;
         this.cols = cols;
     }

@@ -21,8 +21,10 @@ public class Model implements ModelAPI{
         history = new ArrayList<>();
     }
 
-    public void setup(){
-
+    public void setup(File filename) throws FileNotFoundException{
+        loadFile(filename);
+        // get players
+        // start() ???
     }
 
     public void start(){

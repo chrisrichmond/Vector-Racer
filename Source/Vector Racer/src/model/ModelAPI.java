@@ -27,4 +27,6 @@ public interface ModelAPI {
 
     void addIceTile(int row, int col);
 
+    void addWallTile(int row, int col);
+
 }

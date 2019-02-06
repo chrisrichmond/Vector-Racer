@@ -11,6 +11,7 @@ public class Racetrack implements RacetrackAPI{
     private List<Tile> airTiles;
     private List<SandTile> sandTiles;
     private List<IceTile> iceTiles;
+    private List<WallTile> wallTiles;
     private int rows;
     private int cols;
     private boolean fullyFilled; // ensures all tile positions have been filled
@@ -20,6 +21,7 @@ public class Racetrack implements RacetrackAPI{
         airTiles = new ArrayList<>();
         sandTiles = new ArrayList<>();
         iceTiles = new ArrayList<>();
+        wallTiles = new ArrayList<>();
         this.rows = rows;
         this.cols = cols;
     }
@@ -65,6 +67,9 @@ public class Racetrack implements RacetrackAPI{
         if(iceTiles.contains(tile)){
             iceTiles.remove(tile);
         }
+        if(wallTiles.contains(tile)){
+            wallTiles.remove(tile);
+        }
         if(!success){
             System.out.println("Couldn't find specified tile");
         }
@@ -82,6 +87,7 @@ public class Racetrack implements RacetrackAPI{
         airTiles.clear();
         sandTiles.clear();
         iceTiles.clear();
+        wallTiles.clear();
     }
 
     @Override
@@ -106,6 +112,15 @@ public class Racetrack implements RacetrackAPI{
     public boolean addIceTile(IceTile newTile) {
         if(addTile(newTile)){
             iceTiles.add(newTile);
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean addWallTile(WallTile newTile) {
+        if(addTile(newTile)){
+            wallTiles.add(newTile);
             return true;
         }
         return false;

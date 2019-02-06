@@ -1,5 +1,6 @@
 package model;
 
+import javafx.scene.paint.Color;
 import model.geometry.Square;
 
 public abstract class Tile extends Square implements Terrain {
@@ -8,6 +9,7 @@ public abstract class Tile extends Square implements Terrain {
     private float resistance;
     private float slide;
     private float chaos;
+    private Color color;
 
     public Tile(int startX, int startY, boolean traversable, float resistance, float slide, float chaos){
         super(startX, startY);
@@ -45,5 +47,11 @@ public abstract class Tile extends Square implements Terrain {
         return chaos;
     }
 
+    public void setColor(Color color){
+        this.color = color;
+    }
 
+    public Color getColor() {
+        return color;
+    }
 }

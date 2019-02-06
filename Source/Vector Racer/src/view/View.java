@@ -57,6 +57,8 @@ public class View implements ViewAPI{
         createPlayMenuPane();
 
         // Create main scene with main menu as default root content, and show
+        primaryStage.setMaximized(true);
+        primaryStage.resizableProperty().setValue(Boolean.FALSE);
         primaryStage.setScene(new Scene(mainMenuPane));
         primaryStage.show();
 

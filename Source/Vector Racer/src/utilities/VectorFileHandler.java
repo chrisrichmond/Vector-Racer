@@ -83,7 +83,11 @@ public class VectorFileHandler {
                 // blank line/object, do nothing
             } else if (opcode.equals("dimensions")) {
                 // set dimensions of the racetrack in rows and columns
-                model.createEmptyRacetrack(Integer.parseInt(operands.get(0)), Integer.parseInt(operands.get(1)));
+                System.out.println("Max rows: "+VectorConstants.MAX_ROWS);
+                System.out.println("Max cols: "+VectorConstants.MAX_COLS);
+                if((Integer.parseInt(operands.get(0))<VectorConstants.MAX_ROWS) && (Integer.parseInt(operands.get(1))<VectorConstants.MAX_COLS)) {
+                    model.createEmptyRacetrack(Integer.parseInt(operands.get(0)), Integer.parseInt(operands.get(1)));
+                }
             } else if (opcode.equals("tile")) {
                 // abstract tile object
                 if(operands.get(0).equals("sand")) {
@@ -91,10 +95,13 @@ public class VectorFileHandler {
                     model.addSandTile(Integer.parseInt(operands.get(1)), Integer.parseInt(operands.get(2)));
                 }else if(operands.get(0).equals("ice")) {
                     // add ice tile to model
-                    model.addSandTile(Integer.parseInt(operands.get(1)), Integer.parseInt(operands.get(2)));
-                }else if(operands.get(0).equals("air")){
+                    model.addIceTile(Integer.parseInt(operands.get(1)), Integer.parseInt(operands.get(2)));
+                }else if(operands.get(0).equals("air")) {
                     // add "regular" air tile to model
                     model.addAirTile(Integer.parseInt(operands.get(1)), Integer.parseInt(operands.get(2)));
+                }else if(operands.get(0).equals("wall")) {
+                    // add wall tile to model
+                    model.addWallTile(Integer.parseInt(operands.get(1)), Integer.parseInt(operands.get(2)));
                 }else{
                     // assume "regular" air tile and add to model
                     model.addAirTile(Integer.parseInt(operands.get(0)), Integer.parseInt(operands.get(1)));

@@ -32,7 +32,7 @@ public class RacetrackPane extends Pane {
         getChildren().add(trackBorder);
 
         for (Tile currentTile: racetrack.getTiles()){
-            TileView currentTileView = new TileView(currentTile.getStartY(), currentTile.getStartX());
+            TileView currentTileView = new TileView(currentTile.getStartY(), currentTile.getStartX(), currentTile.getColor());
             tileViews.add(currentTileView);
             getChildren().add(currentTileView);
         }
@@ -47,12 +47,13 @@ public class RacetrackPane extends Pane {
 
         private Rectangle tileBorder;
 
-        public TileView(int row, int col){
+        public TileView(int row, int col, Color color){
             this.row = row;
             this.col = col;
             this.tileBorder = new Rectangle(tileSize, tileSize);
 
-            tileBorder.setStroke(Color.LIGHTGRAY); // todo look into css or other global styling
+            tileBorder.setStroke(Color.BLACK); // todo look into css or other global styling
+            tileBorder.setFill(color);
 
             getChildren().add(tileBorder);
 

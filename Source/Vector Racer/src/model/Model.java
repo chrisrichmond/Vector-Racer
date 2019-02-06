@@ -73,4 +73,11 @@ public class Model implements ModelAPI{
         }
     }
 
+    @Override
+    public void addWallTile(int row, int col) {
+        if(racetrack.addWallTile(new WallTile(col, row))){
+            System.out.println("Successfully added new wall tile to model at row "+row+", col "+col);
+        }
+    }
+
 }

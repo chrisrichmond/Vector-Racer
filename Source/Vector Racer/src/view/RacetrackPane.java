@@ -4,6 +4,7 @@ import javafx.geometry.Rectangle2D;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Ellipse;
 import javafx.scene.shape.Rectangle;
 import model.RacetrackAPI;
 import model.Tile;
@@ -37,7 +38,34 @@ public class RacetrackPane extends Pane {
             getChildren().add(currentTileView);
         }
 
+        CircleSelector test = new CircleSelector(1, 1, Color.GREEN);
+        CircleSelector test2 = new CircleSelector(1, 2, Color.GREEN);
+        CircleSelector test3 = new CircleSelector(2, 2, Color.GREEN);
+        getChildren().addAll(test,test2,test3);
 
+
+    }
+
+    private class CircleSelector extends StackPane {
+
+        private int row;
+        private int col;
+
+        private Ellipse circle;
+
+        public CircleSelector(int row, int col, Color color){
+            this.row = row;
+            this.col = col;
+            this.circle = new Ellipse((tileSize/2), (tileSize/2));
+
+            circle.setStroke(color);
+            circle.setFill(null);
+
+            getChildren().add(circle);
+
+            setTranslateX((col * tileSize)-(tileSize/2));
+            setTranslateY((row * tileSize)-(tileSize/2));
+        }
     }
 
     private class TileView extends StackPane {
@@ -45,17 +73,17 @@ public class RacetrackPane extends Pane {
         private int row;
         private int col;
 
-        private Rectangle tileBorder;
+        private Rectangle tile;
 
         public TileView(int row, int col, Color color){
             this.row = row;
             this.col = col;
-            this.tileBorder = new Rectangle(tileSize, tileSize);
+            this.tile = new Rectangle(tileSize, tileSize);
 
-            tileBorder.setStroke(Color.BLACK); // todo look into css or other global styling
-            tileBorder.setFill(color);
+            tile.setStroke(Color.BLACK); // todo look into css or other global styling
+            tile.setFill(color);
 
-            getChildren().add(tileBorder);
+            getChildren().add(tile);
 
             setTranslateX(col * tileSize);
             setTranslateY(row * tileSize);

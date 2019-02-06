@@ -2,11 +2,11 @@ package model;
 
 import utilities.VectorConstants;
 
-public class Racetrack {
+public class Racetrack implements RacetrackAPI{
 
     private Tile[][] tiles;
-    private int rowSize;
-    private int colSize;
+    private int rows;
+    private int cols;
     private boolean fullyFilled; // ensures all tile positions have been filled
 
     public Racetrack(String size) {
@@ -26,12 +26,20 @@ public class Racetrack {
         }
     }
 
+    public Racetrack(int rows, int cols){
+        this.rows = rows;
+        this.cols = cols;
+
+        tiles = new Tile[rows][cols];
+    }
+
+    @Override
     public boolean addTile(Tile newTile){       // todo check all this methods logic again if any problems are encountered
         boolean success = true;
 
         positionCheck:
-        for(int row = 0; row < rowSize; row++){
-            for(int col = 0; col < colSize; col++){
+        for(int row = 0; row < rows; row++){
+            for(int col = 0; col < cols; col++){
                 if((tiles[row][col].getStartX() == newTile.getStartX())&&(tiles[row][col].getStartY() == newTile.getStartY())){
                     success = false;
                     break positionCheck;
@@ -46,6 +54,17 @@ public class Racetrack {
         return success;
     }
 
+    @Override
+    public boolean removeTile(Tile tile) {
+        return false;
+    }
+
+    @Override
+    public boolean removeTile(int row, int col) {
+        return false;
+    }
+
+    @Override
     public Tile[][] getTiles() {
         return tiles;
     }

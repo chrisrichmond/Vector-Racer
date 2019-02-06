@@ -10,4 +10,8 @@ public interface RacetrackAPI {
 
     public boolean addTile(Tile newTile);
 
+    public boolean removeTile(Tile tile);
+
+    public boolean removeTile(int row, int col);
+
 }

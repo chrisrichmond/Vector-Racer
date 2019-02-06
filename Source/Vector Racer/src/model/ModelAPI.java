@@ -7,7 +7,7 @@ import java.io.FileNotFoundException;
 
 public interface ModelAPI {
 
-    void setup();
+    void setup(File filename, boolean isPvp, String player1name, String player2name) throws FileNotFoundException;
 
     void start();
 

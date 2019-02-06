@@ -1,5 +1,6 @@
 package model;
 
+import model.geometry.Point;
 import utilities.VectorConstants;
 
 import java.util.ArrayList;
@@ -134,6 +135,11 @@ public class Racetrack implements RacetrackAPI{
     @Override
     public int getCols() {
         return cols;
+    }
+
+    @Override
+    public Point getStartPosition() {
+        return null;
     }
 
     @Override

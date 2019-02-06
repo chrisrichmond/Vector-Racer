@@ -6,7 +6,9 @@ import utilities.VectorFileHandler;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 public class Model implements ModelAPI{
 
@@ -21,12 +23,22 @@ public class Model implements ModelAPI{
         history = new ArrayList<>();
     }
 
-    public void setup(File filename) throws FileNotFoundException{
+    @Override
+    public void setup(File filename, boolean isPvp, String player1name, String player2name) throws FileNotFoundException{
         loadFile(filename);
-        // get players
-        // start() ???
+
+        // todo AI diversion here ??
+
+        Queue<HumanPlayer> players = new LinkedList<HumanPlayer>();
+        players.add(new HumanPlayer(player1name, new Racer(racetrack.getStartPosition())));
+        players.add(new HumanPlayer(player2name, new Racer(racetrack.getStartPosition())));
+
+        currentState = new State(players, racetrack); // todo ?????
+
+
     }
 
+    @Override
     public void start(){
         // TODO -- CALL THIS EXTERNALLY (MAIN CLASS?) AFTER MODEL OBJECT HAS BEEN CREATED AND ALL MVC INTERFACING CONNECTIONS HAVE BEEN MADE
 

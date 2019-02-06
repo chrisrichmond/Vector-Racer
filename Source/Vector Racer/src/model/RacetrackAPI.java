@@ -1,5 +1,7 @@
 package model;
 
+import model.geometry.Point;
+
 import java.util.List;
 
 public interface RacetrackAPI {
@@ -48,5 +50,7 @@ public interface RacetrackAPI {
     int getRows();
 
     int getCols();
+
+    Point getStartPosition();
 
 }

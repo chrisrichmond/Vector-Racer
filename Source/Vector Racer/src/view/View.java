@@ -98,13 +98,15 @@ public class View implements ViewAPI{
         playMenuPane = new GridPane();
 
         Button pvpButton = new Button("Player vs Player");
+
         pvpButton.setOnAction(e -> {
             fileChooser.setTitle("Choose a Racetrack to load");
             File selectedFile = fileChooser.showOpenDialog(primaryStage);
             try{
-                model.loadFile(selectedFile);
+                model.setup(selectedFile, true, "player1", "player2");
                 createGamePane();
                 changeRootContent(gamePane);
+                model.start();
             }catch(FileNotFoundException ex){
                 System.out.println("file not found");
                 ex.printStackTrace();

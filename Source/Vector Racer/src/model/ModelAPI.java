@@ -2,17 +2,22 @@ package model;
 
 import javafx.beans.property.ObjectProperty;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+
 public interface ModelAPI {
 
-    public void gameSetup();
+    void gameSetup();
 
-    public void start();
+    void start();
 
     //public ObjectProperty<RacetrackAPI> racetrackProperty();
 
-    public RacetrackAPI getRacetrack();
+    RacetrackAPI getRacetrack();
 
-    public State getCurrentState();
+    State getCurrentState();
+
+    void loadFile(File filename) throws FileNotFoundException;
 
     
 

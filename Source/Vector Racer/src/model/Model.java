@@ -2,6 +2,8 @@ package model;
 
 import javafx.beans.property.ObjectProperty;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -57,6 +59,11 @@ public class Model implements ModelAPI{
     @Override
     public State getCurrentState() {
         return null;
+    }
+
+    @Override
+    public void loadFile(File filename) throws FileNotFoundException {
+
     }
 
 }

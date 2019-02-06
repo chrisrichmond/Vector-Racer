@@ -9,13 +9,16 @@ import javafx.scene.layout.*;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import model.ModelAPI;
+import utilities.VectorConstants;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 
 public class View implements ViewAPI{
 
-    // FileChooser
+    // File Handling
     private FileChooser fileChooser;
+    private File vrDir;
 
     // Model Backend
     private ModelAPI model;
@@ -34,9 +37,11 @@ public class View implements ViewAPI{
 
     public View(ModelAPI model, Stage primaryStage){
 
-        // FileChooser
+        // File Handling
         fileChooser = new FileChooser();
-        fileChooser.setInitialDirectory();
+        vrDir = new File(VectorConstants.VR_PATH);
+        if(!vrDir.exists()) { vrDir.mkdir(); }
+        fileChooser.setInitialDirectory(vrDir);
 
         // Model Backend
         this.model = model;
@@ -64,10 +69,10 @@ public class View implements ViewAPI{
         mainMenuPane = new GridPane();
 
         Button playButton = new Button("Play");
-        playButton.setOnAction(e -> changeRootContent(playMenuPane));
         Button testButton = new Button("test");
-        testButton.setOnAction(e -> System.out.println("TEST BUTTON CLICK"));
         Button quitButton = new Button("Quit");
+        playButton.setOnAction(e -> changeRootContent(playMenuPane));
+        testButton.setOnAction(e -> System.out.println("TEST BUTTON CLICK"));
         quitButton.setOnAction(e -> primaryStage.close());
 
         GridPane.setConstraints(playButton, 1,1);
@@ -90,7 +95,16 @@ public class View implements ViewAPI{
 
         Button pvpButton = new Button("Player vs Player");
         pvpButton.setOnAction(e -> {
+            fileChooser.setTitle("Choose a Racetrack to load");
             File selectedFile = fileChooser.showOpenDialog(primaryStage);
+            try{
+                model.loadFile(selectedFile);
+                createGamePane();
+                changeRootContent(gamePane);
+            }catch(FileNotFoundException ex){
+                System.out.println("file not found");
+                ex.printStackTrace();
+            }
         });
 
         playMenuPane.getChildren().addAll(pvpButton);
@@ -126,4 +140,5 @@ public class View implements ViewAPI{
         System.out.println("Changing root content pane to: "+pane);
         primaryStage.getScene().setRoot(pane);
     }
+
 }

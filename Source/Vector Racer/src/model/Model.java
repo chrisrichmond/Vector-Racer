@@ -63,7 +63,7 @@ public class Model implements ModelAPI{
 
     @Override
     public void loadFile(File filename) throws FileNotFoundException {
-        clear();
+        // currentRacetrack.clear();
     }
 
     @Override
@@ -72,7 +72,7 @@ public class Model implements ModelAPI{
     }
 
     @Override
-    public void addTile(int row, int col) {
+    public void addAirTile(int row, int col) {
 
     }
 

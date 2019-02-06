@@ -88,9 +88,12 @@ public class VectorFileHandler {
                 }else if(operands.get(0).equals("ice")) {
                     // add ice tile to model
                     model.addSandTile(Integer.parseInt(operands.get(1)), Integer.parseInt(operands.get(2)));
+                }else if(operands.get(0).equals("air")){
+                    // add "regular" air tile to model
+                    model.addAirTile(Integer.parseInt(operands.get(1)), Integer.parseInt(operands.get(2)));
                 }else{
-                    // add "regular" tile to model
-                    model.addTile(Integer.parseInt(operands.get(1)), Integer.parseInt(operands.get(2)));
+                    // assume "regular" air tile and add to model
+                    model.addAirTile(Integer.parseInt(operands.get(1)), Integer.parseInt(operands.get(2)));
                 }
             } else {
                 // invalid opcode, do nothing

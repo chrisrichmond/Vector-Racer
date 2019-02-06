@@ -21,7 +21,7 @@ public interface ModelAPI {
 
     void setRacetrackDimensions(int rows, int cols);
 
-    void addTile(int row, int col);
+    void addAirTile(int row, int col);
 
     void addSandTile(int row, int col);
 

@@ -2,13 +2,19 @@ package model;
 
 import utilities.VectorConstants;
 
+import java.util.List;
+
 public class Racetrack implements RacetrackAPI{
 
-    private Tile[][] tiles;
+    private List<Tile> tiles;
+    private List<Tile> airTiles;
+    private List<Tile> sandTiles;
+    private List<Tile> iceTiles;
     private int rows;
     private int cols;
     private boolean fullyFilled; // ensures all tile positions have been filled
 
+    /*
     public Racetrack(String size) {
 
         switch(size){
@@ -25,14 +31,31 @@ public class Racetrack implements RacetrackAPI{
 
         }
     }
+    */
 
     public Racetrack(int rows, int cols){
         this.rows = rows;
         this.cols = cols;
-
-        tiles = new Tile[rows][cols];
     }
 
+    @Override
+    public boolean addTile(Tile newTile){
+        boolean success = true;
+
+        positionCheck:
+        for (Tile currentTile: tiles) {
+            if( (newTile.getStartX() == currentTile.getStartX()) && (newTile.getStartY() == currentTile.getStartY()) ){
+                success = false;
+                break positionCheck;
+            }
+        }
+
+        if(success){
+            tiles.add(newTile);
+        }
+    }
+
+    /*
     @Override
     public boolean addTile(Tile newTile){       // todo check all this methods logic again if any problems are encountered
         boolean success = true;
@@ -53,6 +76,7 @@ public class Racetrack implements RacetrackAPI{
 
         return success;
     }
+    */
 
     @Override
     public boolean removeTile(Tile tile) {
@@ -65,7 +89,12 @@ public class Racetrack implements RacetrackAPI{
     }
 
     @Override
-    public Tile[][] getTiles() {
+    public void clear() {
+
+    }
+
+    @Override
+    public List<Tile> getTiles() {
         return tiles;
     }
 }

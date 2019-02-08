@@ -13,11 +13,13 @@ public class State {
     private Queue<Player> players; // all players currently existing in this State
     private RacetrackAPI racetrack; // the racetrack existing in this State
     private List<State> nextStates;
+    private int stateNumber;
 
-    public State(Queue<Player> players, RacetrackAPI racetrack){
+    public State(Queue<Player> players, RacetrackAPI racetrack, int stateNumber){
         this.currentPlayer = players.peek();
         this.players = players;
         this.racetrack = racetrack;
+        this.stateNumber = stateNumber;
 
     }
 
@@ -27,7 +29,7 @@ public class State {
             // return new State with currentPlayer changed to the next in the list
             players.poll();
             players.add(currentPlayer);
-            return new State(players, racetrack);
+            return new State(players, racetrack, stateNumber+1);
         }else{
             System.out.println("Illegal move!");
             return this;
@@ -41,7 +43,7 @@ public class State {
         Queue<Player> tempPlayers = players;
         tempPlayers.poll();
         tempPlayers.add(currentPlayer);
-        State nextStateAttempt = new State(tempPlayers, racetrack);
+        State nextStateAttempt = new State(tempPlayers, racetrack, stateNumber+1);
 
         for(State state: getNextLegalStates()){
             if(nextStateAttempt.equals(state)){
@@ -72,5 +74,9 @@ public class State {
 
     public RacetrackAPI getRacetrack() {
         return racetrack;
+    }
+
+    public Queue<Player> getPlayers(){
+        return players;
     }
 }

@@ -30,14 +30,13 @@ public class Model implements ModelAPI{
         players.add(new HumanPlayer(player1name, new Racer(racetrack.getStartPosition())));
         players.add(new HumanPlayer(player2name, new Racer(racetrack.getStartPosition())));
 
-        currentState = new State(players, racetrack);
-
-
+        currentState = new State(players, racetrack, 0);
     }
 
     @Override
     public void start(){
         // TODO -- CALL THIS EXTERNALLY (MAIN CLASS?) AFTER MODEL OBJECT HAS BEEN CREATED AND ALL MVC INTERFACING CONNECTIONS HAVE BEEN MADE
+
 
     }
 

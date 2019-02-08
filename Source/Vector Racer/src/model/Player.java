@@ -1,5 +1,6 @@
 package model;
 
+import javafx.scene.paint.Color;
 import model.geometry.Point;
 import model.geometry.Vect;
 
@@ -11,6 +12,7 @@ public abstract class Player {
     protected String name;
     protected RacerAPI racer;
     protected boolean finished;
+    protected Color color;
 
     public Player(String name, RacerAPI racer) {
         this.name = name;
@@ -49,6 +51,10 @@ public abstract class Player {
 
     public void finish(){
         finished = true;
+    }
+
+    public Color getColor(){
+        return color;
     }
 
 }

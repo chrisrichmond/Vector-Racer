@@ -6,6 +6,8 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Ellipse;
 import javafx.scene.shape.Rectangle;
+import model.Player;
+import model.RacerAPI;
 import model.RacetrackAPI;
 import model.Tile;
 import utilities.VectorConstants;
@@ -48,17 +50,26 @@ public class RacetrackPane extends Pane {
 
     }
 
-    private void clearRacersFromTrack(){
+    public void drawRacerViews(List<Player> players){
+        clearRacerViewsFromTrack();
+
+        for(Player currentPlayer: players){
+            RacerAPI currentRacer = currentPlayer.getRacer();
+            int row = currentRacer.getPosition().getY();
+            int col = currentRacer.getPosition().getX();
+            Color color = currentPlayer.getColor();
+            racerViews.add(new RacerView(row, col, color, null, 1));
+        }
+        getChildren().addAll(racerViews);
+    }
+
+    private void clearRacerViewsFromTrack(){
         System.out.println("clearing racerViews");
         for(Node currentChild: getChildren()){
             if(currentChild instanceof RacerView){
                 getChildren().remove(currentChild);
             }
         }
-    }
-
-    private void clearRacerViews(){
-        clearRacersFromTrack();
         racerViews.clear();
     }
 

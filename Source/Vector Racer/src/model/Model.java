@@ -1,6 +1,8 @@
 package model;
 
 import javafx.beans.property.ObjectProperty;
+import model.geometry.Point;
+import utilities.Observer;
 import utilities.VectorFileHandler;
 
 import java.io.File;
@@ -10,6 +12,7 @@ import java.util.*;
 public class Model implements ModelAPI{
 
     private VectorFileHandler fileHandler;
+    private List<Observer> observers;
     private boolean changed;
     private Stack<State> history;
     private State currentState;
@@ -109,7 +112,40 @@ public class Model implements ModelAPI{
 
     @Override
     public void gridPointInput(double row, double col) {
-        currentState.getCurrentPlayer().getPossibleNextPoints()
+
+        for(Point currentPoint: currentState.getCurrentPlayer().getPossibleNextPoints()){
+            double rowLow = currentPoint.getY() - 0.5;
+            double rowHigh = currentPoint.getY() + 0.5;
+            double colLow = currentPoint.getX() - 0.5;
+            double colHigh = currentPoint.getX() + 0.5;
+
+            if( (row >= rowLow) && (row <= rowHigh) && (col >= colLow) && (col <= colHigh) ){
+                history.push(currentState);
+                currentState = currentState.makeMove(new Move(currentState.getCurrentPlayer(), new Point((int)row, (int)col)));
+            }
+        }
     }
 
+    @Override
+    public void attach(Observer o) {
+        observers.add(o);
+    }
+
+    @Override
+    public void detach(Observer o) {
+        observers.remove(o);
+    }
+
+    @Override
+    public void setChanged() {
+        changed = true;
+    }
+
+    @Override
+    public void notifyObservers() {
+        for(Observer o: observers){
+            o.update();
+        }
+        changed = false;
+    }
 }

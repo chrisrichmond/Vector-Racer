@@ -1,11 +1,12 @@
 package model;
 
-import javafx.beans.property.ObjectProperty;
+
+import utilities.Observable;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 
-public interface ModelAPI {
+public interface ModelAPI extends Observable {
 
     void setup(File filename, boolean isPvp, String player1name, String player2name) throws FileNotFoundException;
 

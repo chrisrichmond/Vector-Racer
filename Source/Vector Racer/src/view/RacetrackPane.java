@@ -11,6 +11,7 @@ import model.Player;
 import model.RacerAPI;
 import model.RacetrackAPI;
 import model.Tile;
+import utilities.Observer;
 import utilities.VectorConstants;
 
 import java.util.ArrayList;
@@ -55,10 +56,6 @@ public class RacetrackPane extends Pane {
 
         getChildren().addAll(test,test2,test3, test4);
 
-
-    }
-
-    public void update(){
 
     }
 

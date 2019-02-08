@@ -14,6 +14,7 @@ import utilities.VectorConstants;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.List;
 
 public class View implements ViewAPI{
 
@@ -156,5 +157,11 @@ public class View implements ViewAPI{
     @Override
     public void setGameController(EventHandler gameController){
         this.gameController = gameController;
+    }
+
+    @Override
+    public void update() {
+        racetrackPane.drawRacerSprites((List) model.getCurrentState().getPlayers());
+        racetrackPane.drawNextPossiblePositions(model.getCurrentState().getCurrentPlayer());
     }
 }

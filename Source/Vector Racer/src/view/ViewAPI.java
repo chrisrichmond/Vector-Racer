@@ -4,8 +4,9 @@ import javafx.event.EventHandler;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import utilities.Observer;
 
-public interface ViewAPI {
+public interface ViewAPI extends Observer {
 
     void createMainMenuPane();
 

@@ -150,7 +150,7 @@ public class RacetrackPane extends Pane {
             this.col = col;
             this.tile = new Rectangle(tileSize, tileSize);
 
-            tile.setStroke(Color.BLACK); // todo look into css or other global styling
+            tile.setStroke(VectorConstants.GRIDLINE_COLOR); // todo look into css or other global styling
             tile.setFill(color);
 
             getChildren().add(tile);

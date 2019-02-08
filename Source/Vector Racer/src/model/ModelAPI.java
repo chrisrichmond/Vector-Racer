@@ -29,4 +29,6 @@ public interface ModelAPI {
 
     void addWallTile(int row, int col);
 
+    void fillRemainderWith(String tileType);
+
 }

@@ -1,11 +1,11 @@
 package model;
 
-import javafx.scene.paint.Color;
+import utilities.VectorConstants;
 
 public class AirTile extends Tile {
 
     public AirTile(int startX, int startY) {
         super(startX, startY, true, 0.0f, 0.0f, 0.0f);
-        setColor(Color.TRANSPARENT);
+        setColor(VectorConstants.AIR_COLOR);
     }
 }

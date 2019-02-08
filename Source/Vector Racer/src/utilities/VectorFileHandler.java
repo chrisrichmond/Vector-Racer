@@ -83,11 +83,13 @@ public class VectorFileHandler {
                 // blank line/object, do nothing
             } else if (opcode.equals("dimensions")) {
                 // set dimensions of the racetrack in rows and columns
-                System.out.println("Max rows: "+VectorConstants.MAX_ROWS);
-                System.out.println("Max cols: "+VectorConstants.MAX_COLS);
-                if((Integer.parseInt(operands.get(0))<VectorConstants.MAX_ROWS) && (Integer.parseInt(operands.get(1))<VectorConstants.MAX_COLS)) {
+                System.out.println("Max rows: " + VectorConstants.MAX_ROWS);
+                System.out.println("Max cols: " + VectorConstants.MAX_COLS);
+                if ((Integer.parseInt(operands.get(0)) < VectorConstants.MAX_ROWS) && (Integer.parseInt(operands.get(1)) < VectorConstants.MAX_COLS)) {
                     model.createEmptyRacetrack(Integer.parseInt(operands.get(0)), Integer.parseInt(operands.get(1)));
                 }
+            } else if (opcode.equals("fillremainder") || (opcode.equals("fr")) ) {
+                model.fillRemainderWith(operands.get(0));
             } else if (opcode.equals("tile")) {
                 // abstract tile object
                 if(operands.get(0).equals("sand")) {
@@ -101,6 +103,7 @@ public class VectorFileHandler {
                     model.addAirTile(Integer.parseInt(operands.get(1)), Integer.parseInt(operands.get(2)));
                 }else if(operands.get(0).equals("wall")) {
                     // add wall tile to model
+
                     model.addWallTile(Integer.parseInt(operands.get(1)), Integer.parseInt(operands.get(2)));
                 }else{
                     // assume "regular" air tile and add to model
@@ -111,10 +114,14 @@ public class VectorFileHandler {
                 System.out.println("Unrecognised opcode");
             }
         }catch(NullPointerException ex){
-        System.out.println("NullPointerException loading object into model from file");
-        System.out.println("Opcode/Operand(s) may be missing");
-        ex.printStackTrace();
-    }
+            System.out.println("NullPointerException loading object into model from file");
+            System.out.println("Opcode/Operand(s) may be missing");
+            ex.printStackTrace();
+        }catch(IndexOutOfBoundsException ex){
+            System.out.println("IndexOutOfBoundsException loading object into model from file");
+            System.out.println("Likely that not enough operands were provided in file");
+            ex.printStackTrace();
+        }
 
     }
 

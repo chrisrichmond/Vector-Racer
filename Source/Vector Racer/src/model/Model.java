@@ -90,4 +90,21 @@ public class Model implements ModelAPI{
         }
     }
 
+    @Override
+    public void fillRemainderWith(String tileType) {
+        for(int row = 0; row < racetrack.getRows(); row++){
+            for(int col = 0; col < racetrack.getCols(); col++){
+                if(tileType.equals("air")){
+                    addAirTile(row, col);
+                }else if(tileType.equals("sand")){
+                    addSandTile(row, col);
+                }else if(tileType.equals("ice")){
+                    addIceTile(row, col);
+                }else if(tileType.equals("wall")){
+                    addWallTile(row, col);
+                }
+            }
+        }
+    }
+
 }

@@ -26,11 +26,11 @@ public class Model implements ModelAPI{
 
         // todo AI diversion here ??
 
-        Queue<HumanPlayer> players = new LinkedList<HumanPlayer>();
+        Queue<Player> players = new LinkedList<Player>();
         players.add(new HumanPlayer(player1name, new Racer(racetrack.getStartPosition())));
         players.add(new HumanPlayer(player2name, new Racer(racetrack.getStartPosition())));
 
-        //currentState = new State(players, racetrack); // todo ?????
+        currentState = new State(players, racetrack);
 
 
     }

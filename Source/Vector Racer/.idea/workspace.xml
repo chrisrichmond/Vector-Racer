@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="added global colour constants and fillremainder feature for mass loading tiles of one type">
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="added drawing next possible move circle selectors">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Model.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/ModelAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ModelAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/State.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/State.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utilities/VectorConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilities/VectorConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/RacetrackPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/RacetrackPane.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -95,8 +89,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/view/RacetrackPane.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="12">
-              <caret line="61" column="8" selection-start-line="61" selection-start-column="8" selection-end-line="61" selection-end-column="8" />
+            <state relative-caret-position="174">
+              <caret line="61" selection-start-line="61" selection-end-line="61" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -309,7 +303,7 @@
     <property name="OverrideImplement.combined" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549619146385" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549620461491" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/view/GamePane.java" />
     <property name="project.structure.last.edited" value="Project" />
@@ -523,13 +517,6 @@
       <workItem from="1547550229717" duration="3253000" />
       <workItem from="1547566384896" duration="3847000" />
       <workItem from="1549298180766" duration="13715000" />
-    </task>
-    <task id="LOCAL-00034" summary="basic fxml switching mechanism in place, primaryStage has one Scene and root is changed to different fxml file depending on which is required, this is achieved through the use of individual FXMLLoaders for each file, now need to implement an efficient ScreenController with reference to View">
-      <created>1548343679105</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1548343679105</updated>
     </task>
     <task id="LOCAL-00035" summary="efficient screen switcher implemented in FXMLController and View">
       <created>1548352704702</created>
@@ -867,7 +854,14 @@
       <option name="project" value="LOCAL" />
       <updated>1549613241796</updated>
     </task>
-    <option name="localTasksCounter" value="83" />
+    <task id="LOCAL-00083" summary="added drawing next possible move circle selectors">
+      <created>1549619184650</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1549619184651</updated>
+    </task>
+    <option name="localTasksCounter" value="84" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -1005,7 +999,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
-    <MESSAGE value="more VectorFileHandler stuff" />
     <MESSAGE value="full MVC refactor progress" />
     <MESSAGE value="refactor bump" />
     <MESSAGE value="added ViewAPI" />
@@ -1030,7 +1023,8 @@
     <MESSAGE value="added local LineSprite class" />
     <MESSAGE value="bump" />
     <MESSAGE value="added global colour constants and fillremainder feature for mass loading tiles of one type" />
-    <option name="LAST_COMMIT_MESSAGE" value="added global colour constants and fillremainder feature for mass loading tiles of one type" />
+    <MESSAGE value="added drawing next possible move circle selectors" />
+    <option name="LAST_COMMIT_MESSAGE" value="added drawing next possible move circle selectors" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -1411,8 +1405,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/view/RacetrackPane.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="12">
-          <caret line="61" column="8" selection-start-line="61" selection-start-column="8" selection-end-line="61" selection-end-column="8" />
+        <state relative-caret-position="174">
+          <caret line="61" selection-start-line="61" selection-end-line="61" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

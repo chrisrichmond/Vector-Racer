@@ -41,6 +41,8 @@ public class GameController implements EventHandler {
             System.out.println("MODEL");
             System.out.println("row "+row);
             System.out.println("col "+col);
+
+            model.gridPointInput(row, col);
         }
     }
 

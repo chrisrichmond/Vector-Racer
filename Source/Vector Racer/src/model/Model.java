@@ -107,4 +107,9 @@ public class Model implements ModelAPI{
         }
     }
 
+    @Override
+    public void gridPointInput(double row, double col) {
+        currentState.getCurrentPlayer().getPossibleNextPoints()
+    }
+
 }

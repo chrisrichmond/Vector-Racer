@@ -79,4 +79,8 @@ public class State {
     public Queue<Player> getPlayers(){
         return players;
     }
+
+    public Player getCurrentPlayer(){
+        return currentPlayer;
+    }
 }

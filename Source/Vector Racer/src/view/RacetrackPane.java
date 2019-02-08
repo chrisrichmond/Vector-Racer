@@ -58,6 +58,24 @@ public class RacetrackPane extends Pane {
 
     }
 
+    public void update(){
+
+    }
+
+    public void drawNextPossiblePositions(Player player){
+        clearCircleSelectorsFromTrack();
+
+        List<CircleSprite> circleSelectors = new ArrayList<>();
+
+        for(int i = 0; i < player.getPossibleNextPoints().size(); i++){
+            int row = player.getPossibleNextPoints().get(i).getY();
+            int col = player.getPossibleNextPoints().get(i).getX();
+            circleSelectors.add(new CircleSprite(row, col, VectorConstants.CIRCLESELECTOR_COLOR, VectorConstants.CIRCLESELECTOR_COLOR, 0.25));
+        }
+
+        getChildren().addAll(circleSelectors);
+    }
+
     public void drawRacerSprites(List<Player> players){
         clearRacerSpritesFromTrack();
 
@@ -84,7 +102,18 @@ public class RacetrackPane extends Pane {
                 getChildren().remove(currentChild);
             }
         }
-        //racerSprites.clear();
+        racerSprites.clear();
+    }
+
+    private void clearCircleSelectorsFromTrack(){
+        System.out.println("clearing circle selectors");
+        for(Node currentChild: getChildren()){
+            if(currentChild instanceof CircleSprite){
+                if(!(currentChild instanceof RacerSprite)){
+                    getChildren().remove(currentChild);
+                }
+            }
+        }
     }
 
     private class RacerSprite extends CircleSprite {

@@ -31,4 +31,6 @@ public interface ModelAPI {
 
     void fillRemainderWith(String tileType);
 
+    void gridPointInput(double row, double col);
+
 }

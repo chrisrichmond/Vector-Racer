@@ -14,7 +14,9 @@ import model.Tile;
 import utilities.VectorConstants;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Stack;
 
 public class RacetrackPane extends Pane {
 
@@ -24,6 +26,7 @@ public class RacetrackPane extends Pane {
     private int tileSize;
     private List<TileSprite> tileSprites;
     private List<RacerSprite> racerSprites;
+    //private HashMap<RacerSprite, List<LineSprite>> racerAndTrailSprites;
 
     public RacetrackPane(RacetrackAPI racetrack){
         this.rows = racetrack.getRows();
@@ -32,6 +35,7 @@ public class RacetrackPane extends Pane {
         this.trackBorder = new Rectangle(cols*tileSize, rows*tileSize);
         this.tileSprites = new ArrayList<>();
         this.racerSprites = new ArrayList<>();
+        //this.racerAndTrailSprites = new HashMap<>();
 
         trackBorder.setStroke(Color.BLACK);
         trackBorder.setFill(null);
@@ -62,6 +66,12 @@ public class RacetrackPane extends Pane {
             int row = currentRacer.getPosition().getY();
             int col = currentRacer.getPosition().getX();
             Color color = currentPlayer.getColor();
+
+//            racerAndTrailSprites.put(new RacerSprite(row, col, color, null, 1), new ArrayList<>());
+//            int lastRow = currentRacer.getPosition().getY();
+//            int lastCol = currentRacer.getPosition().getX();
+//            Stack<Integer> rowRoute = currentRacer.getPointRoute()
+
             racerSprites.add(new RacerSprite(row, col, color, null, 1));
         }
         getChildren().addAll(racerSprites);
@@ -74,7 +84,7 @@ public class RacetrackPane extends Pane {
                 getChildren().remove(currentChild);
             }
         }
-        racerSprites.clear();
+        //racerSprites.clear();
     }
 
     private class RacerSprite extends CircleSprite {

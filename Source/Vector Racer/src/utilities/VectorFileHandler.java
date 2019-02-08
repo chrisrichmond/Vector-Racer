@@ -88,6 +88,8 @@ public class VectorFileHandler {
                 if ((Integer.parseInt(operands.get(0)) < VectorConstants.MAX_ROWS) && (Integer.parseInt(operands.get(1)) < VectorConstants.MAX_COLS)) {
                     model.createEmptyRacetrack(Integer.parseInt(operands.get(0)), Integer.parseInt(operands.get(1)));
                 }
+            } else if (opcode.equals("startpos") || (opcode.equals("sp"))){
+                model.setStartPosition(Integer.parseInt(operands.get(0)), Integer.parseInt(operands.get(1)));
             } else if (opcode.equals("fillremainder") || (opcode.equals("fr")) ) {
                 model.fillRemainderWith(operands.get(0));
             } else if (opcode.equals("tile")) {

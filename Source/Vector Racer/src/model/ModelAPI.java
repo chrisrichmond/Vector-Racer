@@ -34,4 +34,6 @@ public interface ModelAPI extends Observable {
 
     void gridPointInput(double row, double col);
 
+    void setStartPosition(int row, int col);
+
 }

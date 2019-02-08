@@ -53,4 +53,6 @@ public interface RacetrackAPI {
 
     Point getStartPosition();
 
+    void setStartPosition(Point startPostition);
+
 }

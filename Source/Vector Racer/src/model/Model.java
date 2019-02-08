@@ -9,7 +9,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
 
-public class Model implements ModelAPI{
+public class Model implements ModelAPI {
 
     private VectorFileHandler fileHandler;
     private List<Observer> observers;
@@ -124,6 +124,11 @@ public class Model implements ModelAPI{
                 currentState = currentState.makeMove(new Move(currentState.getCurrentPlayer(), new Point((int)row, (int)col)));
             }
         }
+    }
+
+    @Override
+    public void setStartPosition(int row, int col) {
+        racetrack.setStartPosition(new Point(col, row));
     }
 
     @Override

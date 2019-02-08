@@ -22,6 +22,13 @@ public abstract class Player {
 
     public List<Point> getPossibleNextPoints(){
         List<Point> possibleNextPoints = new ArrayList<>();
+
+        System.out.println("----------------------");
+        System.out.println("racer: "+racer);
+        System.out.println("racer.getPosition(): "+racer.getPosition());
+        System.out.println("racer.getPosition().getX(): "+racer.getPosition().getX());
+        System.out.println("----------------------");
+
         int racerXpos = racer.getPosition().getX();
         int racerYpos = racer.getPosition().getY();
         int racerXvelo = racer.getVelocity().getXVelo();

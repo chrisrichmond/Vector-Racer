@@ -48,13 +48,13 @@ public class RacetrackPane extends Pane {
             getChildren().add(currentTileSprite);
         }
 
-        CircleSprite test = new CircleSprite(1, 1, Color.GREEN, null, 1);
-        CircleSprite test2 = new CircleSprite(1, 2, Color.GREEN, Color.GREEN, 0.25);
-        CircleSprite test3 = new CircleSprite(2, 2, Color.GREEN, Color.RED, 1);
-
-        LineSprite test4 = new LineSprite(1, 1, 4, 7, Color.CYAN);
-
-        getChildren().addAll(test,test2,test3, test4);
+//        CircleSprite test = new CircleSprite(1, 1, Color.GREEN, null, 1);
+//        CircleSprite test2 = new CircleSprite(1, 2, Color.GREEN, Color.GREEN, 0.25);
+//        CircleSprite test3 = new CircleSprite(2, 2, Color.GREEN, Color.RED, 1);
+//
+//        LineSprite test4 = new LineSprite(1, 1, 4, 7, Color.CYAN);
+//
+//        getChildren().addAll(test,test2,test3, test4);
 
 
     }

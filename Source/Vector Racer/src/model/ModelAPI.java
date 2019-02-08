@@ -1,6 +1,7 @@
 package model;
 
 
+import model.geometry.Point;
 import utilities.Observable;
 
 import java.io.File;
@@ -20,7 +21,7 @@ public interface ModelAPI extends Observable {
 
     void loadFile(File filename) throws FileNotFoundException;
 
-    void createEmptyRacetrack(int rows, int cols);
+    void createEmptyRacetrack(int rows, int cols, int startPosRow, int startPosCol);
 
     void addAirTile(int row, int col);
 

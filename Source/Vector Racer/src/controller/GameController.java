@@ -35,12 +35,6 @@ public class GameController implements EventHandler {
         if(event instanceof MouseEvent){
             double row = screenToModelCoord(y);
             double col = screenToModelCoord(x);
-            System.out.println("SCREEN");
-            System.out.println("row "+y);
-            System.out.println("col "+x);
-            System.out.println("MODEL");
-            System.out.println("row "+row);
-            System.out.println("col "+col);
 
             model.gridPointInput(row, col);
         }

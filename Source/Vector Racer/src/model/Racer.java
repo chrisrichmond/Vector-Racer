@@ -13,6 +13,7 @@ public class Racer implements RacerAPI{
     private Stack<Point> pointRoute;
 
     public Racer(Point startPosition){
+        System.out.println("startPosition passed to Racer as: "+startPosition);
         this.velocity = new Vect(startPosition, startPosition);
         this.finished = false;
         pointRoute = new Stack<>();

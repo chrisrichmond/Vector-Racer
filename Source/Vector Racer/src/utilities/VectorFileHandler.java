@@ -75,21 +75,17 @@ public class VectorFileHandler {
             currentOperand = currentOperand.toLowerCase();  // todo unsure if this works?
         }
 
-        System.out.println("opcode: "+ opcode.toString());
-        System.out.println("operands: "+ operands.toString());
+//        System.out.println("opcode: "+ opcode.toString());
+//        System.out.println("operands: "+ operands.toString());
 
         try {
             if (opcode.equals("blank")) {
                 // blank line/object, do nothing
-            } else if (opcode.equals("dimensions")) {
+            } else if (opcode.equals("racetrack")) {
                 // set dimensions of the racetrack in rows and columns
-                System.out.println("Max rows: " + VectorConstants.MAX_ROWS);
-                System.out.println("Max cols: " + VectorConstants.MAX_COLS);
                 if ((Integer.parseInt(operands.get(0)) < VectorConstants.MAX_ROWS) && (Integer.parseInt(operands.get(1)) < VectorConstants.MAX_COLS)) {
-                    model.createEmptyRacetrack(Integer.parseInt(operands.get(0)), Integer.parseInt(operands.get(1)));
+                    model.createEmptyRacetrack(Integer.parseInt(operands.get(0)), Integer.parseInt(operands.get(1)), Integer.parseInt(operands.get(2)), Integer.parseInt(operands.get(3)));
                 }
-            } else if (opcode.equals("startpos") || (opcode.equals("sp"))){
-                model.setStartPosition(Integer.parseInt(operands.get(0)), Integer.parseInt(operands.get(1)));
             } else if (opcode.equals("fillremainder") || (opcode.equals("fr")) ) {
                 model.fillRemainderWith(operands.get(0));
             } else if (opcode.equals("tile")) {

@@ -5,22 +5,19 @@ import utilities.VectorFileHandler;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 public class Model implements ModelAPI{
 
     private VectorFileHandler fileHandler;
     private boolean changed;
-    private List<State> history;
+    private Stack<State> history;
     private State currentState;
     private RacetrackAPI racetrack;
 
     public Model(){
         fileHandler = new VectorFileHandler(this);
-        history = new ArrayList<>();
+        history = new Stack<>();
     }
 
     @Override
@@ -33,7 +30,7 @@ public class Model implements ModelAPI{
         players.add(new HumanPlayer(player1name, new Racer(racetrack.getStartPosition())));
         players.add(new HumanPlayer(player2name, new Racer(racetrack.getStartPosition())));
 
-        currentState = new State(players, racetrack); // todo ?????
+        //currentState = new State(players, racetrack); // todo ?????
 
 
     }

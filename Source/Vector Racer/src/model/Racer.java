@@ -3,14 +3,20 @@ package model;
 import model.geometry.Point;
 import model.geometry.Vect;
 
+import java.util.List;
+import java.util.Stack;
+
 public class Racer implements RacerAPI{
 
     private Vect velocity;
     private boolean finished;
-    private Point position;
+    private Stack<Point> pointRoute;
 
     public Racer(Point startPosition){
-        this.position = startPosition;
+        this.velocity = new Vect(startPosition, startPosition);
+        this.finished = false;
+        pointRoute = new Stack<>();
+        pointRoute.push(startPosition);
     }
 
     @Override
@@ -20,11 +26,21 @@ public class Racer implements RacerAPI{
 
     @Override
     public boolean isFinished() {
-        return false;
+        return finished;
     }
 
     @Override
     public Point getPosition() {
-        return position;
+        return pointRoute.peek();
+    }
+
+    @Override
+    public void setPosition(Point position) {
+        pointRoute.push(position);
+    }
+
+    @Override
+    public Stack<Point> getPointRoute() {
+        return pointRoute;
     }
 }

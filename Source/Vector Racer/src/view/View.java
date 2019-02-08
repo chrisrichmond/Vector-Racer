@@ -4,6 +4,7 @@ import javafx.event.EventHandler;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.effect.Reflection;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.stage.FileChooser;
@@ -120,6 +121,7 @@ public class View implements ViewAPI{
     public void createGamePane(){
         gamePane = new BorderPane();
         racetrackPane = new RacetrackPane(model.getRacetrack());
+        racetrackPane.setEffect(new Reflection());
         gamePane.getChildren().add(racetrackPane);
         racetrackPane.addEventFilter(MouseEvent.MOUSE_CLICKED, gameController);
 

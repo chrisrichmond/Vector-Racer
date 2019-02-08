@@ -1,6 +1,6 @@
 package view;
 
-import javafx.geometry.Rectangle2D;
+import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
@@ -20,6 +20,7 @@ public class RacetrackPane extends Pane {
     private int cols;
     private int tileSize;
     private List<TileView> tileViews;
+    private List<RacerView> racerViews;
 
     public RacetrackPane(RacetrackAPI racetrack){
         this.rows = racetrack.getRows();
@@ -27,6 +28,7 @@ public class RacetrackPane extends Pane {
         this.tileSize = VectorConstants.TILESIZE;
         this.trackBorder = new Rectangle(cols*tileSize, rows*tileSize);
         this.tileViews = new ArrayList<>();
+        this.racerViews = new ArrayList<>();
 
         trackBorder.setStroke(Color.BLACK);
         trackBorder.setFill(null);
@@ -38,28 +40,44 @@ public class RacetrackPane extends Pane {
             getChildren().add(currentTileView);
         }
 
-        CircleSelector test = new CircleSelector(1, 1, Color.GREEN);
-        CircleSelector test2 = new CircleSelector(1, 2, Color.GREEN);
-        CircleSelector test3 = new CircleSelector(2, 2, Color.GREEN);
+        CircleView test = new CircleView(1, 1, Color.GREEN, null, 1);
+        CircleView test2 = new CircleView(1, 2, Color.GREEN, Color.GREEN, 0.25);
+        CircleView test3 = new CircleView(2, 2, Color.GREEN, Color.RED, 1);
         getChildren().addAll(test,test2,test3);
 
 
     }
 
-    private class CircleSelector extends StackPane {
+    private void clearRacers(){
+        System.out.println("clearing racerViews");
+        for(Node currentChild: getChildren()){
+            if(currentChild instanceof RacerView){
+                getChildren().remove(currentChild);
+            }
+        }
+    }
+
+    private class RacerView extends CircleView {
+
+        public RacerView(int row, int col, Color color, Color fill, double opacity) {
+            super(row, col, color, fill, opacity);
+        }
+    }
+
+    private class CircleView extends StackPane {
 
         private int row;
         private int col;
-
         private Ellipse circle;
 
-        public CircleSelector(int row, int col, Color color){
+        public CircleView(int row, int col, Color color, Color fill, double opacity){
             this.row = row;
             this.col = col;
             this.circle = new Ellipse((tileSize/2), (tileSize/2));
 
             circle.setStroke(color);
-            circle.setFill(null);
+            circle.setFill(fill);
+            circle.setOpacity(opacity);
 
             getChildren().add(circle);
 
@@ -72,7 +90,6 @@ public class RacetrackPane extends Pane {
 
         private int row;
         private int col;
-
         private Rectangle tile;
 
         public TileView(int row, int col, Color color){

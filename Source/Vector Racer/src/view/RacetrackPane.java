@@ -48,13 +48,18 @@ public class RacetrackPane extends Pane {
 
     }
 
-    private void clearRacers(){
+    private void clearRacersFromTrack(){
         System.out.println("clearing racerViews");
         for(Node currentChild: getChildren()){
             if(currentChild instanceof RacerView){
                 getChildren().remove(currentChild);
             }
         }
+    }
+
+    private void clearRacerViews(){
+        clearRacersFromTrack();
+        racerViews.clear();
     }
 
     private class RacerView extends CircleView {

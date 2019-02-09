@@ -90,22 +90,35 @@ public class VectorFileHandler {
                 model.fillRemainderWith(operands.get(0));
             } else if (opcode.equals("tile")) {
                 // abstract tile object
-                if(operands.get(0).equals("sand")) {
-                    // add sand tile to model
-                    model.addSandTile(Integer.parseInt(operands.get(1)), Integer.parseInt(operands.get(2)));
-                }else if(operands.get(0).equals("ice")) {
-                    // add ice tile to model
-                    model.addIceTile(Integer.parseInt(operands.get(1)), Integer.parseInt(operands.get(2)));
-                }else if(operands.get(0).equals("air")) {
-                    // add "regular" air tile to model
-                    model.addAirTile(Integer.parseInt(operands.get(1)), Integer.parseInt(operands.get(2)));
-                }else if(operands.get(0).equals("wall")) {
-                    // add wall tile to model
-
-                    model.addWallTile(Integer.parseInt(operands.get(1)), Integer.parseInt(operands.get(2)));
-                }else{
-                    // assume "regular" air tile and add to model
-                    model.addAirTile(Integer.parseInt(operands.get(0)), Integer.parseInt(operands.get(1)));
+                int row = Integer.parseInt(operands.get(1));
+                int col = Integer.parseInt(operands.get(2));
+                int endRow = row;
+                int endCol = col;
+                try {
+                    // attempt to assign
+                    endRow = Integer.parseInt(operands.get(3));
+                    endCol = Integer.parseInt(operands.get(4));
+                }catch(Exception ex){
+                    endRow = row;
+                    endCol = col;
+                }finally{
+                    for(int currentRow = row; currentRow <= endRow; currentRow++) {
+                        for (int currentCol = col; currentCol <= endCol; currentCol++) {
+                            if (operands.get(0).equals("sand")) {
+                                // add sand tile to model
+                                model.addSandTile(currentRow, currentCol);
+                            } else if (operands.get(0).equals("ice")) {
+                                // add ice tile to model
+                                model.addIceTile(currentRow, currentCol);
+                            } else if (operands.get(0).equals("air")) {
+                                // add "regular" air tile to model
+                                model.addAirTile(currentRow, currentCol);
+                            } else if (operands.get(0).equals("wall")) {
+                                // add wall tile to model
+                                model.addWallTile(currentRow, currentCol);
+                            }
+                        }
+                    }
                 }
             } else {
                 // invalid opcode, do nothing

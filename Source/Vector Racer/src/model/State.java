@@ -4,6 +4,7 @@ import model.geometry.Point;
 import model.geometry.Vect;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
@@ -40,7 +41,7 @@ public class State {
     public boolean isMoveLegal(Move move){
         // compare position/vector of Player in next state against a list of the 9 next legal positions based on the current position of the Player in the current State
 
-        Queue<Player> tempPlayers = players;
+        Queue<Player> tempPlayers = new LinkedList<>(players);
         tempPlayers.poll();
         tempPlayers.add(currentPlayer);
         State nextStateAttempt = new State(tempPlayers, racetrack, stateNumber+1);

@@ -50,6 +50,7 @@ public class View implements ViewAPI{
 
         // Model Backend
         this.model = model;
+        model.attach(this);
 
         // Primary Stage
         this.primaryStage = primaryStage;
@@ -124,7 +125,7 @@ public class View implements ViewAPI{
         racetrackPane = new RacetrackPane(model.getRacetrack());
         racetrackPane.setEffect(new Reflection());
         gamePane.getChildren().add(racetrackPane);
-        racetrackPane.addEventFilter(MouseEvent.MOUSE_CLICKED, gameController);
+        racetrackPane.addEventFilter(MouseEvent.MOUSE_PRESSED, gameController);
 
     }
 

@@ -20,6 +20,7 @@ public class Model implements ModelAPI {
 
     public Model(){
         fileHandler = new VectorFileHandler(this);
+        observers = new ArrayList<>();
         history = new Stack<>();
     }
 
@@ -35,6 +36,8 @@ public class Model implements ModelAPI {
         players.add(new HumanPlayer(player2name, new Racer(racetrack.getStartPosition())));
 
         currentState = new State(players, racetrack, 0);
+
+        notifyObservers();
     }
 
     @Override

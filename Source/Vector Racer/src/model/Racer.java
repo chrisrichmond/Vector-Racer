@@ -37,6 +37,7 @@ public class Racer implements RacerAPI{
 
     @Override
     public void setPosition(Point position) {
+        velocity = new Vect(pointRoute.peek(), position);
         pointRoute.push(position);
     }
 

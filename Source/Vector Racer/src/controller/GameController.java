@@ -5,13 +5,14 @@ import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import model.ModelAPI;
+import utilities.Observer;
 import utilities.VectorConstants;
 import view.ViewAPI;
 
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 
-public class GameController implements EventHandler {
+public class GameController implements EventHandler, Observer {
 
     private ModelAPI model;
     private ViewAPI view;
@@ -21,6 +22,8 @@ public class GameController implements EventHandler {
         this.model = model;
         this.view = view;
         this.primaryStage = primaryStage;
+
+        model.attach(this);
 
         view.setGameController(this);
     }
@@ -46,5 +49,10 @@ public class GameController implements EventHandler {
         double twoDecimalPlaces = Double.parseDouble(df.format((coord / VectorConstants.TILESIZE)));
 
         return Math.floor((twoDecimalPlaces +  (double)0.5 / 2) / 0.5) * 0.5;
+    }
+
+    @Override
+    public void update() {
+
     }
 }

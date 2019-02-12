@@ -36,14 +36,13 @@ public class Model implements ModelAPI {
         players.add(new HumanPlayer(player2name, new Racer(racetrack.getStartPosition())));
 
         currentState = new State(players, racetrack, 0);
-
-        notifyObservers();
     }
 
     @Override
     public void start(){
         // TODO -- CALL THIS EXTERNALLY (MAIN CLASS?) AFTER MODEL OBJECT HAS BEEN CREATED AND ALL MVC INTERFACING CONNECTIONS HAVE BEEN MADE
 
+        notifyObservers();
 
     }
 
@@ -128,6 +127,12 @@ public class Model implements ModelAPI {
             double colHigh = currentPoint.getX() + 0.5;
 
             if( (row >= rowLow) && (row <= rowHigh) && (col >= colLow) && (col <= colHigh) ){
+                System.out.println("row: "+row);
+                System.out.println("col: "+col);
+                System.out.println("rowLow: "+rowLow);
+                System.out.println("colLow: "+colLow);
+                System.out.println("rowHigh: "+rowHigh);
+                System.out.println("colHigh: "+colHigh);
                 history.push(currentState);
                 currentState = currentState.makeMove(new Move(currentState.getCurrentPlayer(), new Point((int)row, (int)col)));
             }

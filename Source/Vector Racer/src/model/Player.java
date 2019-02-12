@@ -49,6 +49,8 @@ public abstract class Player {
             }
         }
 
+        System.out.println("possibleNextPoints.size(): "+possibleNextPoints.size());
+
         return possibleNextPoints;
     }
 

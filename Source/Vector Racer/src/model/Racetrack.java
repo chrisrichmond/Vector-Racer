@@ -9,7 +9,7 @@ import java.util.List;
 public class Racetrack implements RacetrackAPI{
 
     private List<Tile> tiles;
-    private List<Tile> airTiles;
+    private List<AirTile> airTiles;
     private List<SandTile> sandTiles;
     private List<IceTile> iceTiles;
     private List<WallTile> wallTiles;
@@ -127,6 +127,26 @@ public class Racetrack implements RacetrackAPI{
             return true;
         }
         return false;
+    }
+
+    @Override
+    public List<AirTile> getAirTiles() {
+        return airTiles;
+    }
+
+    @Override
+    public List<SandTile> getSandTiles() {
+        return sandTiles;
+    }
+
+    @Override
+    public List<IceTile> getIceTiles() {
+        return iceTiles;
+    }
+
+    @Override
+    public List<WallTile> getWallTiles() {
+        return wallTiles;
     }
 
     @Override

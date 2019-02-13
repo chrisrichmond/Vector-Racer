@@ -91,6 +91,7 @@ public class RacetrackPane extends Pane {
 //            Stack<Integer> rowRoute = currentRacer.getPointRoute()
 
             racerSprites.add(new RacerSprite(row, col, color, null, 1));
+            System.out.println("DRAWING RACER SPRITES");
         }
         getChildren().addAll(racerSprites);
     }

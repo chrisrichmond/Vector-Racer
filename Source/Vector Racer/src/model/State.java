@@ -49,18 +49,30 @@ public class State {
     public boolean isMoveLegal(Move move){
         // compare position/vector of Player in next state against a list of the 9 next legal positions based on the current position of the Player in the current State
 
-        Queue<Player> tempPlayers = new LinkedList<>(players);
-        tempPlayers.poll();
-        tempPlayers.add(currentPlayer);
-        State nextStateAttempt = new State(tempPlayers, racetrack, stateNumber+1);
+        boolean legal = true;
 
-        for(State state: getNextLegalStates()){
-            if(nextStateAttempt.equals(state)){
-                return true;
-            }
+        if(!(move.playerToMove.getPossibleNextPoints().contains(move.destination))){
+            // the offered destination is not one of the Player to be moved's next valid positions
+            legal = false;
+        }else if( (move.destination.getX() < 0) || (move.destination.getX() >= racetrack.getCols()) || (move.destination.getY() < 0) || (move.destination.getY() >= racetrack.getRows()) ){
+            // the offered destination is outwith the bounds of the racetrack
+            legal = false;
         }
 
-        return false;
+        return legal;
+
+//        Queue<Player> tempPlayers = new LinkedList<>(players);
+//        tempPlayers.poll();
+//        tempPlayers.add(currentPlayer);
+//        State nextStateAttempt = new State(tempPlayers, racetrack, stateNumber+1);
+//
+//        for(State state: getNextLegalStates()){
+//            if(nextStateAttempt.equals(state)){
+//                return true;
+//            }
+//        }
+//
+//        return false;
     }
 
     private List<State> getNextLegalStates(){

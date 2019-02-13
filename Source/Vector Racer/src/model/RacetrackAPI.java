@@ -47,6 +47,14 @@ public interface RacetrackAPI {
 
     boolean addWallTile(WallTile newTile);
 
+    List<AirTile> getAirTiles();
+
+    List<SandTile> getSandTiles();
+
+    List<IceTile> getIceTiles();
+
+    List<WallTile> getWallTiles();
+
     int getRows();
 
     int getCols();

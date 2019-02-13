@@ -5,11 +5,13 @@ import model.geometry.Vect;
 
 public class Move extends Vect {
 
-    private Player playerToMove;
+    Player playerToMove;
+    Point destination;
 
-    public Move(Player playerToMove, Point end) {
-        super(playerToMove.getRacer().getPosition(), end);
+    public Move(Player playerToMove, Point destination) {
+        super(playerToMove.getRacer().getPosition(), destination);
         this.playerToMove = playerToMove;
+        this.destination = destination;
     }
 
 }

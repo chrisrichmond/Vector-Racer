@@ -53,7 +53,7 @@ public class Model implements ModelAPI {
 
     @Override
     public State getCurrentState() {
-        return null;
+        return currentState;
     }
 
     @Override
@@ -162,6 +162,7 @@ public class Model implements ModelAPI {
     @Override
     public void notifyObservers() {
         for(Observer o: observers){
+            System.out.println("OBSERVERS SIZE: "+observers.size());
             o.update();
         }
         changed = false;

@@ -26,7 +26,6 @@ public class State {
     public State makeMove(Move move){
         if(isMoveLegal(move)){
             // return new State with currentPlayer changed to the next in the list
-            System.out.println("LEGAL MOVE");
             currentPlayer.racer.setPosition(move.destination);
             players.poll();
             players.add(currentPlayer);
@@ -43,11 +42,6 @@ public class State {
 
         boolean legal = true;
 
-        for(Point currentPoint: move.playerToMove.getPossibleNextPoints()){
-            System.out.println("row "+currentPoint.getY()+" col "+currentPoint.getX());
-        }
-
-        System.out.println("move.destination row "+move.destination.getY() + " col "+move.destination.getX());
         if(!(move.playerToMove.getPossibleNextPoints().contains(move.destination))){
             // the offered destination is not one of the Player to be moved's next valid positions
             System.out.println("the offered destination is not one of the Player to be moved's next valid positions");

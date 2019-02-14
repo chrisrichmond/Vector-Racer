@@ -146,7 +146,6 @@ public class View implements ViewAPI{
 
     @Override
     public void changeRootContent(Pane pane) {
-        System.out.println("Changing root content pane to: "+pane);
         primaryStage.getScene().setRoot(pane);
     }
 
@@ -164,6 +163,5 @@ public class View implements ViewAPI{
     public void update() {
         racetrackPane.drawNextPossiblePositions(model.getCurrentState().getCurrentPlayer());
         racetrackPane.drawRacerSprites((List) model.getCurrentState().getPlayers());
-
     }
 }

@@ -26,6 +26,7 @@ public class VectorConstants {
     public static final Color WALL_COLOR = Color.BLACK;
 
     public static final Color CIRCLESELECTOR_COLOR = Color.GREEN;
+    public static final double RACERTRAIL_THICKNESS = 2.0;
 
     /*
     public static final int SMALL_ROWS = 10;   // Y

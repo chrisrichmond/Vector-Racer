@@ -45,8 +45,5 @@ public class MainMenuController implements EventHandler {
 //            (Button)event.getTarget()
 //        }
 
-        System.out.println("event type: "+ event.getEventType());
-        System.out.println("event target: "+ event.getTarget());
-        System.out.println("event source: "+ event.getSource());
     }
 }

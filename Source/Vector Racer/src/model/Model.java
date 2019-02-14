@@ -154,7 +154,6 @@ public class Model implements ModelAPI {
 
     @Override
     public void notifyObservers() {
-        System.out.println("NOTIFYING OBSERVERS");
         for(Observer o: observers){
             o.update();
         }

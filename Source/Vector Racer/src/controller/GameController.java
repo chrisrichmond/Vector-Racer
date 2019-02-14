@@ -32,8 +32,6 @@ public class GameController implements EventHandler, Observer {
     public void handle(Event event) {
         double x = ((MouseEvent)event).getX();
         double y = ((MouseEvent)event).getY();
-        System.out.println(x);
-        System.out.println(y);
 
         if(event instanceof MouseEvent){
             double row = screenToModelCoord(y);

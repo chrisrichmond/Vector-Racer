@@ -11,6 +11,7 @@ import model.Player;
 import model.RacerAPI;
 import model.RacetrackAPI;
 import model.Tile;
+import model.geometry.Point;
 import utilities.Observer;
 import utilities.VectorConstants;
 
@@ -75,7 +76,6 @@ public class RacetrackPane extends Pane {
             circleSelectors.add(new CircleSprite(row, col, VectorConstants.CIRCLESELECTOR_COLOR, null, 1, 2.0));
         }
 
-        System.out.println("DRAWING NEXT POSSIBLE POSITION CIRCLES");
         getChildren().addAll(circleSelectors);
     }
 
@@ -88,19 +88,29 @@ public class RacetrackPane extends Pane {
             int col = currentRacer.getPosition().getX();
             Color color = currentPlayer.getColor();
 
-//            racerAndTrailSprites.put(new RacerSprite(row, col, color, null, 1), new ArrayList<>());
-//            int lastRow = currentRacer.getPosition().getY();
-//            int lastCol = currentRacer.getPosition().getX();
-//            Stack<Integer> rowRoute = currentRacer.getPointRoute()
+            List<LineSprite> lineSprites = new ArrayList<>();
+            Stack<Point> pointsStack = (Stack<Point>) currentRacer.getPointRoute().clone();
+            List<Point> pointsList = new ArrayList<>();
+            while(!(pointsStack.empty())){
+                pointsList.add(pointsStack.pop());
+            }
 
+            for(int i = 1; i < pointsList.size(); i++){
+                LineSprite line = new LineSprite(pointsList.get(i-1).getY(), pointsList.get(i-1).getX(), pointsList.get(i).getY(), pointsList.get(i).getX(), currentPlayer.getColor(), VectorConstants.RACERTRAIL_THICKNESS);
+                System.out.println("adding line: ");
+                System.out.println(line.startRow);
+                System.out.println(line.startCol);
+                System.out.println(line.endRow);
+                System.out.println(line.endCol);
+                lineSprites.add(line);
+            }
+            getChildren().addAll(lineSprites);
             racerSprites.add(new RacerSprite(row, col, color, color, 1));
         }
-        System.out.println("DRAWING RACER SPRITES");
         getChildren().addAll(racerSprites);
     }
 
     private void clearRacerSpritesFromTrack(){
-        System.out.println("clearing racerSprites");
 
         for(Iterator<Node> iterator = getChildren().iterator(); iterator.hasNext();){
             Node currentChild = iterator.next();
@@ -109,17 +119,10 @@ public class RacetrackPane extends Pane {
             }
         }
 
-
-//        for(Node currentChild: getChildren()){
-//            if(currentChild instanceof RacerSprite){
-//                getChildren().remove(currentChild);
-//            }
-//        }
         racerSprites.clear();
     }
 
     private void clearCircleSelectorsFromTrack(){
-        System.out.println("clearing circle selectors");
 
         for(Iterator<Node> iterator = getChildren().iterator(); iterator.hasNext();){
             Node currentChild = iterator.next();
@@ -131,13 +134,6 @@ public class RacetrackPane extends Pane {
             }
         }
 
-//        for(Node currentChild: getChildren()){
-//            if(currentChild instanceof CircleSprite){
-//                if(!(currentChild instanceof RacerSprite)){
-//                    getChildren().remove(currentChild);
-//                }
-//            }
-//        }
     }
 
     private class RacerSprite extends CircleSprite {
@@ -153,7 +149,7 @@ public class RacetrackPane extends Pane {
         private int endRow, endCol;
         private Line line;
 
-        public LineSprite(int startRow, int startCol, int endRow, int endCol, Color color){
+        public LineSprite(int startRow, int startCol, int endRow, int endCol, Color color, double thickness){
             this.startRow = startRow;
             this.startCol = startCol;
             this.endRow = endRow;
@@ -161,6 +157,7 @@ public class RacetrackPane extends Pane {
             this.line = new Line(startCol*tileSize, startRow*tileSize, endCol*tileSize, endRow*tileSize);
 
             line.setStroke(color);
+            line.setStrokeWidth(thickness);
 
             getChildren().add(line);
 

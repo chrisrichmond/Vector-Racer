@@ -92,16 +92,30 @@ public class RacetrackPane extends Pane {
             Stack<Point> pointsStack = (Stack<Point>) currentRacer.getPointRoute().clone();
             List<Point> pointsList = new ArrayList<>();
             while(!(pointsStack.empty())){
+                System.out.println("---STACK-------------");
+                System.out.println(pointsStack.peek().getY());
+                System.out.println(pointsStack.peek().getX());
+                System.out.println("---------------------");
                 pointsList.add(pointsStack.pop());
             }
 
+
+
             for(int i = 1; i < pointsList.size(); i++){
-                LineSprite line = new LineSprite(pointsList.get(i-1).getY(), pointsList.get(i-1).getX(), pointsList.get(i).getY(), pointsList.get(i).getX(), currentPlayer.getColor(), VectorConstants.RACERTRAIL_THICKNESS);
+                System.out.println("---- "+i+" ----");
+
+                int previousX = pointsList.get(i-1).getX();
+                int previousY = pointsList.get(i-1).getY();
+                int currentX = pointsList.get(i).getX();
+                int currentY = pointsList.get(i).getY();
+
+                LineSprite line = new LineSprite(previousY, previousX, currentY, currentX, currentPlayer.getColor(), VectorConstants.RACERTRAIL_THICKNESS);
                 System.out.println("adding line: ");
                 System.out.println(line.startRow);
                 System.out.println(line.startCol);
                 System.out.println(line.endRow);
                 System.out.println(line.endCol);
+                System.out.println("---------------");
                 lineSprites.add(line);
             }
             getChildren().addAll(lineSprites);

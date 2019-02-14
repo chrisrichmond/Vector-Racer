@@ -24,8 +24,10 @@ public class State {
     }
 
     public State makeMove(Move move){
+        System.out.println("makeMove( "+move.playerToMove.name+", row"+move.destination.getY()+ " col"+ move.destination.getX());
         if(isMoveLegal(move)){
             // return new State with currentPlayer changed to the next in the list
+            System.out.println("LEGAL MOVE");
             players.poll();
             players.add(currentPlayer);
             return new State(players, racetrack, stateNumber+1);
@@ -41,11 +43,18 @@ public class State {
 
         boolean legal = true;
 
+        for(Point currentPoint: move.playerToMove.getPossibleNextPoints()){
+            System.out.println("row "+currentPoint.getY()+" col "+currentPoint.getX());
+        }
+
+        System.out.println("move.destination row "+move.destination.getY() + " col "+move.destination.getX());
         if(!(move.playerToMove.getPossibleNextPoints().contains(move.destination))){
             // the offered destination is not one of the Player to be moved's next valid positions
+            System.out.println("the offered destination is not one of the Player to be moved's next valid positions");
             legal = false;
         }else if( (move.destination.getX() < 0) || (move.destination.getX() >= racetrack.getCols()) || (move.destination.getY() < 0) || (move.destination.getY() >= racetrack.getRows()) ){
             // the offered destination is outwith the bounds of the racetrack
+            System.out.println("the offered destination is outwith the bounds of the racetrack");
             legal = false;
         }
 

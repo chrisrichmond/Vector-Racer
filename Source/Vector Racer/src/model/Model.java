@@ -127,9 +127,9 @@ public class Model implements ModelAPI {
             double colLow = currentPoint.getX() - 0.5;
             double colHigh = currentPoint.getX() + 0.5;
 
-            System.out.println("currentPoint: row "+currentPoint.getY()+" col "+currentPoint.getX());
+//            System.out.println("currentPoint: row "+currentPoint.getY()+" col "+currentPoint.getX());
             if( (row >= rowLow) && (row <= rowHigh) && (col >= colLow) && (col <= colHigh) ){
-                System.out.println("inside range");
+//                System.out.println("inside range");
 //                System.out.println("row: "+row);
 //                System.out.println("col: "+col);
 //                System.out.println("rowLow: "+rowLow);
@@ -137,7 +137,8 @@ public class Model implements ModelAPI {
 //                System.out.println("rowHigh: "+rowHigh);
 //                System.out.println("colHigh: "+colHigh);
                 history.push(currentState);
-                currentState = currentState.makeMove(new Move(currentState.getCurrentPlayer(), new Point((int)row, (int)col)));
+                currentState = currentState.makeMove(new Move(currentState.getCurrentPlayer(), new Point((int)col, (int)row)));
+                System.out.println("NEW STATE");
                 notifyObservers();
             }
         }
@@ -165,6 +166,7 @@ public class Model implements ModelAPI {
 
     @Override
     public void notifyObservers() {
+        System.out.println("NOTIFYING OBSERVERS");
         for(Observer o: observers){
             o.update();
         }

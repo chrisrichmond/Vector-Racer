@@ -14,10 +14,7 @@ import model.Tile;
 import utilities.Observer;
 import utilities.VectorConstants;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 public class RacetrackPane extends Pane {
 
@@ -107,23 +104,43 @@ public class RacetrackPane extends Pane {
 
     private void clearRacerSpritesFromTrack(){
         System.out.println("clearing racerSprites");
-        for(Node currentChild: getChildren()){
+
+        for(Iterator<Node> iterator = getChildren().iterator(); iterator.hasNext();){
+            Node currentChild = iterator.next();
             if(currentChild instanceof RacerSprite){
-                getChildren().remove(currentChild);
+                iterator.remove();
             }
         }
+
+
+//        for(Node currentChild: getChildren()){
+//            if(currentChild instanceof RacerSprite){
+//                getChildren().remove(currentChild);
+//            }
+//        }
         racerSprites.clear();
     }
 
     private void clearCircleSelectorsFromTrack(){
         System.out.println("clearing circle selectors");
-        for(Node currentChild: getChildren()){
+
+        for(Iterator<Node> iterator = getChildren().iterator(); iterator.hasNext();){
+            Node currentChild = iterator.next();
+
             if(currentChild instanceof CircleSprite){
                 if(!(currentChild instanceof RacerSprite)){
-                    getChildren().remove(currentChild);
+                    iterator.remove();
                 }
             }
         }
+
+//        for(Node currentChild: getChildren()){
+//            if(currentChild instanceof CircleSprite){
+//                if(!(currentChild instanceof RacerSprite)){
+//                    getChildren().remove(currentChild);
+//                }
+//            }
+//        }
     }
 
     private class RacerSprite extends CircleSprite {

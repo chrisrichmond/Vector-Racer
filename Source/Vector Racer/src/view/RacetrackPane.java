@@ -27,7 +27,6 @@ public class RacetrackPane extends Pane {
     private int tileSize;
     private List<TileSprite> tileSprites;
     private List<RacerSprite> racerSprites;
-    //private HashMap<RacerSprite, List<LineSprite>> racerAndTrailSprites;
 
     public RacetrackPane(RacetrackAPI racetrack){
         this.rows = racetrack.getRows();
@@ -36,7 +35,6 @@ public class RacetrackPane extends Pane {
         this.trackBorder = new Rectangle(cols*tileSize, rows*tileSize);
         this.tileSprites = new ArrayList<>();
         this.racerSprites = new ArrayList<>();
-        //this.racerAndTrailSprites = new HashMap<>();
 
         trackBorder.setStroke(Color.BLACK);
         trackBorder.setFill(null);
@@ -73,6 +71,7 @@ public class RacetrackPane extends Pane {
             circleSelectors.add(new CircleSprite(row, col, VectorConstants.CIRCLESELECTOR_COLOR, VectorConstants.CIRCLESELECTOR_COLOR, 0.25));
         }
 
+        System.out.println("DRAWING NEXT POSSIBLE POSITION CIRCLES");
         getChildren().addAll(circleSelectors);
     }
 
@@ -91,8 +90,8 @@ public class RacetrackPane extends Pane {
 //            Stack<Integer> rowRoute = currentRacer.getPointRoute()
 
             racerSprites.add(new RacerSprite(row, col, color, null, 1));
-            System.out.println("DRAWING RACER SPRITES");
         }
+        System.out.println("DRAWING RACER SPRITES");
         getChildren().addAll(racerSprites);
     }
 

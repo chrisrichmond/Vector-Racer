@@ -21,19 +21,9 @@ public class State {
         this.players = players;
         this.racetrack = racetrack;
         this.stateNumber = stateNumber;
-        System.out.println("New state created:");
-        System.out.println("    currentPlayer: "+currentPlayer);
-        System.out.println("    players: "+players);
-        System.out.println("    racetrack: "+racetrack);
-        System.out.println("    stateNumber: "+stateNumber);
-
     }
 
     public State makeMove(Move move){
-        System.out.println("makeMove()");
-        System.out.println("stateNumber: "+this.stateNumber);
-        System.out.println("currentPlayer: "+this.currentPlayer);
-
         if(isMoveLegal(move)){
             // return new State with currentPlayer changed to the next in the list
             players.poll();

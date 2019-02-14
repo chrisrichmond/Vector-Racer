@@ -25,6 +25,7 @@ public class RacetrackPane extends Pane {
     private int rows;
     private int cols;
     private int tileSize;
+    private RacetrackAPI racetrack;
     private List<TileSprite> tileSprites;
     private List<RacerSprite> racerSprites;
 
@@ -32,6 +33,7 @@ public class RacetrackPane extends Pane {
         this.rows = racetrack.getRows();
         this.cols = racetrack.getCols();
         this.tileSize = VectorConstants.TILESIZE;
+        this.racetrack = racetrack;
         this.trackBorder = new Rectangle(cols*tileSize, rows*tileSize);
         this.tileSprites = new ArrayList<>();
         this.racerSprites = new ArrayList<>();
@@ -40,11 +42,8 @@ public class RacetrackPane extends Pane {
         trackBorder.setFill(null);
         getChildren().add(trackBorder);
 
-        for (Tile currentTile: racetrack.getTiles()){
-            TileSprite currentTileSprite = new TileSprite(currentTile.getStartY(), currentTile.getStartX(), currentTile.getColor());
-            tileSprites.add(currentTileSprite);
-            getChildren().add(currentTileSprite);
-        }
+        drawTiles();
+
 
 //        RacerSprite racerTest = new RacerSprite(5, 5, Color.CYAN, Color.CYAN, 1);
 //        getChildren().addAll(racerTest);
@@ -58,6 +57,14 @@ public class RacetrackPane extends Pane {
 //        getChildren().addAll(test,test2,test3, test4);
 
 
+    }
+
+    private void drawTiles(){
+        for (Tile currentTile: racetrack.getTiles()){
+            TileSprite currentTileSprite = new TileSprite(currentTile.getStartY(), currentTile.getStartX(), currentTile.getColor());
+            tileSprites.add(currentTileSprite);
+            getChildren().add(currentTileSprite);
+        }
     }
 
     public void drawNextPossiblePositions(Player player){
@@ -89,7 +96,10 @@ public class RacetrackPane extends Pane {
 //            int lastCol = currentRacer.getPosition().getX();
 //            Stack<Integer> rowRoute = currentRacer.getPointRoute()
 
-            racerSprites.add(new RacerSprite(row, col, color, null, 1));
+            racerSprites.add(new RacerSprite(row, col, color, color, 1));
+            System.out.println(row);
+            System.out.println(col);
+            System.out.println(color);
         }
         System.out.println("DRAWING RACER SPRITES");
         getChildren().addAll(racerSprites);

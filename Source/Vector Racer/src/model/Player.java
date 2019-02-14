@@ -14,20 +14,15 @@ public abstract class Player {
     protected boolean finished;
     protected Color color;
 
-    public Player(String name, RacerAPI racer) {
+    public Player(String name, RacerAPI racer, Color color) {
         this.name = name;
         this.racer = racer;
         this.finished = false;
+        this.color = color;
     }
 
     public List<Point> getPossibleNextPoints(){
         List<Point> possibleNextPoints = new ArrayList<>();
-
-        System.out.println("----------------------");
-        System.out.println("racer: "+racer);
-        System.out.println("racer.getPosition(): "+racer.getPosition());
-        System.out.println("racer.getPosition().getX(): "+racer.getPosition().getX());
-        System.out.println("----------------------");
 
         int racerXpos = racer.getPosition().getX();
         int racerYpos = racer.getPosition().getY();
@@ -49,7 +44,7 @@ public abstract class Player {
             }
         }
 
-        System.out.println("possibleNextPoints.size(): "+possibleNextPoints.size());
+//        System.out.println("possibleNextPoints.size(): "+possibleNextPoints.size());
 
         return possibleNextPoints;
     }

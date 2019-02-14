@@ -162,11 +162,8 @@ public class View implements ViewAPI{
 
     @Override
     public void update() {
-        System.out.println("racetrackPane: "+ racetrackPane);
-        System.out.println("model.getCurrentState().getPlayers(): "+ model.getCurrentState().getPlayers());
-        System.out.println("(List) model.getCurrentState().getPlayers(): "+ (List) model.getCurrentState().getPlayers());
-
-        racetrackPane.drawRacerSprites((List) model.getCurrentState().getPlayers());
         racetrackPane.drawNextPossiblePositions(model.getCurrentState().getCurrentPlayer());
+        racetrackPane.drawRacerSprites((List) model.getCurrentState().getPlayers());
+
     }
 }

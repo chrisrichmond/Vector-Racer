@@ -1,6 +1,7 @@
 package model;
 
 import javafx.beans.property.ObjectProperty;
+import javafx.scene.paint.Color;
 import model.geometry.Point;
 import utilities.Observer;
 import utilities.VectorFileHandler;
@@ -32,8 +33,8 @@ public class Model implements ModelAPI {
 
         System.out.println(racetrack.getStartPosition());
         Queue<Player> players = new LinkedList<Player>();
-        players.add(new HumanPlayer(player1name, new Racer(racetrack.getStartPosition())));
-        players.add(new HumanPlayer(player2name, new Racer(racetrack.getStartPosition())));
+        players.add(new HumanPlayer(player1name, new Racer(racetrack.getStartPosition()), Color.BLUE));
+        players.add(new HumanPlayer(player2name, new Racer(racetrack.getStartPosition()), Color.RED));
 
         currentState = new State(players, racetrack, 0);
     }
@@ -135,6 +136,7 @@ public class Model implements ModelAPI {
                 System.out.println("colHigh: "+colHigh);
                 history.push(currentState);
                 currentState = currentState.makeMove(new Move(currentState.getCurrentPlayer(), new Point((int)row, (int)col)));
+                notifyObservers();
             }
         }
     }
@@ -162,7 +164,6 @@ public class Model implements ModelAPI {
     @Override
     public void notifyObservers() {
         for(Observer o: observers){
-            System.out.println("OBSERVERS SIZE: "+observers.size());
             o.update();
         }
         changed = false;

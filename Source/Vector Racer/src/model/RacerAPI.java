@@ -2,6 +2,8 @@ package model;
 
 import model.geometry.Point;
 import model.geometry.Vect;
+
+import java.util.List;
 import java.util.Stack;
 
 public interface RacerAPI {
@@ -35,5 +37,7 @@ public interface RacerAPI {
      * @return
      */
     Stack<Point> getPointRoute();
+
+    List<Point> getPossibleNextPoints();
 
 }

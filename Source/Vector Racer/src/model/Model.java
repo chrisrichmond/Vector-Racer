@@ -127,13 +127,15 @@ public class Model implements ModelAPI {
             double colLow = currentPoint.getX() - 0.5;
             double colHigh = currentPoint.getX() + 0.5;
 
+            System.out.println("currentPoint: row "+currentPoint.getY()+" col "+currentPoint.getX());
             if( (row >= rowLow) && (row <= rowHigh) && (col >= colLow) && (col <= colHigh) ){
-                System.out.println("row: "+row);
-                System.out.println("col: "+col);
-                System.out.println("rowLow: "+rowLow);
-                System.out.println("colLow: "+colLow);
-                System.out.println("rowHigh: "+rowHigh);
-                System.out.println("colHigh: "+colHigh);
+                System.out.println("inside range");
+//                System.out.println("row: "+row);
+//                System.out.println("col: "+col);
+//                System.out.println("rowLow: "+rowLow);
+//                System.out.println("colLow: "+colLow);
+//                System.out.println("rowHigh: "+rowHigh);
+//                System.out.println("colHigh: "+colHigh);
                 history.push(currentState);
                 currentState = currentState.makeMove(new Move(currentState.getCurrentPlayer(), new Point((int)row, (int)col)));
                 notifyObservers();

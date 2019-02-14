@@ -3,6 +3,7 @@ package model;
 import model.geometry.Point;
 import model.geometry.Vect;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
@@ -43,5 +44,39 @@ public class Racer implements RacerAPI{
     @Override
     public Stack<Point> getPointRoute() {
         return pointRoute;
+    }
+
+    @Override
+    public List<Point> getPossibleNextPoints() {
+        List<Point> possibleNextPoints = new ArrayList<>();
+
+        int xPos = getPosition().getX();
+        int yPos = getPosition().getY();
+        int xVelocity = getVelocity().getXVelo();
+        int yVelocity = getVelocity().getYVelo();
+
+        /* get the central point out of the 9 possible next points
+            o o o
+            o o o
+            o o o
+         */
+
+        int centralX = xPos + xVelocity;
+        int centralY = yPos + yVelocity;
+
+        System.out.println("xPos: "+xPos);
+        System.out.println("yPos: "+yPos);
+        System.out.println("xVelocity: "+xVelocity);
+        System.out.println("yVelocity: "+yVelocity);
+        System.out.println("centralX: "+centralX);
+        System.out.println("centralY: "+centralY);
+
+        for(int y = (centralY-1); y <= (centralY+1); y++){
+            for(int x = (centralX-1); x <= (centralX+1); x++){
+                possibleNextPoints.add(new Point(x, y));
+            }
+        }
+
+        return possibleNextPoints;
     }
 }

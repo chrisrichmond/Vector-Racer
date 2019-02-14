@@ -31,7 +31,6 @@ public class Model implements ModelAPI {
 
         // todo AI diversion here ??
 
-        System.out.println(racetrack.getStartPosition());
         Queue<Player> players = new LinkedList<Player>();
         players.add(new HumanPlayer(player1name, new Racer(racetrack.getStartPosition()), Color.BLUE));
         players.add(new HumanPlayer(player2name, new Racer(racetrack.getStartPosition()), Color.RED));
@@ -66,9 +65,6 @@ public class Model implements ModelAPI {
     @Override
     public void createEmptyRacetrack(int rows, int cols, int startPosRow, int startPosCol) {
         racetrack = new Racetrack(rows, cols, new Point(startPosCol, startPosRow));
-        System.out.println(racetrack.getRows());
-        System.out.println(racetrack.getCols());
-        System.out.println("racetrack start pos in createEmptyRacetrack: "+racetrack.getStartPosition());
     }
 
     @Override
@@ -127,18 +123,10 @@ public class Model implements ModelAPI {
             double colLow = currentPoint.getX() - 0.5;
             double colHigh = currentPoint.getX() + 0.5;
 
-//            System.out.println("currentPoint: row "+currentPoint.getY()+" col "+currentPoint.getX());
             if( (row >= rowLow) && (row <= rowHigh) && (col >= colLow) && (col <= colHigh) ){
-//                System.out.println("inside range");
-//                System.out.println("row: "+row);
-//                System.out.println("col: "+col);
-//                System.out.println("rowLow: "+rowLow);
-//                System.out.println("colLow: "+colLow);
-//                System.out.println("rowHigh: "+rowHigh);
-//                System.out.println("colHigh: "+colHigh);
+
                 history.push(currentState);
                 currentState = currentState.makeMove(new Move(currentState.getCurrentPlayer(), new Point((int)col, (int)row)));
-                System.out.println("NEW STATE");
                 notifyObservers();
             }
         }

@@ -64,15 +64,6 @@ public class Racer implements RacerAPI{
         int centralX = xPos + xVelocity;
         int centralY = yPos + yVelocity;
 
-//        System.out.println("---------------------------");
-//        System.out.println("---------------------------");
-//        System.out.println("xPos: "+xPos);
-//        System.out.println("yPos: "+yPos);
-//        System.out.println("xVelocity: "+xVelocity);
-//        System.out.println("yVelocity: "+yVelocity);
-//        System.out.println("centralX: "+centralX);
-//        System.out.println("centralY: "+centralY);
-
         for(int y = (centralY-1); y <= (centralY+1); y++){
             for(int x = (centralX-1); x <= (centralX+1); x++){
                 possibleNextPoints.add(new Point(x, y));

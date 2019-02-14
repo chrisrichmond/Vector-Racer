@@ -24,10 +24,10 @@ public class State {
     }
 
     public State makeMove(Move move){
-        System.out.println("makeMove( "+move.playerToMove.name+", row"+move.destination.getY()+ " col"+ move.destination.getX());
         if(isMoveLegal(move)){
             // return new State with currentPlayer changed to the next in the list
             System.out.println("LEGAL MOVE");
+            currentPlayer.racer.setPosition(move.destination);
             players.poll();
             players.add(currentPlayer);
             return new State(players, racetrack, stateNumber+1);

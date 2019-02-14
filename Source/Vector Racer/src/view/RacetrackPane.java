@@ -72,7 +72,7 @@ public class RacetrackPane extends Pane {
         for(int i = 0; i < player.getPossibleNextPoints().size(); i++){
             int row = player.getPossibleNextPoints().get(i).getY();
             int col = player.getPossibleNextPoints().get(i).getX();
-            circleSelectors.add(new CircleSprite(row, col, VectorConstants.CIRCLESELECTOR_COLOR, VectorConstants.CIRCLESELECTOR_COLOR, 0.25));
+            circleSelectors.add(new CircleSprite(row, col, VectorConstants.CIRCLESELECTOR_COLOR, null, 1, 2.0));
         }
 
         System.out.println("DRAWING NEXT POSSIBLE POSITION CIRCLES");
@@ -94,9 +94,6 @@ public class RacetrackPane extends Pane {
 //            Stack<Integer> rowRoute = currentRacer.getPointRoute()
 
             racerSprites.add(new RacerSprite(row, col, color, color, 1));
-            System.out.println(row);
-            System.out.println(col);
-            System.out.println(color);
         }
         System.out.println("DRAWING RACER SPRITES");
         getChildren().addAll(racerSprites);
@@ -146,7 +143,7 @@ public class RacetrackPane extends Pane {
     private class RacerSprite extends CircleSprite {
 
         public RacerSprite(int row, int col, Color color, Color fill, double opacity) {
-            super(row, col, color, fill, opacity);
+            super(row, col, color, fill, opacity, 1.0);
         }
     }
 
@@ -179,12 +176,13 @@ public class RacetrackPane extends Pane {
         private int col;
         private Ellipse circle;
 
-        public CircleSprite(int row, int col, Color color, Color fill, double opacity){
+        public CircleSprite(int row, int col, Color color, Color fill, double opacity, double borderThickness){
             this.row = row;
             this.col = col;
             this.circle = new Ellipse((tileSize/2), (tileSize/2));
 
             circle.setStroke(color);
+            circle.setStrokeWidth(borderThickness);
             circle.setFill(fill);
             circle.setOpacity(opacity);
 

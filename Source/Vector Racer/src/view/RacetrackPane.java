@@ -89,32 +89,7 @@ public class RacetrackPane extends Pane {
                 if(previous == null){
                     previous = currentPoint;
                 }else{
-                    System.out.println("----------------------------------");
-                    System.out.println("previous y: "+previous.getY());
-                    System.out.println("previous x: "+previous.getX());
-                    System.out.println("current y: "+currentPoint.getY());
-                    System.out.println("current x: "+currentPoint.getX());
-                    System.out.println("");
-                    System.out.println("racer velocity");
-                    System.out.println("yVelo(rowVelo): "+currentRacer.getVelocity().getYVelo()+ " xVelo(colVelo): "+currentRacer.getVelocity().getXVelo());
-                    System.out.println("startY(startRow): "+currentRacer.getVelocity().getStart().getY());
-                    System.out.println("startX(startCol): "+currentRacer.getVelocity().getStart().getX());
-                    System.out.println("endY(endRow): "+currentRacer.getVelocity().getEnd().getY());
-                    System.out.println("endX(endCol): "+currentRacer.getVelocity().getEnd().getX());
-                    System.out.println("----------------------------------");
-
-                    int prevYoffset = previous.getY();
-                    int prevXoffset = previous.getX();
-                    if(previous.getY() > currentPoint.getY()){
-                        prevYoffset--;
-                        System.out.println("y offset to: "+prevYoffset);
-                    }
-                    if(previous.getX() > currentPoint.getX()){
-                        prevXoffset--;
-                        System.out.println("x offset to: "+prevXoffset);
-                    }
-
-                    LineSprite line = new LineSprite(prevYoffset, prevXoffset, currentPoint.getY(), currentPoint.getX(), currentPlayer.getColor(), VectorConstants.RACERTRAIL_THICKNESS);
+                    LineSprite line = new LineSprite(previous.getY(), previous.getX(), currentPoint.getY(), currentPoint.getX(), currentPlayer.getColor(), VectorConstants.RACERTRAIL_THICKNESS);
                     lineSprites.add(line);
                 }
                 previous = currentPoint;
@@ -159,26 +134,13 @@ public class RacetrackPane extends Pane {
         }
     }
 
-    private class LineSprite extends StackPane {
-
-        private int startRow, startCol;
-        private int endRow, endCol;
-        private Line line;
+    private class LineSprite extends Line {
 
         public LineSprite(int startRow, int startCol, int endRow, int endCol, Color color, double thickness){
-            this.startRow = startRow;
-            this.startCol = startCol;
-            this.endRow = endRow;
-            this.endCol = endCol;
-            this.line = new Line(startCol*tileSize, startRow*tileSize, endCol*tileSize, endRow*tileSize);
+            super(startCol*tileSize, startRow*tileSize, endCol*tileSize, endRow*tileSize);
 
-            line.setStroke(color);
-            line.setStrokeWidth(thickness);
-
-            getChildren().add(line);
-
-            setTranslateX(startCol * tileSize);
-            setTranslateY(startRow * tileSize);
+            setStroke(color);
+            setStrokeWidth(thickness);
         }
 
     }
@@ -235,55 +197,5 @@ public class RacetrackPane extends Pane {
         }
 
     }
-
-    /*
-    public RacetrackPane(int rows, int cols, int tileSize, double parentWidth, double parentHeight){
-
-        System.out.println("in tileGridPane | parentWidth: "+parentWidth+", parentHeight: "+parentHeight);
-        //setTranslateX(parentWidth/4);
-
-        this.gridBorder = new Rectangle(parentWidth/2, parentHeight/2);
-        this.grid = new Tile[rows][cols]; // todo rows and cols or X and Y??
-        this.rows = rows;
-        this.cols = cols;
-        this.tileSize = tileSize;
-
-        this.gridBorder.setFill(null);
-        this.gridBorder.setStroke(Color.BLACK);
-        getChildren().add(this.gridBorder);
-
-        for(int col = 0; col < cols; col++){
-            for(int row = 0; row < rows; row++){
-                Tile tile = new Tile(row, col);
-
-                grid[row][col] = tile;
-                getChildren().add(tile);
-            }
-        }
-    }
-
-    private class Tile extends StackPane {
-
-        private int row;
-        private int col;
-
-        private Rectangle tileBorder;
-
-        public Tile(int row, int col){
-            this.row = row;
-            this.col = col;
-            this.tileBorder = new Rectangle(tileSize, tileSize);
-
-            tileBorder.setStroke(Color.LIGHTGRAY); // todo look into css or other global styling
-
-            getChildren().add(tileBorder);
-
-            setTranslateX(col * tileSize);
-            setTranslateY(row * tileSize);
-
-        }
-
-    }
-    */
 
 }

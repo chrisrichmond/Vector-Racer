@@ -3,20 +3,21 @@ package model;
 import model.geometry.Point;
 import model.geometry.Vect;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.List;
-import java.util.Stack;
 
 public class Racer implements RacerAPI{
 
     private Vect velocity;
     private boolean finished;
-    private Stack<Point> pointRoute;
+    private Deque<Point> pointRoute;
 
     public Racer(Point startPosition){
         this.velocity = new Vect(startPosition, startPosition);
         this.finished = false;
-        pointRoute = new Stack<>();
+        pointRoute = new ArrayDeque<>();
         pointRoute.push(startPosition);
     }
 
@@ -42,7 +43,7 @@ public class Racer implements RacerAPI{
     }
 
     @Override
-    public Stack<Point> getPointRoute() {
+    public Deque<Point> getPointRoute() {
         return pointRoute;
     }
 

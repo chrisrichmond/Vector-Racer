@@ -124,6 +124,8 @@ public class Model implements ModelAPI {
             double colHigh = currentPoint.getX() + 0.5;
 
             if( (row >= rowLow) && (row <= rowHigh) && (col >= colLow) && (col <= colHigh) ){
+                System.out.println("row: "+row);
+                System.out.println("col: "+col);
 
                 history.push(currentState);
                 currentState = currentState.makeMove(new Move(currentState.getCurrentPlayer(), new Point((int)col, (int)row)));

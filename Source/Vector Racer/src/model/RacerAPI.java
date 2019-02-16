@@ -3,6 +3,7 @@ package model;
 import model.geometry.Point;
 import model.geometry.Vect;
 
+import java.util.Deque;
 import java.util.List;
 import java.util.Stack;
 
@@ -36,7 +37,7 @@ public interface RacerAPI {
      * Get the Racer's current route of visited points as an ordered list
      * @return
      */
-    Stack<Point> getPointRoute();
+    Deque<Point> getPointRoute();
 
     List<Point> getPossibleNextPoints();
 

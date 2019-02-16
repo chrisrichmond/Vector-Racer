@@ -7,6 +7,8 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Ellipse;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import model.Player;
 import model.RacerAPI;
 import model.RacetrackAPI;
@@ -42,18 +44,11 @@ public class RacetrackPane extends Pane {
 
         drawTiles();
 
-
-//        RacerSprite racerTest = new RacerSprite(5, 5, Color.CYAN, Color.CYAN, 1);
-//        getChildren().addAll(racerTest);
-
-//        CircleSprite test = new CircleSprite(1, 1, Color.GREEN, null, 1);
-//        CircleSprite test2 = new CircleSprite(1, 2, Color.GREEN, Color.GREEN, 0.25);
-//        CircleSprite test3 = new CircleSprite(2, 2, Color.GREEN, Color.RED, 1);
-//
-//        LineSprite test4 = new LineSprite(1, 1, 4, 7, Color.CYAN);
-//
-//        getChildren().addAll(test,test2,test3, test4);
-
+        LineSprite debugVertLine = new LineSprite(0, cols/2, rows, cols/2, Color.LIMEGREEN, 3.0);
+        LineSprite debugHorizLine = new LineSprite(rows/2, 0, rows/2, cols, Color.LIMEGREEN, 3.0);
+        debugVertLine.setVisible(VectorConstants.IS_DEBUG_MODE);
+        debugHorizLine.setVisible(VectorConstants.IS_DEBUG_MODE);
+        getChildren().addAll(debugVertLine, debugHorizLine);
 
     }
 
@@ -88,36 +83,43 @@ public class RacetrackPane extends Pane {
             int col = currentRacer.getPosition().getX();
             Color color = currentPlayer.getColor();
 
+            Point previous = null;
             List<LineSprite> lineSprites = new ArrayList<>();
-            Stack<Point> pointsStack = (Stack<Point>) currentRacer.getPointRoute().clone();
-            List<Point> pointsList = new ArrayList<>();
-            while(!(pointsStack.empty())){
-                System.out.println("---STACK-------------");
-                System.out.println(pointsStack.peek().getY());
-                System.out.println(pointsStack.peek().getX());
-                System.out.println("---------------------");
-                pointsList.add(pointsStack.pop());
+            for(Point currentPoint: currentRacer.getPointRoute()){
+                if(previous == null){
+                    previous = currentPoint;
+                }else{
+                    System.out.println("----------------------------------");
+                    System.out.println("previous y: "+previous.getY());
+                    System.out.println("previous x: "+previous.getX());
+                    System.out.println("current y: "+currentPoint.getY());
+                    System.out.println("current x: "+currentPoint.getX());
+                    System.out.println("");
+                    System.out.println("racer velocity");
+                    System.out.println("yVelo(rowVelo): "+currentRacer.getVelocity().getYVelo()+ " xVelo(colVelo): "+currentRacer.getVelocity().getXVelo());
+                    System.out.println("startY(startRow): "+currentRacer.getVelocity().getStart().getY());
+                    System.out.println("startX(startCol): "+currentRacer.getVelocity().getStart().getX());
+                    System.out.println("endY(endRow): "+currentRacer.getVelocity().getEnd().getY());
+                    System.out.println("endX(endCol): "+currentRacer.getVelocity().getEnd().getX());
+                    System.out.println("----------------------------------");
+
+                    int prevYoffset = previous.getY();
+                    int prevXoffset = previous.getX();
+                    if(previous.getY() > currentPoint.getY()){
+                        prevYoffset--;
+                        System.out.println("y offset to: "+prevYoffset);
+                    }
+                    if(previous.getX() > currentPoint.getX()){
+                        prevXoffset--;
+                        System.out.println("x offset to: "+prevXoffset);
+                    }
+
+                    LineSprite line = new LineSprite(prevYoffset, prevXoffset, currentPoint.getY(), currentPoint.getX(), currentPlayer.getColor(), VectorConstants.RACERTRAIL_THICKNESS);
+                    lineSprites.add(line);
+                }
+                previous = currentPoint;
             }
 
-
-
-            for(int i = 1; i < pointsList.size(); i++){
-                System.out.println("---- "+i+" ----");
-
-                int previousX = pointsList.get(i-1).getX();
-                int previousY = pointsList.get(i-1).getY();
-                int currentX = pointsList.get(i).getX();
-                int currentY = pointsList.get(i).getY();
-
-                LineSprite line = new LineSprite(previousY, previousX, currentY, currentX, currentPlayer.getColor(), VectorConstants.RACERTRAIL_THICKNESS);
-                System.out.println("adding line: ");
-                System.out.println(line.startRow);
-                System.out.println(line.startCol);
-                System.out.println(line.endRow);
-                System.out.println(line.endCol);
-                System.out.println("---------------");
-                lineSprites.add(line);
-            }
             getChildren().addAll(lineSprites);
             racerSprites.add(new RacerSprite(row, col, color, color, 1));
         }
@@ -209,6 +211,7 @@ public class RacetrackPane extends Pane {
         private int row;
         private int col;
         private Rectangle tile;
+        private Text debugCoord;
 
         public TileSprite(int row, int col, Color color){
             this.row = row;
@@ -218,7 +221,13 @@ public class RacetrackPane extends Pane {
             tile.setStroke(VectorConstants.GRIDLINE_COLOR); // todo look into css or other global styling
             tile.setFill(color);
 
+            debugCoord = new Text();
+            debugCoord.setFont(Font.font(tileSize/2));
+            debugCoord.setText(row + " " + col);
+            debugCoord.setVisible(VectorConstants.IS_DEBUG_MODE);
+
             getChildren().add(tile);
+            getChildren().add(debugCoord);
 
             setTranslateX(col * tileSize);
             setTranslateY(row * tileSize);

@@ -51,6 +51,6 @@ public class GameController implements EventHandler, Observer {
 
     @Override
     public void update() {
-
+        // check if the current player is inside a wall
     }
 }

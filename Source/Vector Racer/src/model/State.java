@@ -26,7 +26,9 @@ public class State {
     public State makeMove(Move move){
         if(isMoveLegal(move)){
             // return new State with currentPlayer changed to the next in the list
-            currentPlayer.racer.setPosition(move.destination);
+
+//            currentPlayer.racer.setPosition(move.destination);
+            currentPlayer.racer.moveWhilstApplyingEffects(racetrack, move.destination);
             players.poll();
             players.add(currentPlayer);
             return new State(players, racetrack, stateNumber+1);

@@ -73,4 +73,17 @@ public class Racer implements RacerAPI{
 
         return possibleNextPoints;
     }
+
+    @Override
+    public Point moveWhilstApplyingEffects(RacetrackAPI racetrack, Point destinationBeforeEffects) {
+        Point currentPosition = pointRoute.peek();
+        Point destinationAfterEffects = destinationBeforeEffects;
+        List<Tile> tilesTraversed = new ArrayList<>();
+
+        for(int row = currentPosition.getY(); row)
+        racetrack.getTile()
+        tilesTraversed
+
+        return destinationAfterEffects;
+    }
 }

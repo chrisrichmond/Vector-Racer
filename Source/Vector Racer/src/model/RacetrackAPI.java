@@ -12,6 +12,8 @@ public interface RacetrackAPI {
      */
     List<Tile> getTiles();
 
+    Tile getTile(int row, int col);
+
     /**
      * Adds a new tile to the Racetrack's list as long as its position is not already occupied
      * @param newTile the new Tile object to be added to the list
@@ -62,5 +64,7 @@ public interface RacetrackAPI {
     Point getStartPosition();
 
     void setStartPosition(Point startPostition);
+
+    boolean isWithinBounds(Point position);
 
 }

@@ -41,4 +41,6 @@ public interface RacerAPI {
 
     List<Point> getPossibleNextPoints();
 
+    Point moveWhilstApplyingEffects(RacetrackAPI racetrack, Point destinationBeforeEffects);
+
 }

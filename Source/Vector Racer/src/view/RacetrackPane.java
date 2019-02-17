@@ -1,6 +1,8 @@
 package view;
 
 import javafx.scene.Node;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.effect.InnerShadow;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
@@ -28,6 +30,8 @@ public class RacetrackPane extends Pane {
     private RacetrackAPI racetrack;
     private List<TileSprite> tileSprites;
     private List<RacerSprite> racerSprites;
+    private DropShadow dropShadow;
+    private InnerShadow innerShadow = new InnerShadow();
 
     public RacetrackPane(RacetrackAPI racetrack){
         this.rows = racetrack.getRows();
@@ -37,6 +41,13 @@ public class RacetrackPane extends Pane {
         this.trackBorder = new Rectangle(cols*tileSize, rows*tileSize);
         this.tileSprites = new ArrayList<>();
         this.racerSprites = new ArrayList<>();
+        this.dropShadow = new DropShadow();
+        dropShadow.setRadius(5.0);
+        dropShadow.setOffsetX(3.0);
+        dropShadow.setOffsetY(3.0);
+        innerShadow.setOffsetX(2.0f);
+        innerShadow.setOffsetY(2.0f);
+
 
         trackBorder.setStroke(Color.BLACK);
         trackBorder.setFill(null);
@@ -90,13 +101,17 @@ public class RacetrackPane extends Pane {
                     previous = currentPoint;
                 }else{
                     LineSprite line = new LineSprite(previous.getY(), previous.getX(), currentPoint.getY(), currentPoint.getX(), currentPlayer.getColor(), VectorConstants.RACERTRAIL_THICKNESS);
+//                    line.setEffect(dropShadow);
                     lineSprites.add(line);
                 }
                 previous = currentPoint;
             }
 
             getChildren().addAll(lineSprites);
-            racerSprites.add(new RacerSprite(row, col, color, color, 1));
+            RacerSprite racerSprite = new RacerSprite(row, col, color, color, 1);
+            racerSprite.setEffect(dropShadow);
+//            racerSprite.setEffect(innerShadow);
+            racerSprites.add(racerSprite);
         }
         getChildren().addAll(racerSprites);
     }
@@ -184,8 +199,8 @@ public class RacetrackPane extends Pane {
             tile.setFill(color);
 
             debugCoord = new Text();
-            debugCoord.setFont(Font.font(tileSize/2));
-            debugCoord.setText(row + " " + col);
+            debugCoord.setFont(Font.font(tileSize/3));
+            debugCoord.setText(row + ", " + col);
             debugCoord.setVisible(VectorConstants.IS_DEBUG_MODE);
 
             getChildren().add(tile);

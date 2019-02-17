@@ -123,7 +123,9 @@ public class View implements ViewAPI{
     public void createGamePane(){
         gamePane = new BorderPane();
         racetrackPane = new RacetrackPane(model.getRacetrack());
-        racetrackPane.setEffect(new Reflection());
+        Reflection reflection = new Reflection();
+        reflection.setFraction(0.25);
+        racetrackPane.setEffect(reflection);
         gamePane.getChildren().add(racetrackPane);
         racetrackPane.addEventFilter(MouseEvent.MOUSE_PRESSED, gameController);
 

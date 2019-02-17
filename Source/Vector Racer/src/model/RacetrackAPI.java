@@ -41,30 +41,82 @@ public interface RacetrackAPI {
      */
     void clear();
 
+    /**
+     * Adds a new air tile to the racetrack data structure if a tile doesn't already exist in this position
+     * @param newTile
+     * @return true if the tile was added, false if not
+     */
     boolean addAirTile(AirTile newTile);
 
+    /**
+     * Adds a new sand tile to the racetrack data structure if a tile doesn't already exist in this position
+     * @param newTile
+     * @return true if the tile was added, false if not
+     */
     boolean addSandTile(SandTile newTile);
 
+    /**
+     * Adds a new ice tile to the racetrack data structure if a tile doesn't already exist in this position
+     * @param newTile
+     * @return true if the tile was added, false if not
+     */
     boolean addIceTile(IceTile newTile);
 
+    /**
+     * Adds a new wall tile to the racetrack data structure if a tile doesn't already exist in this position
+     * @param newTile
+     * @return true if the tile was added, false if not
+     */
     boolean addWallTile(WallTile newTile);
 
+    /**
+     * Gets all the air tiles held by this Racetrack's data structure
+     * @return a list of air tiles
+     */
     List<AirTile> getAirTiles();
 
+    /**
+     * Gets all the sand tiles held by this Racetrack's data structure
+     * @return a list of sand tiles
+     */
     List<SandTile> getSandTiles();
 
+    /**
+     * Gets all the ice tiles held by this Racetrack's data structure
+     * @return a list of ice tiles
+     */
     List<IceTile> getIceTiles();
 
+    /**
+     * Gets all the wall tiles held by this Racetrack's data structure
+     * @return a list of wall tiles
+     */
     List<WallTile> getWallTiles();
 
+    /**
+     * Gets the number of rows this Racetrack contains
+     * @return the integer rows attribute of this Racetrack
+     */
     int getRows();
 
+    /**
+     * Gets the number of columns this Racetrack contains
+     * @return the integer cols attribute of this Racetrack
+     */
     int getCols();
 
+    /**
+     * Gets the position that Racers will spawn at on this Racetrack
+     * @return the start Point in cartesian space
+     */
     Point getStartPosition();
 
+    /**
+     * Sets the position that Racers will spawn at on this Racetrack
+     * @param startPostition the start Point in cartesian space
+     */
     void setStartPosition(Point startPostition);
 
-    boolean isWithinBounds(Point position);
+//    boolean isWithinBounds(Point position);
 
 }

@@ -80,9 +80,23 @@ public class Racer implements RacerAPI{
         Point destinationAfterEffects = destinationBeforeEffects;
         List<Tile> tilesTraversed = new ArrayList<>();
 
-        for(int row = currentPosition.getY(); row)
-        racetrack.getTile()
-        tilesTraversed
+//        if(currentPosition.getY() <= destinationBeforeEffects.getY()){
+//            // the current row is less than the destination row or equal to it
+//            if(currentPosition.getX() <= ) {
+//
+//
+//                for (int row = currentPosition.getY(); row < destinationBeforeEffects.getY(); row++) {
+//                    for (int col = currentPosition.getX(); col < destinationBeforeEffects.getY(); row++)
+//                }
+//            }
+//        }else{
+//            // the current row is greater than the destination row
+//            for(int row())
+//
+//        }
+//
+//        racetrack.getTile()
+//        tilesTraversed
 
         return destinationAfterEffects;
     }

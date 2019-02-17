@@ -169,8 +169,29 @@ public class Racetrack implements RacetrackAPI{
         this.startPosition = startPosition;
     }
 
+//    @Override
+//    public boolean isWithinBounds(Point position) {
+//
+//
+//        return false;
+//    }
+
     @Override
     public List<Tile> getTiles() {
         return tiles;
+    }
+
+    @Override
+    public Tile getTile(int row, int col) {
+        if( (row < 0) || (row > rows) || (col < 0) || (col > cols) )
+            return null;
+
+        for(Tile currentTile: tiles){
+            if( (currentTile.getStartY() == col) && (currentTile.getStartX() == row) ) {
+                return currentTile;
+            }
+        }
+
+        return null;
     }
 }

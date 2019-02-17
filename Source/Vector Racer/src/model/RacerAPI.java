@@ -35,12 +35,22 @@ public interface RacerAPI {
 
     /**
      * Get the Racer's current route of visited points as an ordered list
-     * @return
+     * @return a double-ended queue representing the current route of this Racer, to be interpreted in Stack order
      */
     Deque<Point> getPointRoute();
 
+    /**
+     * Get the 9 next possible positions that the Racer could move to based on its current position and velocity
+     * @return a list of Points representing the next possible positions in no particular order
+     */
     List<Point> getPossibleNextPoints();
 
+    /**
+     * Evaluates the next destination that the Racer should be in after applying Terrain effects from any Tiles it has traversed between its current position and its probationary destination
+     * @param racetrack the current Racetrack
+     * @param destinationBeforeEffects the probationary position of the Racer before effects are applied, used to evaluate the resultant position
+     * @return the resultant destination after Terrain effects have been applied
+     */
     Point moveWhilstApplyingEffects(RacetrackAPI racetrack, Point destinationBeforeEffects);
 
 }

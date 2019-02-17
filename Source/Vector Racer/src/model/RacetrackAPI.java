@@ -117,6 +117,8 @@ public interface RacetrackAPI {
      */
     void setStartPosition(Point startPostition);
 
+    boolean isTouchingWall(RacerAPI racer);
+
 //    boolean isWithinBounds(Point position);
 
 }

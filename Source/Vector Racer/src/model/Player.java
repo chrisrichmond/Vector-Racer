@@ -9,10 +9,10 @@ import java.util.List;
 
 public abstract class Player {
 
-    protected String name;
-    protected RacerAPI racer;
-    protected boolean finished;
-    protected Color color;
+    private String name;
+    private RacerAPI racer;
+    private boolean finished;
+    private Color color;
 
     public Player(String name, RacerAPI racer, Color color) {
         this.name = name;

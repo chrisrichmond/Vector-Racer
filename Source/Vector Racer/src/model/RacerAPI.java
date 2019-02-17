@@ -53,4 +53,6 @@ public interface RacerAPI {
      */
     Point moveWhilstApplyingEffects(RacetrackAPI racetrack, Point destinationBeforeEffects);
 
+    public void killVelocity();
+
 }

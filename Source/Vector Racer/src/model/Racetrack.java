@@ -169,6 +169,21 @@ public class Racetrack implements RacetrackAPI{
         this.startPosition = startPosition;
     }
 
+    @Override
+    public boolean isTouchingWall(RacerAPI racer) {
+        List<Point> wallCorners = new ArrayList<>();
+
+        for(WallTile currentWallTile: wallTiles){
+            wallCorners.addAll(currentWallTile.getCorners());
+        }
+
+        if(wallCorners.contains(racer.getPosition())){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
 //    @Override
 //    public boolean isWithinBounds(Point position) {
 //

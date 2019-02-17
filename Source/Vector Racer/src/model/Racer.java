@@ -43,6 +43,11 @@ public class Racer implements RacerAPI{
     }
 
     @Override
+    public void killVelocity(){
+        velocity = new Vect(getPosition(), getPosition());
+    }
+
+    @Override
     public Deque<Point> getPointRoute() {
         return pointRoute;
     }

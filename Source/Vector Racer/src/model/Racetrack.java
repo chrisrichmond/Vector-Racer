@@ -195,6 +195,8 @@ public class Racetrack implements RacetrackAPI{
             end = temp;
         }
 
+        // may need to check for end point being above start point?
+
         for()
 
     }

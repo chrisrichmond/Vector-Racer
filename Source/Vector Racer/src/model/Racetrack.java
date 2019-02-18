@@ -184,6 +184,21 @@ public class Racetrack implements RacetrackAPI{
         }
     }
 
+    @Override
+    public List<Terrain> getTerrainBetween(Point start, Point end) {
+        // todo must do validation checking before calling this function to ensure Points are within racetrack bounds
+
+        if(start.getX() > end.getX()){
+            // ensures start point is always on the left of end or inline
+            Point temp = start;
+            start = end;
+            end = temp;
+        }
+
+        for()
+
+    }
+
 //    @Override
 //    public boolean isWithinBounds(Point position) {
 //

@@ -4,10 +4,13 @@ public class Vect {
 
     protected Point start;
     protected Point end;
+    protected double gradient;
 
     public Vect(int startX, int startY, int endX, int endY){
         this.start = new Point(startX, startY);
         this.end = new Point(endX, endY);
+        this.gradient = (endY-startY)/(endX-startX);
+
     }
 
     public Vect(Point start, Point end){
@@ -29,5 +32,25 @@ public class Vect {
 
     public int getYVelo(){
         return end.getY()-start.getY();
+    }
+
+    public double getGradient(){
+        return gradient;
+    }
+
+    public double getXfromY(double y){
+        // x = (y-b)/m + a , when a is any x coordinate on the line and b is its corresponding y coordinate
+        double a = start.getX();
+        double b = start.getY();
+        double m = gradient;
+        return ( (y-b)/m + a);
+    }
+
+    public double getYfromX(double x){
+        // y = m(x-a) + b , when a is any x coordinate on the line and b is its corresponding y coordinate
+        double a = start.getX();
+        double b = start.getY();
+        double m = gradient;
+        return ( m*(x-a) + b);
     }
 }

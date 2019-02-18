@@ -119,6 +119,8 @@ public interface RacetrackAPI {
 
     boolean isTouchingWall(RacerAPI racer);
 
+    List<Terrain> getTerrainBetween(Point start, Point end);
+
 //    boolean isWithinBounds(Point position);
 
 }

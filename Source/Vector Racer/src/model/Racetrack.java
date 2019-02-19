@@ -1,6 +1,7 @@
 package model;
 
 import model.geometry.Point;
+import model.geometry.Vect;
 import utilities.VectorConstants;
 
 import java.util.ArrayList;
@@ -187,7 +188,8 @@ public class Racetrack implements RacetrackAPI{
     @Override
     public List<Terrain> getTerrainBetween(Point start, Point end) {
         // todo must do validation checking before calling this function to ensure Points are within racetrack bounds
-
+        Vect line = new Vect(start, end);
+        List<Terrain> terrain = new ArrayList<>();
         if(start.getX() > end.getX()){
             // ensures start point is always on the left of end or inline
             Point temp = start;
@@ -195,10 +197,42 @@ public class Racetrack implements RacetrackAPI{
             end = temp;
         }
 
-        // may need to check for end point being above start point?
+        // todo may need to check for end point being above start point?
 
-        for()
+        for(int x = start.getX(); x <= end.getX(); x++){
+            double y = Math.floor(line.getYfromX(x));
 
+            // try adding tiles at CARTESIAN coordinates(x, y) and (x-1, y)
+
+            Tile temp = getTile((int)y, x);
+            if(!(terrain.contains(temp)))
+                terrain.add(temp);
+            temp = getTile((int) y, x-1);
+
+            if(!(terrain.contains(temp)))
+                terrain.add(temp);
+
+        }
+        for(int y = start.getY(); y <= end.getY(); y++){
+            double x = Math.floor(line.getXfromY(y));
+
+            // try adding tiles at CARTESIAN coordinates (x, y) and (x, y-1)
+
+            Tile temp = getTile(y, (int) x);
+            if(!(terrain.contains(temp)))
+                terrain.add(temp);
+            temp = getTile(y-1, (int) x);
+            if(!(terrain.contains(temp)))
+                terrain.add(temp);
+
+        }
+
+        for(Terrain currentTerrain: terrain){
+            System.out.println("row: "+((Tile)currentTerrain).getStartY());
+            System.out.println("col: "+((Tile)currentTerrain).getStartX());
+        }
+
+        return terrain;
     }
 
 //    @Override

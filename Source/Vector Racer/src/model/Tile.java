@@ -54,4 +54,13 @@ public abstract class Tile extends Square implements Terrain {
     public Color getColor() {
         return color;
     }
+
+    @Override
+    public boolean equals(Object obj){
+        if(obj == null) return false;
+        if(!(obj instanceof Tile))
+            return false;
+        if(obj == this) return true;
+        return ( (this.traversable == ((Tile) obj).traversable) && (this.resistance == ((Tile) obj).resistance) && (this.slide == ((Tile) obj).slide) && (this.chaos == ((Tile) obj).chaos) && (this.color.equals(((Tile) obj).color)) );
+    }
 }

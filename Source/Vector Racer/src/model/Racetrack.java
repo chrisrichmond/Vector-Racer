@@ -204,19 +204,26 @@ public class Racetrack implements RacetrackAPI{
 
             // try adding tiles at CARTESIAN coordinates(x, y) and (x-1, y)
 
+            System.out.println("in loop1");
+
             Tile temp = getTile((int)y, x);
-            if(!(terrain.contains(temp)))
+            if(!(terrain.contains(temp))) {
+                System.out.println("dnoisadoiahfoa");
                 terrain.add(temp);
+            }
             temp = getTile((int) y, x-1);
 
-            if(!(terrain.contains(temp)))
+            if(!(terrain.contains(temp))) {
+                System.out.println("osihdhdofihdsoif");
                 terrain.add(temp);
-
+            }
         }
         for(int y = start.getY(); y <= end.getY(); y++){
             double x = Math.floor(line.getXfromY(y));
 
             // try adding tiles at CARTESIAN coordinates (x, y) and (x, y-1)
+
+            System.out.println("in loop2");
 
             Tile temp = getTile(y, (int) x);
             if(!(terrain.contains(temp)))
@@ -227,10 +234,12 @@ public class Racetrack implements RacetrackAPI{
 
         }
 
-//        for(Terrain currentTerrain: terrain){
-//            System.out.println("row: "+((Tile)currentTerrain).getStartY());
-//            System.out.println("col: "+((Tile)currentTerrain).getStartX());
-//        }
+        System.out.println(terrain.size());
+        for(Terrain currentTerrain: terrain){
+            System.out.println((Tile)currentTerrain);
+            System.out.println("ROW: "+((Tile)currentTerrain).getStartY());
+            System.out.println("COL: "+((Tile)currentTerrain).getStartX());
+        }
 
         return terrain;
     }
@@ -249,15 +258,19 @@ public class Racetrack implements RacetrackAPI{
 
     @Override
     public Tile getTile(int row, int col) {
-        if( (row < 0) || (row > rows) || (col < 0) || (col > cols) )
+        if( (row < 0) || (row > rows) || (col < 0) || (col > cols) ) {
+            System.out.println("outwith bounds");
             return null;
+        }
 
         for(Tile currentTile: tiles){
+            System.out.println("IN FOR LOOP");
             if( (currentTile.getStartY() == col) && (currentTile.getStartX() == row) ) {
                 return currentTile;
             }
         }
 
+        System.out.println("end of getTile returning null?");
         return null;
     }
 }

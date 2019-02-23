@@ -227,10 +227,10 @@ public class Racetrack implements RacetrackAPI{
 
         }
 
-        for(Terrain currentTerrain: terrain){
-            System.out.println("row: "+((Tile)currentTerrain).getStartY());
-            System.out.println("col: "+((Tile)currentTerrain).getStartX());
-        }
+//        for(Terrain currentTerrain: terrain){
+//            System.out.println("row: "+((Tile)currentTerrain).getStartY());
+//            System.out.println("col: "+((Tile)currentTerrain).getStartX());
+//        }
 
         return terrain;
     }

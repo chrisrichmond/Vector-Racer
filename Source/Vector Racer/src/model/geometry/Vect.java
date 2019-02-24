@@ -9,13 +9,26 @@ public class Vect {
     public Vect(int startX, int startY, int endX, int endY){
         this.start = new Point(startX, startY);
         this.end = new Point(endX, endY);
-        this.gradient = (endY-startY)/(endX-startX);
-
+        calcGradient();
     }
 
     public Vect(Point start, Point end){
         this.start = start;
         this.end = end;
+        System.out.println("start row: "+start.getY());
+        System.out.println("start col: "+start.getX());
+        System.out.println("end row: "+end.getY());
+        System.out.println("end col: "+end.getX());
+        calcGradient();
+    }
+
+    private void calcGradient(){
+        try {
+            this.gradient = (end.getY() - start.getY()) / (end.getX() - start.getX());
+            System.out.println("gradient = "+this.gradient);
+        }catch(Exception e){
+            this.gradient = 0;
+        }
     }
 
     public Point getStart() {

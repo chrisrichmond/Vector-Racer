@@ -189,6 +189,7 @@ public class Racetrack implements RacetrackAPI{
     public List<Terrain> getTerrainBetween(Point start, Point end) {
         // todo must do validation checking before calling this function to ensure Points are within racetrack bounds
         Vect line = new Vect(start, end);
+        System.out.println("m = "+line.getGradient());
         List<Terrain> terrain = new ArrayList<>();
         if(start.getX() > end.getX()){
             // ensures start point is always on the left of end or inline
@@ -200,37 +201,54 @@ public class Racetrack implements RacetrackAPI{
         // todo may need to check for end point being above start point?
 
         for(int x = start.getX(); x <= end.getX(); x++){
+            System.out.println("---------------------");
+            System.out.println("looping on x columns");
+            System.out.println("x = "+x);
+            System.out.println("end.getX() = "+end.getX());
             double y = Math.floor(line.getYfromX(x));
 
             // try adding tiles at CARTESIAN coordinates(x, y) and (x-1, y)
 
-            System.out.println("in loop1");
-
-            Tile temp = getTile((int)y, x);
-            if(!(terrain.contains(temp))) {
-                System.out.println("dnoisadoiahfoa");
-                terrain.add(temp);
+            // try adding tile on right (only if not on the last column)
+            if(x != end.getX()) {
+                Tile temp = getTile((int) y, x);
+                if (!(terrain.contains(temp))) {
+                    System.out.println("adding temp - row: " + temp.getStartY() + " col: " + temp.getStartX());
+                    terrain.add(temp);
+                }
             }
-            temp = getTile((int) y, x-1);
 
+            // try adding tile on left
+            Tile temp = getTile((int) y, x-1);
             if(!(terrain.contains(temp))) {
-                System.out.println("osihdhdofihdsoif");
+                System.out.println("adding temp - row: "+ temp.getStartY()+" col: "+temp.getStartX());
                 terrain.add(temp);
             }
         }
-        for(int y = start.getY(); y <= end.getY(); y++){
+        for(int y = start.getY()+1; y <= end.getY(); y++){
+            System.out.println("---------------------");
+            System.out.println("looping on y rows");
+            System.out.println("y = "+y);
+            System.out.println("end.getY() = "+end.getY());
             double x = Math.floor(line.getXfromY(y));
 
             // try adding tiles at CARTESIAN coordinates (x, y) and (x, y-1)
 
-            System.out.println("in loop2");
+            // try adding tile below (only if not on last row)
+            if(y != end.getY()) {
+                Tile temp = getTile(y, (int) x);
+                if (!(terrain.contains(temp))) {
+                    System.out.println("adding temp - row: " + temp.getStartY() + " col: " + temp.getStartX());
+                    terrain.add(temp);
+                }
+            }
 
-            Tile temp = getTile(y, (int) x);
-            if(!(terrain.contains(temp)))
+            // try adding tile above
+            Tile temp = getTile(y-1, (int) x);
+            if(!(terrain.contains(temp))) {
+                System.out.println("adding temp - row: "+ temp.getStartY()+" col: "+temp.getStartX());
                 terrain.add(temp);
-            temp = getTile(y-1, (int) x);
-            if(!(terrain.contains(temp)))
-                terrain.add(temp);
+            }
 
         }
 
@@ -264,8 +282,8 @@ public class Racetrack implements RacetrackAPI{
         }
 
         for(Tile currentTile: tiles){
-            System.out.println("IN FOR LOOP");
-            if( (currentTile.getStartY() == col) && (currentTile.getStartX() == row) ) {
+            if( (currentTile.getStartY() == row) && (currentTile.getStartX() == col) ) {
+                System.out.println("found matching tile and returning - row: "+row+" col: "+col);
                 return currentTile;
             }
         }

@@ -3,6 +3,7 @@ package model;
 import model.geometry.Point;
 
 import java.util.List;
+import java.util.Set;
 
 public interface RacetrackAPI {
 
@@ -119,7 +120,7 @@ public interface RacetrackAPI {
 
     boolean isTouchingWall(RacerAPI racer);
 
-    List<Terrain> getTerrainBetween(Point start, Point end);
+    Set<Terrain> getTerrainBetween(Point start, Point end);
 
 //    boolean isWithinBounds(Point position);
 

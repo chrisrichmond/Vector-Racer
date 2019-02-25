@@ -5,7 +5,9 @@ import model.geometry.Vect;
 import utilities.VectorConstants;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Racetrack implements RacetrackAPI{
 
@@ -186,11 +188,11 @@ public class Racetrack implements RacetrackAPI{
     }
 
     @Override
-    public List<Terrain> getTerrainBetween(Point start, Point end) {
+    public Set<Terrain> getTerrainBetween(Point start, Point end) {
         // todo must do validation checking before calling this function to ensure Points are within racetrack bounds
         Vect line = new Vect(start, end);
         System.out.println("m = "+line.getGradient());
-        List<Terrain> terrain = new ArrayList<>();
+        Set<Terrain> terrain = new HashSet<>();
         if(start.getX() > end.getX()){
             // ensures start point is always on the left of end or inline
             Point temp = start;
@@ -198,65 +200,103 @@ public class Racetrack implements RacetrackAPI{
             end = temp;
         }
 
-        // todo may need to check for end point being above start point?
+        if(!(start.equals(end))) {
 
-        for(int x = start.getX(); x <= end.getX(); x++){
-            System.out.println("---------------------");
-            System.out.println("looping on x columns");
-            System.out.println("x = "+x);
-            System.out.println("end.getX() = "+end.getX());
-            double y = Math.floor(line.getYfromX(x));
+            for (int x = start.getX() + 1; x <= end.getX(); x++) {
+                // looping through all values of x after start
 
-            // try adding tiles at CARTESIAN coordinates(x, y) and (x-1, y)
+                if(start.getY() == end.getY()){
+                    // horizontal gradient
 
-            // try adding tile on right (only if not on the last column)
-            if(x != end.getX()) {
-                Tile temp = getTile((int) y, x);
-                if (!(terrain.contains(temp))) {
-                    System.out.println("adding temp - row: " + temp.getStartY() + " col: " + temp.getStartX());
-                    terrain.add(temp);
+                    int y = start.getY();
+                    terrain.add(getTile(y-1, x-1));
+                    terrain.add(getTile(y, x-1));
+                }else if( (line.getYfromX(x)) - (Math.floor(line.getYfromX(x))) == 0){
+                    // intersection is on a vertex before carrying out Math.floor()
+
+                    int y = (int) Math.floor(line.getYfromX(x));
+                    if(line.getGradient() > 0){
+                        // gradient is positive
+                        terrain.add(getTile(y-1, x-1));
+                        if(x != end.getX()) {
+                            // not on final iteration through loop
+                            terrain.add(getTile(y, x));
+                        }
+                    }else if(line.getGradient() < 0){
+                        // gradient is negative
+                        terrain.add(getTile(y, x-1));
+                        if(x != end.getX()){
+                            // not on final iteration through loop
+                            terrain.add(getTile(y-1, x));
+                        }
+
+                    }
+                }else{
+                    // intersection is on an edge before carrying out Math.floor()
+
+                    int y = (int) Math.floor(line.getYfromX(x));
+                    terrain.add(getTile(y, x-1));
+                    if(x != end.getX()) {
+                        // not on final iteration through loop
+                        terrain.add(getTile(y, x));
+                    }
                 }
-            }
 
-            // try adding tile on left
-            Tile temp = getTile((int) y, x-1);
-            if(!(terrain.contains(temp))) {
-                System.out.println("adding temp - row: "+ temp.getStartY()+" col: "+temp.getStartX());
-                terrain.add(temp);
-            }
-        }
-        for(int y = start.getY()+1; y <= end.getY(); y++){
-            System.out.println("---------------------");
-            System.out.println("looping on y rows");
-            System.out.println("y = "+y);
-            System.out.println("end.getY() = "+end.getY());
-            double x = Math.floor(line.getXfromY(y));
 
-            // try adding tiles at CARTESIAN coordinates (x, y) and (x, y-1)
 
-            // try adding tile below (only if not on last row)
-            if(y != end.getY()) {
-                Tile temp = getTile(y, (int) x);
-                if (!(terrain.contains(temp))) {
-                    System.out.println("adding temp - row: " + temp.getStartY() + " col: " + temp.getStartX());
-                    terrain.add(temp);
-                }
-            }
-
-            // try adding tile above
-            Tile temp = getTile(y-1, (int) x);
-            if(!(terrain.contains(temp))) {
-                System.out.println("adding temp - row: "+ temp.getStartY()+" col: "+temp.getStartX());
-                terrain.add(temp);
             }
 
         }
 
-        System.out.println(terrain.size());
-        for(Terrain currentTerrain: terrain){
-            System.out.println((Tile)currentTerrain);
-            System.out.println("ROW: "+((Tile)currentTerrain).getStartY());
-            System.out.println("COL: "+((Tile)currentTerrain).getStartX());
+        if(start.getY() > end.getY()){
+            // ensures start point is always on the left of end or inline
+            Point temp = start;
+            start = end;
+            end = temp;
+        }
+
+        for (int y = start.getY() + 1; y <= end.getY(); y++) {
+            // looping through all values of y after start
+
+            if(start.getX() == end.getX()){
+                // vertical gradient
+
+                int x = start.getX();
+                terrain.add(getTile(y-1, x-1));
+                terrain.add(getTile(y-1, x));
+            }else if( (line.getXfromY(y)) - (Math.floor(line.getXfromY(y))) == 0){
+                // intersection is on a vertex before carrying out Math.floor()
+
+                int x = (int) Math.floor(line.getXfromY(y));
+                if(line.getGradient() > 0){
+                    // gradient is positive
+                    terrain.add(getTile(y-1, x-1));
+                    if(y != end.getY()) {
+                        // not on final iteration through loop
+                        terrain.add(getTile(y, x));
+                    }
+                }else if(line.getGradient() < 0){
+                    // gradient is negative
+                    terrain.add(getTile(y-1, x));
+                    if(y != end.getY()){
+                        // not on final iteration through loop
+                        terrain.add(getTile(y, x-1));
+                    }
+                }
+            }else{
+                // intersection is on an edge before carrying out Math.floor()
+
+                int x = (int) Math.floor(line.getXfromY(y));
+                terrain.add(getTile(y-1, x));
+                if(y != end.getY()) {
+                    // not on final iteration through loop
+                    terrain.add(getTile(y, x));
+                }
+            }
+        }
+
+        for(Terrain currentTerrain: terrain) {
+            System.out.println("TERRAIN @ [ROW:"+((Tile)currentTerrain).getStartY()+" COL:"+((Tile)currentTerrain).getStartX()+"]");
         }
 
         return terrain;
@@ -277,13 +317,11 @@ public class Racetrack implements RacetrackAPI{
     @Override
     public Tile getTile(int row, int col) {
         if( (row < 0) || (row > rows) || (col < 0) || (col > cols) ) {
-            System.out.println("outwith bounds");
             return null;
         }
 
         for(Tile currentTile: tiles){
             if( (currentTile.getStartY() == row) && (currentTile.getStartX() == col) ) {
-                System.out.println("found matching tile and returning - row: "+row+" col: "+col);
                 return currentTile;
             }
         }

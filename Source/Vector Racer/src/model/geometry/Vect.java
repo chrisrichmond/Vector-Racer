@@ -15,17 +15,12 @@ public class Vect {
     public Vect(Point start, Point end){
         this.start = start;
         this.end = end;
-        System.out.println("start row: "+start.getY());
-        System.out.println("start col: "+start.getX());
-        System.out.println("end row: "+end.getY());
-        System.out.println("end col: "+end.getX());
         calcGradient();
     }
 
     private void calcGradient(){
         try {
-            this.gradient = (end.getY() - start.getY()) / (end.getX() - start.getX());
-            System.out.println("gradient = "+this.gradient);
+            this.gradient = ((double)end.getY() - (double)start.getY()) / ((double)end.getX() - (double)start.getX());
         }catch(Exception e){
             this.gradient = 0;
         }

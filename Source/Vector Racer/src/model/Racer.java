@@ -77,7 +77,7 @@ public class Racer implements RacerAPI{
     }
 
     @Override
-    public Point moveWhilstApplyingEffects(RacetrackAPI racetrack, Point destinationBeforeEffects) {
+    public void moveWhilstApplyingEffects(RacetrackAPI racetrack, Point destinationBeforeEffects) {
         Point currentPosition = pointRoute.peek();
         Point destinationAfterEffects = destinationBeforeEffects;
         Set<Terrain> terrainTraversed = racetrack.getTerrainBetween(currentPosition, destinationBeforeEffects);
@@ -86,14 +86,26 @@ public class Racer implements RacerAPI{
         for(Terrain currentTerrain: terrainTraversed){
             if(!currentTerrain.isTraversable()){
                 // cannot move through non-traversable terrain, return position as the same
-                return currentPosition;
+                setPosition(currentPosition);
+                return;
             }else{
                 totalResistance = totalResistance + currentTerrain.getResistance();
             }
         }
 
+        // todo set destinationAfterEffects based on velocity with applied resistance
 
+        Vect tempVelo = new Vect(currentPosition, destinationBeforeEffects);
+        int xVelo = tempVelo.getXVelo();
+        int yVelo = tempVelo.getYVelo();
+        if( (tempVelo.getXVelo() > 1) || tempVelo.getXVelo() < -1) {
+            xVelo = tempVelo.getXVelo() - (int) totalResistance;
+        }
+        if( (tempVelo.getYVelo() > 1) || tempVelo.getYVelo() < -1) {
+            yVelo = tempVelo.getYVelo() - (int) totalResistance;
+        }
+        destinationAfterEffects = new Point(currentPosition.getX()+xVelo, currentPosition.getY()+yVelo);
 
-        return destinationAfterEffects;
+        setPosition(destinationAfterEffects);
     }
 }

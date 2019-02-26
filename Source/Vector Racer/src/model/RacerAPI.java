@@ -51,7 +51,7 @@ public interface RacerAPI {
      * @param destinationBeforeEffects the probationary position of the Racer before effects are applied, used to evaluate the resultant position
      * @return the resultant destination after Terrain effects have been applied
      */
-    Point moveWhilstApplyingEffects(RacetrackAPI racetrack, Point destinationBeforeEffects);
+    void moveWhilstApplyingEffects(RacetrackAPI racetrack, Point destinationBeforeEffects);
 
     public void killVelocity();
 

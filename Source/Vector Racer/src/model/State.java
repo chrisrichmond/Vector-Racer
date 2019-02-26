@@ -33,9 +33,8 @@ public class State {
         if(isMoveLegal(move)){
             // return new State with currentPlayer changed to the next in the list
 
-            racetrack.getTerrainBetween(currentPlayer.getRacer().getPosition(), move.destination);
-            currentPlayer.getRacer().setPosition(move.destination);
             currentPlayer.getRacer().moveWhilstApplyingEffects(racetrack, move.destination);
+            System.out.println("new velo = row:"+(currentPlayer.getRacer().getVelocity().getYVelo()+" col:"+currentPlayer.getRacer().getVelocity().getXVelo()));
             players.poll();
             players.add(currentPlayer);
             return new State(players, racetrack, stateNumber+1);

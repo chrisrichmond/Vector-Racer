@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="bump">
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="terrain between 2 points algorithm complete with basic testing, need thorough tests on wide case range">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Model.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Racetrack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Racetrack.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/RacetrackAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/RacetrackAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/geometry/Vect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/geometry/Vect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utilities/VectorConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilities/VectorConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/View.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -64,19 +62,6 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/model/Racetrack.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="430">
-              <caret line="324" selection-start-line="324" selection-end-line="324" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#9084#9085#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/view/View.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="538">
@@ -89,29 +74,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/model/geometry/Vect.java">
+        <entry file="file://$PROJECT_DIR$/src/utilities/VectorConstants.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="164">
-              <caret line="23" selection-start-line="23" selection-end-line="23" />
+            <state relative-caret-position="200">
+              <caret line="20" column="41" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="41" />
               <folding>
-                <element signature="e#735#736#0" expanded="true" />
-                <element signature="e#790#791#0" expanded="true" />
-                <element signature="e#682#683#0" expanded="true" />
-                <element signature="e#728#729#0" expanded="true" />
-                <element signature="e#756#757#0" expanded="true" />
-                <element signature="e#802#803#0" expanded="true" />
-                <element signature="e#836#837#0" expanded="true" />
-                <element signature="e#867#868#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/model/RacetrackAPI.java">
+        <entry file="file://$PROJECT_DIR$/src/model/Racer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="488">
-              <caret line="122" column="6" selection-start-line="122" selection-start-column="6" selection-end-line="122" selection-end-column="6" />
+            <state relative-caret-position="91">
+              <caret line="59" column="19" lean-forward="true" selection-start-line="59" selection-start-column="19" selection-end-line="59" selection-end-column="19" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -132,7 +110,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>addeventfilter</find>
       <find>update</find>
       <find>nextStates</find>
       <find>DRAW</find>
@@ -162,6 +139,7 @@
       <find>system</find>
       <find>row:</find>
       <find>addtile</find>
+      <find>refle</find>
     </findStrings>
   </component>
   <component name="FindManager">
@@ -214,10 +192,8 @@
         <option value="$PROJECT_DIR$/src/model/Player.java" />
         <option value="$PROJECT_DIR$/src/model/Racer.java" />
         <option value="$PROJECT_DIR$/src/model/RacerAPI.java" />
-        <option value="$PROJECT_DIR$/src/view/View.java" />
         <option value="$PROJECT_DIR$/src/view/RacetrackPane.java" />
         <option value="$PROJECT_DIR$/src/utilities/VectorRacetracks.java" />
-        <option value="$PROJECT_DIR$/src/utilities/VectorConstants.java" />
         <option value="$PROJECT_DIR$/src/model/Tile.java" />
         <option value="$PROJECT_DIR$/src/model/State.java" />
         <option value="$PROJECT_DIR$/src/model/FinishTile.java" />
@@ -226,6 +202,8 @@
         <option value="$PROJECT_DIR$/src/model/Model.java" />
         <option value="$PROJECT_DIR$/src/model/Racetrack.java" />
         <option value="$PROJECT_DIR$/src/model/geometry/Vect.java" />
+        <option value="$PROJECT_DIR$/src/view/View.java" />
+        <option value="$PROJECT_DIR$/src/utilities/VectorConstants.java" />
       </list>
     </option>
   </component>
@@ -315,7 +293,7 @@
     <property name="OverrideImplement.combined" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551115779347" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551203383719" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/view/GamePane.java" />
     <property name="project.structure.last.edited" value="Project" />
@@ -529,13 +507,6 @@
       <workItem from="1547550229717" duration="3253000" />
       <workItem from="1547566384896" duration="3847000" />
       <workItem from="1549298180766" duration="13715000" />
-    </task>
-    <task id="LOCAL-00064" summary="more backend work on Model and Racetrack">
-      <created>1549431771032</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1549431771032</updated>
     </task>
     <task id="LOCAL-00065" summary="bump">
       <created>1549432963278</created>
@@ -873,7 +844,14 @@
       <option name="project" value="LOCAL" />
       <updated>1551051230461</updated>
     </task>
-    <option name="localTasksCounter" value="113" />
+    <task id="LOCAL-00113" summary="terrain between 2 points algorithm complete with basic testing, need thorough tests on wide case range">
+      <created>1551115855713</created>
+      <option name="number" value="00113" />
+      <option name="presentableId" value="LOCAL-00113" />
+      <option name="project" value="LOCAL" />
+      <updated>1551115855713</updated>
+    </task>
+    <option name="localTasksCounter" value="114" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -892,7 +870,7 @@
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" weight="0.17027026" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.17027026" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" weight="0.32972974" />
       <window_info id="Designer" order="3" />
@@ -901,7 +879,7 @@
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.5709178" />
-      <window_info active="true" anchor="bottom" x="926" y="494" width="472" height="266" id="Run" order="2" visible="true" weight="0.22884387" />
+      <window_info active="true" anchor="bottom" x="926" y="494" width="472" height="266" id="Run" order="2" visible="true" weight="0.2634088" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.6030989" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1011,7 +989,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
-    <MESSAGE value="added drawing next possible move circle selectors" />
     <MESSAGE value="added custom Observer and Observable interfaces back in for change-propagation between MVC elements (might remove later if JavaFX Properties are deemed a more appropriate solution)" />
     <MESSAGE value="various MVC updates" />
     <MESSAGE value="quickfix for null return value in Racetrack.getStartPosition()" />
@@ -1036,7 +1013,8 @@
     <MESSAGE value="more Terrain between points detection work, most of the logic is in place but currently still broken, need to do a dry run through the whole method and helper methods from Vect" />
     <MESSAGE value="rename FinishTile to CheckpointTile and introduced zone numbering system, tiles with the same zone number will be part of the same checkpoint area, zone numbers start at 0 and increment, zone numbers with the highest value represent the final checkpoint (finish line)" />
     <MESSAGE value="bump" />
-    <option name="LAST_COMMIT_MESSAGE" value="bump" />
+    <MESSAGE value="terrain between 2 points algorithm complete with basic testing, need thorough tests on wide case range" />
+    <option name="LAST_COMMIT_MESSAGE" value="terrain between 2 points algorithm complete with basic testing, need thorough tests on wide case range" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -1133,16 +1111,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/PlayMenuController.java" />
-    <entry file="file://$PROJECT_DIR$/src/utilities/VectorFileHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="25" column="16" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/model/ModelAPI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="414">
@@ -1256,30 +1224,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/utilities/VectorConstants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="22" column="63" lean-forward="true" selection-start-line="22" selection-start-column="63" selection-end-line="22" selection-end-column="63" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/model/RacerAPI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1175">
           <caret line="55" column="31" selection-start-line="55" selection-start-column="31" selection-end-line="55" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/Racer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-472">
-          <caret line="46" column="58" selection-start-line="46" selection-start-column="58" selection-end-line="46" selection-end-column="58" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1391,8 +1339,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/geometry/Vect.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
+        <state relative-caret-position="94">
+          <caret line="25" column="9" lean-forward="true" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
           <folding>
             <element signature="e#735#736#0" expanded="true" />
             <element signature="e#790#791#0" expanded="true" />
@@ -1402,6 +1350,36 @@
             <element signature="e#802#803#0" expanded="true" />
             <element signature="e#836#837#0" expanded="true" />
             <element signature="e#867#868#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utilities/VectorFileHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="25" column="16" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Racer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="91">
+          <caret line="59" column="19" lean-forward="true" selection-start-line="59" selection-start-column="19" selection-end-line="59" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utilities/VectorConstants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="20" column="41" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

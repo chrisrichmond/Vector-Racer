@@ -8,7 +8,7 @@ import java.util.List;
 
 public class VectorConstants {
 
-    public static final boolean IS_DEBUG_MODE = false;
+    public static final boolean IS_DEBUG_MODE = true;
 
     public static final String VR_FILE_EXTENSION = ".vrff";
 

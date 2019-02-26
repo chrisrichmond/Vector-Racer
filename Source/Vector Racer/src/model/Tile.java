@@ -7,20 +7,16 @@ public abstract class Tile extends Square implements Terrain {
 
     private boolean traversable;
     private float resistance;
-    private float slide;
-    private float chaos;
     private Color color;
 
-    public Tile(int startX, int startY, boolean traversable, float resistance, float slide, float chaos){
+    public Tile(int startX, int startY, boolean traversable, float resistance){
         super(startX, startY);
         this.traversable = traversable;
         this.resistance = resistance;
-        this.slide = slide;
-        this.chaos = chaos;
     }
 
     public Tile(int startX, int startY, boolean traversable){
-        this(startX, startY, traversable, 0.0f, 0.0f, 0.0f);
+        this(startX, startY, traversable, 0.0f);
     }
 
     public Tile(int startX, int startY){
@@ -37,16 +33,6 @@ public abstract class Tile extends Square implements Terrain {
         return resistance;
     }
 
-    @Override
-    public float getSlide() {
-        return slide;
-    }
-
-    @Override
-    public float getChaos() {
-        return chaos;
-    }
-
     public void setColor(Color color){
         this.color = color;
     }
@@ -61,6 +47,6 @@ public abstract class Tile extends Square implements Terrain {
         if(!(obj instanceof Tile))
             return false;
         if(obj == this) return true;
-        return ( (this.traversable == ((Tile) obj).traversable) && (this.resistance == ((Tile) obj).resistance) && (this.slide == ((Tile) obj).slide) && (this.chaos == ((Tile) obj).chaos) && (this.color.equals(((Tile) obj).color)) );
+        return ( (this.traversable == ((Tile) obj).traversable) && (this.resistance == ((Tile) obj).resistance) && (this.color.equals(((Tile) obj).color)) );
     }
 }

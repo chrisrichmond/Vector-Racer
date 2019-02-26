@@ -35,7 +35,7 @@ public class State {
 
             racetrack.getTerrainBetween(currentPlayer.getRacer().getPosition(), move.destination);
             currentPlayer.getRacer().setPosition(move.destination);
-//            currentPlayer.getRacer().moveWhilstApplyingEffects(racetrack, move.destination);
+            currentPlayer.getRacer().moveWhilstApplyingEffects(racetrack, move.destination);
             players.poll();
             players.add(currentPlayer);
             return new State(players, racetrack, stateNumber+1);

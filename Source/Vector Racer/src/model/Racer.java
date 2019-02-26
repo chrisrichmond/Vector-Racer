@@ -3,10 +3,7 @@ package model;
 import model.geometry.Point;
 import model.geometry.Vect;
 
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.Deque;
-import java.util.List;
+import java.util.*;
 
 public class Racer implements RacerAPI{
 
@@ -83,25 +80,19 @@ public class Racer implements RacerAPI{
     public Point moveWhilstApplyingEffects(RacetrackAPI racetrack, Point destinationBeforeEffects) {
         Point currentPosition = pointRoute.peek();
         Point destinationAfterEffects = destinationBeforeEffects;
-        List<Tile> tilesTraversed = new ArrayList<>();
+        Set<Terrain> terrainTraversed = racetrack.getTerrainBetween(currentPosition, destinationBeforeEffects);
 
-//        if(currentPosition.getY() <= destinationBeforeEffects.getY()){
-//            // the current row is less than the destination row or equal to it
-//            if(currentPosition.getX() <= ) {
-//
-//
-//                for (int row = currentPosition.getY(); row < destinationBeforeEffects.getY(); row++) {
-//                    for (int col = currentPosition.getX(); col < destinationBeforeEffects.getY(); row++)
-//                }
-//            }
-//        }else{
-//            // the current row is greater than the destination row
-//            for(int row())
-//
-//        }
-//
-//        racetrack.getTile()
-//        tilesTraversed
+        float totalResistance = 0.0f;
+        for(Terrain currentTerrain: terrainTraversed){
+            if(!currentTerrain.isTraversable()){
+                // cannot move through non-traversable terrain, return position as the same
+                return currentPosition;
+            }else{
+                totalResistance = totalResistance + currentTerrain.getResistance();
+            }
+        }
+
+
 
         return destinationAfterEffects;
     }

@@ -89,9 +89,21 @@ public class Racer implements RacerAPI{
             if(!currentTerrain.isTraversable()){
                 // cannot move through non-traversable terrain, return position as the same
                 setPosition(currentPosition);
+                killVelocity();
                 return;
             }else{
                 totalResistance = totalResistance + currentTerrain.getResistance();
+            }
+
+            if(currentTerrain instanceof CheckpointTile){
+                if(((CheckpointTile)currentTerrain).getZoneNumber() == (currentZone+1)){
+                    nextZone();
+                }else if( ((((CheckpointTile)currentTerrain).getZoneNumber() == 0) && (currentZone > 0))){
+                    finished = true;
+                    setPosition(new Point( ((Tile)currentTerrain).getStartX(), ((Tile)currentTerrain).getStartY()));
+                    killVelocity();
+                    return;
+                }
             }
         }
 

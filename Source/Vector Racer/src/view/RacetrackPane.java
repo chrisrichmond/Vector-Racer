@@ -11,10 +11,7 @@ import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
-import model.Player;
-import model.RacerAPI;
-import model.RacetrackAPI;
-import model.Tile;
+import model.*;
 import model.geometry.Point;
 import utilities.Observer;
 import utilities.VectorConstants;
@@ -66,6 +63,24 @@ public class RacetrackPane extends Pane {
     private void drawTiles(){
         for (Tile currentTile: racetrack.getTiles()){
             TileSprite currentTileSprite = new TileSprite(currentTile.getStartY(), currentTile.getStartX(), currentTile.getColor());
+            if(currentTile instanceof CheckpointTile){
+                Color zoneColor = (VectorConstants.CHECKPOINT_COLORS[((CheckpointTile)currentTile).getZoneNumber()]);
+                Rectangle topCorner = new Rectangle(tileSize/2, tileSize/2);
+                Rectangle bottomCorner = new Rectangle(tileSize/2, tileSize/2);
+
+                topCorner.setStroke(zoneColor);
+                topCorner.setFill(zoneColor);
+                bottomCorner.setStroke(zoneColor);
+                bottomCorner.setFill(zoneColor);
+
+                topCorner.setTranslateX(tileSize/4);
+                topCorner.setTranslateY(-(tileSize/4));
+                bottomCorner.setTranslateX(-(tileSize/4));
+                bottomCorner.setTranslateY(tileSize/4);
+
+                currentTileSprite.getChildren().addAll(topCorner, bottomCorner);
+            }
+
             tileSprites.add(currentTileSprite);
             getChildren().add(currentTileSprite);
         }

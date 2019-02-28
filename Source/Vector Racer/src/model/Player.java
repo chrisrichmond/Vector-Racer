@@ -11,13 +11,11 @@ public abstract class Player {
 
     private String name;
     private RacerAPI racer;
-    private boolean finished;
     private Color color;
 
     public Player(String name, RacerAPI racer, Color color) {
         this.name = name;
         this.racer = racer;
-        this.finished = false;
         this.color = color;
     }
 
@@ -29,12 +27,8 @@ public abstract class Player {
         return racer;
     }
 
-    public void finish(){
-        finished = true;
-    }
-
     public boolean isFinished(){
-        return finished;
+        return racer.isFinished();
     }
 
     public int getNumberOfMovesMade(){

@@ -9,5 +9,8 @@ public class CheckpointTile extends Tile {
         this.zoneNumber = zoneNumber;
     }
 
+    public int getZoneNumber(){
+        return zoneNumber;
+    }
 
 }

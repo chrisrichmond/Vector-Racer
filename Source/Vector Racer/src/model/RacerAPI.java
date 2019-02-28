@@ -53,6 +53,10 @@ public interface RacerAPI {
      */
     void moveWhilstApplyingEffects(RacetrackAPI racetrack, Point destinationBeforeEffects);
 
+    int getCurrentZone();
+
+    void nextZone();
+
     public void killVelocity();
 
 }

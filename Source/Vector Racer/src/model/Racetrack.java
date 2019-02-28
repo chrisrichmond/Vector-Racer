@@ -16,6 +16,7 @@ public class Racetrack implements RacetrackAPI{
     private List<SandTile> sandTiles;
     private List<IceTile> iceTiles;
     private List<WallTile> wallTiles;
+    private List<CheckpointTile> checkpointTiles;
     private int rows;
     private int cols;
     private boolean fullyFilled; // ensures all tile positions have been filled
@@ -27,6 +28,7 @@ public class Racetrack implements RacetrackAPI{
         sandTiles = new ArrayList<>();
         iceTiles = new ArrayList<>();
         wallTiles = new ArrayList<>();
+        checkpointTiles = new ArrayList<>();
         this.rows = rows;
         this.cols = cols;
         this.startPosition = startPosition;
@@ -127,6 +129,15 @@ public class Racetrack implements RacetrackAPI{
     public boolean addWallTile(WallTile newTile) {
         if(addTile(newTile)){
             wallTiles.add(newTile);
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean addCheckpointTile(CheckpointTile newTile) {
+        if(addTile(newTile)){
+            checkpointTiles.add(newTile);
             return true;
         }
         return false;

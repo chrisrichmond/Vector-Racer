@@ -97,6 +97,13 @@ public class Model implements ModelAPI {
     }
 
     @Override
+    public void addCheckpointTile(int row, int col, int zoneNumber) {
+        if(racetrack.addCheckpointTile(new CheckpointTile(col, row, zoneNumber))){
+            System.out.println("Successfully added new CHECKPOINT tile to model at row"+row+", col "+col+" - zone "+zoneNumber);
+        }
+    }
+
+    @Override
     public void fillRemainderWith(String tileType) {
         for(int row = 0; row < racetrack.getRows(); row++){
             for(int col = 0; col < racetrack.getCols(); col++){

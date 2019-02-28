@@ -10,12 +10,14 @@ public class Racer implements RacerAPI{
     private Vect velocity;
     private boolean finished;
     private Deque<Point> pointRoute;
+    private int currentZone;
 
     public Racer(Point startPosition){
         this.velocity = new Vect(startPosition, startPosition);
         this.finished = false;
         pointRoute = new ArrayDeque<>();
         pointRoute.push(startPosition);
+        this.currentZone = 0;
     }
 
     @Override
@@ -107,5 +109,15 @@ public class Racer implements RacerAPI{
         destinationAfterEffects = new Point(currentPosition.getX()+xVelo, currentPosition.getY()+yVelo);
 
         setPosition(destinationAfterEffects);
+    }
+
+    @Override
+    public int getCurrentZone() {
+        return currentZone;
+    }
+
+    @Override
+    public void nextZone() {
+        currentZone = currentZone + 1;
     }
 }

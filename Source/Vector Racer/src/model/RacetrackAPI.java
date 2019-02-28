@@ -71,6 +71,13 @@ public interface RacetrackAPI {
     boolean addWallTile(WallTile newTile);
 
     /**
+     * Adds a new checkpoint tile to the racetrack data structure if a tile doesn't already exist in this position
+     * @param newTile
+     * @return true if the tile was added, false if not
+     */
+    boolean addCheckpointTile(CheckpointTile newTile);
+
+    /**
      * Gets all the air tiles held by this Racetrack's data structure
      * @return a list of air tiles
      */

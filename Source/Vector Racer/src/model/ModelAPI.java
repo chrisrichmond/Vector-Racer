@@ -31,6 +31,8 @@ public interface ModelAPI extends Observable {
 
     void addWallTile(int row, int col);
 
+    void addCheckpointTile(int row, int col, int zoneNumber);
+
     void fillRemainderWith(String tileType);
 
     void gridPointInput(double row, double col);

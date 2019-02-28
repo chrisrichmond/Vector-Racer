@@ -33,6 +33,14 @@ public abstract class Player {
         finished = true;
     }
 
+    public boolean isFinished(){
+        return finished;
+    }
+
+    public int getNumberOfMovesMade(){
+        return racer.getPointRoute().size()-1;
+    }
+
     public Color getColor(){
         return color;
     }

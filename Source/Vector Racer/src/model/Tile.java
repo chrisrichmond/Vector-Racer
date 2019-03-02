@@ -3,6 +3,8 @@ package model;
 import javafx.scene.paint.Color;
 import model.geometry.Square;
 
+import java.util.Objects;
+
 public abstract class Tile extends Square implements Terrain {
 
     private boolean traversable;
@@ -47,6 +49,19 @@ public abstract class Tile extends Square implements Terrain {
         if(!(obj instanceof Tile))
             return false;
         if(obj == this) return true;
-        return ( (this.traversable == ((Tile) obj).traversable) && (this.resistance == ((Tile) obj).resistance) && (this.color.equals(((Tile) obj).color)) );
+        Tile tile = (Tile) obj;
+        return this.getStartX() == tile.getStartX()
+                && this.getStartY() == tile.getStartY()
+                && this.getCorners().equals(tile.getCorners())
+                && this.traversable == tile.traversable
+                && this.resistance == tile.resistance
+                && this.color == tile.color;
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getStartX(), getStartY(), getCorners(), traversable, resistance, color);
+    }
+
+
 }

@@ -61,6 +61,7 @@ public class Racetrack implements RacetrackAPI{
 
         if(tiles.contains(tile)){
             tiles.remove(tile);
+            System.out.println("should return false: "+tiles.contains(tile));
             success = true;
         }
         if(airTiles.contains(tile)){
@@ -81,6 +82,8 @@ public class Racetrack implements RacetrackAPI{
         if(!success){
             System.out.println("Couldn't find specified tile");
         }
+
+        System.out.println("Does tiles still contain this?: "+tiles.contains(tile));
         return success;
     }
 
@@ -147,10 +150,11 @@ public class Racetrack implements RacetrackAPI{
             checkpointTiles.add(newTile);
             return true;
         }else if(removeTile(newTile.getStartY(), newTile.getStartX())){
+            System.out.println("newTile.getStartY(): "+newTile.getStartY()+" newTile.getStartX(): "+newTile.getStartX());
             System.out.println("REMOVING AND ADDING AGAIN--------------------------------------------");
-            System.out.println("1111111");
+            System.out.println("before trying to add tile again");
             addTile(newTile);
-            System.out.println("2222222");
+            System.out.println("after trying to add tile again");
             checkpointTiles.add(newTile);
             return true;
         }

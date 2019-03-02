@@ -1,9 +1,11 @@
 package view;
 
 import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
 import javafx.scene.effect.Reflection;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
@@ -32,8 +34,9 @@ public class View implements ViewAPI{
     private Stage primaryStage;
     private Parent root;
 
-    // Racetrack Game Area Pane
-    private RacetrackPane racetrackPane;    // could maybe just be one of the stock layout panes?
+    // Racetrack Game Area Pane and Info TextArea
+    private RacetrackPane racetrackPane;
+    private TextArea infoTextArea;
 
     // Views (Full Screen Content Panes)
     private GridPane mainMenuPane;
@@ -123,10 +126,16 @@ public class View implements ViewAPI{
     public void createGamePane(){
         gamePane = new BorderPane();
         racetrackPane = new RacetrackPane(model.getRacetrack());
+        infoTextArea = new TextArea();
+        infoTextArea.setText(model.getRacetrack().getStartPosition().toString());
+        BorderPane.setAlignment(racetrackPane, Pos.CENTER);
+        BorderPane.setAlignment(infoTextArea, Pos.BASELINE_CENTER);
+
         Reflection reflection = new Reflection();
         reflection.setFraction(0.25);
         //racetrackPane.setEffect(reflection);
         gamePane.getChildren().add(racetrackPane);
+        gamePane.getChildren().add(infoTextArea);
         racetrackPane.addEventFilter(MouseEvent.MOUSE_PRESSED, gameController);
 
     }

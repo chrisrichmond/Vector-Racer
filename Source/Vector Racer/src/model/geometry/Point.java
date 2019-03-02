@@ -5,6 +5,7 @@ import model.Terrain;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Point {
 
@@ -33,4 +34,8 @@ public class Point {
         return ( (this.x == ((Point) obj).x) && (this.y == ((Point) obj).y) );
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(x, y);
+    }
 }

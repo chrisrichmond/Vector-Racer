@@ -1,5 +1,7 @@
 package model.geometry;
 
+import java.util.Objects;
+
 public class Vect {
 
     protected Point start;
@@ -60,5 +62,20 @@ public class Vect {
         double b = start.getY();
         double m = gradient;
         return ( m*(x-a) + b);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Vect)) return false;
+        Vect vect = (Vect) o;
+        return Double.compare(vect.getGradient(), getGradient()) == 0 &&
+                getStart().equals(vect.getStart()) &&
+                getEnd().equals(vect.getEnd());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getStart(), getEnd(), getGradient());
     }
 }

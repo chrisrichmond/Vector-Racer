@@ -3,6 +3,7 @@ package model.geometry;
 import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Square {
 
@@ -44,4 +45,18 @@ public class Square {
         return corners;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Square)) return false;
+        Square square = (Square) o;
+        return start.equals(square.start) &&
+                end.equals(square.end) &&
+                getCorners().equals(square.getCorners());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(start, end, getCorners());
+    }
 }

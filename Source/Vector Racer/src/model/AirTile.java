@@ -8,4 +8,6 @@ public class AirTile extends Tile {
         super(startX, startY, true, 0.0f);
         setColor(VectorConstants.AIR_COLOR);
     }
+
+    
 }

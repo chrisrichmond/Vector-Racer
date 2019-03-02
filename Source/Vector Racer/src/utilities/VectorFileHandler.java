@@ -118,7 +118,6 @@ public class VectorFileHandler {
                                 model.addWallTile(currentRow, currentCol);
                             } else if (operands.get(0).equals("checkpoint") || (operands.get(0).equals("cp")) ) {
                                 // add checkpoint tile to model
-                                System.out.println("fiohasifhiasfoasuifhoasifhoaifhoasifhasoifh");
                                 model.addCheckpointTile(currentRow, currentCol, Integer.parseInt(operands.get(operands.size()-1)));
                             }
                         }

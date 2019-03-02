@@ -4,10 +4,7 @@ import model.geometry.Point;
 import model.geometry.Vect;
 import utilities.VectorConstants;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class Racetrack implements RacetrackAPI{
 
@@ -78,6 +75,9 @@ public class Racetrack implements RacetrackAPI{
         if(wallTiles.contains(tile)){
             wallTiles.remove(tile);
         }
+        if(checkpointTiles.contains(tile)){
+            checkpointTiles.remove(tile);
+        }
         if(!success){
             System.out.println("Couldn't find specified tile");
         }
@@ -86,6 +86,13 @@ public class Racetrack implements RacetrackAPI{
 
     @Override
     public boolean removeTile(int row, int col) {
+        for(Iterator<Tile> iterator = tiles.iterator(); iterator.hasNext();){
+            Tile currentTile = iterator.next();
+            if( (row == currentTile.getStartY()) && (col == currentTile.getStartX()) ){
+                return removeTile(currentTile);
+            }
+        }
+
         return false;
     }
 
@@ -137,6 +144,13 @@ public class Racetrack implements RacetrackAPI{
     @Override
     public boolean addCheckpointTile(CheckpointTile newTile) {
         if(addTile(newTile)){
+            checkpointTiles.add(newTile);
+            return true;
+        }else if(removeTile(newTile.getStartY(), newTile.getStartX())){
+            System.out.println("REMOVING AND ADDING AGAIN--------------------------------------------");
+            System.out.println("1111111");
+            addTile(newTile);
+            System.out.println("2222222");
             checkpointTiles.add(newTile);
             return true;
         }

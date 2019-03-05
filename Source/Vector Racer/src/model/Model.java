@@ -40,10 +40,7 @@ public class Model implements ModelAPI {
 
     @Override
     public void start(){
-        // TODO -- CALL THIS EXTERNALLY (MAIN CLASS?) AFTER MODEL OBJECT HAS BEEN CREATED AND ALL MVC INTERFACING CONNECTIONS HAVE BEEN MADE
-
         notifyObservers();
-
     }
 
     @Override
@@ -135,6 +132,7 @@ public class Model implements ModelAPI {
                 history.push(currentState);
                 currentState = currentState.makeMove(new Move(currentState.getCurrentPlayer(), new Point((int)col, (int)row)));
                 notifyObservers();
+                break;
             }
         }
     }

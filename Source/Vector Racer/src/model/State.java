@@ -28,6 +28,7 @@ public class State {
             if(skipCount >= players.size()){
                 // ALL PLAYERS HAVE FINISHED
                 gameOver = true;
+                break;
             }else{
                 skipCurrentPlayer();
                 skipCount++;

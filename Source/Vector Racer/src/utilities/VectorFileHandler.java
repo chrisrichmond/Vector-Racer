@@ -84,7 +84,7 @@ public class VectorFileHandler {
             } else if (opcode.equals("racetrack")) {
                 // set dimensions of the racetrack in rows and columns
                 if ((Integer.parseInt(operands.get(0)) < VectorConstants.MAX_ROWS) && (Integer.parseInt(operands.get(1)) < VectorConstants.MAX_COLS)) {
-                    model.createEmptyRacetrack(Integer.parseInt(operands.get(0)), Integer.parseInt(operands.get(1)), Integer.parseInt(operands.get(2)), Integer.parseInt(operands.get(3)));
+                    model.createEmptyRacetrack(Integer.parseInt(operands.get(0)), Integer.parseInt(operands.get(1)), Integer.parseInt(operands.get(2)), Integer.parseInt(operands.get(3)), Integer.parseInt(operands.get(4)));
                 }
             } else if (opcode.equals("fillremainder") || (opcode.equals("fr")) ) {
                 model.fillRemainderWith(operands.get(0));

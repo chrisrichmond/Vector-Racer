@@ -21,7 +21,7 @@ public interface ModelAPI extends Observable {
 
     void loadFile(File filename) throws FileNotFoundException;
 
-    void createEmptyRacetrack(int rows, int cols, int startPosRow, int startPosCol);
+    void createEmptyRacetrack(int rows, int cols, int startPosRow, int startPosCol, int finalZone);
 
     void addAirTile(int row, int col);
 

@@ -14,25 +14,48 @@ public class State {
     private Queue<Player> players; // all players currently existing in this State
     private RacetrackAPI racetrack; // the racetrack existing in this State
     private int stateNumber;
+    private boolean gameOver;
 
     public State(Queue<Player> players, RacetrackAPI racetrack, int stateNumber){
         this.currentPlayer = players.peek();
         this.players = players;
         this.racetrack = racetrack;
         this.stateNumber = stateNumber;
+        this.gameOver = false;
+
+        int skipCount = 0;
+        while(currentPlayer.isFinished()){
+            if(skipCount >= players.size()){
+                // ALL PLAYERS HAVE FINISHED
+                gameOver = true;
+            }else{
+                skipCurrentPlayer();
+                skipCount++;
+            }
+        }
 
         for(Player currentPlayer: players){
             if(racetrack.isTouchingWall(currentPlayer.getRacer())){
-                currentPlayer.getRacer().getPointRoute().pop();
-                currentPlayer.getRacer().killVelocity();
+                if(!currentPlayer.isFinished()) {
+                    currentPlayer.getRacer().getPointRoute().pop();
+                    currentPlayer.getRacer().killVelocity();
+                }
             }
         }
+    }
+
+    /**
+     * Called when the current player has already finished the race and so
+     * @return
+     */
+    private void skipCurrentPlayer(){
+        players.poll();
+        players.add(currentPlayer);
     }
 
     public State makeMove(Move move){
         if(isMoveLegal(move)){
             // return new State with currentPlayer changed to the next in the list
-
             currentPlayer.getRacer().moveWhilstApplyingEffects(racetrack, move.destination);
             System.out.println("new velo = row:"+(currentPlayer.getRacer().getVelocity().getYVelo()+" col:"+currentPlayer.getRacer().getVelocity().getXVelo()));
             players.poll();
@@ -104,5 +127,9 @@ public class State {
 
     public Player getCurrentPlayer(){
         return currentPlayer;
+    }
+
+    public boolean isGameOver(){
+        return gameOver;
     }
 }

@@ -15,20 +15,19 @@ public class Model implements ModelAPI {
     private VectorFileHandler fileHandler;
     private List<Observer> observers;
     private boolean changed;
-    private Stack<State> history;
+    private Deque<State> history;
     private State currentState;
     private RacetrackAPI racetrack;
 
     public Model(){
         fileHandler = new VectorFileHandler(this);
         observers = new ArrayList<>();
-        history = new Stack<>();
+        history = new ArrayDeque<>();
     }
 
     @Override
     public void setup(File filename, boolean isPvp, String player1name, String player2name) throws FileNotFoundException{
         loadFile(filename);
-
         // todo AI diversion here ??
 
         Queue<Player> players = new LinkedList<Player>();
@@ -60,8 +59,8 @@ public class Model implements ModelAPI {
     }
 
     @Override
-    public void createEmptyRacetrack(int rows, int cols, int startPosRow, int startPosCol) {
-        racetrack = new Racetrack(rows, cols, new Point(startPosCol, startPosRow));
+    public void createEmptyRacetrack(int rows, int cols, int startPosRow, int startPosCol, int finalZone) {
+        racetrack = new Racetrack(rows, cols, new Point(startPosCol, startPosRow), finalZone);
     }
 
     @Override
@@ -119,7 +118,6 @@ public class Model implements ModelAPI {
 
     @Override
     public void gridPointInput(double row, double col) {
-
         for(Point currentPoint: currentState.getCurrentPlayer().getPossibleNextPoints()){
             // this could be improved through usage of a structured array rather than arraylist so as to make collection searching more efficient
             double rowLow = currentPoint.getY() - 0.5;
@@ -131,6 +129,9 @@ public class Model implements ModelAPI {
 
                 history.push(currentState);
                 currentState = currentState.makeMove(new Move(currentState.getCurrentPlayer(), new Point((int)col, (int)row)));
+                if(currentState.isGameOver()){
+                    System.out.println("GAME OVER ALL PLAYERS HAVE FINISHED");
+                }
                 notifyObservers();
                 break;
             }

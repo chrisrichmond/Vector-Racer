@@ -131,4 +131,5 @@ public interface RacetrackAPI {
 
 //    boolean isWithinBounds(Point position);
 
+    int getFinalZone();
 }

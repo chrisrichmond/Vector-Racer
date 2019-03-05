@@ -98,7 +98,7 @@ public class Racer implements RacerAPI{
             if(currentTerrain instanceof CheckpointTile){
                 if(((CheckpointTile)currentTerrain).getZoneNumber() == (currentZone+1)){
                     nextZone();
-                }else if( ((((CheckpointTile)currentTerrain).getZoneNumber() == 0) && (currentZone > 0))){
+                }else if( ((((CheckpointTile)currentTerrain).getZoneNumber() == 0) && (currentZone == racetrack.getFinalZone()))){
                     finished = true;
                     setPosition(new Point( ((Tile)currentTerrain).getStartX(), ((Tile)currentTerrain).getStartY()));
                     killVelocity();

@@ -18,8 +18,9 @@ public class Racetrack implements RacetrackAPI{
     private int cols;
     private boolean fullyFilled; // ensures all tile positions have been filled
     private Point startPosition;
+    private int finalZone;
 
-    public Racetrack(int rows, int cols, Point startPosition){
+    public Racetrack(int rows, int cols, Point startPosition, int finalZone){
         tiles = new ArrayList<>();
         airTiles = new ArrayList<>();
         sandTiles = new ArrayList<>();
@@ -29,6 +30,7 @@ public class Racetrack implements RacetrackAPI{
         this.rows = rows;
         this.cols = cols;
         this.startPosition = startPosition;
+        this.finalZone = finalZone;
     }
 
     @Override
@@ -329,6 +331,11 @@ public class Racetrack implements RacetrackAPI{
         }
 
         return terrain;
+    }
+
+    @Override
+    public int getFinalZone() {
+        return finalZone;
     }
 
 //    @Override

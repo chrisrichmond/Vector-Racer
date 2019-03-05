@@ -1,4 +1,4 @@
-racetrack 20 40 18 24
+racetrack 20 40 18 23 6
 
 tile sand 1 1 1 3
 tile sand 2 1
@@ -48,5 +48,13 @@ tile air 4 9 4 12
 tile air 3 8 3 11
 tile air 1 6 2 9
 tile air 2 10
+
+tile checkpoint 17 25 18 25 0
+tile checkpoint 15 15 16 15 1
+tile checkpoint 17 8 18 8 2
+tile checkpoint 9 3 9 4 3
+tile checkpoint 1 6 2 6 4
+tile checkpoint 8 20 9 20 5
+tile checkpoint 12 32 14 32 6
 
 fillremainder wall

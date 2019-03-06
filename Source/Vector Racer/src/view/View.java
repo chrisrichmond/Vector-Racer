@@ -47,8 +47,8 @@ public class View implements ViewAPI{
 
         // File Handling
         fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Vector Racer Files (*.vrff)", "*.vrff"));
         vrDir = new File(VectorConstants.VR_PATH);
-        if(!vrDir.exists()) { vrDir.mkdir(); }
         fileChooser.setInitialDirectory(vrDir);
 
         // Model Backend

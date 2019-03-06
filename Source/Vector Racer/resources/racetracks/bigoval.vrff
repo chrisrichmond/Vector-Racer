@@ -1,0 +1,37 @@
+racetrack 15 30 12 14 3
+
+tile wall 0 0 0 29
+tile wall 0 0 14 0
+tile wall 14 0 14 29
+tile wall 0 29 14 29 
+
+tile wall 1 1 3 1
+tile wall 1 2 2 2
+tile wall 1 3
+
+tile wall 1 26
+tile wall 1 27 2 27
+tile wall 1 28 3 28
+
+tile wall 11 1 13 1
+tile wall 12 2 13 2
+tile wall 13 3
+
+tile wall 13 26
+tile wall 12 27 13 27
+tile wall 11 28 13 28
+
+tile wall 4 6 4 23
+tile wall 5 5 5 24
+tile wall 6 4 6 25
+tile wall 7 4 7 25
+tile wall 8 4 8 25
+tile wall 9 5 9 24
+tile wall 10 6 10 23
+
+tile checkpoint 11 15 13 15 0
+tile checkpoint 7 1 7 3 1
+tile checkpoint 1 14 3 14 2
+tile checkpoint 7 26 7 28 3
+
+fillremainder air

@@ -29,7 +29,7 @@ public class VectorConstants {
     public static final Color ICE_COLOR = Color.CYAN;
     public static final Color WALL_COLOR = Color.BLACK;
     public static final Color[] CHECKPOINT_COLORS = {
-            Color.ROYALBLUE,    // 0
+            Color.BLACK,        // 0
             Color.SEAGREEN,     // 1
             Color.VIOLET,       // 2
             Color.TAN,          // 3

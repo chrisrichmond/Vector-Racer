@@ -45,7 +45,7 @@ public class Racetrack implements RacetrackAPI{
         positionCheck:
         for (Tile currentTile: tiles) {
             if( (newTile.getStartX() == currentTile.getStartX()) && (newTile.getStartY() == currentTile.getStartY()) ){
-                System.out.println("Tile already exists");
+                //System.out.println("Tile already exists");
                 success = false;
                 break positionCheck;
             }
@@ -63,7 +63,6 @@ public class Racetrack implements RacetrackAPI{
 
         if(tiles.contains(tile)){
             tiles.remove(tile);
-            System.out.println("should return false: "+tiles.contains(tile));
             success = true;
         }
         if(airTiles.contains(tile)){
@@ -85,7 +84,6 @@ public class Racetrack implements RacetrackAPI{
             System.out.println("Couldn't find specified tile");
         }
 
-        System.out.println("Does tiles still contain this?: "+tiles.contains(tile));
         return success;
     }
 
@@ -152,11 +150,7 @@ public class Racetrack implements RacetrackAPI{
             checkpointTiles.add(newTile);
             return true;
         }else if(removeTile(newTile.getStartY(), newTile.getStartX())){
-            System.out.println("newTile.getStartY(): "+newTile.getStartY()+" newTile.getStartX(): "+newTile.getStartX());
-            System.out.println("REMOVING AND ADDING AGAIN--------------------------------------------");
-            System.out.println("before trying to add tile again");
             addTile(newTile);
-            System.out.println("after trying to add tile again");
             checkpointTiles.add(newTile);
             return true;
         }
@@ -222,7 +216,6 @@ public class Racetrack implements RacetrackAPI{
     public Set<Terrain> getTerrainBetween(Point start, Point end) {
         // todo must do validation checking before calling this function to ensure Points are within racetrack bounds
         Vect line = new Vect(start, end);
-        System.out.println("m = "+line.getGradient());
         Set<Terrain> terrain = new HashSet<>();
         if(start.getX() > end.getX()){
             // ensures start point is always on the left of end or inline
@@ -326,9 +319,9 @@ public class Racetrack implements RacetrackAPI{
             }
         }
 
-        for(Terrain currentTerrain: terrain) {
-            System.out.println("TERRAIN @ [ROW:"+((Tile)currentTerrain).getStartY()+" COL:"+((Tile)currentTerrain).getStartX()+"]");
-        }
+//        for(Terrain currentTerrain: terrain) {
+//            System.out.println("TERRAIN @ [ROW:"+((Tile)currentTerrain).getStartY()+" COL:"+((Tile)currentTerrain).getStartX()+"]");
+//        }
 
         return terrain;
     }
@@ -362,7 +355,6 @@ public class Racetrack implements RacetrackAPI{
             }
         }
 
-        System.out.println("end of getTile returning null?");
         return null;
     }
 }

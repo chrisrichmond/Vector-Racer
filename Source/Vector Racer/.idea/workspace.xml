@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="added *.vrff extension filter for file selection, refactored resources into separate folder and added mechanism for automatically loading resources into vector files directory in user's home directory">
-      <change afterPath="$PROJECT_DIR$/resources/racetracks/bigoval.vrff" afterDir="false" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="final zone end i.e. zone 0 start (finish line) now draws as black">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utilities/VectorConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilities/VectorConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Driver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Racetrack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Racetrack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utilities/ScreenManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utilities/VectorFileHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilities/VectorFileHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/View.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -61,11 +64,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/view/View.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="850">
-              <caret line="50" column="50" selection-start-line="50" selection-start-column="50" selection-end-line="50" selection-end-column="50" />
+            <state relative-caret-position="223">
+              <caret line="91" column="60" lean-forward="true" selection-start-line="91" selection-start-column="60" selection-end-line="91" selection-end-column="60" />
+              <folding>
+                <element signature="e#4778#4779#0" expanded="true" />
+                <element signature="e#4813#4814#0" expanded="true" />
+                <element signature="e#4867#4868#0" expanded="true" />
+                <element signature="e#4902#4903#0" expanded="true" />
+                <element signature="e#4985#4986#0" expanded="true" />
+                <element signature="e#5100#5101#0" expanded="true" />
+                <element signature="e#5188#5189#0" expanded="true" />
+                <element signature="e#5268#5269#0" expanded="true" />
+                <element signature="e#5320#5321#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -73,8 +87,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Driver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="205">
-              <caret line="47" selection-start-line="47" selection-end-line="47" />
+            <state relative-caret-position="214">
+              <caret line="63" selection-start-line="63" selection-end-line="63" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -96,7 +110,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/utilities/VectorConstants.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="266">
@@ -121,10 +135,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>system</find>
-      <find>row:</find>
-      <find>addtile</find>
-      <find>refle</find>
       <find>RE</find>
       <find>remo</find>
       <find>itera</find>
@@ -151,6 +161,10 @@
       <find>path</find>
       <find>vrdir</find>
       <find>filechooser</find>
+      <find>filechoo</find>
+      <find>System.out.println</find>
+      <find>mousehandler</find>
+      <find>personview</find>
     </findStrings>
   </component>
   <component name="FindManager">
@@ -205,16 +219,16 @@
         <option value="$PROJECT_DIR$/src/model/CheckpointTile.java" />
         <option value="$PROJECT_DIR$/src/model/Racer.java" />
         <option value="$PROJECT_DIR$/src/model/RacetrackAPI.java" />
-        <option value="$PROJECT_DIR$/src/model/Racetrack.java" />
         <option value="$PROJECT_DIR$/src/model/ModelAPI.java" />
-        <option value="$PROJECT_DIR$/src/utilities/VectorFileHandler.java" />
         <option value="$PROJECT_DIR$/src/model/Model.java" />
         <option value="$PROJECT_DIR$/src/model/State.java" />
         <option value="$PROJECT_DIR$/src/model/racetracks/minimonza.vrff" />
-        <option value="$PROJECT_DIR$/src/Driver.java" />
-        <option value="$PROJECT_DIR$/src/view/View.java" />
         <option value="$PROJECT_DIR$/src/view/RacetrackPane.java" />
         <option value="$PROJECT_DIR$/src/utilities/VectorConstants.java" />
+        <option value="$PROJECT_DIR$/src/view/View.java" />
+        <option value="$PROJECT_DIR$/src/Driver.java" />
+        <option value="$PROJECT_DIR$/src/utilities/VectorFileHandler.java" />
+        <option value="$PROJECT_DIR$/src/model/Racetrack.java" />
       </list>
     </option>
   </component>
@@ -282,7 +296,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551913779322" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551915379567" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/view/GamePane.java" />
     <property name="project.structure.last.edited" value="Libraries" />
@@ -503,13 +517,6 @@
       <workItem from="1547566384896" duration="3847000" />
       <workItem from="1549298180766" duration="13715000" />
       <workItem from="1551463240268" duration="5765000" />
-    </task>
-    <task id="LOCAL-00074" summary="work on Racer-related functionality in both the model and the view">
-      <created>1549600773881</created>
-      <option name="number" value="00074" />
-      <option name="presentableId" value="LOCAL-00074" />
-      <option name="project" value="LOCAL" />
-      <updated>1549600773882</updated>
     </task>
     <task id="LOCAL-00075" summary="quick bump">
       <created>1549600935457</created>
@@ -847,7 +854,14 @@
       <option name="project" value="LOCAL" />
       <updated>1551911547618</updated>
     </task>
-    <option name="localTasksCounter" value="123" />
+    <task id="LOCAL-00123" summary="final zone end i.e. zone 0 start (finish line) now draws as black">
+      <created>1551913821235</created>
+      <option name="number" value="00123" />
+      <option name="presentableId" value="LOCAL-00123" />
+      <option name="project" value="LOCAL" />
+      <updated>1551913821235</updated>
+    </task>
+    <option name="localTasksCounter" value="124" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -864,9 +878,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.21567568" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.21567568" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" weight="0.32972974" />
       <window_info id="Designer" order="3" />
@@ -875,7 +888,7 @@
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.5709178" />
-      <window_info active="true" anchor="bottom" x="926" y="494" width="472" height="266" id="Run" order="2" visible="true" weight="0.17520858" />
+      <window_info anchor="bottom" x="926" y="494" width="472" height="266" id="Run" order="2" visible="true" weight="0.32181168" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.7353993" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -985,7 +998,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
-    <MESSAGE value="added AI package and BFS DFS classes" />
     <MESSAGE value="refactored getPossibleNextPoints heavy lifting from Player into Racer" />
     <MESSAGE value="fixed concurrentmodificationexception in RacetrackPane" />
     <MESSAGE value="fixed row and col inverted Point parameters passed in model.gridPointInput()" />
@@ -1010,7 +1022,8 @@
     <MESSAGE value="partially fixed game over infinite recursion bug" />
     <MESSAGE value="racetrack files bump" />
     <MESSAGE value="added *.vrff extension filter for file selection, refactored resources into separate folder and added mechanism for automatically loading resources into vector files directory in user's home directory" />
-    <option name="LAST_COMMIT_MESSAGE" value="added *.vrff extension filter for file selection, refactored resources into separate folder and added mechanism for automatically loading resources into vector files directory in user's home directory" />
+    <MESSAGE value="final zone end i.e. zone 0 start (finish line) now draws as black" />
+    <option name="LAST_COMMIT_MESSAGE" value="final zone end i.e. zone 0 start (finish line) now draws as black" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -1349,23 +1362,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/View.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="850">
-          <caret line="50" column="50" selection-start-line="50" selection-start-column="50" selection-end-line="50" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Driver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="47" selection-start-line="47" selection-end-line="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/racetracks/bigoval.vrff">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1382,6 +1378,34 @@
           <caret line="31" column="28" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Driver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="63" selection-start-line="63" selection-end-line="63" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/View.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="91" column="60" lean-forward="true" selection-start-line="91" selection-start-column="60" selection-end-line="91" selection-end-column="60" />
+          <folding>
+            <element signature="e#4778#4779#0" expanded="true" />
+            <element signature="e#4813#4814#0" expanded="true" />
+            <element signature="e#4867#4868#0" expanded="true" />
+            <element signature="e#4902#4903#0" expanded="true" />
+            <element signature="e#4985#4986#0" expanded="true" />
+            <element signature="e#5100#5101#0" expanded="true" />
+            <element signature="e#5188#5189#0" expanded="true" />
+            <element signature="e#5268#5269#0" expanded="true" />
+            <element signature="e#5320#5321#0" expanded="true" />
           </folding>
         </state>
       </provider>

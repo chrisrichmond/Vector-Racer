@@ -75,9 +75,6 @@ public class VectorFileHandler {
             currentOperand = currentOperand.toLowerCase();  // todo unsure if this works?
         }
 
-//        System.out.println("opcode: "+ opcode.toString());
-//        System.out.println("operands: "+ operands.toString());
-
         try {
             if (opcode.equals("blank")) {
                 // blank line/object, do nothing

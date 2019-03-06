@@ -49,9 +49,7 @@ public class Driver extends Application {
     private void copyAllFilesFromDir(File dir, File destinationDir){
         for(File currentFile: dir.listFiles()){
             if(currentFile.isDirectory()){
-                System.out.println("currentFile: "+currentFile);
-                System.out.println("destinationDir: "+destinationDir);
-                //copyAllFilesFromDir(currentFile, destinationDir);
+                copyAllFilesFromDir(currentFile, destinationDir);
             }else{
                 boolean fileAlreadyExists = false;
                 for(File currentDestFile: destinationDir.listFiles()) {
@@ -61,10 +59,8 @@ public class Driver extends Application {
                 }
                 if(!fileAlreadyExists) {
                     try {
-                        System.out.println((currentFile.toPath().toString() + (destinationDir.toPath().toString())+"\\"+currentFile.getName()));
                         Files.copy(currentFile.toPath(), Paths.get(destinationDir.toString()+"\\"+currentFile.getName()));
                     }catch(IOException e){
-                        System.out.println("IOException transferring files to users vector racer home path");
                         e.printStackTrace();
                     }
                 }

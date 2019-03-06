@@ -11,6 +11,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import model.ModelAPI;
 import utilities.VectorConstants;
 
@@ -108,14 +109,16 @@ public class View implements ViewAPI{
         pvpButton.setOnAction(e -> {
             fileChooser.setTitle("Choose a Racetrack to load");
             File selectedFile = fileChooser.showOpenDialog(primaryStage);
-            try{
-                model.setup(selectedFile, true, "player1", "player2");
-                createGamePane();
-                changeRootContent(gamePane);
-                model.start();
-            }catch(FileNotFoundException ex){
-                System.out.println("file not found");
-                ex.printStackTrace();
+            if(selectedFile != null) {
+                try {
+                    model.setup(selectedFile, true, "player1", "player2");
+                    createGamePane();
+                    changeRootContent(gamePane);
+                    model.start();
+                } catch (Exception ex) {
+                    System.out.println("file not found");
+                    ex.printStackTrace();
+                }
             }
         });
 

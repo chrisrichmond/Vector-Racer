@@ -11,18 +11,26 @@ public class Controller implements Observer {
     private ViewAPI view;
     private Stage primaryStage;
 
+    // Active Content Handler Pointer
+    private Handler activeHandler;
+
     // Controllers
-    private GameController gameController;
+    private GameHandler gameHandler;
 
     public Controller(ModelAPI model, ViewAPI view, Stage primaryStage){
         this.model = model;
         this.view = view;
         this.primaryStage = primaryStage;
-
         model.attach(this);
 
-        gameController = new GameController(model, view, primaryStage);
+        gameHandler = new GameHandler(model, view, primaryStage);
 
+        /*
+            Main Menu starts as current handler attach/detach handlers as required
+            either in this Controller object or inside Handler objects themselves
+         */
+
+        view.setGameHandler(gameHandler);
     }
 
 

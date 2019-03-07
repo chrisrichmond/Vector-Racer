@@ -28,8 +28,8 @@ public class View implements ViewAPI{
     // Model Backend
     private ModelAPI model;
 
-    // Game Controller
-    private EventHandler gameController;
+    // Content Handlers
+    private EventHandler gameHandler;
 
     // Primary Stage and Root Content Node
     private Stage primaryStage;
@@ -44,6 +44,7 @@ public class View implements ViewAPI{
     private GridPane playMenuPane;
     private BorderPane gamePane;
 
+
     public View(ModelAPI model, Stage primaryStage){
 
         // File Handling
@@ -54,13 +55,11 @@ public class View implements ViewAPI{
 
         // Model Backend
         this.model = model;
-        model.attach(this);
 
         // Primary Stage
         this.primaryStage = primaryStage;
 
         // Racetrack Game Area Pane
-//        racetrackPane = new RacetrackPane();
 
         // Views (Full Screen Content Panes)
         createMainMenuPane();
@@ -139,7 +138,7 @@ public class View implements ViewAPI{
         //racetrackPane.setEffect(reflection);
         gamePane.getChildren().add(racetrackPane);
         gamePane.getChildren().add(infoTextArea);
-        racetrackPane.addEventFilter(MouseEvent.MOUSE_PRESSED, gameController);
+        racetrackPane.addEventFilter(MouseEvent.MOUSE_PRESSED, gameHandler);
 
     }
 
@@ -164,18 +163,13 @@ public class View implements ViewAPI{
     }
 
     @Override
-    public Pane getRacetrackPane() {
+    public RacetrackPaneAPI getRacetrackPane() {
         return racetrackPane;
     }
 
     @Override
-    public void setGameController(EventHandler gameController){
-        this.gameController = gameController;
+    public void setGameHandler(EventHandler gameHandler){
+        this.gameHandler = gameHandler;
     }
 
-    @Override
-    public void update() {
-        racetrackPane.drawNextPossiblePositions(model.getCurrentState().getCurrentPlayer());
-        racetrackPane.drawRacerSprites((List) model.getCurrentState().getPlayers());
-    }
 }

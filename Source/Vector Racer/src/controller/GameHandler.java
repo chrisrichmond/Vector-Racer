@@ -11,21 +11,20 @@ import view.ViewAPI;
 
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
+import java.util.List;
 
-public class GameController implements EventHandler, Observer {
+public class GameHandler implements Handler {
 
     private ModelAPI model;
     private ViewAPI view;
     private Stage primaryStage;
 
-    public GameController(ModelAPI model, ViewAPI view, Stage primaryStage){
+    public GameHandler(ModelAPI model, ViewAPI view, Stage primaryStage){
         this.model = model;
         this.view = view;
         this.primaryStage = primaryStage;
 
         model.attach(this);
-
-        view.setGameController(this);
     }
 
     @Override
@@ -51,6 +50,7 @@ public class GameController implements EventHandler, Observer {
 
     @Override
     public void update() {
-        // check if the current player is inside a wall
+        view.getRacetrackPane().drawNextPossiblePositions(model.getCurrentState().getCurrentPlayer());
+        view.getRacetrackPane().drawRacerSprites((List) model.getCurrentState().getPlayers());
     }
 }

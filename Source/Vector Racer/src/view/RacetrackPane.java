@@ -18,7 +18,7 @@ import utilities.VectorConstants;
 
 import java.util.*;
 
-public class RacetrackPane extends Pane {
+public class RacetrackPane extends Pane implements RacetrackPaneAPI {
 
     private Rectangle trackBorder;
     private int rows;
@@ -60,7 +60,7 @@ public class RacetrackPane extends Pane {
 
     }
 
-    private void drawTiles(){
+    public void drawTiles(){
         for (Tile currentTile: racetrack.getTiles()){
             TileSprite currentTileSprite = new TileSprite(currentTile.getStartY(), currentTile.getStartX(), currentTile.getColor());
             if(currentTile instanceof CheckpointTile){

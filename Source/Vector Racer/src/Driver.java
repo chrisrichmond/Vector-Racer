@@ -22,7 +22,7 @@ public class Driver extends Application {
     public void start(Stage primaryStage) throws Exception {
 
         /**
-         * Initialisation of MVC using Observer Pattern
+         * OLD Initialisation of MVC using Observer Pattern
          *
          * [1] - Model is created and initialises internal data structures.
          * [2] - View is created, taking reference to the Model as a parameter.
@@ -30,6 +30,17 @@ public class Driver extends Application {
          * [4] - Controller is created, taking reference to both View and to Model.
          * [5] - Controller subscribes to change-propagation mechanism of the Model using attach method.
          * [6] - Controller starts processing events
+         *
+         */
+
+        /**
+         * NEW Streamlined Initialisation of MVC using Observer Pattern
+         *
+         * [1] - Model is created and initialises internal data structures.
+         * [2] - View is created, taking reference to the Model as a parameter.
+         * [3] - Controller is created, taking reference to both View and to Model.
+         * [4] - Controller subscribes to change-propagation mechanism of the Model using attach method.
+         * [5] - Controller starts processing events
          *
          */
 

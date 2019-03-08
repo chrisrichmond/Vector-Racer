@@ -15,6 +15,7 @@ public class State {
     private RacetrackAPI racetrack; // the racetrack existing in this State
     private int stateNumber;
     private boolean gameOver;
+    private State parent = null;
 
     public State(Queue<Player> players, RacetrackAPI racetrack, int stateNumber){
         this.currentPlayer = players.peek();
@@ -43,6 +44,11 @@ public class State {
                 }
             }
         }
+    }
+
+    public State(Queue<Player> players, RacetrackAPI racetrack, int stateNumber, State parent){
+        this(players, racetrack, stateNumber);
+        this.parent = parent;
     }
 
     /**
@@ -132,5 +138,9 @@ public class State {
 
     public boolean isGameOver(){
         return gameOver;
+    }
+
+    public State getParent(){
+        return parent;
     }
 }

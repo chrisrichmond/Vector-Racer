@@ -33,7 +33,8 @@ public class Node {
     }
 
     public boolean isGoal(){
-        if(state.)
+        // TODO NEED TO CHECK THAT THE CURRENT PLAYER IS ALWAYS THE AI PLAYER
+        return (state.getCurrentPlayer().isFinished());
     }
 
     public List<Node> getChildren(){

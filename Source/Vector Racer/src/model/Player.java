@@ -6,6 +6,7 @@ import model.geometry.Vect;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public abstract class Player {
 
@@ -39,4 +40,18 @@ public abstract class Player {
         return color;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Player)) return false;
+        Player player = (Player) o;
+        return name.equals(player.name) &&
+                getRacer().equals(player.getRacer()) &&
+                getColor().equals(player.getColor());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, getRacer(), getColor());
+    }
 }

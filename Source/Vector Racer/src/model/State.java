@@ -3,10 +3,7 @@ package model;
 import model.geometry.Point;
 import model.geometry.Vect;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 public class State {
 
@@ -16,6 +13,16 @@ public class State {
     private int stateNumber;
     private boolean gameOver;
     private State parent = null;
+
+    // copy constructor
+    public State(State original){
+        this.currentPlayer = original.currentPlayer;
+        this.players = original.players;
+        this.racetrack = original.racetrack;
+        this.stateNumber = original.stateNumber;
+        this.gameOver = original.gameOver;
+        this.parent = this.getParent();
+    }
 
     public State(Queue<Player> players, RacetrackAPI racetrack, int stateNumber){
         this.currentPlayer = players.peek();
@@ -55,7 +62,7 @@ public class State {
      * Called when the current player has already finished the race and so
      * @return
      */
-    private void skipCurrentPlayer(){
+    public void skipCurrentPlayer(){
         players.poll();
         players.add(currentPlayer);
     }
@@ -73,6 +80,24 @@ public class State {
             return this;
         }
 
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof State)) return false;
+        State state = (State) o;
+        return stateNumber == state.stateNumber &&
+                isGameOver() == state.isGameOver() &&
+                getCurrentPlayer().equals(state.getCurrentPlayer()) &&
+                getPlayers().equals(state.getPlayers()) &&
+                getRacetrack().equals(state.getRacetrack()) &&
+                Objects.equals(getParent(), state.getParent());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getCurrentPlayer(), getPlayers(), getRacetrack(), stateNumber, isGameOver(), getParent());
     }
 
     public boolean isMoveLegal(Move move){
@@ -142,5 +167,15 @@ public class State {
 
     public State getParent(){
         return parent;
+    }
+
+    // TODO NEED TO CHECK THIS ALL DUE TO BEING UNSURE IF COPYING KEEPS REFERENCE TO ORIGINAL OBJECT ATTRIBUTES
+    public List<State> getChildren(){
+        State copiedCurrentState = new State(this);
+        List<State> children = new ArrayList<>();
+        for(Point currentPossibleNextPoint: this.currentPlayer.getPossibleNextPoints()){
+            children.add(copiedCurrentState.makeMove(new Move(this.currentPlayer, currentPossibleNextPoint)));
+        }
+        return children;
     }
 }

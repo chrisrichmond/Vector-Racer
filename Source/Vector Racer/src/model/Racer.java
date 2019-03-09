@@ -132,4 +132,20 @@ public class Racer implements RacerAPI{
     public void nextZone() {
         currentZone = currentZone + 1;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Racer)) return false;
+        Racer racer = (Racer) o;
+        return isFinished() == racer.isFinished() &&
+                getCurrentZone() == racer.getCurrentZone() &&
+                Objects.equals(getVelocity(), racer.getVelocity()) &&
+                Objects.equals(getPointRoute(), racer.getPointRoute());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getVelocity(), isFinished(), getPointRoute(), getCurrentZone());
+    }
 }

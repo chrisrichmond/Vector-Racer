@@ -30,9 +30,8 @@ public class BreadthFirstSearch extends AbstractSolver {
             if(currentNode.isGoal()){
                 return calculateMoves(initialNode, currentNode);
             }else{
-                visited.add(currentNode){
-
-                }
+                visited.add(currentNode);
+                List<Node>
             }
         }
     }

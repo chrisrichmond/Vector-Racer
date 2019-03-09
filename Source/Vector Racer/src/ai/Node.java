@@ -3,7 +3,10 @@ package ai;
 import model.Move;
 import model.State;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 public class Node {
 
@@ -34,6 +37,15 @@ public class Node {
     }
 
     public List<Node> getChildren(){
-        state.getCurrentPlayer().getPossibleNextPoints();
+        List<Node> nextNodes = new ArrayList<>();
+
+        Iterator iterator = state.getChildren().entrySet().iterator();
+        while (iterator.hasNext()){
+            Map.Entry pair = (Map.Entry)iterator.next();
+            nextNodes.add(new Node((State)(pair.getValue()), this, (Move)(pair.getKey())));
+            iterator.remove();
+        }
+
+        return nextNodes;
     }
 }

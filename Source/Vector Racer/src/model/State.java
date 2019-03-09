@@ -170,11 +170,12 @@ public class State {
     }
 
     // TODO NEED TO CHECK THIS ALL DUE TO BEING UNSURE IF COPYING KEEPS REFERENCE TO ORIGINAL OBJECT ATTRIBUTES
-    public List<State> getChildren(){
+    public HashMap<Move, State> getChildren(){
         State copiedCurrentState = new State(this);
-        List<State> children = new ArrayList<>();
+        HashMap<Move, State> children = new HashMap();
         for(Point currentPossibleNextPoint: this.currentPlayer.getPossibleNextPoints()){
-            children.add(copiedCurrentState.makeMove(new Move(this.currentPlayer, currentPossibleNextPoint)));
+            Move move = new Move(this.currentPlayer, currentPossibleNextPoint);
+            children.put(move, copiedCurrentState.makeMove(move));
         }
         return children;
     }

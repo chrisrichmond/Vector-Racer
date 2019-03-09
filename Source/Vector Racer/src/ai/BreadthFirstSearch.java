@@ -5,10 +5,7 @@ import model.Player;
 import model.RacetrackAPI;
 import model.State;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class BreadthFirstSearch extends AbstractSolver {
 
@@ -27,13 +24,19 @@ public class BreadthFirstSearch extends AbstractSolver {
             Node currentNode = agenda.poll();
             nodeCount++;
 
-            if(currentNode.isGoal()){
+            if(currentNode.isGoal(player)){
                 return calculateMoves(initialNode, currentNode);
-            }else{
-                visited.add(currentNode);
-                List<Node>
+            }
+            visited.add(currentNode);
+            List<Node> children = currentNode.getChildren();
+            for(Node child: children){
+                if((child != null) && (!visited.contains(child))){
+                    agenda.add(child);
+                    visited.add(child);
+                }
             }
         }
+        return fail();
     }
 
 }

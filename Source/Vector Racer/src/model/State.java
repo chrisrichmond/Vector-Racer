@@ -53,7 +53,7 @@ public class State {
         }
 
         if(currentPlayer.isAI()){
-
+            this.makeMove(((AIPlayer)currentPlayer).getMove());
         }
     }
 

@@ -26,13 +26,13 @@ public class Model implements ModelAPI {
     }
 
     @Override
-    public void setup(File filename, boolean isPvp, String player1name, String player2name) throws FileNotFoundException{
+    public void setup(File filename, boolean isPvp, String player1name, String player2name, boolean player2ai) throws FileNotFoundException{
         loadFile(filename);
         // todo AI diversion here ??
 
-        Queue<Player> players = new LinkedList<Player>();
-        players.add(new HumanPlayer(player1name, new Racer(racetrack.getStartPosition()), Color.BLUE));
-        players.add(new HumanPlayer(player2name, new Racer(racetrack.getStartPosition()), Color.RED));
+        Queue<PlayerAPI> players = new LinkedList<PlayerAPI>();
+        players.add(new Player(player1name, new Racer(racetrack.getStartPosition()), Color.BLUE, false));
+        players.add(new Player(player2name, new Racer(racetrack.getStartPosition()), Color.RED, player2ai));
 
         currentState = new State(players, racetrack, 0);
     }

@@ -86,7 +86,7 @@ public class RacetrackPane extends Pane implements RacetrackPaneAPI {
         }
     }
 
-    public void drawNextPossiblePositions(Player player){
+    public void drawNextPossiblePositions(PlayerAPI player){
         clearCircleSelectorsFromTrack();
 
         List<CircleSprite> circleSelectors = new ArrayList<>();
@@ -100,10 +100,10 @@ public class RacetrackPane extends Pane implements RacetrackPaneAPI {
         getChildren().addAll(circleSelectors);
     }
 
-    public void drawRacerSprites(List<Player> players){
+    public void drawRacerSprites(List<PlayerAPI> players){
         clearRacerSpritesFromTrack();
 
-        for(Player currentPlayer: players){
+        for(PlayerAPI currentPlayer: players){
             RacerAPI currentRacer = currentPlayer.getRacer();
             int row = currentRacer.getPosition().getY();
             int col = currentRacer.getPosition().getX();

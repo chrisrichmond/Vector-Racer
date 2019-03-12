@@ -9,7 +9,7 @@ import java.io.FileNotFoundException;
 
 public interface ModelAPI extends Observable {
 
-    void setup(File filename, boolean isPvp, String player1name, String player2name) throws FileNotFoundException;
+    void setup(File filename, boolean isPvp, String player1name, String player2name, boolean player2ai) throws FileNotFoundException;
 
     void start();
 

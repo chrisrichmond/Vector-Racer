@@ -16,7 +16,7 @@ public abstract class AbstractSolver {
 
 
 
-    protected Player player;
+    protected PlayerAPI player;
     protected long startTime;
     protected long solveDuration;
     protected int nodeCount;

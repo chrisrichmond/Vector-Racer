@@ -30,7 +30,7 @@ public class Node {
         this.state = state;
     }
 
-    public boolean isGoal(Player player){
+    public boolean isGoal(PlayerAPI player){
         // TODO NEED TO CHECK THAT THE CURRENT PLAYER IS ALWAYS THE AI PLAYER
         return (player.isFinished());
     }

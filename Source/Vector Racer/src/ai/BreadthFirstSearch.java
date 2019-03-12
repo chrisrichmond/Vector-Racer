@@ -9,7 +9,7 @@ import java.util.*;
 
 public class BreadthFirstSearch extends AbstractSolver {
 
-    public Deque<Move> solve(Player player, State initialState, RacetrackAPI racetrack){
+    public Deque<Move> solve(PlayerAPI player, State initialState, RacetrackAPI racetrack){
         this.player = player;
         this.nodeCount = 0;
         Deque<Node> agenda = new ArrayDeque<>();

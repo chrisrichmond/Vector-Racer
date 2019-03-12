@@ -132,4 +132,10 @@ public interface RacetrackAPI {
 //    boolean isWithinBounds(Point position);
 
     int getFinalZone();
+
+    @Override
+    boolean equals(Object o);
+
+    @Override
+    int hashCode();
 }

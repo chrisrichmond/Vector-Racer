@@ -59,4 +59,9 @@ public interface RacerAPI {
 
     public void killVelocity();
 
+    @Override
+    boolean equals(Object o);
+
+    @Override
+    int hashCode();
 }

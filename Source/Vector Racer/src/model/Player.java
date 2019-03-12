@@ -8,36 +8,48 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public abstract class Player {
+public class Player implements PlayerAPI{
 
     private String name;
     private RacerAPI racer;
     private Color color;
+    private boolean ai;
 
-    public Player(String name, RacerAPI racer, Color color) {
+    public Player(String name, RacerAPI racer, Color color, boolean ai) {
         this.name = name;
         this.racer = racer;
         this.color = color;
+        this.ai = ai;
     }
 
+    @Override
     public List<Point> getPossibleNextPoints(){
         return racer.getPossibleNextPoints();
     }
 
+    @Override
     public RacerAPI getRacer(){
         return racer;
     }
 
+    @Override
     public boolean isFinished(){
         return racer.isFinished();
     }
 
+    @Override
     public int getNumberOfMovesMade(){
         return racer.getPointRoute().size()-1;
     }
 
+    @Override
     public Color getColor(){
         return color;
+    }
+
+    @Override
+    public boolean isAI() {
+        return ai;
     }
 
     @Override

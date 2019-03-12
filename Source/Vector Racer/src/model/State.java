@@ -7,8 +7,8 @@ import java.util.*;
 
 public class State {
 
-    private Player currentPlayer; // the player whose turn it is in this State
-    private Queue<Player> players; // all players currently existing in this State
+    private PlayerAPI currentPlayer; // the player whose turn it is in this State
+    private Queue<PlayerAPI> players; // all players currently existing in this State
     private RacetrackAPI racetrack; // the racetrack existing in this State
     private int stateNumber;
     private boolean gameOver;
@@ -24,7 +24,7 @@ public class State {
         this.parent = this.getParent();
     }
 
-    public State(Queue<Player> players, RacetrackAPI racetrack, int stateNumber){
+    public State(Queue<PlayerAPI> players, RacetrackAPI racetrack, int stateNumber){
         this.currentPlayer = players.peek();
         this.players = players;
         this.racetrack = racetrack;
@@ -43,7 +43,7 @@ public class State {
             }
         }
 
-        for(Player currentPlayer: players){
+        for(PlayerAPI currentPlayer: players){
             if(racetrack.isTouchingWall(currentPlayer.getRacer())){
                 if(!currentPlayer.isFinished()) {
                     currentPlayer.getRacer().getPointRoute().pop();
@@ -53,7 +53,7 @@ public class State {
         }
     }
 
-    public State(Queue<Player> players, RacetrackAPI racetrack, int stateNumber, State parent){
+    public State(Queue<PlayerAPI> players, RacetrackAPI racetrack, int stateNumber, State parent){
         this(players, racetrack, stateNumber);
         this.parent = parent;
     }
@@ -116,19 +116,6 @@ public class State {
         }
 
         return legal;
-
-//        Queue<Player> tempPlayers = new LinkedList<>(players);
-//        tempPlayers.poll();
-//        tempPlayers.add(currentPlayer);
-//        State nextStateAttempt = new State(tempPlayers, racetrack, stateNumber+1);
-//
-//        for(State state: getNextLegalStates()){
-//            if(nextStateAttempt.equals(state)){
-//                return true;
-//            }
-//        }
-//
-//        return false;
     }
 
     private List<State> getNextLegalStates(){
@@ -153,11 +140,11 @@ public class State {
         return racetrack;
     }
 
-    public Queue<Player> getPlayers(){
+    public Queue<PlayerAPI> getPlayers(){
         return players;
     }
 
-    public Player getCurrentPlayer(){
+    public PlayerAPI getCurrentPlayer(){
         return currentPlayer;
     }
 

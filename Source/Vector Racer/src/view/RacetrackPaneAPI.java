@@ -1,6 +1,6 @@
 package view;
 
-import model.Player;
+import model.PlayerAPI;
 
 import java.util.List;
 
@@ -8,8 +8,8 @@ public interface RacetrackPaneAPI {
 
     void drawTiles();
 
-    void drawNextPossiblePositions(Player player);
+    void drawNextPossiblePositions(PlayerAPI player);
 
-    void drawRacerSprites(List<Player> players);
+    void drawRacerSprites(List<PlayerAPI> players);
 
 }

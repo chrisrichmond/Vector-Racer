@@ -1,7 +1,6 @@
 package model;
 
-import ai.AbstractSolver;
-import ai.BreadthFirstSearch;
+import ai.*;
 import javafx.scene.paint.Color;
 
 import java.util.ArrayDeque;
@@ -18,7 +17,14 @@ public class AIPlayer extends Player {
 
         if(algorithmName.toLowerCase().equals("bfs")) {
             this.algorithm = new BreadthFirstSearch();
+        }else if(algorithmName.toLowerCase().equals("dfs")) {
+            this.algorithm = new DepthFirstSearch();
+        }else if(algorithmName.toLowerCase().equals("bfswz")) {
+            this.algorithm = new BreadthFirstSearchWithZoning();
+        }else if(algorithmName.toLowerCase().equals("dfswz")) {
+            this.algorithm = new DepthFirstSearchWithZoning();
         }else{
+            System.out.println("SEARCH ALGORITHM DEFAULTING TO BFS");
             this.algorithm = new BreadthFirstSearch();
         }
 

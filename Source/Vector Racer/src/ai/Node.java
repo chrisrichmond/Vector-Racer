@@ -32,8 +32,11 @@ public class Node {
     }
 
     public boolean isGoal(PlayerAPI player){
-        // TODO NEED TO CHECK THAT THE CURRENT PLAYER IS ALWAYS THE AI PLAYER
-        return (player.isFinished());
+        return player.isFinished();
+    }
+
+    public int currentZone(PlayerAPI player){
+        return player.getRacer().getCurrentZone();
     }
 
     public List<Node> getChildren(){

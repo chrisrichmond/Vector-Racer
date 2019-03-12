@@ -28,6 +28,11 @@ public class Player implements PlayerAPI{
     }
 
     @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
     public RacerAPI getRacer(){
         return racer;
     }

@@ -9,6 +9,8 @@ public interface PlayerAPI {
 
     List<Point> getPossibleNextPoints();
 
+    String getName();
+
     RacerAPI getRacer();
 
     boolean isFinished();

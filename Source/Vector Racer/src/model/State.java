@@ -53,7 +53,14 @@ public class State {
         }
 
         if(currentPlayer.isAI()){
-            this.makeMove(((AIPlayer)currentPlayer).getMove());
+            if(((AIPlayer)currentPlayer).isSolved()) {
+                this.makeMove(((AIPlayer) currentPlayer).getMove());
+            }
+//            else{
+//                Random random = new Random();
+//                List<Point> points = currentPlayer.getPossibleNextPoints();
+//                this.makeMove(new Move(currentPlayer, points.get(random.nextInt(points.size()))));
+//            }
         }
     }
 
@@ -63,8 +70,7 @@ public class State {
     }
 
     /**
-     * Called when the current player has already finished the race and so
-     * @return
+     * Called when the current player has already finished the race and so the turn is passed to the following player
      */
     public void skipCurrentPlayer(){
         players.poll();

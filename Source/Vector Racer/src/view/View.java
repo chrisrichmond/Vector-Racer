@@ -112,7 +112,7 @@ public class View implements ViewAPI{
             File selectedFile = fileChooser.showOpenDialog(primaryStage);
             if(selectedFile != null) {
                 try {
-                    model.setup(selectedFile, true, "player1", "player2");
+                    model.setup(selectedFile, true, "player1", "player2", true);
                     createGamePane();
                     changeRootContent(gamePane);
                     model.start();

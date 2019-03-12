@@ -36,7 +36,16 @@ public class AIPlayer extends Player {
         return solved;
     }
 
-    public Move getMove(){
-        return solution.pop();
+    public Move getMove() {
+        if (solved) {
+            return solution.pop();
+        }else{
+            System.out.println("Cannot get AI move as no solution exists yet!");
+            return null;
+        }
+    }
+
+    public boolean isSolved(){
+        return solved;
     }
 }

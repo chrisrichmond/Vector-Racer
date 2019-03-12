@@ -140,12 +140,6 @@ public class State {
         return nextLegalStates;
     }
 
-    /*
-    public List<State> getNextStates(){
-        return nextStates;
-    }
-*/
-
     public RacetrackAPI getRacetrack() {
         return racetrack;
     }
@@ -175,5 +169,9 @@ public class State {
             children.put(move, copiedCurrentState.makeMove(move));
         }
         return children;
+    }
+
+    public int getStateNumber() {
+        return stateNumber;
     }
 }

@@ -8,14 +8,15 @@ import java.util.List;
 
 public class VectorConstants {
 
-    public static final boolean IS_DEBUG_MODE = true;
+    public static final boolean IS_DEBUG_MODE = false;
 
     public static final String VR_FILE_EXTENSION = ".vrff";
 
     public static final String HOME_PATH = System.getProperty("user.home");
     public static final String VR_PATH = HOME_PATH + "/VectorRacerFiles";
 
-    public static final String AI_ALGORITHM = "dfswz";
+    public static final boolean AI_MODE = true;
+    public static final String AI_ALGORITHM = "bfs";
 
     public static final Rectangle2D PRIMARY_SCREEN_BOUNDS = Screen.getPrimary().getVisualBounds();
     public static final int GP_PREFWIDTH = (int) PRIMARY_SCREEN_BOUNDS.getWidth();   // preferred width of the game pane

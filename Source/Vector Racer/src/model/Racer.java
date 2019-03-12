@@ -100,7 +100,7 @@ public class Racer implements RacerAPI{
                     nextZone();
                 }else if( ((((CheckpointTile)currentTerrain).getZoneNumber() == 0) && (currentZone == racetrack.getFinalZone()))){
                     finished = true;
-                    setPosition(new Point( ((Tile)currentTerrain).getStartX(), ((Tile)currentTerrain).getStartY()));
+                    // todo setPosition(new Point( ((Tile)currentTerrain).getStartX(), ((Tile)currentTerrain).getStartY()));
                     killVelocity();
                     return;
                 }

@@ -137,7 +137,7 @@ public class Model implements ModelAPI {
 
             if( (row >= rowLow) && (row <= rowHigh) && (col >= colLow) && (col <= colHigh) ){
 
-                history.push(currentState);
+                history.push(currentState); // todo incorporate mechanism for this on AI side too
                 currentState = currentState.makeMove(new Move(currentState.getCurrentPlayer(), new Point((int)col, (int)row)));
                 if(currentState.isGameOver()){
                     System.out.println("GAME OVER ALL PLAYERS HAVE FINISHED");

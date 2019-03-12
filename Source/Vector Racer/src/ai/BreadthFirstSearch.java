@@ -1,9 +1,6 @@
 package ai;
 
-import model.Move;
-import model.Player;
-import model.RacetrackAPI;
-import model.State;
+import model.*;
 
 import java.util.*;
 

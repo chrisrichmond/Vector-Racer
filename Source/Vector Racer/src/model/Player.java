@@ -10,10 +10,10 @@ import java.util.Objects;
 
 public class Player implements PlayerAPI{
 
-    private String name;
-    private RacerAPI racer;
-    private Color color;
-    private boolean ai;
+    protected String name;
+    protected RacerAPI racer;
+    protected Color color;
+    protected boolean ai;
 
     public Player(String name, RacerAPI racer, Color color, boolean ai) {
         this.name = name;

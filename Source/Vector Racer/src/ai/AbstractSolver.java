@@ -1,7 +1,6 @@
 package ai;
 
-import model.Move;
-import model.Player;
+import model.*;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
@@ -20,6 +19,8 @@ public abstract class AbstractSolver {
     protected long startTime;
     protected long solveDuration;
     protected int nodeCount;
+
+    public abstract Deque<Move> solve(PlayerAPI player, State initialState, RacetrackAPI racetrack);
 
     /**
      * Produces a stack of Move objects to get from one Node to another

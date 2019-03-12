@@ -51,6 +51,10 @@ public class State {
                 }
             }
         }
+
+        if(currentPlayer.isAI()){
+
+        }
     }
 
     public State(Queue<PlayerAPI> players, RacetrackAPI racetrack, int stateNumber, State parent){

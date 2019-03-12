@@ -4,6 +4,7 @@ import javafx.beans.property.ObjectProperty;
 import javafx.scene.paint.Color;
 import model.geometry.Point;
 import utilities.Observer;
+import utilities.VectorConstants;
 import utilities.VectorFileHandler;
 
 import java.io.File;
@@ -32,9 +33,19 @@ public class Model implements ModelAPI {
 
         Queue<PlayerAPI> players = new LinkedList<PlayerAPI>();
         players.add(new Player(player1name, new Racer(racetrack.getStartPosition()), Color.BLUE, false));
-        players.add(new Player(player2name, new Racer(racetrack.getStartPosition()), Color.RED, player2ai));
+        if(player2ai){
+            players.add(new AIPlayer(player2name, new Racer(racetrack.getStartPosition()), Color.RED, VectorConstants.AI_ALGORITHM));
+        }else{
+            players.add(new Player(player2name, new Racer(racetrack.getStartPosition()), Color.RED, player2ai));
+        }
 
         currentState = new State(players, racetrack, 0);
+        for(PlayerAPI currentPlayer: players){
+            if(currentPlayer.isAI()){
+                ((AIPlayer)currentPlayer).findSolution(currentState);
+            }
+        }
+
     }
 
     @Override

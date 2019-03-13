@@ -8,28 +8,33 @@ import model.State;
 import java.util.*;
 
 public class DepthFirstSearch extends AbstractSolver {
+
     @Override
-    public Deque<Move> solve(PlayerAPI player, State initialState, RacetrackAPI racetrack) {
+    public Deque<Move> solve(PlayerAPI player, State initialState) {
+        // SETTING STATE GRAPH INTO AI MODE
+        initialState.setAiSolverMode(true);
+
         this.player = player;
         this.nodeCount = 0;
-        Deque<Node> agenda = new ArrayDeque<>();
-        Set<Node> visited = new HashSet<>();
-        Node initialNode = new Node(initialState);
+        Deque<State> agenda = new ArrayDeque<>();
+        Set<State> visited = new HashSet<>();
 
         startTime = System.currentTimeMillis();
 
-        agenda.addAll(initialNode.getChildren());
-        visited.add(initialNode);
+        agenda.addAll(initialState.getChildren());
+        visited.add(initialState);
         while (!agenda.isEmpty()){
-            Node currentNode = agenda.pop();
+            State currentState = agenda.pop();
             nodeCount++;
 
-            if(currentNode.isGoal(player)){
-                return calculateMoves(initialNode, currentNode);
+            if(player.isFinished()){
+                System.out.println("PLAYER FINISHED");
+                return calculateMoves(initialState, currentState);
             }
-            visited.add(currentNode);
-            List<Node> children = currentNode.getChildren();
-            for(Node child: children){
+
+            visited.add(currentState);
+            List<State> children = currentState.getChildren();
+            for(State child: children){
                 if((child != null) && (!visited.contains(child))){
                     agenda.push(child);
                     visited.add(child);

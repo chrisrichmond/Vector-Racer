@@ -52,11 +52,23 @@ public class State {
          If the state is in AI solver mode then it will first ensure that the current player is the AI
          then will
           */
-        if(aiSolverMode){
-            while(!currentPlayer.isAI()){
-                skipCurrentPlayer();
-            }
-        }
+//        if(aiSolverMode){
+//            for(PlayerAPI p: players){
+//                System.out.println("p.isAI(): "+p.isAI());
+//            }
+//
+//            try{
+//                Thread.sleep(2000);
+//            }catch (Exception e){
+//
+//            }
+//            while(!currentPlayer.isAI()){
+//                System.out.println("currentPlayer before is: "+currentPlayer);
+//                skipCurrentPlayer();
+//                System.out.println("currentPlayer after is: "+currentPlayer);
+//                System.out.println("SOMEHOW STUCK IN HERE?");
+//            }
+//        }
 
         /*
         // everything in here is probably very wrong, don't uncomment unless absolutely sure
@@ -110,8 +122,11 @@ public class State {
             currentPlayer.getRacer().moveWhilstApplyingEffects(racetrack, move.destination);
             System.out.println("new velo = row:"+(currentPlayer.getRacer().getVelocity().getYVelo()+" col:"+currentPlayer.getRacer().getVelocity().getXVelo()));
 
-            players.poll();                 // todo these could cause issues, do we want to leave the old state with altered attributes, yes/no?
-            players.add(currentPlayer);
+            // only switch players if not in AI solver mode
+            if(!aiSolverMode){
+                players.poll();                 // todo these could cause issues, do we want to leave the old state with altered attributes, yes/no?
+                players.add(currentPlayer);
+            }
 
             return new State(players, racetrack, stateNumber+1, this, move, aiSolverMode);
         }else{
@@ -207,12 +222,12 @@ public class State {
 
     /**
      *
-     * @param to the Node to get to, must be a child of this Node
+     * @param to the State to get to, must be a child of this State
      * @return
      */
     public Move calculateMoveTo(State to){
         if(!getNextLegalStates().contains(to)){
-            System.out.println("Node to calculate Move to is not a child of this Node");
+            System.out.println("State to calculate Move to is not a child of this State");
             return null;
         }
         return to.getDelta();

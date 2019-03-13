@@ -10,34 +10,36 @@ import java.util.*;
 public class BreadthFirstSearchWithZoning extends AbstractSolver {
 
     @Override
-    public Deque<Move> solve(PlayerAPI player, State initialState, RacetrackAPI racetrack){
+    public Deque<Move> solve(PlayerAPI player, State initialState){
+        // SETTING STATE GRAPH INTO AI MODE
+        initialState.setAiSolverMode(true);
+
         this.player = player;
         this.nodeCount = 0;
-        Deque<Node> agenda = new ArrayDeque<>();
-        Set<Node> visited = new HashSet<>();
-        Node initialNode = new Node(initialState);
+        Deque<State> agenda = new ArrayDeque<>();
+        Set<State> visited = new HashSet<>();
 
         startTime = System.currentTimeMillis();
 
-        agenda.addAll(initialNode.getChildren());
-        visited.add(initialNode);
+        agenda.addAll(initialState.getChildren());
+        visited.add(initialState);
         int currentZone = 0;
         while(!agenda.isEmpty()){
-            Node currentNode = agenda.poll();
+            State currentState = agenda.poll();
             nodeCount++;
 
-            if(currentNode.isGoal(player)){
-                return calculateMoves(initialNode, currentNode);
+            if(player.isFinished()){
+                return calculateMoves(initialState, currentState);
             }
 
-            if(currentNode.getState().getCurrentPlayer().getRacer().getCurrentZone()>currentZone){
+            if(player.getRacer().getCurrentZone()>currentZone){
                 agenda.clear();
                 currentZone++;
             }
 
-            visited.add(currentNode);
-            List<Node> children = currentNode.getChildren();
-            for(Node child: children){
+            visited.add(currentState);
+            List<State> children = currentState.getChildren();
+            for(State child: children){
                 if((child != null) && (!visited.contains(child))){
                     agenda.add(child);
                     visited.add(child);

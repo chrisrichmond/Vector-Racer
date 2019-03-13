@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="bump, changed the way that next possible points are determined and ensured only legal moves are displayed">
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="bump">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ai/AbstractSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ai/AbstractSolver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ai/BreadthFirstSearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ai/BreadthFirstSearch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Model.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/State.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/State.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utilities/VectorConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilities/VectorConstants.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -76,23 +73,41 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/model/State.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="16" column="40" selection-start-line="16" selection-start-column="40" selection-end-line="16" selection-end-column="40" />
+            <state relative-caret-position="312">
+              <caret line="61" column="92" selection-start-line="61" selection-start-column="92" selection-end-line="61" selection-end-column="92" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#2973#2974#0" expanded="true" />
+                <element signature="e#3021#3022#0" expanded="true" />
+                <element signature="e#3059#3060#0" expanded="true" />
+                <element signature="e#3094#3095#0" expanded="true" />
+                <element signature="e#7165#7166#0" expanded="true" />
+                <element signature="e#6734#6735#0" expanded="true" />
+                <element signature="e#6764#6765#0" expanded="true" />
+                <element signature="e#6806#6807#0" expanded="true" />
+                <element signature="e#6842#6843#0" expanded="true" />
+                <element signature="e#6876#6877#0" expanded="true" />
+                <element signature="e#6907#6908#0" expanded="true" />
+                <element signature="e#6938#6939#0" expanded="true" />
+                <element signature="e#6967#6968#0" expanded="true" />
+                <element signature="e#7935#7936#0" expanded="true" />
+                <element signature="e#7978#7979#0" expanded="true" />
+                <element signature="e#8007#8008#0" expanded="true" />
+                <element signature="e#8035#8036#0" expanded="true" />
+                <element signature="e#8578#8579#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ai/BreadthFirstSearch.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="131">
-              <caret line="22" column="86" selection-start-line="22" selection-start-column="86" selection-end-line="22" selection-end-column="86" />
+            <state relative-caret-position="356">
+              <caret line="22" column="44" selection-start-line="22" selection-start-column="44" selection-end-line="22" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -229,8 +244,8 @@
         <option value="$PROJECT_DIR$/src/ai/AbstractSolver.java" />
         <option value="$PROJECT_DIR$/src/utilities/VectorConstants.java" />
         <option value="$PROJECT_DIR$/src/model/Model.java" />
-        <option value="$PROJECT_DIR$/src/model/State.java" />
         <option value="$PROJECT_DIR$/src/ai/BreadthFirstSearch.java" />
+        <option value="$PROJECT_DIR$/src/model/State.java" />
       </list>
     </option>
   </component>
@@ -305,7 +320,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552461049865" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552462855810" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/ai/DepthFirstSearchWithZoning.java" />
     <property name="project.structure.last.edited" value="Libraries" />
@@ -527,13 +542,6 @@
       <workItem from="1547566384896" duration="3847000" />
       <workItem from="1549298180766" duration="13715000" />
       <workItem from="1551463240268" duration="5765000" />
-    </task>
-    <task id="LOCAL-00093" summary="fixed racers not drawing bug">
-      <created>1550149501171</created>
-      <option name="number" value="00093" />
-      <option name="presentableId" value="LOCAL-00093" />
-      <option name="project" value="LOCAL" />
-      <updated>1550149501172</updated>
     </task>
     <task id="LOCAL-00094" summary="added AI package and BFS DFS classes">
       <created>1550149751846</created>
@@ -871,7 +879,14 @@
       <option name="project" value="LOCAL" />
       <updated>1552453129574</updated>
     </task>
-    <option name="localTasksCounter" value="142" />
+    <task id="LOCAL-00142" summary="bump">
+      <created>1552461064812</created>
+      <option name="number" value="00142" />
+      <option name="presentableId" value="LOCAL-00142" />
+      <option name="project" value="LOCAL" />
+      <updated>1552461064812</updated>
+    </task>
+    <option name="localTasksCounter" value="143" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -890,7 +905,7 @@
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.18702702" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.16378379" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" weight="0.32972974" />
       <window_info id="Designer" order="3" />
@@ -899,7 +914,7 @@
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.5709178" />
-      <window_info active="true" anchor="bottom" x="926" y="494" width="472" height="266" id="Run" order="2" visible="true" weight="0.45411205" />
+      <window_info active="true" anchor="bottom" x="926" y="494" width="472" height="266" id="Run" order="2" visible="true" weight="0.27294397" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.7353993" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1031,10 +1046,10 @@
     <MESSAGE value="more AI integration work" />
     <MESSAGE value="depth-first search stuff" />
     <MESSAGE value="zoning bump" />
-    <MESSAGE value="bump" />
     <MESSAGE value="refactored Node functionality into State, need to sort out proper cloning of State objects BY VALUE" />
     <MESSAGE value="bump, changed the way that next possible points are determined and ensured only legal moves are displayed" />
-    <option name="LAST_COMMIT_MESSAGE" value="bump, changed the way that next possible points are determined and ensured only legal moves are displayed" />
+    <MESSAGE value="bump" />
+    <option name="LAST_COMMIT_MESSAGE" value="bump" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -1432,22 +1447,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/State.java">
+    <entry file="file://$PROJECT_DIR$/src/ai/BreadthFirstSearch.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="16" column="40" selection-start-line="16" selection-start-column="40" selection-end-line="16" selection-end-column="40" />
+        <state relative-caret-position="356">
+          <caret line="22" column="44" selection-start-line="22" selection-start-column="44" selection-end-line="22" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ai/BreadthFirstSearch.java">
+    <entry file="file://$PROJECT_DIR$/src/model/State.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
-          <caret line="22" column="86" selection-start-line="22" selection-start-column="86" selection-end-line="22" selection-end-column="86" />
+        <state relative-caret-position="312">
+          <caret line="61" column="92" selection-start-line="61" selection-start-column="92" selection-end-line="61" selection-end-column="92" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#2973#2974#0" expanded="true" />
+            <element signature="e#3021#3022#0" expanded="true" />
+            <element signature="e#3059#3060#0" expanded="true" />
+            <element signature="e#3094#3095#0" expanded="true" />
+            <element signature="e#7165#7166#0" expanded="true" />
+            <element signature="e#6734#6735#0" expanded="true" />
+            <element signature="e#6764#6765#0" expanded="true" />
+            <element signature="e#6806#6807#0" expanded="true" />
+            <element signature="e#6842#6843#0" expanded="true" />
+            <element signature="e#6876#6877#0" expanded="true" />
+            <element signature="e#6907#6908#0" expanded="true" />
+            <element signature="e#6938#6939#0" expanded="true" />
+            <element signature="e#6967#6968#0" expanded="true" />
+            <element signature="e#7935#7936#0" expanded="true" />
+            <element signature="e#7978#7979#0" expanded="true" />
+            <element signature="e#8007#8008#0" expanded="true" />
+            <element signature="e#8035#8036#0" expanded="true" />
+            <element signature="e#8578#8579#0" expanded="true" />
           </folding>
         </state>
       </provider>

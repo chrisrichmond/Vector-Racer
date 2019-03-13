@@ -21,7 +21,7 @@ public class BreadthFirstSearch extends AbstractSolver {
         System.out.println("IN SOLVER");
 
         agenda.addAll(initialState.getChildren());  // todo gets stuck looping in here
-
+        System.out.println(agenda.size());
         visited.add(initialState);
         while(!agenda.isEmpty()){
             State currentState = agenda.poll();

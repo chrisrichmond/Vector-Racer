@@ -47,6 +47,20 @@ public class State {
             }
         }
 
+        /*
+         At this point the game is now waiting for a player to take their turn.
+         If the state is in AI solver mode then it will first ensure that the current player is the AI
+         then will
+          */
+        if(aiSolverMode){
+            while(!currentPlayer.isAI()){
+                skipCurrentPlayer();
+            }
+        }
+
+        /*
+        // everything in here is probably very wrong, don't uncomment unless absolutely sure
+
         if(aiSolverMode){
             while(!currentPlayer.isAI()){
                 skipCurrentPlayer();
@@ -59,6 +73,7 @@ public class State {
                 this.makeMove(((AIPlayer) currentPlayer).getMove());
             }
         }
+        */
 
 //        if(currentPlayer.isAI()){
 //            if(((AIPlayer)currentPlayer).isSolved()) {
@@ -94,8 +109,10 @@ public class State {
             // return new State with currentPlayer changed to the next in the list
             currentPlayer.getRacer().moveWhilstApplyingEffects(racetrack, move.destination);
             System.out.println("new velo = row:"+(currentPlayer.getRacer().getVelocity().getYVelo()+" col:"+currentPlayer.getRacer().getVelocity().getXVelo()));
-            players.poll();
+
+            players.poll();                 // todo these could cause issues, do we want to leave the old state with altered attributes, yes/no?
             players.add(currentPlayer);
+
             return new State(players, racetrack, stateNumber+1, this, move, aiSolverMode);
         }else{
             System.out.println("Illegal move!");
@@ -145,9 +162,13 @@ public class State {
         List<State> nextLegalStates = new ArrayList<>();
         List<Point> possibleNextPoints = currentPlayer.getRacer().getPossibleNextPoints(racetrack);
 
+        System.out.println("possibleNextPoints.size(): "+possibleNextPoints.size());
+
         for(Point possiblePoint: possibleNextPoints){
             Move possibleMove = new Move(currentPlayer, possiblePoint);
+            System.out.println("BEFORE MAKING MOVE");
             nextLegalStates.add(this.makeMove(possibleMove));   // todo could lead to duplicate states being added, which doesn't present an immediate issue but could be inefficient so maybe consider some kind of redesign to remove dupes
+            System.out.println("IN NEXTLEGALSTATES FOR LOOP AFTER ADDING NEW STATE FROM MAKEMOVE()");
         }
 
         return nextLegalStates;

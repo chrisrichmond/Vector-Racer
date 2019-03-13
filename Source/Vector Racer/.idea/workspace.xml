@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="zoning bump">
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="bump">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ai/AbstractSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ai/AbstractSolver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ai/BreadthFirstSearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ai/BreadthFirstSearch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Model.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Racer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Racer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ai/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ai/Node.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/State.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/State.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utilities/VectorConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilities/VectorConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/View.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -65,17 +63,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/model/State.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="19" column="40" lean-forward="true" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
+            <state relative-caret-position="2163">
+              <caret line="94" column="22" selection-start-line="94" selection-start-column="22" selection-end-line="94" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#3269#3270#0" expanded="true" />
+                <element signature="e#3297#3298#0" expanded="true" />
                 <element signature="e#5675#5676#0" expanded="true" />
                 <element signature="e#5707#5708#0" expanded="true" />
                 <element signature="e#5892#5893#0" expanded="true" />
                 <element signature="e#5923#5924#0" expanded="true" />
+                <element signature="e#6898#6899#0" expanded="true" />
+                <element signature="e#6940#6941#0" expanded="true" />
+                <element signature="e#6866#6867#0" expanded="true" />
+                <element signature="e#6893#6894#0" expanded="true" />
                 <element signature="e#6478#6479#0" expanded="true" />
                 <element signature="e#6512#6513#0" expanded="true" />
               </folding>
@@ -83,15 +87,13 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/ai/Node.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ai/BreadthFirstSearch.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="11" column="24" lean-forward="true" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
+            <state relative-caret-position="350">
+              <caret line="23" column="44" selection-start-line="23" selection-start-column="44" selection-end-line="23" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#610#611#0" expanded="true" />
-                <element signature="e#652#653#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -110,9 +112,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>System.out.println</find>
-      <find>mousehandler</find>
-      <find>personview</find>
       <find>filechoo</find>
       <find>prim</find>
       <find>main</find>
@@ -140,6 +139,9 @@
       <find>makemove</find>
       <find>setup</find>
       <find>original</find>
+      <find>new Nod</find>
+      <find>children</find>
+      <find>getchi</find>
     </findStrings>
   </component>
   <component name="FindManager">
@@ -190,7 +192,6 @@
         <option value="$PROJECT_DIR$/src/view/RacetrackPaneAPI.java" />
         <option value="$PROJECT_DIR$/src/model/ModelAPI.java" />
         <option value="$PROJECT_DIR$/src/controller/GameHandler.java" />
-        <option value="$PROJECT_DIR$/src/ai/AbstractSolver.java" />
         <option value="$PROJECT_DIR$/src/model/PlayerAPI.java" />
         <option value="$PROJECT_DIR$/src/model/Player.java" />
         <option value="$PROJECT_DIR$/src/ai/DepthFirstSearch.java" />
@@ -200,10 +201,11 @@
         <option value="$PROJECT_DIR$/src/model/Racer.java" />
         <option value="$PROJECT_DIR$/src/view/View.java" />
         <option value="$PROJECT_DIR$/src/utilities/VectorConstants.java" />
-        <option value="$PROJECT_DIR$/src/model/State.java" />
-        <option value="$PROJECT_DIR$/src/ai/BreadthFirstSearch.java" />
         <option value="$PROJECT_DIR$/src/model/Model.java" />
         <option value="$PROJECT_DIR$/src/ai/Node.java" />
+        <option value="$PROJECT_DIR$/src/ai/AbstractSolver.java" />
+        <option value="$PROJECT_DIR$/src/ai/BreadthFirstSearch.java" />
+        <option value="$PROJECT_DIR$/src/model/State.java" />
       </list>
     </option>
   </component>
@@ -284,7 +286,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552432540843" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552435122738" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/view/GamePane.java" />
     <property name="project.structure.last.edited" value="Libraries" />
@@ -506,13 +508,6 @@
       <workItem from="1547566384896" duration="3847000" />
       <workItem from="1549298180766" duration="13715000" />
       <workItem from="1551463240268" duration="5765000" />
-    </task>
-    <task id="LOCAL-00090" summary="model observers nullpointerexception fixed">
-      <created>1549983577537</created>
-      <option name="number" value="00090" />
-      <option name="presentableId" value="LOCAL-00090" />
-      <option name="project" value="LOCAL" />
-      <updated>1549983577539</updated>
     </task>
     <task id="LOCAL-00091" summary="fixed null return on Model.getCurrentState() (possibly one of the daftest errors I have ever unwittingly subjected myself to - NOTE: CHECK ALL RETURN STATEMENTS ON GETTERS IN FUTURE)">
       <created>1550051989809</created>
@@ -850,7 +845,14 @@
       <option name="project" value="LOCAL" />
       <updated>1552372656681</updated>
     </task>
-    <option name="localTasksCounter" value="139" />
+    <task id="LOCAL-00139" summary="bump">
+      <created>1552432560493</created>
+      <option name="number" value="00139" />
+      <option name="presentableId" value="LOCAL-00139" />
+      <option name="project" value="LOCAL" />
+      <updated>1552432560493</updated>
+    </task>
+    <option name="localTasksCounter" value="140" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -878,7 +880,7 @@
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.5709178" />
-      <window_info anchor="bottom" x="926" y="494" width="472" height="266" id="Run" order="2" visible="true" weight="0.05363528" />
+      <window_info anchor="bottom" x="926" y="494" width="472" height="266" id="Run" order="2" weight="0.05363528" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.7353993" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -906,7 +908,7 @@
       <window_info anchor="right" id="Maven" order="10" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.1718919" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" weight="0.18702702" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" weight="0.32972974" />
       <window_info id="Designer" order="3" />
@@ -915,8 +917,8 @@
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.5709178" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.30154946" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" x="926" y="494" width="472" height="266" id="Run" order="2" visible="true" weight="0.05363528" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.7353993" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32896304" />
@@ -929,7 +931,7 @@
       <window_info anchor="bottom" id="Messages" order="13" weight="0.1227652" />
       <window_info anchor="bottom" id="Database Changes" order="14" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="15" weight="0.32896304" />
-      <window_info anchor="bottom" id="Statistic" order="16" />
+      <window_info anchor="bottom" id="Statistic" order="16" weight="0.37067938" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -1010,10 +1012,10 @@
     <MESSAGE value="AI work on Node, AbstractSolver, and BFS" />
     <MESSAGE value="Player refactor" />
     <MESSAGE value="more AI integration work" />
-    <MESSAGE value="bump" />
     <MESSAGE value="depth-first search stuff" />
     <MESSAGE value="zoning bump" />
-    <option name="LAST_COMMIT_MESSAGE" value="zoning bump" />
+    <MESSAGE value="bump" />
+    <option name="LAST_COMMIT_MESSAGE" value="bump" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -1353,26 +1355,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ai/AbstractSolver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="30" column="23" selection-start-line="30" selection-start-column="23" selection-end-line="30" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ai/BreadthFirstSearch.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="40" column="111" selection-start-line="40" selection-start-column="111" selection-end-line="40" selection-end-column="111" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/view/View.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="89">
@@ -1400,30 +1382,54 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/State.java">
+    <entry file="file://$PROJECT_DIR$/src/ai/Node.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="19" column="40" lean-forward="true" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
+        <state relative-caret-position="75">
+          <caret line="74" column="7" lean-forward="true" selection-start-line="67" selection-start-column="6" selection-end-line="74" selection-end-column="7" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5675#5676#0" expanded="true" />
-            <element signature="e#5707#5708#0" expanded="true" />
-            <element signature="e#5892#5893#0" expanded="true" />
-            <element signature="e#5923#5924#0" expanded="true" />
-            <element signature="e#6478#6479#0" expanded="true" />
-            <element signature="e#6512#6513#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ai/Node.java">
+    <entry file="file://$PROJECT_DIR$/src/ai/AbstractSolver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="11" column="24" lean-forward="true" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
+        <state relative-caret-position="550">
+          <caret line="22" column="74" selection-start-line="22" selection-start-column="74" selection-end-line="22" selection-end-column="74" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#610#611#0" expanded="true" />
-            <element signature="e#652#653#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ai/BreadthFirstSearch.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="23" column="44" selection-start-line="23" selection-start-column="44" selection-end-line="23" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/State.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2163">
+          <caret line="94" column="22" selection-start-line="94" selection-start-column="22" selection-end-line="94" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3269#3270#0" expanded="true" />
+            <element signature="e#3297#3298#0" expanded="true" />
+            <element signature="e#5675#5676#0" expanded="true" />
+            <element signature="e#5707#5708#0" expanded="true" />
+            <element signature="e#5892#5893#0" expanded="true" />
+            <element signature="e#5923#5924#0" expanded="true" />
+            <element signature="e#6898#6899#0" expanded="true" />
+            <element signature="e#6940#6941#0" expanded="true" />
+            <element signature="e#6866#6867#0" expanded="true" />
+            <element signature="e#6893#6894#0" expanded="true" />
+            <element signature="e#6478#6479#0" expanded="true" />
+            <element signature="e#6512#6513#0" expanded="true" />
           </folding>
         </state>
       </provider>

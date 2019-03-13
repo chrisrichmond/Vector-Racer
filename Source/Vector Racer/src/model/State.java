@@ -13,6 +13,7 @@ public class State {
     private int stateNumber;
     private boolean gameOver;
     private State parent = null;
+    private Move delta = null;
 
     // copy constructor
     public State(State original){
@@ -21,15 +22,18 @@ public class State {
         this.racetrack = original.racetrack;
         this.stateNumber = original.stateNumber;
         this.gameOver = original.gameOver;
-        this.parent = this.getParent();
+        this.parent = original.parent;
+        this.delta = original.delta;
     }
 
-    public State(Queue<PlayerAPI> players, RacetrackAPI racetrack, int stateNumber){
+    public State(Queue<PlayerAPI> players, RacetrackAPI racetrack, int stateNumber, State parent, Move delta){
         this.currentPlayer = players.peek();
         this.players = players;
         this.racetrack = racetrack;
         this.stateNumber = stateNumber;
         this.gameOver = false;
+        this.parent = parent;
+        this.delta = delta;
 
         int skipCount = 0;
         while(currentPlayer.isFinished()){
@@ -64,11 +68,6 @@ public class State {
         }
     }
 
-    public State(Queue<PlayerAPI> players, RacetrackAPI racetrack, int stateNumber, State parent){
-        this(players, racetrack, stateNumber);
-        this.parent = parent;
-    }
-
     /**
      * Called when the current player has already finished the race and so the turn is passed to the following player
      */
@@ -84,7 +83,7 @@ public class State {
             System.out.println("new velo = row:"+(currentPlayer.getRacer().getVelocity().getYVelo()+" col:"+currentPlayer.getRacer().getVelocity().getXVelo()));
             players.poll();
             players.add(currentPlayer);
-            return new State(players, racetrack, stateNumber+1);
+            return new State(players, racetrack, stateNumber+1, this, move);
         }else{
             System.out.println("Illegal move!");
             return this;
@@ -92,22 +91,27 @@ public class State {
 
     }
 
+    public boolean isGoal(PlayerAPI player){
+        return player.
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof State)) return false;
         State state = (State) o;
-        return stateNumber == state.stateNumber &&
+        return getStateNumber() == state.getStateNumber() &&
                 isGameOver() == state.isGameOver() &&
                 getCurrentPlayer().equals(state.getCurrentPlayer()) &&
                 getPlayers().equals(state.getPlayers()) &&
                 getRacetrack().equals(state.getRacetrack()) &&
-                Objects.equals(getParent(), state.getParent());
+                Objects.equals(getParent(), state.getParent()) &&
+                Objects.equals(delta, state.delta);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getCurrentPlayer(), getPlayers(), getRacetrack(), stateNumber, isGameOver(), getParent());
+        return Objects.hash(getCurrentPlayer(), getPlayers(), getRacetrack(), getStateNumber(), isGameOver(), getParent(), delta);
     }
 
     public boolean isMoveLegal(Move move){
@@ -161,14 +165,35 @@ public class State {
     }
 
     // TODO NEED TO CHECK THIS ALL DUE TO BEING UNSURE IF COPYING KEEPS REFERENCE TO ORIGINAL OBJECT ATTRIBUTES
-    public HashMap<Move, State> getChildren(){
-        State copiedCurrentState = new State(this);
-        HashMap<Move, State> children = new HashMap();
-        for(Point currentPossibleNextPoint: this.currentPlayer.getPossibleNextPoints()){
-            Move move = new Move(this.currentPlayer, currentPossibleNextPoint);
-            children.put(move, copiedCurrentState.makeMove(move));
+//    public HashMap<Move, State> getChildren(){
+//        State copiedCurrentState = new State(this);
+//        HashMap<Move, State> children = new HashMap();
+//        for(Point currentPossibleNextPoint: this.currentPlayer.getPossibleNextPoints()){
+//            Move move = new Move(this.currentPlayer, currentPossibleNextPoint);
+//            children.put(move, copiedCurrentState.makeMove(move));
+//        }
+//        return children;
+//    }
+
+    /**
+     *
+     * @param to the Node to get to, must be a child of this Node
+     * @return
+     */
+    public Move calculateMoveTo(State to){
+        if(!getNextLegalStates().contains(to)){
+            System.out.println("Node to calculate Move to is not a child of this Node");
+            return null;
         }
-        return children;
+        return to.getDelta();
+    }
+
+    public List<State> getChildren(){
+        return getNextLegalStates();
+    }
+
+    public Move getDelta(){
+        return delta;
     }
 
     public int getStateNumber() {

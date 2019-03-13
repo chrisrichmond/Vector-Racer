@@ -20,7 +20,7 @@ public abstract class AbstractSolver {
     protected long solveDuration;
     protected int nodeCount;
 
-    public abstract Deque<Move> solve(PlayerAPI player, State initialState, RacetrackAPI racetrack);
+    public abstract Deque<Move> solve(PlayerAPI player, State initialState);
 
     /**
      * Produces a stack of Move objects to get from one Node to another

@@ -52,13 +52,7 @@ public class Racer implements RacerAPI{
     }
 
     @Override
-    public List<Point> getPossibleNextPoints() {
-        List<Point> possibleNextPoints = new ArrayList<>();
-
-        int xPos = getPosition().getX();
-        int yPos = getPosition().getY();
-        int xVelocity = getVelocity().getXVelo();
-        int yVelocity = getVelocity().getYVelo();
+    public Point getNextCentralPoint(){
 
         /* get the central point out of the 9 possible next points
             o o o
@@ -66,16 +60,57 @@ public class Racer implements RacerAPI{
             o o o
          */
 
-        int centralX = xPos + xVelocity;
-        int centralY = yPos + yVelocity;
+        return new Point(getPosition().getX() + getVelocity().getXVelo(), getPosition().getY() + getVelocity().getYVelo());
+    }
+
+    @Override
+    public List<Point> getPossibleNextPoints(RacetrackAPI racetrack) {
+        List<Point> possibleNextPoints = new ArrayList<>();
+
+        int centralX = getNextCentralPoint().getX();
+        int centralY = getNextCentralPoint().getY();
 
         for(int y = (centralY-1); y <= (centralY+1); y++){
             for(int x = (centralX-1); x <= (centralX+1); x++){
-                possibleNextPoints.add(new Point(x, y));
+                if(racetrack.isVertexTraversable(new Point(x, y))) {
+                    possibleNextPoints.add(new Point(x, y));
+                }
             }
+        }
+        if(possibleNextPoints.size() == 0){
+            if(centralX <= 0){
+                centralX = 1;
+            }else if(centralX > racetrack.getCols()-1){
+                centralX = racetrack.getCols()-2;
+            }
+            if(centralY <= 0){
+                centralY = 1;
+            }else if(centralY > racetrack.getCols()-1){
+                centralY = racetrack.getCols()-2;
+            }
+            possibleNextPoints.add(new Point(centralX, centralY));
         }
 
         return possibleNextPoints;
+    }
+
+    @Override
+    public List<Point> getImpossibleNextPoints(RacetrackAPI racetrack){
+        List<Point> impossibleNextPoints = new ArrayList<>();
+
+        int centralX = getNextCentralPoint().getX();
+        int centralY = getNextCentralPoint().getY();
+
+        for(int y = (centralY-1); y <= (centralY+1); y++){
+            for(int x = (centralX-1); x <= (centralX+1); x++){
+                Point currentPoint = new Point(x, y);
+                if(!getPossibleNextPoints(racetrack).contains(currentPoint)) {
+                    impossibleNextPoints.add(new Point(x, y));
+                }
+            }
+        }
+
+        return impossibleNextPoints;
     }
 
     @Override

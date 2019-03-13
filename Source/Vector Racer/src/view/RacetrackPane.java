@@ -79,6 +79,8 @@ public class RacetrackPane extends Pane implements RacetrackPaneAPI {
                 bottomCorner.setTranslateY(tileSize/4);
 
                 currentTileSprite.getChildren().addAll(topCorner, bottomCorner);
+
+                currentTileSprite.getTile().toFront();
             }
 
             tileSprites.add(currentTileSprite);
@@ -91,10 +93,17 @@ public class RacetrackPane extends Pane implements RacetrackPaneAPI {
 
         List<CircleSprite> circleSelectors = new ArrayList<>();
 
-        for(int i = 0; i < player.getPossibleNextPoints().size(); i++){
-            int row = player.getPossibleNextPoints().get(i).getY();
-            int col = player.getPossibleNextPoints().get(i).getX();
+        for(int i = 0; i < player.getRacer().getPossibleNextPoints(racetrack).size(); i++){
+            int row = player.getRacer().getPossibleNextPoints(racetrack).get(i).getY();
+            int col = player.getRacer().getPossibleNextPoints(racetrack).get(i).getX();
             circleSelectors.add(new CircleSprite(row, col, VectorConstants.CIRCLESELECTOR_COLOR, null, 1, 2.0));
+        }
+
+        // draw impossible circles
+        for(int i = 0; i < player.getRacer().getImpossibleNextPoints(racetrack).size(); i++){
+            int row = player.getRacer().getImpossibleNextPoints(racetrack).get(i).getY();
+            int col = player.getRacer().getImpossibleNextPoints(racetrack).get(i).getX();
+            circleSelectors.add(new CircleSprite(row, col, VectorConstants.CIRCLEIMPOSSIBLE_COLOR, null, 0.8, 1.2));
         }
 
         getChildren().addAll(circleSelectors);
@@ -226,6 +235,9 @@ public class RacetrackPane extends Pane implements RacetrackPaneAPI {
 
         }
 
+        public Rectangle getTile() {
+            return tile;
+        }
     }
 
 }

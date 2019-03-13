@@ -18,11 +18,11 @@ public class AIPlayer extends Player {
         if(algorithmName.toLowerCase().equals("bfs")) {
             this.algorithm = new BreadthFirstSearch();
         }else if(algorithmName.toLowerCase().equals("dfs")) {
-            this.algorithm = new DepthFirstSearch();
+//            this.algorithm = new DepthFirstSearch();
         }else if(algorithmName.toLowerCase().equals("bfswz")) {
-            this.algorithm = new BreadthFirstSearchWithZoning();
+//            this.algorithm = new BreadthFirstSearchWithZoning();
         }else if(algorithmName.toLowerCase().equals("dfswz")) {
-            this.algorithm = new DepthFirstSearchWithZoning();
+//            this.algorithm = new DepthFirstSearchWithZoning();
         }else{
             System.out.println("SEARCH ALGORITHM DEFAULTING TO BFS");
             this.algorithm = new BreadthFirstSearch();
@@ -34,7 +34,7 @@ public class AIPlayer extends Player {
 
     public boolean findSolution(State initialState){
         if(!solved){
-            solution = algorithm.solve(this, initialState, initialState.getRacetrack());
+            solution = algorithm.solve(this, initialState);
             if(solution != null){
                 solved = true;
             }

@@ -43,7 +43,11 @@ public interface RacerAPI {
      * Get the 9 next possible positions that the Racer could move to based on its current position and velocity
      * @return a list of Points representing the next possible positions in no particular order
      */
-    List<Point> getPossibleNextPoints();
+    List<Point> getPossibleNextPoints(RacetrackAPI racetrack);
+
+    List<Point> getImpossibleNextPoints(RacetrackAPI racetrack);
+
+    Point getNextCentralPoint();
 
     /**
      * Evaluates the next destination that the Racer should be in after applying Terrain effects from any Tiles it has traversed between its current position and its probationary destination

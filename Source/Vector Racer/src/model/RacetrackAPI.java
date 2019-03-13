@@ -133,6 +133,8 @@ public interface RacetrackAPI {
 
     int getFinalZone();
 
+    boolean isVertexTraversable(Point vertex);
+
     @Override
     boolean equals(Object o);
 

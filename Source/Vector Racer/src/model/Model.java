@@ -38,9 +38,10 @@ public class Model implements ModelAPI {
             players.add(new Player(player2name, new Racer(racetrack.getStartPosition()), Color.RED, player2ai));
         }
 
-        currentState = new State(players, racetrack, 0);
+        currentState = new State(players, racetrack, 0, null, null);
         for(PlayerAPI currentPlayer: players){
             if(currentPlayer.isAI()){
+
                 ((AIPlayer)currentPlayer).findSolution(currentState);
             }
         }
@@ -128,7 +129,7 @@ public class Model implements ModelAPI {
 
     @Override
     public void gridPointInput(double row, double col) {
-        for(Point currentPoint: currentState.getCurrentPlayer().getPossibleNextPoints()){
+        for(Point currentPoint: currentState.getCurrentPlayer().getRacer().getPossibleNextPoints(racetrack)){
             // this could be improved through usage of a structured array rather than arraylist so as to make collection searching more efficient
             double rowLow = currentPoint.getY() - 0.5;
             double rowHigh = currentPoint.getY() + 0.5;

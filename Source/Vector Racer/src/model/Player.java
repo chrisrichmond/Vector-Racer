@@ -23,11 +23,6 @@ public class Player implements PlayerAPI{
     }
 
     @Override
-    public List<Point> getPossibleNextPoints(){
-        return racer.getPossibleNextPoints();
-    }
-
-    @Override
     public String getName() {
         return name;
     }

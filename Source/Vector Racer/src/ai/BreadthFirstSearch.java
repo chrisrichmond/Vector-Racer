@@ -8,6 +8,9 @@ import java.util.*;
 public class BreadthFirstSearch extends AbstractSolver {
 
     public Deque<Move> solve(PlayerAPI player, State initialState){
+        // SETTING STATE GRAPH INTO AI MODE
+        initialState.setAiSolverMode(true);
+
         this.player = player;
         this.nodeCount = 0;
         Deque<State> agenda = new ArrayDeque<>();
@@ -19,32 +22,35 @@ public class BreadthFirstSearch extends AbstractSolver {
         visited.add(initialState);
         while(!agenda.isEmpty()){
             State currentState = agenda.poll();
-            nodeCount++;
+            System.out.println(nodeCount++);
 
-            if(currentState.isGoal(player)){
-                return calculateMoves(initialNode, currentNode);
+            //if(currentState.isGoal(player)){
+            if(player.isFinished()){
+                initialState.setAiSolverMode(false);
+                return calculateMoves(initialState, currentState);
             }
-            visited.add(currentNode);
-            List<Node> children = currentNode.getChildren();
-            for(Node child: children){
+
+            visited.add(currentState);
+            List<State> children = currentState.getChildren();
+            for(State child: children){
                 if((child != null) && (!visited.contains(child))){
                     agenda.add(child);
                     visited.add(child);
                 }
             }
             System.out.println("AGENDA: ");
-            for(Node current: agenda){
-                State currentState = current.getState();
-                PlayerAPI currentPlayer = currentState.getCurrentPlayer();
+            for(State current: agenda){
+                PlayerAPI currentPlayer = current.getCurrentPlayer();
                 Point currentPosition = currentPlayer.getRacer().getPosition();
-                System.out.println("State number "+currentState.getStateNumber()+" - "+currentPlayer.getName()+" on R"+currentPosition.getY()+" C"+currentPosition.getX());
+                System.out.println("Depth (state num) "+currentState.getStateNumber()+" - "+currentPlayer.getName()+" on R"+currentPosition.getY()+" C"+currentPosition.getX());
             }
             try{
-                Thread.sleep(500);
+                Thread.sleep(1000);
             }catch (InterruptedException e){
                 System.out.println("INTERRUPTED");
             }
         }
+        initialState.setAiSolverMode(false);
         return fail();
     }
 

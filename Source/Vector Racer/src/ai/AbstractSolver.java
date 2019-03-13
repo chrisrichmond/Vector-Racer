@@ -23,18 +23,18 @@ public abstract class AbstractSolver {
     public abstract Deque<Move> solve(PlayerAPI player, State initialState);
 
     /**
-     * Produces a stack of Move objects to get from one Node to another
-     * @param from Node to search from
-     * @param to Node to search to
+     * Produces a stack of Move objects to get from one State to another
+     * @param from State to search from
+     * @param to State to search to
      * @return Deque of Moves to get to the goal
      */
-    public Deque<Move> calculateMoves(Node from, Node to){
+    public Deque<Move> calculateMoves(State from, State to){
         int depth = 0;
         Deque<Move> moves = new ArrayDeque<>();
 
         while(!(from.equals(to))){                  // loop while the Node we're going to is not the Node we were originally coming from (as in the first Node)
             depth++;                                // increase depth count by 1
-            Node next = to.getParent();             // use temporary Node variable to store the parent Node of the Node we were going to
+            State next = to.getParent();             // use temporary Node variable to store the parent Node of the Node we were going to
             moves.push(next.calculateMoveTo(to));   // push the Move required to get from the parent Node to the Node we are currently going to, onto the top of the Stack
             to = next;                              // set the Node we're going to to the Parent
         }

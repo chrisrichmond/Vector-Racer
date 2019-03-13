@@ -7,8 +7,6 @@ import java.util.List;
 
 public interface PlayerAPI {
 
-    List<Point> getPossibleNextPoints();
-
     String getName();
 
     RacerAPI getRacer();

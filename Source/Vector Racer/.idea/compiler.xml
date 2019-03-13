@@ -5,6 +5,11 @@
       <file url="file://$PROJECT_DIR$/src/controller/PlayMenuController.java" />
       <file url="file://$PROJECT_DIR$/src/view/OldView.java" />
       <file url="file://$PROJECT_DIR$/src/view/GamePane.java" />
+      <file url="file://$PROJECT_DIR$/src/ai/BreadthFirstSearchWithZoning.java" />
+      <file url="file://$PROJECT_DIR$/src/ai/DepthFirstSearch.java" />
+      <file url="file://$PROJECT_DIR$/src/ai/Node.java" />
+      <file url="file://$PROJECT_DIR$/src/ai/IterativeDeepeningSearch.java" />
+      <file url="file://$PROJECT_DIR$/src/ai/DepthFirstSearchWithZoning.java" />
     </excludeFromCompile>
     <wildcardResourcePatterns>
       <entry name="!?*.java" />

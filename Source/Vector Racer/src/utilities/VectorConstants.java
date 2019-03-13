@@ -15,7 +15,7 @@ public class VectorConstants {
     public static final String HOME_PATH = System.getProperty("user.home");
     public static final String VR_PATH = HOME_PATH + "/VectorRacerFiles";
 
-    public static final boolean AI_MODE = true;
+    public static final boolean AI_MODE = false;
     public static final String AI_ALGORITHM = "bfs";
 
     public static final Rectangle2D PRIMARY_SCREEN_BOUNDS = Screen.getPrimary().getVisualBounds();
@@ -45,6 +45,7 @@ public class VectorConstants {
     };
 
     public static final Color CIRCLESELECTOR_COLOR = Color.GREEN;
+    public static final Color CIRCLEIMPOSSIBLE_COLOR = Color.ORANGE;
     public static final double RACERTRAIL_THICKNESS = 2.0;
 
 

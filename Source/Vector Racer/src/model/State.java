@@ -14,17 +14,18 @@ public class State {
     private boolean gameOver;
     private State parent = null;
     private Move delta = null;
+    private boolean aiSolverMode;
 
     // copy constructor
-    public State(State original){
-        this.currentPlayer = original.currentPlayer;
-        this.players = original.players;
-        this.racetrack = original.racetrack;
-        this.stateNumber = original.stateNumber;
-        this.gameOver = original.gameOver;
-        this.parent = original.parent;
-        this.delta = original.delta;
-    }
+//    public State(State original){
+//        this.currentPlayer = new Player(original.currentPlayer);
+//        this.players = original.players;
+//        this.racetrack = original.racetrack;
+//        this.stateNumber = original.stateNumber;
+//        this.gameOver = original.gameOver;
+//        this.parent = original.parent;
+//        this.delta = original.delta;
+//    }
 
     public State(Queue<PlayerAPI> players, RacetrackAPI racetrack, int stateNumber, State parent, Move delta){
         this.currentPlayer = players.peek();
@@ -56,16 +57,37 @@ public class State {
             }
         }
 
-        if(currentPlayer.isAI()){
-            if(((AIPlayer)currentPlayer).isSolved()) {
+        if(aiSolverMode){
+            while(!currentPlayer.isAI()){
+                skipCurrentPlayer();
+            }
+            Random random = new Random();
+            List<Point> points = currentPlayer.getRacer().getPossibleNextPoints(racetrack);
+            this.makeMove(new Move(currentPlayer, points.get(random.nextInt(points.size()))));
+        }else if(currentPlayer.isAI()){
+            if(((AIPlayer)currentPlayer).isSolved()) {  // this must be true if aiSolverMode is false anyway
                 this.makeMove(((AIPlayer) currentPlayer).getMove());
             }
+        }
+
+//        if(currentPlayer.isAI()){
+//            if(((AIPlayer)currentPlayer).isSolved()) {
+//                this.makeMove(((AIPlayer) currentPlayer).getMove());
+//            }
 //            else{
 //                Random random = new Random();
-//                List<Point> points = currentPlayer.getPossibleNextPoints();
+//                List<Point> points = currentPlayer.getRacer().getPossibleNextPoints();
 //                this.makeMove(new Move(currentPlayer, points.get(random.nextInt(points.size()))));
 //            }
-        }
+//        }
+    }
+
+    public void setAiSolverMode(boolean aiSolverMode){
+        this.aiSolverMode = aiSolverMode;
+    }
+
+    public boolean isAiSolverMode(){
+        return aiSolverMode;
     }
 
     /**
@@ -89,10 +111,6 @@ public class State {
             return this;
         }
 
-    }
-
-    public boolean isGoal(PlayerAPI player){
-        return player.
     }
 
     @Override
@@ -119,7 +137,7 @@ public class State {
 
         boolean legal = true;
 
-        if(!(move.playerToMove.getPossibleNextPoints().contains(move.destination))){
+        if(!(move.playerToMove.getRacer().getPossibleNextPoints(racetrack).contains(move.destination))){
             // the offered destination is not one of the Player to be moved's next valid positions
             System.out.println("the offered destination is not one of the Player to be moved's next valid positions");
             legal = false;
@@ -134,7 +152,7 @@ public class State {
 
     private List<State> getNextLegalStates(){
         List<State> nextLegalStates = new ArrayList<>();
-        List<Point> possibleNextPoints = currentPlayer.getPossibleNextPoints();
+        List<Point> possibleNextPoints = currentPlayer.getRacer().getPossibleNextPoints(racetrack);
 
         for(Point possiblePoint: possibleNextPoints){
             Move possibleMove = new Move(currentPlayer, possiblePoint);
@@ -168,7 +186,7 @@ public class State {
 //    public HashMap<Move, State> getChildren(){
 //        State copiedCurrentState = new State(this);
 //        HashMap<Move, State> children = new HashMap();
-//        for(Point currentPossibleNextPoint: this.currentPlayer.getPossibleNextPoints()){
+//        for(Point currentPossibleNextPoint: this.currentPlayer.getRacer().getPossibleNextPoints()){
 //            Move move = new Move(this.currentPlayer, currentPossibleNextPoint);
 //            children.put(move, copiedCurrentState.makeMove(move));
 //        }

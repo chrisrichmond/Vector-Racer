@@ -331,6 +331,30 @@ public class Racetrack implements RacetrackAPI{
         return finalZone;
     }
 
+    @Override
+    public boolean isVertexTraversable(Point vertex) {
+        int row = vertex.getY();
+        int col = vertex.getX();
+        try {
+            Tile topLeft = getTile(row-1, col-1);
+            Tile topRight = getTile(row-1, col);
+            Tile bottomLeft = getTile(row, col-1);
+            Tile bottomRight = getTile(row, col);
+
+            if(!topLeft.isTraversable())
+                return false;
+            if(!topRight.isTraversable())
+                return false;
+            if(!bottomLeft.isTraversable())
+                return false;
+            if(!bottomRight.isTraversable())
+                return false;
+            return true;
+        }catch(Exception e){
+            return false;
+        }
+    }
+
 //    @Override
 //    public boolean isWithinBounds(Point position) {
 //

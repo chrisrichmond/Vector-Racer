@@ -15,7 +15,7 @@ public class VectorConstants {
     public static final String HOME_PATH = System.getProperty("user.home");
     public static final String VR_PATH = HOME_PATH + "/VectorRacerFiles";
 
-    public static final boolean AI_MODE = false;
+    public static final boolean AI_MODE = true;
     public static final String AI_ALGORITHM = "bfs";
 
     public static final Rectangle2D PRIMARY_SCREEN_BOUNDS = Screen.getPrimary().getVisualBounds();

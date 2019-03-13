@@ -33,9 +33,10 @@ public abstract class AbstractSolver {
         Deque<Move> moves = new ArrayDeque<>();
 
         while(!(from.equals(to))){                  // loop while the Node we're going to is not the Node we were originally coming from (as in the first Node)
-            depth++;                                // increase depth count by 1
-            State next = to.getParent();             // use temporary Node variable to store the parent Node of the Node we were going to
-            moves.push(next.calculateMoveTo(to));   // push the Move required to get from the parent Node to the Node we are currently going to, onto the top of the Stack
+            System.out.println("depth: "+depth++);  // increase depth count by 1
+            State next = to.getParent();            // use temporary Node variable to store the parent Node of the Node we were going to
+//            moves.push(next.calculateMoveTo(to));   // push the Move required to get from the parent Node to the Node we are currently going to, onto the top of the Stack
+           moves.push(to.getDelta());
             to = next;                              // set the Node we're going to to the Parent
         }
         solveDuration = System.currentTimeMillis() - startTime;

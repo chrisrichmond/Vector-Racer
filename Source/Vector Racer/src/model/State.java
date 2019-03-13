@@ -14,20 +14,9 @@ public class State {
     private boolean gameOver;
     private State parent = null;
     private Move delta = null;
-    private boolean aiSolverMode;
+    private boolean aiSolverMode = false;
 
-    // copy constructor
-//    public State(State original){
-//        this.currentPlayer = new Player(original.currentPlayer);
-//        this.players = original.players;
-//        this.racetrack = original.racetrack;
-//        this.stateNumber = original.stateNumber;
-//        this.gameOver = original.gameOver;
-//        this.parent = original.parent;
-//        this.delta = original.delta;
-//    }
-
-    public State(Queue<PlayerAPI> players, RacetrackAPI racetrack, int stateNumber, State parent, Move delta){
+    public State(Queue<PlayerAPI> players, RacetrackAPI racetrack, int stateNumber, State parent, Move delta, boolean aiSolverMode){
         this.currentPlayer = players.peek();
         this.players = players;
         this.racetrack = racetrack;
@@ -35,6 +24,7 @@ public class State {
         this.gameOver = false;
         this.parent = parent;
         this.delta = delta;
+        this.aiSolverMode = aiSolverMode;
 
         int skipCount = 0;
         while(currentPlayer.isFinished()){
@@ -94,8 +84,9 @@ public class State {
      * Called when the current player has already finished the race and so the turn is passed to the following player
      */
     public void skipCurrentPlayer(){
-        players.poll();
-        players.add(currentPlayer);
+        PlayerAPI previousPlayer = players.poll();
+        currentPlayer = players.peek();
+        players.add(previousPlayer);
     }
 
     public State makeMove(Move move){
@@ -105,7 +96,7 @@ public class State {
             System.out.println("new velo = row:"+(currentPlayer.getRacer().getVelocity().getYVelo()+" col:"+currentPlayer.getRacer().getVelocity().getXVelo()));
             players.poll();
             players.add(currentPlayer);
-            return new State(players, racetrack, stateNumber+1, this, move);
+            return new State(players, racetrack, stateNumber+1, this, move, aiSolverMode);
         }else{
             System.out.println("Illegal move!");
             return this;

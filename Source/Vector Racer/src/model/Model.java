@@ -38,7 +38,7 @@ public class Model implements ModelAPI {
             players.add(new Player(player2name, new Racer(racetrack.getStartPosition()), Color.RED, player2ai));
         }
 
-        currentState = new State(players, racetrack, 0, null, null);
+        currentState = new State(players, racetrack, 0, null, null, false);
         for(PlayerAPI currentPlayer: players){
             if(currentPlayer.isAI()){
 

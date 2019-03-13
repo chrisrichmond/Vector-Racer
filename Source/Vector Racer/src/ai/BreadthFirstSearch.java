@@ -18,15 +18,19 @@ public class BreadthFirstSearch extends AbstractSolver {
 
         startTime = System.currentTimeMillis();
 
-        agenda.addAll(initialState.getChildren());
+        System.out.println("IN SOLVER");
+
+        agenda.addAll(initialState.getChildren());  // todo gets stuck looping in here
+
         visited.add(initialState);
         while(!agenda.isEmpty()){
             State currentState = agenda.poll();
-            System.out.println(nodeCount++);
+            nodeCount++;
 
             //if(currentState.isGoal(player)){
             if(player.isFinished()){
                 initialState.setAiSolverMode(false);
+                System.out.println("PLAYER FINISHED");
                 return calculateMoves(initialState, currentState);
             }
 
@@ -44,11 +48,11 @@ public class BreadthFirstSearch extends AbstractSolver {
                 Point currentPosition = currentPlayer.getRacer().getPosition();
                 System.out.println("Depth (state num) "+currentState.getStateNumber()+" - "+currentPlayer.getName()+" on R"+currentPosition.getY()+" C"+currentPosition.getX());
             }
-            try{
-                Thread.sleep(1000);
-            }catch (InterruptedException e){
-                System.out.println("INTERRUPTED");
-            }
+//            try{
+//                Thread.sleep(1000);
+//            }catch (InterruptedException e){
+//                System.out.println("INTERRUPTED");
+//            }
         }
         initialState.setAiSolverMode(false);
         return fail();

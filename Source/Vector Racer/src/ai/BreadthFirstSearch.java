@@ -7,14 +7,15 @@ import java.util.*;
 
 public class BreadthFirstSearch extends AbstractSolver {
 
-    public Deque<Move> solve(PlayerAPI playerToSolveFor, State initState){
+    public Deque<Move> solve(PlayerAPI player, State initState){
 //        Player player = new Player(playerToSolveFor);
-//        State initialState = new State(initState);
-        Player player = (Player) playerToSolveFor;
-        State initialState = initState;
-
+        State initialState = new State(initState);
         // SETTING STATE GRAPH INTO AI MODE
         initialState.setAiSolverMode(true);
+//        System.out.println("************************************************");
+//        System.out.println(initState.toString());
+//        System.out.println(initialState.toString());
+//        System.out.println("************************************************");
 
         this.player = player;
         this.nodeCount = 0;
@@ -62,16 +63,11 @@ public class BreadthFirstSearch extends AbstractSolver {
 
                 }
             }
-//            System.out.println("AGENDA: ");
-//            for(State current: agenda){
-//                PlayerAPI currentPlayer = current.getCurrentPlayer();
-//                Point currentPosition = currentPlayer.getRacer().getPosition();
-//                //System.out.println("Depth (state num) "+currentState.getStateNumber()+" - "+currentPlayer.getName()+" on R"+currentPosition.getY()+" C"+currentPosition.getX());
-////            }
-////            try{
-////                Thread.sleep(1000);
-////            }catch (InterruptedException e){
-////                System.out.println("INTERRUPTED");
+
+//            try{
+//                Thread.sleep(1000);
+//            }catch (InterruptedException e){
+//                System.out.println("INTERRUPTED");
 //            }
         }
         initialState.setAiSolverMode(false);

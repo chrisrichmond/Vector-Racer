@@ -33,7 +33,10 @@ public class Model implements ModelAPI {
         Queue<PlayerAPI> players = new LinkedList<PlayerAPI>();
         players.add(new Player(player1name, new Racer(racetrack.getStartPosition()), Color.BLUE, false));
         if(player2ai){
-            players.add(new AIPlayer(player2name, new Racer(racetrack.getStartPosition()), Color.RED, VectorConstants.AI_ALGORITHM));
+            PlayerAPI p2 = new AIPlayer(player2name, new Racer(racetrack.getStartPosition()), Color.RED, VectorConstants.AI_ALGORITHM);
+            PlayerAPI p1 = players.poll();
+            players.add(p2);
+            players.add(p1);
         }else{
             players.add(new Player(player2name, new Racer(racetrack.getStartPosition()), Color.RED, player2ai));
         }

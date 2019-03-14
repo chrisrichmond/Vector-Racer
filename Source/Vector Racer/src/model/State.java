@@ -8,7 +8,6 @@ import java.util.*;
 
 public class State {
 
-    private PlayerAPI currentPlayer; // the player whose turn it is in this State
     private Queue<PlayerAPI> players; // all players currently existing in this State
     private RacetrackAPI racetrack; // the racetrack existing in this State
     private int stateNumber;
@@ -26,7 +25,6 @@ public class State {
                 this.players.add(new Player(p));
             }
         }
-        this.currentPlayer = this.players.peek();
         this.racetrack = new Racetrack(original.getRacetrack());
         this.stateNumber = original.getStateNumber();
         this.gameOver = original.isGameOver();
@@ -39,7 +37,6 @@ public class State {
     }
 
     public State(Queue<PlayerAPI> players, RacetrackAPI racetrack, int stateNumber, State parent, Move delta, boolean aiSolverMode){
-        this.currentPlayer = new Player(players.peek());
         this.players = players;
         this.racetrack = racetrack;
         this.stateNumber = stateNumber;
@@ -58,7 +55,7 @@ public class State {
 //        this.aiSolverMode = aiSolverMode;
 
         int skipCount = 0;
-        while(currentPlayer.isFinished()){
+        while(getCurrentPlayer().isFinished()){
             if(skipCount >= players.size()){
                 // ALL PLAYERS HAVE FINISHED
                 gameOver = true;
@@ -85,6 +82,10 @@ public class State {
 //        System.out.println("***************************");
     }
 
+    public PlayerAPI getCurrentPlayer(){
+        return players.peek();
+    }
+
     public void setAiSolverMode(boolean aiSolverMode){
         this.aiSolverMode = aiSolverMode;
     }
@@ -98,15 +99,22 @@ public class State {
      */
     public void skipCurrentPlayer(){
         PlayerAPI previousPlayer = players.poll();
-        currentPlayer = players.peek();
         players.add(previousPlayer);
     }
 
     public State makeMove(Move move){
         if(isMoveLegal(move)){
             // return new State with currentPlayer changed to the next in the list
-            Player currentPlayerClone = new Player(currentPlayer);
+//            PlayerAPI currentPlayerClone;
+//            if(getCurrentPlayer().isAI()){
+//                currentPlayerClone = new AIPlayer((AIPlayer) getCurrentPlayer());
+//            }else{
+//                currentPlayerClone = new Player(getCurrentPlayer());
+//            }
             Deque<PlayerAPI> playersClone = new ArrayDeque<>();
+
+//            currentPlayerClone.getRacer().moveWhilstApplyingEffects(racetrack, move.getDestination());
+
             for(PlayerAPI p: players){
                 if(p.isAI()) {
                     playersClone.add(new AIPlayer((AIPlayer) p));
@@ -115,16 +123,16 @@ public class State {
                 }
             }
 
-            currentPlayer.getRacer().moveWhilstApplyingEffects(racetrack, move.getDestination());
+            playersClone.peek().getRacer().moveWhilstApplyingEffects(racetrack, move.getDestination());
 
-            System.out.println("Legal move, moving "+currentPlayer.getName()+" to R"+currentPlayer.getRacer().getPosition().getY()+" C"+currentPlayer.getRacer().getPosition().getX());
+            System.out.println("Legal move, moving "+getCurrentPlayer().getName()+" to R"+getCurrentPlayer().getRacer().getPosition().getY()+" C"+getCurrentPlayer().getRacer().getPosition().getX());
             // only switch players if not in AI solver mode
             if(!aiSolverMode){
-                players.poll();                 // todo these could cause issues, do we want to leave the old state with altered attributes, yes/no?
+                PlayerAPI currentPlayer = players.poll();                 // todo these could cause issues, do we want to leave the old state with altered attributes, yes/no?
                 players.add(currentPlayer);
             }
 
-            return new State(players, racetrack, stateNumber+1, this, move, aiSolverMode);
+            return new State(playersClone, racetrack, stateNumber+1, this, move, aiSolverMode);
         }else{
 //            System.out.println(stateNumber);
 //            System.out.println("Illegal move! "+move.getPlayerToMove().getName() + " R"+move.getDestination().getY()+ " C"+move.getDestination().getX());
@@ -173,10 +181,10 @@ public class State {
 
     private Set<State> getNextLegalStates(){
         Set<State> nextLegalStates = new HashSet<>();
-        List<Point> possibleNextPoints = currentPlayer.getRacer().getPossibleNextPoints(racetrack);
+        List<Point> possibleNextPoints = getCurrentPlayer().getRacer().getPossibleNextPoints(racetrack);
 
         for(Point possiblePoint: possibleNextPoints){
-            Move possibleMove = new Move(currentPlayer, possiblePoint);
+            Move possibleMove = new Move(getCurrentPlayer(), possiblePoint);
             nextLegalStates.add(this.makeMove(possibleMove));   // todo could lead to duplicate states being added, which doesn't present an immediate issue but could be inefficient so maybe consider some kind of redesign to remove dupes
         }
 
@@ -189,10 +197,6 @@ public class State {
 
     public Queue<PlayerAPI> getPlayers(){
         return players;
-    }
-
-    public PlayerAPI getCurrentPlayer(){
-        return currentPlayer;
     }
 
     public boolean isGameOver(){

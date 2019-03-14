@@ -68,8 +68,8 @@ public class State {
             }
         }
 
-        System.out.println("**************************");
-        System.out.println(currentPlayer.getName()+" R"+currentPlayer.getRacer().getPosition().getY()+" C"+currentPlayer.getRacer().getPosition().getX());
+//        System.out.println("**************************");
+//        System.out.println(currentPlayer.getName()+" R"+currentPlayer.getRacer().getPosition().getY()+" C"+currentPlayer.getRacer().getPosition().getX());
         for(PlayerAPI player: players){
             if(racetrack.isTouchingWall(player.getRacer())){
                 if(!player.isFinished()) {
@@ -79,9 +79,9 @@ public class State {
                 }
             }
         }
-        System.out.println(currentPlayer.getName()+" R"+currentPlayer.getRacer().getPosition().getY()+" C"+currentPlayer.getRacer().getPosition().getX());
+//        System.out.println(currentPlayer.getName()+" R"+currentPlayer.getRacer().getPosition().getY()+" C"+currentPlayer.getRacer().getPosition().getX());
 
-        System.out.println("***************************");
+//        System.out.println("***************************");
     }
 
     public void setAiSolverMode(boolean aiSolverMode){
@@ -224,8 +224,7 @@ public class State {
     public Set<State> getChildren() {
 //        List<State> children = new ArrayList<>();
         for (State currentNextLegalState : getNextLegalStates()){
-            System.out.println("+++++++++++++++++++++++++++++++++");
-            System.out.print("["+currentNextLegalState.hashCode()+" "+currentNextLegalState.getCurrentPlayer().getName()+ " R"+currentNextLegalState.getCurrentPlayer().getRacer().getPosition().getY()+" C"+currentNextLegalState.getCurrentPlayer().getRacer().getPosition().getX()+"]   ");
+            System.out.print("[child state hash "+currentNextLegalState.hashCode()+" "+currentNextLegalState.getCurrentPlayer().getName()+ " R"+currentNextLegalState.getCurrentPlayer().getRacer().getPosition().getY()+" C"+currentNextLegalState.getCurrentPlayer().getRacer().getPosition().getX()+"]   ");
             System.out.println("hash for currentPlayer in currentNextLegalState: "+currentNextLegalState.getCurrentPlayer().hashCode());
             //            children.add(new State(currentNextLegalState));
         }

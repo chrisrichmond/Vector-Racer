@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="bump">
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="fixed deep copying in State for players queue">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ai/BreadthFirstSearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ai/BreadthFirstSearch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/AIPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/AIPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Model.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/State.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/State.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
@@ -65,10 +62,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/model/Model.java">
+        <entry file="file://$PROJECT_DIR$/src/ai/BreadthFirstSearch.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="38" column="28" selection-start-line="38" selection-start-column="28" selection-end-line="38" selection-end-column="28" />
+            <state relative-caret-position="-302">
+              <caret line="40" column="13" lean-forward="true" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -77,12 +74,16 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/ai/BreadthFirstSearch.java">
+        <entry file="file://$PROJECT_DIR$/src/model/State.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="156">
-              <caret line="18" selection-start-line="18" selection-end-line="18" />
+            <state relative-caret-position="12">
+              <caret line="226" column="38" selection-start-line="226" selection-start-column="38" selection-end-line="226" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#7718#7719#0" expanded="true" />
+                <element signature="e#7750#7751#0" expanded="true" />
+                <element signature="e#9856#9857#0" expanded="true" />
+                <element signature="e#9890#9891#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -101,8 +102,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>THRE</find>
-      <find>aisolver</find>
       <find>IN SO</find>
       <find>in sol</find>
       <find>skipcurr</find>
@@ -131,6 +130,8 @@
       <find>aiplayer</find>
       <find>makem</find>
       <find>tostring</find>
+      <find>******</find>
+      <find>hash</find>
     </findStrings>
   </component>
   <component name="FindManager">
@@ -190,11 +191,11 @@
         <option value="$PROJECT_DIR$/src/ai/IterativeDeepeningSearch.java" />
         <option value="$PROJECT_DIR$/src/ai/BreadthFirstSearchWithZoning.java" />
         <option value="$PROJECT_DIR$/src/ai/AbstractSolver.java" />
-        <option value="$PROJECT_DIR$/src/model/State.java" />
         <option value="$PROJECT_DIR$/src/model/Player.java" />
         <option value="$PROJECT_DIR$/src/model/AIPlayer.java" />
         <option value="$PROJECT_DIR$/src/model/Model.java" />
         <option value="$PROJECT_DIR$/src/ai/BreadthFirstSearch.java" />
+        <option value="$PROJECT_DIR$/src/model/State.java" />
       </list>
     </option>
   </component>
@@ -282,7 +283,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552600272952" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552601261270" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/ai/DepthFirstSearchWithZoning.java" />
     <property name="project.structure.last.edited" value="Libraries" />
@@ -504,13 +505,6 @@
       <workItem from="1547566384896" duration="3847000" />
       <workItem from="1549298180766" duration="13715000" />
       <workItem from="1551463240268" duration="5765000" />
-    </task>
-    <task id="LOCAL-00101" summary="debugging trail drawing, still not found a solution">
-      <created>1550323802608</created>
-      <option name="number" value="00101" />
-      <option name="presentableId" value="LOCAL-00101" />
-      <option name="project" value="LOCAL" />
-      <updated>1550323802610</updated>
     </task>
     <task id="LOCAL-00102" summary="trails working">
       <created>1550336866924</created>
@@ -848,7 +842,14 @@
       <option name="project" value="LOCAL" />
       <updated>1552589086850</updated>
     </task>
-    <option name="localTasksCounter" value="150" />
+    <task id="LOCAL-00150" summary="fixed deep copying in State for players queue">
+      <created>1552600575114</created>
+      <option name="number" value="00150" />
+      <option name="presentableId" value="LOCAL-00150" />
+      <option name="project" value="LOCAL" />
+      <updated>1552600575115</updated>
+    </task>
+    <option name="localTasksCounter" value="151" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -875,7 +876,7 @@
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.30274135" />
-      <window_info active="true" anchor="bottom" x="926" y="494" width="472" height="266" id="Run" order="2" visible="true" weight="0.14779499" />
+      <window_info active="true" anchor="bottom" x="926" y="494" width="472" height="266" id="Run" order="2" visible="true" weight="0.37902266" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.7353993" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -985,7 +986,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
-    <MESSAGE value="added minimonza racetrack layout" />
     <MESSAGE value="refactored Terrain to remove slide and chaos - slide is now negative resistance and chaos has been removed from the game" />
     <MESSAGE value="fixed issues with equals and hashcode methods in Tile that were causing issues when removing tiles from the racetrack to overwrite with checkpoints, pretty much at v1.0.0 now, just need to put in checks for all players finishing the race, then final testing/debugging, then can start on styling and AI for v1.1.0" />
     <MESSAGE value="fixed issue regarding next move mouseclick detection being slightly off and detecting in the wrong circle occasionally" />
@@ -1010,7 +1010,8 @@
     <MESSAGE value="bump unfinished (fire alarm in uni)" />
     <MESSAGE value="bump finished - added copy constructors for all relevant model classes" />
     <MESSAGE value="bump" />
-    <option name="LAST_COMMIT_MESSAGE" value="bump" />
+    <MESSAGE value="fixed deep copying in State for players queue" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed deep copying in State for players queue" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -1338,32 +1339,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/State.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="20" column="42" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3539#3540#0" expanded="true" />
-            <element signature="e#3587#3588#0" expanded="true" />
-            <element signature="e#3625#3626#0" expanded="true" />
-            <element signature="e#3660#3661#0" expanded="true" />
-            <element signature="e#7750#7751#0" expanded="true" />
-            <element signature="e#8032#8033#0" expanded="true" />
-            <element signature="e#8062#8063#0" expanded="true" />
-            <element signature="e#8104#8105#0" expanded="true" />
-            <element signature="e#8140#8141#0" expanded="true" />
-            <element signature="e#8174#8175#0" expanded="true" />
-            <element signature="e#8205#8206#0" expanded="true" />
-            <element signature="e#8236#8237#0" expanded="true" />
-            <element signature="e#8265#8266#0" expanded="true" />
-            <element signature="e#10032#10033#0" expanded="true" />
-            <element signature="e#10060#10061#0" expanded="true" />
-            <element signature="e#9890#9891#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/model/Tile.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
@@ -1397,8 +1372,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/Model.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="38" column="28" selection-start-line="38" selection-start-column="28" selection-end-line="38" selection-end-column="28" />
+        <state relative-caret-position="215">
+          <caret line="33" column="41" selection-start-line="33" selection-start-column="41" selection-end-line="33" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1407,10 +1382,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ai/BreadthFirstSearch.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
+        <state relative-caret-position="-302">
+          <caret line="40" column="13" lean-forward="true" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/State.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="12">
+          <caret line="226" column="38" selection-start-line="226" selection-start-column="38" selection-end-line="226" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#7718#7719#0" expanded="true" />
+            <element signature="e#7750#7751#0" expanded="true" />
+            <element signature="e#9856#9857#0" expanded="true" />
+            <element signature="e#9890#9891#0" expanded="true" />
           </folding>
         </state>
       </provider>

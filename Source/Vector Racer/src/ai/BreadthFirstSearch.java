@@ -33,11 +33,11 @@ public class BreadthFirstSearch extends AbstractSolver {
             State currentState = agenda.poll();
             nodeCount++;
 
-            System.out.println("================================");
-            System.out.println("CURRENTSTATE:   "+currentState.hashCode()+" ("+currentState.getStateNumber()+")");
-            System.out.print("AGENDA:   ");
+//            System.out.println("================================");
+//            System.out.println("CURRENTSTATE:   "+currentState.hashCode()+" ("+currentState.getStateNumber()+")");
+//            System.out.print("AGENDA:   ");
             for(State state: agenda){
-                System.out.print("["+state.hashCode()+" "+state.getCurrentPlayer().getName()+ " R"+state.getCurrentPlayer().getRacer().getPosition().getY()+" C"+state.getCurrentPlayer().getRacer().getPosition().getX()+"]   ");
+//                System.out.print("["+state.hashCode()+" "+state.getCurrentPlayer().getName()+ " R"+state.getCurrentPlayer().getRacer().getPosition().getY()+" C"+state.getCurrentPlayer().getRacer().getPosition().getX()+"]   ");
             }
             System.out.println();
 

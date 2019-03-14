@@ -22,7 +22,10 @@ public class State {
         this.racetrack = new Racetrack((Racetrack) original.getRacetrack());
         this.stateNumber = original.getStateNumber();
         this.gameOver = original.isGameOver();
-        this.delta = new Move(original.getDelta());
+        if(original.getParent() != null)
+            this.parent = new State(original.getParent());
+        if(original.getDelta() != null)
+            this.delta = new Move(original.getDelta());
         this.aiSolverMode = original.isAiSolverMode();
     }
 
@@ -35,6 +38,15 @@ public class State {
         this.parent = parent;
         this.delta = delta;
         this.aiSolverMode = aiSolverMode;
+
+//        this.currentPlayer = new Player(players.peek());
+//        this.players = new ArrayDeque<>(players);
+//        this.racetrack = new Racetrack(racetrack);
+//        this.stateNumber = stateNumber;
+//        this.parent = parent;
+//        if(delta != null)
+//            this.delta = new Move(delta);
+//        this.aiSolverMode = aiSolverMode;
 
         int skipCount = 0;
         while(currentPlayer.isFinished()){
@@ -57,56 +69,6 @@ public class State {
             }
         }
 
-        /*
-         At this point the game is now waiting for a player to take their turn.
-         If the state is in AI solver mode then it will first ensure that the current player is the AI
-         then will
-          */
-//        if(aiSolverMode){
-//            for(PlayerAPI p: players){
-//                System.out.println("p.isAI(): "+p.isAI());
-//            }
-//
-//            try{
-//                Thread.sleep(2000);
-//            }catch (Exception e){
-//
-//            }
-//            while(!currentPlayer.isAI()){
-//                System.out.println("currentPlayer before is: "+currentPlayer);
-//                skipCurrentPlayer();
-//                System.out.println("currentPlayer after is: "+currentPlayer);
-//                System.out.println("SOMEHOW STUCK IN HERE?");
-//            }
-//        }
-
-        /*
-        // everything in here is probably very wrong, don't uncomment unless absolutely sure
-
-        if(aiSolverMode){
-            while(!currentPlayer.isAI()){
-                skipCurrentPlayer();
-            }
-            Random random = new Random();
-            List<Point> points = currentPlayer.getRacer().getPossibleNextPoints(racetrack);
-            this.makeMove(new Move(currentPlayer, points.get(random.nextInt(points.size()))));
-        }else if(currentPlayer.isAI()){
-            if(((AIPlayer)currentPlayer).isSolved()) {  // this must be true if aiSolverMode is false anyway
-                this.makeMove(((AIPlayer) currentPlayer).getMove());
-            }
-        }
-        */
-
-//        if(currentPlayer.isAI()){
-//            if(((AIPlayer)currentPlayer).isSolved()) {
-//                this.makeMove(((AIPlayer) currentPlayer).getMove());
-//            }
-//            else{
-//                Random random = new Random();
-//                List<Point> points = currentPlayer.getRacer().getPossibleNextPoints();
-//                this.makeMove(new Move(currentPlayer, points.get(random.nextInt(points.size()))));
-//            }
-//        }
     }
 
     public void setAiSolverMode(boolean aiSolverMode){
@@ -142,7 +104,7 @@ public class State {
             return new State(players, racetrack, stateNumber+1, this, move, aiSolverMode);
         }else{
             System.out.println(stateNumber);
-            System.out.println("Illegal move! "+move.getPlayerToMove().getName() + " R"+move.getDestination().getY()+ " C"+move.getDestination().getX());
+//            System.out.println("Illegal move! "+move.getPlayerToMove().getName() + " R"+move.getDestination().getY()+ " C"+move.getDestination().getX());
             return this;
         }
 
@@ -155,16 +117,17 @@ public class State {
         State state = (State) o;
         return getStateNumber() == state.getStateNumber() &&
                 isGameOver() == state.isGameOver() &&
+                isAiSolverMode() == state.isAiSolverMode() &&
                 getCurrentPlayer().equals(state.getCurrentPlayer()) &&
                 getPlayers().equals(state.getPlayers()) &&
                 getRacetrack().equals(state.getRacetrack()) &&
                 Objects.equals(getParent(), state.getParent()) &&
-                Objects.equals(delta, state.delta);
+                Objects.equals(getDelta(), state.getDelta());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getCurrentPlayer(), getPlayers(), getRacetrack(), getStateNumber(), isGameOver(), getParent(), delta);
+        return Objects.hash(getCurrentPlayer(), getPlayers(), getRacetrack(), getStateNumber(), isGameOver(), getParent(), getDelta(), isAiSolverMode());
     }
 
     public boolean isMoveLegal(Move move){
@@ -245,7 +208,16 @@ public class State {
         return to.getDelta();
     }
 
-    public List<State> getChildren(){
+    public List<State> getChildren() {
+//        List<State> children = new ArrayList<>();
+        for (State currentNextLegalState : getNextLegalStates()){
+            System.out.println("+++++++++++++++++++++++++++++++++");
+            System.out.print("["+currentNextLegalState.hashCode()+" "+currentNextLegalState.getCurrentPlayer().getName()+ " R"+currentNextLegalState.getCurrentPlayer().getRacer().getPosition().getY()+" C"+currentNextLegalState.getCurrentPlayer().getRacer().getPosition().getX()+"]   ");
+            System.out.println("hash for currentPlayer in currentNextLegalState: "+currentNextLegalState.getCurrentPlayer().hashCode());
+            //            children.add(new State(currentNextLegalState));
+        }
+//        return children;
+
         return getNextLegalStates();
     }
 

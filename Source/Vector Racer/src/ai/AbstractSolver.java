@@ -55,22 +55,22 @@ public abstract class AbstractSolver {
         int yVelo = player.getRacer().getVelocity().getYVelo();
         int xPos = player.getRacer().getPosition().getX();
         int yPos = player.getRacer().getPosition().getY();
-        StateDetails stateDetails = new StateDetails(xVelo, yVelo, xPos, yPos);
+        StateDetails stateDetails = new StateDetails(xPos, yPos);
         return stateDetails.hashCode();
     }
 
     private class StateDetails{
 
 //        private int stateNumber;
-        private int xVelo;
-        private int yVelo;
+//        private int xVelo;
+//        private int yVelo;
         private int xPos;
         private int yPos;
 
-        StateDetails(int xVelo, int yVelo, int xPos, int yPos){
+        StateDetails(int xPos, int yPos){
 //            this.stateNumber = stateNumber;
-            this.xVelo = xVelo;
-            this.yVelo = yVelo;
+//            this.xVelo = xVelo;
+//            this.yVelo = yVelo;
             this.xPos = xPos;
             this.yPos = yPos;
         }
@@ -82,15 +82,15 @@ public abstract class AbstractSolver {
             StateDetails that = (StateDetails) o;
 //            return stateNumber == that.stateNumber &&
             return
-                    xVelo == that.xVelo &&
-                    yVelo == that.yVelo &&
+//                    xVelo == that.xVelo &&
+//                    yVelo == that.yVelo &&
                     xPos == that.xPos &&
                     yPos == that.yPos;
         }
 
         @Override
         public int hashCode() {
-            return Objects.hash(xVelo, yVelo, xPos, yPos);
+            return Objects.hash(xPos, yPos);
         }
     }
 

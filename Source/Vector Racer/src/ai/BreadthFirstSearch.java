@@ -7,7 +7,12 @@ import java.util.*;
 
 public class BreadthFirstSearch extends AbstractSolver {
 
-    public Deque<Move> solve(PlayerAPI player, State initialState){
+    public Deque<Move> solve(PlayerAPI playerToSolveFor, State initState){
+//        Player player = new Player(playerToSolveFor);
+//        State initialState = new State(initState);
+        Player player = (Player) playerToSolveFor;
+        State initialState = initState;
+
         // SETTING STATE GRAPH INTO AI MODE
         initialState.setAiSolverMode(true);
 
@@ -27,6 +32,16 @@ public class BreadthFirstSearch extends AbstractSolver {
             State currentState = agenda.poll();
             nodeCount++;
 
+            System.out.println("================================");
+            System.out.println("CURRENTSTATE:   "+currentState.hashCode()+" ("+currentState.getStateNumber()+")");
+            System.out.print("AGENDA:   ");
+            for(State state: agenda){
+                System.out.print("["+state.hashCode()+" "+state.getCurrentPlayer().getName()+ " R"+state.getCurrentPlayer().getRacer().getPosition().getY()+" C"+state.getCurrentPlayer().getRacer().getPosition().getX()+"]   ");
+            }
+            System.out.println();
+
+
+
             // GOAL STATE RECOGNISER
             if(player.isFinished()){
                 initialState.setAiSolverMode(false);
@@ -37,7 +52,6 @@ public class BreadthFirstSearch extends AbstractSolver {
             visited.add(encodeVisited(currentState.getCurrentPlayer()));
             List<State> children = currentState.getChildren();
             for(State child: children){
-                System.out.println("child.getCurrentPlayer(): R"+child.getCurrentPlayer().getRacer().getPosition().getY()+" C"+child.getCurrentPlayer().getRacer().getPosition().getX());
                 int encodedChild = encodeVisited(child.getCurrentPlayer());
                 int currentRow = player.getRacer().getPosition().getY();
                 int currentCol = player.getRacer().getPosition().getX();

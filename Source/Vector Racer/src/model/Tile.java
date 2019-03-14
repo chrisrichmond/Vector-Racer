@@ -13,9 +13,9 @@ public abstract class Tile extends Square implements Terrain {
 
     public Tile(Tile original){
         super(original.getStartX(), original.getStartY());
-        this.traversable = original.traversable;
-        this.resistance = original.resistance;
-        this.color = original.color;
+        this.traversable = original.isTraversable();
+        this.resistance = original.getResistance();
+        this.color = original.getColor();
     }
 
     public Tile(int startX, int startY, boolean traversable, float resistance){

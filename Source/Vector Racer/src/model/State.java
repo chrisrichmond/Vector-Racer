@@ -129,7 +129,7 @@ public class State {
     public State makeMove(Move move){
         if(isMoveLegal(move)){
             // return new State with currentPlayer changed to the next in the list
-            currentPlayer.getRacer().moveWhilstApplyingEffects(racetrack, move.destination);
+            currentPlayer.getRacer().moveWhilstApplyingEffects(racetrack, move.getDestination());
 //            System.out.println("new velo = row:"+(currentPlayer.getRacer().getVelocity().getYVelo()+" col:"+currentPlayer.getRacer().getVelocity().getXVelo()));
 
             System.out.println("Legal move, moving "+currentPlayer.getName()+" to R"+currentPlayer.getRacer().getPosition().getY()+" C"+currentPlayer.getRacer().getPosition().getX());
@@ -142,7 +142,7 @@ public class State {
             return new State(players, racetrack, stateNumber+1, this, move, aiSolverMode);
         }else{
             System.out.println(stateNumber);
-            System.out.println("Illegal move! "+move.playerToMove.getName() + " R"+move.destination.getY()+ " C"+move.destination.getX());
+            System.out.println("Illegal move! "+move.getPlayerToMove().getName() + " R"+move.getDestination().getY()+ " C"+move.getDestination().getX());
             return this;
         }
 

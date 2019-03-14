@@ -102,6 +102,12 @@ public interface RacetrackAPI {
     List<WallTile> getWallTiles();
 
     /**
+     * Gets all the checkpoint tiles held by this Racetrack's data structure
+     * @return
+     */
+    List<CheckpointTile> getCheckpointTiles();
+
+    /**
      * Gets the number of rows this Racetrack contains
      * @return the integer rows attribute of this Racetrack
      */

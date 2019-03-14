@@ -12,7 +12,7 @@ public class Move extends Vect {
 
     public Move(Move original){
         super(original.playerToMove.getRacer().getPosition(), original.getDestination());
-        this.playerToMove = new Player((Player) original.getPlayerToMove());
+        this.playerToMove = new Player(original.getPlayerToMove());
         this.destination = new Point(original.getDestination());
     }
 

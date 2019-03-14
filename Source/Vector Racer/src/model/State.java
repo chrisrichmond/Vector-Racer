@@ -30,8 +30,9 @@ public class State {
         this.racetrack = new Racetrack(original.getRacetrack());
         this.stateNumber = original.getStateNumber();
         this.gameOver = original.isGameOver();
-        if(original.getParent() != null)
-            this.parent = new State(original.getParent());
+//        if(original.getParent() != null)
+//            this.parent = new State(original.getParent());
+        this.parent = original.parent;
         if(original.getDelta() != null)
             this.delta = new Move(original.getDelta());
         this.aiSolverMode = original.isAiSolverMode();
@@ -105,7 +106,16 @@ public class State {
         if(isMoveLegal(move)){
             // return new State with currentPlayer changed to the next in the list
             Player currentPlayerClone = new Player(currentPlayer);
-            currentPlayerClone.getRacer().moveWhilstApplyingEffects(racetrack, move.getDestination());
+            Deque<PlayerAPI> playersClone = new ArrayDeque<>();
+            for(PlayerAPI p: players){
+                if(p.isAI()) {
+                    playersClone.add(new AIPlayer((AIPlayer) p));
+                }else{
+                    playersClone.add(new Player(p));
+                }
+            }
+
+            currentPlayer.getRacer().moveWhilstApplyingEffects(racetrack, move.getDestination());
 
             System.out.println("Legal move, moving "+currentPlayer.getName()+" to R"+currentPlayer.getRacer().getPosition().getY()+" C"+currentPlayer.getRacer().getPosition().getX());
             // only switch players if not in AI solver mode
@@ -116,7 +126,7 @@ public class State {
 
             return new State(players, racetrack, stateNumber+1, this, move, aiSolverMode);
         }else{
-            System.out.println(stateNumber);
+//            System.out.println(stateNumber);
 //            System.out.println("Illegal move! "+move.getPlayerToMove().getName() + " R"+move.getDestination().getY()+ " C"+move.getDestination().getX());
             return this;
         }
@@ -150,11 +160,11 @@ public class State {
 
         if(!(move.getPlayerToMove().getRacer().getPossibleNextPoints(racetrack).contains(move.getDestination()))){
             // the offered destination is not one of the Player to be moved's next valid positions
-            System.out.println("the offered destination is not one of the Player to be moved's next valid positions");
+//            System.out.println("the offered destination is not one of the Player to be moved's next valid positions");
             legal = false;
         }else if( (move.getDestination().getX() < 0) || (move.getDestination().getX() >= racetrack.getCols()) || (move.getDestination().getY() < 0) || (move.getDestination().getY() >= racetrack.getRows()) ){
             // the offered destination is outwith the bounds of the racetrack
-            System.out.println("the offered destination is outwith the bounds of the racetrack");
+//            System.out.println("the offered destination is outwith the bounds of the racetrack");
             legal = false;
         }
 
@@ -165,13 +175,9 @@ public class State {
         Set<State> nextLegalStates = new HashSet<>();
         List<Point> possibleNextPoints = currentPlayer.getRacer().getPossibleNextPoints(racetrack);
 
-        System.out.println("possibleNextPoints.size(): "+possibleNextPoints.size());
-
         for(Point possiblePoint: possibleNextPoints){
             Move possibleMove = new Move(currentPlayer, possiblePoint);
-//            System.out.println("BEFORE MAKING MOVE");
             nextLegalStates.add(this.makeMove(possibleMove));   // todo could lead to duplicate states being added, which doesn't present an immediate issue but could be inefficient so maybe consider some kind of redesign to remove dupes
-//            System.out.println("IN NEXTLEGALSTATES FOR LOOP AFTER ADDING NEW STATE FROM MAKEMOVE()");
         }
 
         return nextLegalStates;

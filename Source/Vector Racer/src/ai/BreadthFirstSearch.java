@@ -27,7 +27,7 @@ public class BreadthFirstSearch extends AbstractSolver {
         System.out.println("IN SOLVER");
 
         agenda.addAll(initialState.getChildren());
-        System.out.println(agenda.size());
+//        System.out.println(agenda.size());
         visited.add(encodeVisited(initialState.getStateNumber(), player));
         while(!agenda.isEmpty()){
             State currentState = agenda.poll();
@@ -44,8 +44,8 @@ public class BreadthFirstSearch extends AbstractSolver {
 
 
             // GOAL STATE RECOGNISER
-            if(player.isFinished()){
-                initialState.setAiSolverMode(false);
+            if(currentState.getCurrentPlayer().isFinished()){
+                initialState.setAiSolverMode(false);    // todo do I actually need this? this is the cloned state so it wont be used anyway
                 System.out.println("PLAYER FINISHED");
                 return calculateMoves(initialState, currentState);
             }

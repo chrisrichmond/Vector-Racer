@@ -5,6 +5,7 @@ import model.*;
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.List;
+import java.util.Objects;
 
 public abstract class AbstractSolver {
 
@@ -47,6 +48,49 @@ public abstract class AbstractSolver {
         solveDuration = System.currentTimeMillis() - startTime;
         System.out.println("AI couldn't find goal state solution after searching "+nodeCount+" nodes in "+solveDuration/1000+" seconds");
         return null;
+    }
+
+    public int encodeVisited(int stateNumber, PlayerAPI player){
+        int xVelo = player.getRacer().getVelocity().getXVelo();
+        int yVelo = player.getRacer().getVelocity().getYVelo();
+        int xPos = player.getRacer().getPosition().getX();
+        int yPos = player.getRacer().getPosition().getY();
+        StateDetails stateDetails = new StateDetails(stateNumber, xVelo, yVelo, xPos, yPos);
+        return stateDetails.hashCode();
+    }
+
+    private class StateDetails{
+
+        private int stateNumber;
+        private int xVelo;
+        private int yVelo;
+        private int xPos;
+        private int yPos;
+
+        StateDetails(int stateNumber, int xVelo, int yVelo, int xPos, int yPos){
+            this.stateNumber = stateNumber;
+            this.xVelo = xVelo;
+            this.yVelo = yVelo;
+            this.xPos = xPos;
+            this.yPos = yPos;
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (!(o instanceof StateDetails)) return false;
+            StateDetails that = (StateDetails) o;
+            return stateNumber == that.stateNumber &&
+                    xVelo == that.xVelo &&
+                    yVelo == that.yVelo &&
+                    xPos == that.xPos &&
+                    yPos == that.yPos;
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(stateNumber, xVelo, yVelo, xPos, yPos);
+        }
     }
 
 }

@@ -14,7 +14,7 @@ public class BreadthFirstSearch extends AbstractSolver {
         this.player = player;
         this.nodeCount = 0;
         Deque<State> agenda = new ArrayDeque<>();
-        Set<State> visited = new HashSet<>();
+        Set<Integer> visited = new HashSet<>();
 
         startTime = System.currentTimeMillis();
 
@@ -22,7 +22,7 @@ public class BreadthFirstSearch extends AbstractSolver {
 
         agenda.addAll(initialState.getChildren());
         System.out.println(agenda.size());
-        visited.add(initialState);
+        visited.add(encodeVisited(initialState.getStateNumber(),player));
         while(!agenda.isEmpty()){
             State currentState = agenda.poll();
             nodeCount++;
@@ -34,24 +34,27 @@ public class BreadthFirstSearch extends AbstractSolver {
                 return calculateMoves(initialState, currentState);
             }
 
-            visited.add(currentState);
+            visited.add(encodeVisited(currentState.getStateNumber(),player));
             List<State> children = currentState.getChildren();
             for(State child: children){
-                if((child != null) && (!visited.contains(child))){
+                int encodedChild = encodeVisited(child.getStateNumber(), player);
+                int currentRow = player.getRacer().getPosition().getY();
+                int currentCol = player.getRacer().getPosition().getX();
+                if((child != null) && (!visited.contains(encodedChild))){
                     agenda.add(child);
-                    visited.add(child);
+                    visited.add(encodedChild);
                 }
             }
-            System.out.println("AGENDA: ");
-            for(State current: agenda){
-                PlayerAPI currentPlayer = current.getCurrentPlayer();
-                Point currentPosition = currentPlayer.getRacer().getPosition();
-                System.out.println("Depth (state num) "+currentState.getStateNumber()+" - "+currentPlayer.getName()+" on R"+currentPosition.getY()+" C"+currentPosition.getX());
-            }
-//            try{
-//                Thread.sleep(1000);
-//            }catch (InterruptedException e){
-//                System.out.println("INTERRUPTED");
+//            System.out.println("AGENDA: ");
+//            for(State current: agenda){
+//                PlayerAPI currentPlayer = current.getCurrentPlayer();
+//                Point currentPosition = currentPlayer.getRacer().getPosition();
+//                //System.out.println("Depth (state num) "+currentState.getStateNumber()+" - "+currentPlayer.getName()+" on R"+currentPosition.getY()+" C"+currentPosition.getX());
+////            }
+////            try{
+////                Thread.sleep(1000);
+////            }catch (InterruptedException e){
+////                System.out.println("INTERRUPTED");
 //            }
         }
         initialState.setAiSolverMode(false);
@@ -59,4 +62,3 @@ public class BreadthFirstSearch extends AbstractSolver {
     }
 
 }
-

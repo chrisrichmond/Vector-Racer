@@ -29,6 +29,8 @@ public class BreadthFirstSearchWithZoning extends AbstractSolver {
             nodeCount++;
 
             if(player.isFinished()){
+                initialState.setAiSolverMode(false);
+                System.out.println("PLAYER FINISHED");
                 return calculateMoves(initialState, currentState);
             }
 

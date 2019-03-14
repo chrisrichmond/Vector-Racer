@@ -2,16 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="bump">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ai/AbstractSolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ai/AbstractSolver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ai/BreadthFirstSearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ai/BreadthFirstSearch.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ai/BreadthFirstSearchWithZoning.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ai/BreadthFirstSearchWithZoning.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ai/DepthFirstSearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ai/DepthFirstSearch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ai/DepthFirstSearchWithZoning.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ai/DepthFirstSearchWithZoning.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ai/IterativeDeepeningSearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ai/IterativeDeepeningSearch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ai/Node.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/AIPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/AIPlayer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/State.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/State.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utilities/VectorConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilities/VectorConstants.java" afterDir="false" />
     </list>
@@ -69,134 +63,104 @@
     <favorites_list name="JavaFxApplication" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.83755994">
-      <split-first>
-        <leaf>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/model/State.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="169">
-                  <caret line="229" column="87" selection-start-line="229" selection-start-column="87" selection-end-line="229" selection-end-column="87" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                    <element signature="e#7706#7707#0" expanded="true" />
-                    <element signature="e#7738#7739#0" expanded="true" />
-                    <element signature="e#9117#9118#0" expanded="true" />
-                    <element signature="e#9151#9152#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/ai/DepthFirstSearchWithZoning.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="388">
-                  <caret line="43" column="37" selection-start-line="43" selection-start-column="37" selection-end-line="43" selection-end-column="37" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/ai/AbstractSolver.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="463">
-                  <caret line="37" column="39" lean-forward="true" selection-start-line="37" selection-start-column="39" selection-end-line="37" selection-end-column="39" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/ai/BreadthFirstSearch.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1550">
-                  <caret line="62" selection-start-line="62" selection-end-line="62" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/model/AIPlayer.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="127">
-                  <caret line="25" column="14" selection-start-line="25" selection-start-column="14" selection-end-line="25" selection-end-column="14" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/ai/IterativeDeepeningSearch.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="313">
-                  <caret line="13" column="35" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="35" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/ai/DepthFirstSearch.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="50">
-                  <caret line="14" column="43" lean-forward="true" selection-start-line="13" selection-start-column="8" selection-end-line="14" selection-end-column="43" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/view/View.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="180">
-                  <caret line="34" column="38" selection-start-line="34" selection-start-column="38" selection-end-line="34" selection-end-column="38" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/utilities/VectorConstants.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="25">
-                  <caret line="18" column="48" selection-start-line="18" selection-start-column="48" selection-end-line="18" selection-end-column="48" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/ai/DepthFirstSearch.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="488">
-                  <caret line="39" column="28" selection-start-line="39" selection-start-column="28" selection-end-line="39" selection-end-column="28" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/utilities/VectorConstants.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="421">
+              <caret line="17" column="46" selection-start-line="17" selection-start-column="46" selection-end-line="17" selection-end-column="46" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/model/Racer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="809">
+              <caret line="97" column="28" selection-start-line="97" selection-start-column="28" selection-end-line="97" selection-end-column="28" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#556#557#0" expanded="true" />
+                <element signature="e#587#588#0" expanded="true" />
+                <element signature="e#636#637#0" expanded="true" />
+                <element signature="e#667#668#0" expanded="true" />
+                <element signature="e#715#716#0" expanded="true" />
+                <element signature="e#755#756#0" expanded="true" />
+                <element signature="e#962#963#0" expanded="true" />
+                <element signature="e#1027#1028#0" expanded="true" />
+                <element signature="e#1084#1085#0" expanded="true" />
+                <element signature="e#1117#1118#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/model/State.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3600">
+              <caret line="124" column="183" selection-start-line="124" selection-start-column="183" selection-end-line="124" selection-end-column="183" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/ai/BreadthFirstSearch.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="72">
+              <caret line="54" column="31" selection-start-line="54" selection-start-column="31" selection-end-line="54" selection-end-column="31" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/model/Model.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="440">
+              <caret line="100" selection-start-line="100" selection-end-line="100" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/utilities/VectorFileHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="363">
+              <caret line="105" selection-start-line="105" selection-end-line="105" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ai/AbstractSolver.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="531">
+              <caret line="58" column="39" selection-start-line="58" selection-start-column="39" selection-end-line="58" selection-end-column="39" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#3152#3153#0" expanded="true" />
+                <element signature="e#3234#3235#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -209,18 +173,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>makemove</find>
-      <find>setup</find>
-      <find>original</find>
-      <find>new Nod</find>
-      <find>children</find>
-      <find>getchi</find>
-      <find>state(</find>
-      <find>skip</find>
-      <find>500</find>
-      <find>findso</find>
-      <find>new vel</find>
-      <find>racetr</find>
       <find>nextpo</find>
       <find>itera</find>
       <find>getchild</find>
@@ -239,6 +191,18 @@
       <find>in solve</find>
       <find>in so</find>
       <find>calculatemoveto</find>
+      <find>in nextleg</find>
+      <find>finish</find>
+      <find>finished</find>
+      <find>new velo</find>
+      <find>agenda:</find>
+      <find>illegal move!</find>
+      <find>r2 c2</find>
+      <find>r8 c4</find>
+      <find>system.out</find>
+      <find>statenumber</find>
+      <find>threa</find>
+      <find>possible</find>
     </findStrings>
   </component>
   <component name="FindManager">
@@ -295,14 +259,14 @@
         <option value="$PROJECT_DIR$/src/view/RacetrackPane.java" />
         <option value="$PROJECT_DIR$/src/model/Model.java" />
         <option value="$PROJECT_DIR$/src/ai/DepthFirstSearch.java" />
-        <option value="$PROJECT_DIR$/src/ai/BreadthFirstSearchWithZoning.java" />
         <option value="$PROJECT_DIR$/src/ai/DepthFirstSearchWithZoning.java" />
-        <option value="$PROJECT_DIR$/src/model/State.java" />
-        <option value="$PROJECT_DIR$/src/ai/AbstractSolver.java" />
-        <option value="$PROJECT_DIR$/src/ai/BreadthFirstSearch.java" />
-        <option value="$PROJECT_DIR$/src/utilities/VectorConstants.java" />
         <option value="$PROJECT_DIR$/src/model/AIPlayer.java" />
         <option value="$PROJECT_DIR$/src/ai/IterativeDeepeningSearch.java" />
+        <option value="$PROJECT_DIR$/src/ai/BreadthFirstSearchWithZoning.java" />
+        <option value="$PROJECT_DIR$/src/model/State.java" />
+        <option value="$PROJECT_DIR$/src/utilities/VectorConstants.java" />
+        <option value="$PROJECT_DIR$/src/ai/AbstractSolver.java" />
+        <option value="$PROJECT_DIR$/src/ai/BreadthFirstSearch.java" />
       </list>
     </option>
   </component>
@@ -316,8 +280,8 @@
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-11" />
     <option name="y" value="-11" />
-    <option name="width" value="980" />
-    <option name="height" value="1030" />
+    <option name="width" value="2902" />
+    <option name="height" value="1642" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -325,8 +289,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -361,6 +323,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -377,7 +341,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552469236515" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552479467109" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/ai/DepthFirstSearchWithZoning.java" />
     <property name="project.structure.last.edited" value="Libraries" />
@@ -599,13 +563,6 @@
       <workItem from="1547566384896" duration="3847000" />
       <workItem from="1549298180766" duration="13715000" />
       <workItem from="1551463240268" duration="5765000" />
-    </task>
-    <task id="LOCAL-00095" summary="refactored getPossibleNextPoints heavy lifting from Player into Racer">
-      <created>1550153644122</created>
-      <option name="number" value="00095" />
-      <option name="presentableId" value="LOCAL-00095" />
-      <option name="project" value="LOCAL" />
-      <updated>1550153644122</updated>
     </task>
     <task id="LOCAL-00096" summary="fixed concurrentmodificationexception in RacetrackPane">
       <created>1550155482261</created>
@@ -943,7 +900,14 @@
       <option name="project" value="LOCAL" />
       <updated>1552462870888</updated>
     </task>
-    <option name="localTasksCounter" value="144" />
+    <task id="LOCAL-00144" summary="bump">
+      <created>1552470490657</created>
+      <option name="number" value="00144" />
+      <option name="presentableId" value="LOCAL-00144" />
+      <option name="project" value="LOCAL" />
+      <updated>1552470490657</updated>
+    </task>
+    <option name="localTasksCounter" value="145" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -960,9 +924,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" weight="0.21081081" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.2345946" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" weight="0.32972974" />
       <window_info id="Designer" order="3" />
@@ -971,7 +934,7 @@
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.30274135" />
-      <window_info anchor="bottom" x="926" y="494" width="472" height="266" id="Run" order="2" weight="0.16448152" />
+      <window_info active="true" anchor="bottom" x="926" y="494" width="472" height="266" id="Run" order="2" visible="true" weight="0.28367105" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.7353993" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -982,7 +945,7 @@
       <window_info anchor="bottom" id="Changes" order="10" />
       <window_info anchor="bottom" id="Profiler" order="11" />
       <window_info anchor="bottom" id="Event Log" order="12" weight="0.32896304" />
-      <window_info anchor="bottom" id="Messages" order="13" weight="0.1227652" />
+      <window_info anchor="bottom" id="Messages" order="13" weight="0.12255257" />
       <window_info anchor="bottom" id="Database Changes" order="14" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="15" weight="0.32896304" />
       <window_info anchor="bottom" id="Statistic" order="16" weight="0.37067938" />
@@ -1175,13 +1138,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/MainMenuHandler.java" />
-    <entry file="file://$PROJECT_DIR$/src/controller/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="33" selection-start-line="33" selection-end-line="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Driver.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="600">
@@ -1322,32 +1278,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/Racer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="492">
-          <caret line="112" column="36" selection-start-line="112" selection-start-column="36" selection-end-line="112" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#556#557#0" expanded="true" />
-            <element signature="e#587#588#0" expanded="true" />
-            <element signature="e#636#637#0" expanded="true" />
-            <element signature="e#667#668#0" expanded="true" />
-            <element signature="e#715#716#0" expanded="true" />
-            <element signature="e#755#756#0" expanded="true" />
-            <element signature="e#962#963#0" expanded="true" />
-            <element signature="e#1027#1028#0" expanded="true" />
-            <element signature="e#1084#1085#0" expanded="true" />
-            <element signature="e#1117#1118#0" expanded="true" />
-            <element signature="e#4825#4826#0" expanded="true" />
-            <element signature="e#4859#4860#0" expanded="true" />
-            <element signature="e#4903#4904#0" expanded="true" />
-            <element signature="e#4948#4949#0" expanded="true" />
-            <element signature="e#5425#5426#0" expanded="true" />
-            <element signature="e#5524#5525#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/model/PlayerAPI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -1398,82 +1328,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/utilities/VectorFileHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="86" column="57" lean-forward="true" selection-start-line="86" selection-start-column="57" selection-end-line="86" selection-end-column="57" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/Model.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="44" selection-start-line="44" selection-end-line="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ai/BreadthFirstSearchWithZoning.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="42" column="31" selection-start-line="42" selection-start-column="31" selection-end-line="42" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ai/Node.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2400">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#243#244#0" expanded="true" />
-            <element signature="e#282#283#0" expanded="true" />
-            <element signature="e#1793#1794#0" expanded="true" />
-            <element signature="e#1822#1823#0" expanded="true" />
-            <element signature="e#1851#1852#0" expanded="true" />
-            <element signature="e#1879#1880#0" expanded="true" />
-            <element signature="e#2254#2255#0" expanded="true" />
-            <element signature="e#2316#2317#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/View.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="34" column="38" selection-start-line="34" selection-start-column="38" selection-end-line="34" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/State.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="229" column="87" selection-start-line="229" selection-start-column="87" selection-end-line="229" selection-end-column="87" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#7706#7707#0" expanded="true" />
-            <element signature="e#7738#7739#0" expanded="true" />
-            <element signature="e#9117#9118#0" expanded="true" />
-            <element signature="e#9151#9152#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utilities/VectorConstants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="18" column="48" selection-start-line="18" selection-start-column="48" selection-end-line="18" selection-end-column="48" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ai/Node.java" />
     <entry file="file://$PROJECT_DIR$/src/model/AIPlayer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="127">
@@ -1481,13 +1336,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ai/DepthFirstSearchWithZoning.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="43" column="37" selection-start-line="43" selection-start-column="37" selection-end-line="43" selection-end-column="37" />
         </state>
       </provider>
     </entry>
@@ -1501,10 +1349,98 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ai/BreadthFirstSearch.java">
+    <entry file="file://$PROJECT_DIR$/src/view/View.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1550">
-          <caret line="62" selection-start-line="62" selection-end-line="62" />
+        <state relative-caret-position="180">
+          <caret line="34" column="38" selection-start-line="34" selection-start-column="38" selection-end-line="34" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ai/DepthFirstSearch.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="488">
+          <caret line="39" column="28" selection-start-line="39" selection-start-column="28" selection-end-line="39" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="750">
+          <caret line="33" selection-start-line="33" selection-end-line="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ai/DepthFirstSearchWithZoning.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="347">
+          <caret line="25" column="28" lean-forward="true" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ai/BreadthFirstSearchWithZoning.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="53">
+          <caret line="31" column="52" lean-forward="true" selection-start-line="31" selection-start-column="52" selection-end-line="31" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utilities/VectorFileHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="105" selection-start-line="105" selection-end-line="105" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/State.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3600">
+          <caret line="124" column="183" selection-start-line="124" selection-start-column="183" selection-end-line="124" selection-end-column="183" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Model.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="100" selection-start-line="100" selection-end-line="100" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Racer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="809">
+          <caret line="97" column="28" selection-start-line="97" selection-start-column="28" selection-end-line="97" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#556#557#0" expanded="true" />
+            <element signature="e#587#588#0" expanded="true" />
+            <element signature="e#636#637#0" expanded="true" />
+            <element signature="e#667#668#0" expanded="true" />
+            <element signature="e#715#716#0" expanded="true" />
+            <element signature="e#755#756#0" expanded="true" />
+            <element signature="e#962#963#0" expanded="true" />
+            <element signature="e#1027#1028#0" expanded="true" />
+            <element signature="e#1084#1085#0" expanded="true" />
+            <element signature="e#1117#1118#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utilities/VectorConstants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="421">
+          <caret line="17" column="46" selection-start-line="17" selection-start-column="46" selection-end-line="17" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1513,18 +1449,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ai/AbstractSolver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="463">
-          <caret line="37" column="39" lean-forward="true" selection-start-line="37" selection-start-column="39" selection-end-line="37" selection-end-column="39" />
+        <state relative-caret-position="531">
+          <caret line="58" column="39" selection-start-line="58" selection-start-column="39" selection-end-line="58" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#3152#3153#0" expanded="true" />
+            <element signature="e#3234#3235#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ai/DepthFirstSearch.java">
+    <entry file="file://$PROJECT_DIR$/src/ai/BreadthFirstSearch.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="488">
-          <caret line="39" column="28" selection-start-line="39" selection-start-column="28" selection-end-line="39" selection-end-column="28" />
+        <state relative-caret-position="72">
+          <caret line="54" column="31" selection-start-line="54" selection-start-column="31" selection-end-line="54" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

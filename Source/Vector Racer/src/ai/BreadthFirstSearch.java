@@ -27,7 +27,7 @@ public class BreadthFirstSearch extends AbstractSolver {
 
         agenda.addAll(initialState.getChildren());
         System.out.println(agenda.size());
-        visited.add(encodeVisited(player));
+        visited.add(encodeVisited(initialState.getStateNumber(), player));
         while(!agenda.isEmpty()){
             State currentState = agenda.poll();
             nodeCount++;
@@ -49,10 +49,11 @@ public class BreadthFirstSearch extends AbstractSolver {
                 return calculateMoves(initialState, currentState);
             }
 
-            visited.add(encodeVisited(currentState.getCurrentPlayer()));
-            List<State> children = currentState.getChildren();
+            visited.add(encodeVisited(currentState.getStateNumber(), currentState.getCurrentPlayer()));
+            Set<State> children = currentState.getChildren();
             for(State child: children){
-                int encodedChild = encodeVisited(child.getCurrentPlayer());
+                System.out.println("CURRENT CHILD: "+child.hashCode()+" currentPlayer"+child.getCurrentPlayer().hashCode()+" R"+child.getCurrentPlayer().getRacer().getPosition().getY()+" C"+child.getCurrentPlayer().getRacer().getPosition().getY());
+                int encodedChild = encodeVisited(child.getStateNumber(), child.getCurrentPlayer());
                 int currentRow = player.getRacer().getPosition().getY();
                 int currentCol = player.getRacer().getPosition().getX();
                 if((child != null) && (!visited.contains(encodedChild))){

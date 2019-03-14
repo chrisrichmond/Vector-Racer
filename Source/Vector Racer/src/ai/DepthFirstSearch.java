@@ -33,7 +33,7 @@ public class DepthFirstSearch extends AbstractSolver {
             }
 
             visited.add(currentState);
-            List<State> children = currentState.getChildren();
+            Set<State> children = currentState.getChildren();
             for(State child: children){
                 if((child != null) && (!visited.contains(child))){
                     agenda.push(child);

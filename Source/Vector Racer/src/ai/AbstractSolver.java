@@ -50,25 +50,25 @@ public abstract class AbstractSolver {
         return null;
     }
 
-    public int encodeVisited(PlayerAPI player){
+    public int encodeVisited(int stateNumber, PlayerAPI player){
         int xVelo = player.getRacer().getVelocity().getXVelo();
         int yVelo = player.getRacer().getVelocity().getYVelo();
         int xPos = player.getRacer().getPosition().getX();
         int yPos = player.getRacer().getPosition().getY();
-        StateDetails stateDetails = new StateDetails(xPos, yPos);
+        StateDetails stateDetails = new StateDetails(stateNumber, xPos, yPos);
         return stateDetails.hashCode();
     }
 
     private class StateDetails{
 
-//        private int stateNumber;
+        private int stateNumber;
 //        private int xVelo;
 //        private int yVelo;
         private int xPos;
         private int yPos;
 
-        StateDetails(int xPos, int yPos){
-//            this.stateNumber = stateNumber;
+        StateDetails(int stateNumber, int xPos, int yPos){
+            this.stateNumber = stateNumber;
 //            this.xVelo = xVelo;
 //            this.yVelo = yVelo;
             this.xPos = xPos;
@@ -80,8 +80,7 @@ public abstract class AbstractSolver {
             if (this == o) return true;
             if (!(o instanceof StateDetails)) return false;
             StateDetails that = (StateDetails) o;
-//            return stateNumber == that.stateNumber &&
-            return
+            return stateNumber == that.stateNumber &&
 //                    xVelo == that.xVelo &&
 //                    yVelo == that.yVelo &&
                     xPos == that.xPos &&

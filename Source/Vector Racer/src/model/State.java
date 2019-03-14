@@ -30,7 +30,7 @@ public class State {
     }
 
     public State(Queue<PlayerAPI> players, RacetrackAPI racetrack, int stateNumber, State parent, Move delta, boolean aiSolverMode){
-        this.currentPlayer = (Player) players.peek();
+        this.currentPlayer = new Player(players.peek());
         this.players = players;
         this.racetrack = racetrack;
         this.stateNumber = stateNumber;
@@ -60,15 +60,20 @@ public class State {
             }
         }
 
-        for(PlayerAPI currentPlayer: players){
-            if(racetrack.isTouchingWall(currentPlayer.getRacer())){
-                if(!currentPlayer.isFinished()) {
-                    currentPlayer.getRacer().getPointRoute().pop();
-                    currentPlayer.getRacer().killVelocity();
+        System.out.println("**************************");
+        System.out.println(currentPlayer.getName()+" R"+currentPlayer.getRacer().getPosition().getY()+" C"+currentPlayer.getRacer().getPosition().getX());
+        for(PlayerAPI player: players){
+            if(racetrack.isTouchingWall(player.getRacer())){
+                if(!player.isFinished()) {
+                    System.out.println("IN WALL, POPPING");
+                    player.getRacer().getPointRoute().pop();
+                    player.getRacer().killVelocity();
                 }
             }
         }
+        System.out.println(currentPlayer.getName()+" R"+currentPlayer.getRacer().getPosition().getY()+" C"+currentPlayer.getRacer().getPosition().getX());
 
+        System.out.println("***************************");
     }
 
     public void setAiSolverMode(boolean aiSolverMode){
@@ -148,11 +153,11 @@ public class State {
         return legal;
     }
 
-    private List<State> getNextLegalStates(){
-        List<State> nextLegalStates = new ArrayList<>();
+    private Set<State> getNextLegalStates(){
+        Set<State> nextLegalStates = new HashSet<>();
         List<Point> possibleNextPoints = currentPlayer.getRacer().getPossibleNextPoints(racetrack);
 
-//        System.out.println("possibleNextPoints.size(): "+possibleNextPoints.size());
+        System.out.println("possibleNextPoints.size(): "+possibleNextPoints.size());
 
         for(Point possiblePoint: possibleNextPoints){
             Move possibleMove = new Move(currentPlayer, possiblePoint);
@@ -208,7 +213,7 @@ public class State {
         return to.getDelta();
     }
 
-    public List<State> getChildren() {
+    public Set<State> getChildren() {
 //        List<State> children = new ArrayList<>();
         for (State currentNextLegalState : getNextLegalStates()){
             System.out.println("+++++++++++++++++++++++++++++++++");

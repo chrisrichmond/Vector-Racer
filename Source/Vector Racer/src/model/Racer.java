@@ -12,6 +12,12 @@ public class Racer implements RacerAPI{
     private Deque<Point> pointRoute;
     private int currentZone;
 
+    public Racer(Racer original){
+        this.velocity = new Vect(original.velocity);
+        this.finished = original.finished;
+        this.pointRoute = new ArrayDeque<>(original.pointRoute);
+    }
+
     public Racer(Point startPosition){
         this.velocity = new Vect(startPosition, startPosition);
         this.finished = false;

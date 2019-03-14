@@ -11,13 +11,20 @@ import java.util.Objects;
 public class Player implements PlayerAPI{
 
     protected String name;
-    protected RacerAPI racer;
+    protected Racer racer;
     protected Color color;
     protected boolean ai;
 
+    public Player(PlayerAPI original){
+        this.name = new String(original.getName());
+        this.racer = new Racer(original.getRacer());
+        this.color = original.getColor();
+        this.ai = original.isAI();
+    }
+
     public Player(String name, RacerAPI racer, Color color, boolean ai) {
         this.name = name;
-        this.racer = racer;
+        this.racer = (Racer) racer;
         this.color = color;
         this.ai = ai;
     }

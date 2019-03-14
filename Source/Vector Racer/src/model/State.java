@@ -16,8 +16,18 @@ public class State {
     private Move delta = null;
     private boolean aiSolverMode = false;
 
+    public State(State original){
+        this.currentPlayer = new Player(original.getCurrentPlayer());
+        this.players = new ArrayDeque<>(original.getPlayers());
+        this.racetrack = new Racetrack((Racetrack) original.getRacetrack());
+        this.stateNumber = original.getStateNumber();
+        this.gameOver = original.isGameOver();
+        this.delta = new Move(original.getDelta());
+        this.aiSolverMode = original.isAiSolverMode();
+    }
+
     public State(Queue<PlayerAPI> players, RacetrackAPI racetrack, int stateNumber, State parent, Move delta, boolean aiSolverMode){
-        this.currentPlayer = players.peek();
+        this.currentPlayer = (Player) players.peek();
         this.players = players;
         this.racetrack = racetrack;
         this.stateNumber = stateNumber;
@@ -162,11 +172,11 @@ public class State {
 
         boolean legal = true;
 
-        if(!(move.playerToMove.getRacer().getPossibleNextPoints(racetrack).contains(move.destination))){
+        if(!(move.getPlayerToMove().getRacer().getPossibleNextPoints(racetrack).contains(move.getDestination()))){
             // the offered destination is not one of the Player to be moved's next valid positions
             System.out.println("the offered destination is not one of the Player to be moved's next valid positions");
             legal = false;
-        }else if( (move.destination.getX() < 0) || (move.destination.getX() >= racetrack.getCols()) || (move.destination.getY() < 0) || (move.destination.getY() >= racetrack.getRows()) ){
+        }else if( (move.getDestination().getX() < 0) || (move.getDestination().getX() >= racetrack.getCols()) || (move.getDestination().getY() < 0) || (move.getDestination().getY() >= racetrack.getRows()) ){
             // the offered destination is outwith the bounds of the racetrack
             System.out.println("the offered destination is outwith the bounds of the racetrack");
             legal = false;

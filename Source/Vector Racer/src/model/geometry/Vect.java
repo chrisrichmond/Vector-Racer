@@ -8,6 +8,12 @@ public class Vect {
     protected Point end;
     protected double gradient;
 
+    public Vect(Vect original){
+        this.start = new Point(original.getStart());
+        this.end = new Point(original.getEnd());
+        this.gradient = original.getGradient();
+    }
+
     public Vect(int startX, int startY, int endX, int endY){
         this.start = new Point(startX, startY);
         this.end = new Point(endX, endY);

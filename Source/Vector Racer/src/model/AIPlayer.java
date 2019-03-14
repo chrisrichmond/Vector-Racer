@@ -12,6 +12,16 @@ public class AIPlayer extends Player {
     private boolean solved;
     private Deque<Move> solution;
 
+    public AIPlayer(AIPlayer original){
+        super(new String(original.getName()),
+                new Racer((Racer)original.getRacer()),
+                original.getColor(),
+                original.isAI());
+        this.algorithm = original.getAlgorithm();
+        this.solved = original.isSolved();
+        this.solution = new ArrayDeque<>(original.getSolution());
+    }
+
     public AIPlayer(String name, RacerAPI racer, Color color, String algorithmName) {
         super(name, racer, color, true);
 
@@ -30,6 +40,14 @@ public class AIPlayer extends Player {
 
         this.solved = false;
         this.solution = new ArrayDeque<>();
+    }
+
+    public Deque<Move> getSolution(){
+        return solution;
+    }
+
+    public AbstractSolver getAlgorithm(){
+        return algorithm;
     }
 
     public boolean findSolution(State initialState){

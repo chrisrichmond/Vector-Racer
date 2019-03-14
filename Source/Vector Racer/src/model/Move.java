@@ -7,13 +7,27 @@ import java.util.Objects;
 
 public class Move extends Vect {
 
-    PlayerAPI playerToMove;
-    Point destination;
+    private PlayerAPI playerToMove;
+    private Point destination;
+
+    public Move(Move original){
+        super(original.playerToMove.getRacer().getPosition(), original.getDestination());
+        this.playerToMove = new Player((Player) original.getPlayerToMove());
+        this.destination = new Point(original.getDestination());
+    }
 
     public Move(PlayerAPI playerToMove, Point destination) {
         super(playerToMove.getRacer().getPosition(), destination);
-        this.playerToMove = playerToMove;
+        this.playerToMove = (Player) playerToMove;
         this.destination = destination;
+    }
+
+    public Point getDestination(){
+        return destination;
+    }
+
+    public PlayerAPI getPlayerToMove(){
+        return playerToMove;
     }
 
     @Override

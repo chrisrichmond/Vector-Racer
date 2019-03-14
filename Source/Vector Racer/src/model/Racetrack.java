@@ -20,6 +20,8 @@ public class Racetrack implements RacetrackAPI{
     private Point startPosition;
     private int finalZone;
 
+    public Racetrack(RacetrackAPI racetrack)
+
     public Racetrack(int rows, int cols, Point startPosition, int finalZone){
         tiles = new ArrayList<>();
         airTiles = new ArrayList<>();

@@ -11,6 +11,12 @@ public class Square {
     private Point end;
     private List<Point> corners;
 
+    public Square(Square original){
+        this.start = new Point(original.getStart());
+        this.end = new Point(original.getEnd());
+        this.corners = new ArrayList<Point>(original.getCorners());
+    }
+
     public Square(Point start){
         this.start = start;
         this.end = new Point(start.getX()+1, start.getY()+1);       //todo need to check which way axes go etc, all this kind of shit might not work properly in JavaFX, used to Swing directions
@@ -39,6 +45,14 @@ public class Square {
 
     public int getStartY(){
         return start.getY();
+    }
+
+    public Point getStart(){
+        return start;
+    }
+
+    public Point getEnd(){
+        return end;
     }
 
     public List<Point> getCorners(){

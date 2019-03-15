@@ -17,7 +17,7 @@ public class State {
     private boolean aiSolverMode = false;
 
     public State(State original){
-        this.players = new ArrayDeque<>();
+        this.players = new LinkedList<>();
         for(PlayerAPI p: original.getPlayers()){
             if(p.isAI()) {
                 this.players.add(new AIPlayer((AIPlayer) p));
@@ -25,7 +25,7 @@ public class State {
                 this.players.add(new Player(p));
             }
         }
-        this.racetrack = new Racetrack(original.getRacetrack());
+        this.racetrack = original.getRacetrack();
         this.stateNumber = original.getStateNumber();
         this.gameOver = original.isGameOver();
 //        if(original.getParent() != null)
@@ -46,7 +46,7 @@ public class State {
         this.aiSolverMode = aiSolverMode;
 
 //        this.currentPlayer = new Player(players.peek());
-//        this.players = new ArrayDeque<>(players);
+//        this.players = new LinkedList<>(players);
 //        this.racetrack = new Racetrack(racetrack);
 //        this.stateNumber = stateNumber;
 //        this.parent = parent;
@@ -111,7 +111,7 @@ public class State {
 //            }else{
 //                currentPlayerClone = new Player(getCurrentPlayer());
 //            }
-            Deque<PlayerAPI> playersClone = new ArrayDeque<>();
+            Queue<PlayerAPI> playersClone = new LinkedList<>();
 
 //            currentPlayerClone.getRacer().moveWhilstApplyingEffects(racetrack, move.getDestination());
 
@@ -125,7 +125,7 @@ public class State {
 
             playersClone.peek().getRacer().moveWhilstApplyingEffects(racetrack, move.getDestination());
 
-            System.out.println("Legal move, moving "+playersClone.peek().getName()+" to R"+playersClone.peek().getRacer().getPosition().getY()+" C"+playersClone.peek().getRacer().getPosition().getX());
+//            System.out.println("Legal move, moving "+playersClone.peek().getName()+" to R"+playersClone.peek().getRacer().getPosition().getY()+" C"+playersClone.peek().getRacer().getPosition().getX());
             // only switch players if not in AI solver mode
             if(!aiSolverMode){
                 PlayerAPI currentPlayer = players.poll();                 // todo these could cause issues, do we want to leave the old state with altered attributes, yes/no?
@@ -234,8 +234,8 @@ public class State {
     public Set<State> getChildren() {
 //        List<State> children = new ArrayList<>();
         for (State currentNextLegalState : getNextLegalStates()){
-            System.out.print("[child state hash "+currentNextLegalState.hashCode()+" "+currentNextLegalState.getCurrentPlayer().getName()+ " R"+currentNextLegalState.getCurrentPlayer().getRacer().getPosition().getY()+" C"+currentNextLegalState.getCurrentPlayer().getRacer().getPosition().getX()+"]   ");
-            System.out.println("hash for currentPlayer in currentNextLegalState: "+currentNextLegalState.getCurrentPlayer().hashCode());
+//            System.out.print("[child state hash "+currentNextLegalState.hashCode()+" "+currentNextLegalState.getCurrentPlayer().getName()+ " R"+currentNextLegalState.getCurrentPlayer().getRacer().getPosition().getY()+" C"+currentNextLegalState.getCurrentPlayer().getRacer().getPosition().getX()+"]   ");
+//            System.out.println("hash for currentPlayer in currentNextLegalState: "+currentNextLegalState.getCurrentPlayer().hashCode());
             //            children.add(new State(currentNextLegalState));
         }
 //        return children;

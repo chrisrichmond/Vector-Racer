@@ -4,6 +4,7 @@ import model.geometry.Point;
 import model.geometry.Vect;
 import utilities.VectorConstants;
 
+import java.lang.reflect.Field;
 import java.util.*;
 
 public class Racetrack implements RacetrackAPI{
@@ -20,12 +21,36 @@ public class Racetrack implements RacetrackAPI{
     private int finalZone;
 
     public Racetrack(RacetrackAPI original){
+
         this.tiles = new ArrayList<>(original.getTiles());
         this.airTiles = new ArrayList<>(original.getAirTiles());
         this.sandTiles = new ArrayList<>(original.getSandTiles());
         this.iceTiles = new ArrayList<>(original.getIceTiles());
         this.wallTiles = new ArrayList<>(original.getWallTiles());
         this.checkpointTiles = new ArrayList<>(original.getCheckpointTiles());
+
+//        this.tiles = new ArrayList<>();
+//        this.airTiles = new ArrayList<>();
+//        this.sandTiles = new ArrayList<>();
+//        this.iceTiles = new ArrayList<>();
+//        this.wallTiles = new ArrayList<>();
+//        this.checkpointTiles = new ArrayList<>();
+//        for(Tile origTile: original.getTiles()){
+//            if(origTile instanceof AirTile){
+//                Tile newTile = new AirTile(origTile.getStartX(), origTile.getStartY());
+//            }else if(origTile instanceof SandTile){
+//                Tile newTile = new SandTile(origTile.getStartX(), origTile.getStartY());
+//            }else if(origTile instanceof IceTile){
+//                Tile newTile = new IceTile(origTile.getStartX(), origTile.getStartY());
+//            }else if(origTile instanceof WallTile){
+//                Tile newTile = new WallTile(origTile.getStartX(), origTile.getStartY());
+//            }else if(origTile instanceof CheckpointTile){
+//                Tile newTile = new CheckpointTile((CheckpointTile)origTile);
+//            }else{
+//                Tile newTile = new AirTile(origTile.getStartX(), origTile.getStartY());
+//            }
+//        }
+
         this.rows = original.getRows();
         this.cols = original.getCols();
         this.startPosition = new Point(original.getStartPosition());
@@ -335,10 +360,6 @@ public class Racetrack implements RacetrackAPI{
                 }
             }
         }
-
-//        for(Terrain currentTerrain: terrain) {
-//            System.out.println("TERRAIN @ [ROW:"+((Tile)currentTerrain).getStartY()+" COL:"+((Tile)currentTerrain).getStartX()+"]");
-//        }
 
         return terrain;
     }

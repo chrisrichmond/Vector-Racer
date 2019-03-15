@@ -6,6 +6,10 @@ public class CheckpointTile extends Tile {
 
     private int zoneNumber;
 
+    public CheckpointTile(CheckpointTile original){
+        super(original.getStartX(), original.getStartY(), true, original.getZoneNumber());
+    }
+
     public CheckpointTile(int startX, int startY, int zoneNumber) {
         super(startX, startY, true, 0.0f);
         this.zoneNumber = zoneNumber;

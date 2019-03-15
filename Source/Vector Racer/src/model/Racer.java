@@ -84,17 +84,20 @@ public class Racer implements RacerAPI{
             }
         }
         if(possibleNextPoints.size() == 0){
-            if(centralX <= 0){
-                centralX = 1;
-            }else if(centralX > racetrack.getCols()-1){
-                centralX = racetrack.getCols()-2;
-            }
-            if(centralY <= 0){
-                centralY = 1;
-            }else if(centralY > racetrack.getCols()-1){
-                centralY = racetrack.getCols()-2;
-            }
-            possibleNextPoints.add(new Point(centralX, centralY));
+//            if(centralX <= 0){
+//                centralX = 1;
+//            }else if(centralX > racetrack.getCols()-1){
+//                centralX = racetrack.getCols()-2;
+//            }
+//            if(centralY <= 0){
+//                centralY = 1;
+//            }else if(centralY > racetrack.getCols()-1){
+//                centralY = racetrack.getCols()-2;
+//            }
+//            possibleNextPoints.add(new Point(centralX, centralY));
+
+            possibleNextPoints.add(getPosition());
+            killVelocity();
         }
 
         return possibleNextPoints;
@@ -126,24 +129,25 @@ public class Racer implements RacerAPI{
         Set<Terrain> terrainTraversed = racetrack.getTerrainBetween(currentPosition, destinationBeforeEffects);
 
         float totalResistance = 0.0f;
-        for(Terrain currentTerrain: terrainTraversed){
-            if(!currentTerrain.isTraversable()){
-                // cannot move through non-traversable terrain, return position as the same
-                setPosition(currentPosition);
-                killVelocity();
-                return;
-            }else{
-                totalResistance = totalResistance + currentTerrain.getResistance();
-            }
-
-            if(currentTerrain instanceof CheckpointTile){
-                if(((CheckpointTile)currentTerrain).getZoneNumber() == (currentZone+1)){
-                    nextZone();
-                }else if( ((((CheckpointTile)currentTerrain).getZoneNumber() == 0) && (currentZone == racetrack.getFinalZone()))){
-                    finished = true;
-                    // todo setPosition(new Point( ((Tile)currentTerrain).getStartX(), ((Tile)currentTerrain).getStartY()));
+        if(terrainTraversed != null) {
+            for (Terrain currentTerrain : terrainTraversed) {
+                if (!currentTerrain.isTraversable()) {
+                    // cannot move through non-traversable terrain, return position as the same
+                    setPosition(currentPosition);
                     killVelocity();
                     return;
+                } else {
+                    totalResistance = totalResistance + currentTerrain.getResistance();
+                }
+                if (currentTerrain instanceof CheckpointTile) {
+                    if (((CheckpointTile) currentTerrain).getZoneNumber() == (currentZone + 1)) {
+                        nextZone();
+                    } else if (((((CheckpointTile) currentTerrain).getZoneNumber() == 0) && (currentZone == racetrack.getFinalZone()))) {
+                        finished = true;
+                        // todo setPosition(new Point( ((Tile)currentTerrain).getStartX(), ((Tile)currentTerrain).getStartY()));
+                        killVelocity();
+                        return;
+                    }
                 }
             }
         }

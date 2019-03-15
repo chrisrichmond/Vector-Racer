@@ -64,11 +64,11 @@ public class BreadthFirstSearch extends AbstractSolver {
                 }
             }
 
-//            try{
-//                Thread.sleep(1000);
-//            }catch (InterruptedException e){
-//                System.out.println("INTERRUPTED");
-//            }
+            try{
+                Thread.sleep(1000);
+            }catch (InterruptedException e){
+                System.out.println("INTERRUPTED");
+            }
         }
         initialState.setAiSolverMode(false);
         return fail();

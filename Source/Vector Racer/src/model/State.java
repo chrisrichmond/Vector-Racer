@@ -125,7 +125,7 @@ public class State {
 
             playersClone.peek().getRacer().moveWhilstApplyingEffects(racetrack, move.getDestination());
 
-            System.out.println("Legal move, moving "+getCurrentPlayer().getName()+" to R"+getCurrentPlayer().getRacer().getPosition().getY()+" C"+getCurrentPlayer().getRacer().getPosition().getX());
+            System.out.println("Legal move, moving "+playersClone.peek().getName()+" to R"+playersClone.peek().getRacer().getPosition().getY()+" C"+playersClone.peek().getRacer().getPosition().getX());
             // only switch players if not in AI solver mode
             if(!aiSolverMode){
                 PlayerAPI currentPlayer = players.poll();                 // todo these could cause issues, do we want to leave the old state with altered attributes, yes/no?

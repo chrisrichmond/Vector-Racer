@@ -33,17 +33,11 @@ public class BreadthFirstSearch extends AbstractSolver {
             State currentState = agenda.poll();
             nodeCount++;
 
-            System.out.println("--------------------------------");
-            System.out.println("currentState being explored in agenda ");
-            System.out.println("HASHCODE: "+ currentState.hashCode());
-            System.out.println("CURRENT PLAYER: "+currentState.getCurrentPlayer() + " " + currentState.getCurrentPlayer().hashCode());
-            System.out.println("ROW: "+currentState.getCurrentPlayer().getRacer().getPosition().getY());
-            System.out.println("COL: "+currentState.getCurrentPlayer().getRacer().getPosition().getX());
-            System.out.println("PARENT STATE: " +currentState.getParent());
-
-            System.out.println();
-
-
+//            System.out.println("currentState being explored in agenda ");
+//            System.out.println("HASHCODE: "+ currentState.hashCode());
+//            System.out.println("CURRENT PLAYER: "+currentState.getCurrentPlayer() + " " + currentState.getCurrentPlayer().hashCode());
+            System.out.println("ROW: "+currentState.getCurrentPlayer().getRacer().getPosition().getY()+" COL: "+currentState.getCurrentPlayer().getRacer().getPosition().getX()+" ZONE: "+currentState.getCurrentPlayer().getRacer().getCurrentZone());
+//            System.out.println("PARENT STATE: " +currentState.getParent());
 
             // GOAL STATE RECOGNISER
             if(currentState.getCurrentPlayer().isFinished()){
@@ -60,9 +54,7 @@ public class BreadthFirstSearch extends AbstractSolver {
                 int currentRow = player.getRacer().getPosition().getY();
                 int currentCol = player.getRacer().getPosition().getX();
                 if((child != null) && (!visited.contains(encodedChild))){
-//                    if(child.getRacetrack().)
                     agenda.add(child);
-
                 }
             }
 

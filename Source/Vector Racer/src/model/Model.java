@@ -27,18 +27,22 @@ public class Model implements ModelAPI {
     }
 
     @Override
-    public void setup(File filename, boolean isPvp, String player1name, String player2name, boolean player2ai) throws FileNotFoundException{
+    public void setup(File filename, String player1name, String player2name, boolean player2ai) throws FileNotFoundException{
         loadFile(filename);
 
         Queue<PlayerAPI> players = new LinkedList<PlayerAPI>();
-        players.add(new Player(player1name, new Racer(racetrack.getStartPosition()), Color.BLUE, false));
+        System.out.println("Adding Player 1: "+player1name+ " "+VectorConstants.P1_COLOR.toString());
+        players.add(new Player(player1name, new Racer(racetrack.getStartPosition()), VectorConstants.P1_COLOR, false));
         if(player2ai){
-            PlayerAPI p2 = new AIPlayer(player2name, new Racer(racetrack.getStartPosition()), Color.RED, VectorConstants.AI_ALGORITHM);
+            System.out.println("Add");
+            System.out.println("Adding Player 2 (AI): "+player2name+ " "+VectorConstants.P2_COLOR.toString());
+            PlayerAPI p2 = new AIPlayer(player2name, new Racer(racetrack.getStartPosition()), VectorConstants.P2_COLOR, VectorConstants.AI_ALGORITHM);
             PlayerAPI p1 = players.poll();
             players.add(p2);
             players.add(p1);
         }else{
-            players.add(new Player(player2name, new Racer(racetrack.getStartPosition()), Color.RED, player2ai));
+            System.out.println("Adding Player 2 (Human): "+player2name+ " "+VectorConstants.P2_COLOR.toString());
+            players.add(new Player(player2name, new Racer(racetrack.getStartPosition()), VectorConstants.P2_COLOR, player2ai));
         }
 
         currentState = new State(players, racetrack, 0, null, null, false);

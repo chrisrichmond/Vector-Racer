@@ -55,22 +55,22 @@ public abstract class AbstractSolver {
         int yVelo = player.getRacer().getVelocity().getYVelo();
         int xPos = player.getRacer().getPosition().getX();
         int yPos = player.getRacer().getPosition().getY();
-        StateDetails stateDetails = new StateDetails(stateNumber, xPos, yPos);
+        StateDetails stateDetails = new StateDetails(stateNumber, xPos, yPos, xVelo, yVelo);
         return stateDetails.hashCode();
     }
 
-    private class StateDetails{
+    private class StateDetails{ // fixme re-added velocity and statenumber hashing
 
-        private int stateNumber;
-//        private int xVelo;
-//        private int yVelo;
+//        private int stateNumber;
+        private int xVelo;
+        private int yVelo;
         private int xPos;
         private int yPos;
 
-        StateDetails(int stateNumber, int xPos, int yPos){
-            this.stateNumber = stateNumber;
-//            this.xVelo = xVelo;
-//            this.yVelo = yVelo;
+        StateDetails(int stateNumber, int xPos, int yPos, int xVelo, int yVelo){
+//            this.stateNumber = stateNumber;
+            this.xVelo = xVelo;
+            this.yVelo = yVelo;
             this.xPos = xPos;
             this.yPos = yPos;
         }
@@ -80,16 +80,16 @@ public abstract class AbstractSolver {
             if (this == o) return true;
             if (!(o instanceof StateDetails)) return false;
             StateDetails that = (StateDetails) o;
-            return stateNumber == that.stateNumber &&
-//                    xVelo == that.xVelo &&
-//                    yVelo == that.yVelo &&
+//    fixme        return stateNumber == that.stateNumber &&
+            return        xVelo == that.xVelo &&
+                    yVelo == that.yVelo &&
                     xPos == that.xPos &&
                     yPos == that.yPos;
         }
 
         @Override
         public int hashCode() {
-            return Objects.hash(xPos, yPos);
+            return Objects.hash(xPos, yPos, xVelo, yVelo);
         }
     }
 

@@ -26,6 +26,9 @@ public class VectorConstants {
     public static final int MAX_ROWS = (int) ((GP_PREFHEIGHT*0.75)/TILESIZE);
     public static final int MAX_COLS = (int) ((GP_PREFWIDTH*0.75)/TILESIZE);
 
+    public static final Color P1_COLOR = Color.BLUE;
+    public static final Color P2_COLOR = Color.RED;
+
     public static final Color GRIDLINE_COLOR = Color.BLACK;
     public static final Color AIR_COLOR = Color.TRANSPARENT;
     public static final Color SAND_COLOR = Color.SANDYBROWN;

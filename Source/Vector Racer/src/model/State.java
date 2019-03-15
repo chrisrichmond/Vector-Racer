@@ -104,32 +104,23 @@ public class State {
 
     public State makeMove(Move move){
         if(isMoveLegal(move)){
-            // return new State with currentPlayer changed to the next in the list
-//            PlayerAPI currentPlayerClone;
-//            if(getCurrentPlayer().isAI()){
-//                currentPlayerClone = new AIPlayer((AIPlayer) getCurrentPlayer());
-//            }else{
-//                currentPlayerClone = new Player(getCurrentPlayer());
-//            }
+
             Queue<PlayerAPI> playersClone = new LinkedList<>();
 
-//            currentPlayerClone.getRacer().moveWhilstApplyingEffects(racetrack, move.getDestination());
-
-            for(PlayerAPI p: players){
-                if(p.isAI()) {
+            for (PlayerAPI p : players) {
+                if (p.isAI()) {
                     playersClone.add(new AIPlayer((AIPlayer) p));
-                }else{
+                } else {
                     playersClone.add(new Player(p));
                 }
             }
 
             playersClone.peek().getRacer().moveWhilstApplyingEffects(racetrack, move.getDestination());
 
-//            System.out.println("Legal move, moving "+playersClone.peek().getName()+" to R"+playersClone.peek().getRacer().getPosition().getY()+" C"+playersClone.peek().getRacer().getPosition().getX());
             // only switch players if not in AI solver mode
-            if(!aiSolverMode){
-                PlayerAPI currentPlayer = players.poll();                 // todo these could cause issues, do we want to leave the old state with altered attributes, yes/no?
-                players.add(currentPlayer);
+            if(!aiSolverMode){  // fixme changed from this states players manipulation to cloned players manipulation
+                PlayerAPI currentClonePlayer = playersClone.poll();                 // todo these could cause issues, do we want to leave the old state with altered attributes, yes/no?
+                playersClone.add(currentClonePlayer);
             }
 
             return new State(playersClone, racetrack, stateNumber+1, this, move, aiSolverMode);
@@ -138,7 +129,6 @@ public class State {
 //            System.out.println("Illegal move! "+move.getPlayerToMove().getName() + " R"+move.getDestination().getY()+ " C"+move.getDestination().getX());
             return this;
         }
-
     }
 
     @Override
@@ -251,33 +241,33 @@ public class State {
         return stateNumber;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder result = new StringBuilder();
-        String newLine = System.getProperty("line.separator");
-
-        result.append( this.getClass().getName() );
-        result.append( " Object {" );
-        result.append(newLine);
-
-        //determine fields declared in this class only (no fields of superclass)
-        Field[] fields = this.getClass().getDeclaredFields();
-
-        //print field names paired with their values
-        for ( Field field : fields  ) {
-            result.append("  ");
-            try {
-                result.append( field.getName() );
-                result.append(": ");
-                //requires access to private field:
-                result.append( field.get(this) );
-            } catch ( IllegalAccessException ex ) {
-                System.out.println(ex);
-            }
-            result.append(newLine);
-        }
-        result.append("}");
-
-        return result.toString();
-    }
+//    @Override
+//    public String toString() {
+//        StringBuilder result = new StringBuilder();
+//        String newLine = System.getProperty("line.separator");
+//
+//        result.append( this.getClass().getName() );
+//        result.append( " Object {" );
+//        result.append(newLine);
+//
+//        //determine fields declared in this class only (no fields of superclass)
+//        Field[] fields = this.getClass().getDeclaredFields();
+//
+//        //print field names paired with their values
+//        for ( Field field : fields  ) {
+//            result.append("  ");
+//            try {
+//                result.append( field.getName() );
+//                result.append(": ");
+//                //requires access to private field:
+//                result.append( field.get(this) );
+//            } catch ( IllegalAccessException ex ) {
+//                System.out.println(ex);
+//            }
+//            result.append(newLine);
+//        }
+//        result.append("}");
+//
+//        return result.toString();
+//    }
 }

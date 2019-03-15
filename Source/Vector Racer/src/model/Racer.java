@@ -16,6 +16,7 @@ public class Racer implements RacerAPI{
         this.velocity = new Vect(original.getVelocity());
         this.finished = original.isFinished();
         this.pointRoute = new ArrayDeque<>(original.getPointRoute());
+        this.currentZone = original.getCurrentZone();
     }
 
     public Racer(Point startPosition){
@@ -140,10 +141,14 @@ public class Racer implements RacerAPI{
                     totalResistance = totalResistance + currentTerrain.getResistance();
                 }
                 if (currentTerrain instanceof CheckpointTile) {
+//     fixme               System.out.println("CURRENT ZONE IS "+currentZone);
+//                    System.out.println("PASSED THROUGH CHECKPOINT TILE OF ZONE "+((CheckpointTile) currentTerrain).getZoneNumber());
                     if (((CheckpointTile) currentTerrain).getZoneNumber() == (currentZone + 1)) {
+//   fixme                     System.out.println("PROGRESSING TO NEXT ZONE ("+((CheckpointTile) currentTerrain).getZoneNumber()+")");
                         nextZone();
                     } else if (((((CheckpointTile) currentTerrain).getZoneNumber() == 0) && (currentZone == racetrack.getFinalZone()))) {
                         finished = true;
+                        System.out.println("PLAYER FINISHED");
                         // todo setPosition(new Point( ((Tile)currentTerrain).getStartX(), ((Tile)currentTerrain).getStartY()));
                         killVelocity();
                         return;

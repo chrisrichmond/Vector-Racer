@@ -112,7 +112,7 @@ public class View implements ViewAPI{
             File selectedFile = fileChooser.showOpenDialog(primaryStage);
             if(selectedFile != null) {
                 try {
-                    model.setup(selectedFile, true, "player1", "player2", VectorConstants.AI_MODE);
+                    model.setup(selectedFile, "player1", "player2", VectorConstants.AI_MODE);
                     createGamePane();
                     changeRootContent(gamePane);
                     model.start();

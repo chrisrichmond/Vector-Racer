@@ -61,8 +61,6 @@ public class BreadthFirstSearch extends AbstractSolver {
             for(State child: children){
 //                System.out.println("CURRENT CHILD: "+child.hashCode()+" currentPlayer"+child.getCurrentPlayer().hashCode()+" R"+child.getCurrentPlayer().getRacer().getPosition().getY()+" C"+child.getCurrentPlayer().getRacer().getPosition().getY());
                 int encodedChild = encodeVisited(child.getStateNumber(), child.getCurrentPlayer());
-//                int currentRow = player.getRacer().getPosition().getY();
-//                int currentCol = player.getRacer().getPosition().getX();
                 if((child != null) && (!visited.contains(encodedChild))){
                     agenda.add(child);
                 }

@@ -31,6 +31,7 @@ public class GameHandler implements Handler {
 
     @Override
     public void handle(Event event) {
+        System.out.println("MOOUSE CLICK: "+event);
         // only handle mouse events if current player is NOT an AI
         if(!(model.getCurrentState().getCurrentPlayer().isAI())) {
             double x = ((MouseEvent) event).getX();

@@ -3,10 +3,7 @@ package ai;
 import model.*;
 import model.geometry.Point;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 public abstract class AbstractSolver {
 
@@ -22,7 +19,7 @@ public abstract class AbstractSolver {
     protected long solveDuration;
     protected int nodeCount;
 
-    public abstract Deque<Point> solve(PlayerAPI player, State initialState);
+    public abstract Deque<Point> solve(State initialState); // fixme changed signature to remove player parameter and this can be derived from current player of initial state
 
     /**
      * Produces a stack of Move objects to get from one State to another
@@ -32,7 +29,7 @@ public abstract class AbstractSolver {
      */
     public Deque<Move> calculateMoves(State from, State to){
         int depth = 0;
-        Deque<Move> moves = new ArrayDeque<>();
+        Deque<Move> moves = new LinkedList<>();
 
         while(!(from.equals(to))){                  // loop while the State we're going to is not the State we were originally coming from (as in the first State)
             System.out.println("depth: "+depth++);  // increase depth count by 1

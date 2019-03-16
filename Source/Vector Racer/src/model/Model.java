@@ -23,7 +23,7 @@ public class Model implements ModelAPI {
     public Model(){
         fileHandler = new VectorFileHandler(this);
         observers = new ArrayList<>();
-        history = new ArrayDeque<>();
+        history = new LinkedList<>();
     }
 
     @Override
@@ -37,23 +37,23 @@ public class Model implements ModelAPI {
         if(player2ai){
             System.out.println("Adding Player 2 (AI): "+player2name+ " "+VectorConstants.P2_COLOR.toString());
             PlayerAPI p2 = new AIPlayer(player2name, new Racer(racetrack.getStartPosition()), VectorConstants.P2_COLOR, VectorConstants.AI_ALGORITHM);
-//            PlayerAPI p1 = players.poll();
-//            players.add(p2);
-//            players.add(p1);
+            PlayerAPI p1 = players.poll();
+            players.add(p2);
+            players.add(p1);
         }else{
             System.out.println("Adding Player 2 (Human): "+player2name+ " "+VectorConstants.P2_COLOR.toString());
             players.add(new Player(player2name, new Racer(racetrack.getStartPosition()), VectorConstants.P2_COLOR, player2ai));
         }
 
         currentState = new State(players, racetrack, 0, null, null, false);
-        System.out.println("Before finding solution current player is "+currentState.getCurrentPlayer().getName());
-        for(PlayerAPI currentPlayer: players){
+        for(PlayerAPI currentPlayer: currentState.getPlayers()){
             System.out.println(currentPlayer.getName());
             if(currentPlayer.isAI()){
                 ((AIPlayer)currentPlayer).findSolution(currentState);
             }
         }
-        System.out.println("After finding solution current player is "+currentState.getCurrentPlayer().getName());
+        PlayerAPI p2 = currentState.getPlayers().poll();
+        currentState.getPlayers().add(p2);
     }
 
     @Override
@@ -148,7 +148,18 @@ public class Model implements ModelAPI {
             if( (row >= rowLow) && (row <= rowHigh) && (col >= colLow) && (col <= colHigh) ){
 
                 history.push(currentState); // todo incorporate mechanism for this on AI side too?
+//                System.out.println("currentState BEFORE player makeMove(): "+currentState);
                 currentState = currentState.makeMove(new Move(currentState.getCurrentPlayer(), new Point((int)col, (int)row)));
+//                System.out.println("currentState AFTER player makeMove(): "+currentState);
+
+                if(currentState.getCurrentPlayer().isAI()){
+                    System.out.println("CURRENT PLAYER IS AI");
+                    history.push(currentState);
+//                    System.out.println("currentState BEFORE AI makeMove(): "+currentState);
+                    currentState = currentState.makeMove(((AIPlayer) currentState.getCurrentPlayer()).getMove());
+//                    System.out.println("currentState AFTER AI makeMove(): "+currentState);
+                }
+
                 if(currentState.isGameOver()){
                     System.out.println("GAME OVER ALL PLAYERS HAVE FINISHED");
                 }

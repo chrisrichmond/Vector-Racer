@@ -7,7 +7,7 @@ import java.util.*;
 
 public class BreadthFirstSearch extends AbstractSolver {
 
-    public Deque<Point> solve(PlayerAPI player, State initState){
+    public Deque<Point> solve(State initState){ // fixme changed signature to remove player parameter and this can be derived from current player of initial state
 //        Player player = new Player(playerToSolveFor);
         State initialState = new State(initState);
         // SETTING STATE GRAPH INTO AI MODE
@@ -17,9 +17,9 @@ public class BreadthFirstSearch extends AbstractSolver {
 //        System.out.println(initialState.toString());
 //        System.out.println("************************************************");
 
-        this.player = player;
+//        this.player = player; //fixme
         this.nodeCount = 0;
-        Deque<State> agenda = new ArrayDeque<>();
+        Deque<State> agenda = new LinkedList<>();
         Set<Integer> visited = new HashSet<>();
 
         startTime = System.currentTimeMillis();
@@ -28,7 +28,7 @@ public class BreadthFirstSearch extends AbstractSolver {
 
         agenda.addAll(initialState.getChildren());
 //        System.out.println(agenda.size());
-        visited.add(encodeVisited(initialState.getStateNumber(), player));
+        visited.add(encodeVisited(initialState.getStateNumber(), initialState.getCurrentPlayer())); // fixme changed from player to initialState.getCurrentPlayer()
         int currentZone = 0;
         while(!agenda.isEmpty()){
             State currentState = agenda.poll();

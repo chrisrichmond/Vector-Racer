@@ -7,6 +7,7 @@ import model.geometry.Point;
 import java.lang.reflect.Field;
 import java.util.ArrayDeque;
 import java.util.Deque;
+import java.util.LinkedList;
 
 public class AIPlayer extends Player {
 
@@ -21,7 +22,7 @@ public class AIPlayer extends Player {
                 true);
         this.algorithm = original.getAlgorithm();
         this.solved = original.isSolved();
-        this.solution = new ArrayDeque<>(original.getSolution());
+        this.solution = new LinkedList<>(original.getSolution());
     }
 
     public AIPlayer(String name, RacerAPI racer, Color color, String algorithmName) {
@@ -41,7 +42,7 @@ public class AIPlayer extends Player {
         }
 
         this.solved = false;
-        this.solution = new ArrayDeque<>();
+        this.solution = new LinkedList<>();
     }
 
     public Deque<Point> getSolution(){
@@ -54,7 +55,7 @@ public class AIPlayer extends Player {
 
     public boolean findSolution(State initialState){
         if(!solved){
-            solution = algorithm.solve(this, initialState);
+            solution = algorithm.solve(initialState); // fixme changed to remove passing of this player
             if(solution != null){
                 solved = true;
             }
@@ -65,7 +66,11 @@ public class AIPlayer extends Player {
 
     public Move getMove() {
         if (solved) {
-            return new Move(this, solution.poll());
+            System.out.println("getting move: R"+solution.peek().getY()+" C"+solution.peekLast().getX());
+            for(Point currentMove: solution){
+                System.out.println("current solution move: R"+currentMove.getY()+" C"+currentMove.getX());
+            }
+            return new Move(this, solution.removeLast());
         }else{
             System.out.println("Cannot get AI move as no solution exists yet!");
             return null;

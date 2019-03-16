@@ -15,7 +15,7 @@ public class Racer implements RacerAPI{
     public Racer(RacerAPI original){
         this.velocity = new Vect(original.getVelocity());
         this.finished = original.isFinished();
-        this.pointRoute = new ArrayDeque<>();
+        this.pointRoute = new LinkedList<>();
         for(Point point: original.getPointRoute()) {    // fixme added this for deep cloning(?)
             this.pointRoute.add(new Point(point));
         }
@@ -25,7 +25,7 @@ public class Racer implements RacerAPI{
     public Racer(Point startPosition){
         this.velocity = new Vect(startPosition, startPosition);
         this.finished = false;
-        pointRoute = new ArrayDeque<>();
+        pointRoute = new LinkedList<>();
         pointRoute.push(startPosition);
         this.currentZone = 0;
     }

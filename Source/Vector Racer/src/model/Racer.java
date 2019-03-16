@@ -37,6 +37,7 @@ public class Racer implements RacerAPI{
 
     @Override
     public boolean isFinished() {
+        System.out.println("finished in Racer: "+finished);
         return finished;
     }
 

@@ -197,17 +197,6 @@ public class State {
         return parent;
     }
 
-    // TODO NEED TO CHECK THIS ALL DUE TO BEING UNSURE IF COPYING KEEPS REFERENCE TO ORIGINAL OBJECT ATTRIBUTES
-//    public HashMap<Move, State> getChildren(){
-//        State copiedCurrentState = new State(this);
-//        HashMap<Move, State> children = new HashMap();
-//        for(Point currentPossibleNextPoint: this.currentPlayer.getRacer().getPossibleNextPoints()){
-//            Move move = new Move(this.currentPlayer, currentPossibleNextPoint);
-//            children.put(move, copiedCurrentState.makeMove(move));
-//        }
-//        return children;
-//    }
-
     /**
      *
      * @param to the State to get to, must be a child of this State
@@ -229,8 +218,15 @@ public class State {
             //            children.add(new State(currentNextLegalState));
 //        }
 //        return children;
+        Set<State> children = getNextLegalStates();
 
-        return getNextLegalStates();
+        for(State currentChild: children){
+            if(currentChild.getCurrentPlayer().isFinished()){
+                System.out.println(currentChild.getCurrentPlayer()+" is finished in this child: "+currentChild);
+            }
+        }
+
+        return children;
     }
 
     public Move getDelta(){

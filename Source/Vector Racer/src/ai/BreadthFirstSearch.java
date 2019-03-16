@@ -46,11 +46,13 @@ public class BreadthFirstSearch extends AbstractSolver {
             }
 
             // GOAL STATE RECOGNISER
-            System.out.println("BEFORE GOAL STATE RECOGNISER: "+currentState.getCurrentPlayer().getRacer());
+            System.out.println("exploring currentState: "+currentState);
+//            System.out.println("BEFORE GOAL STATE RECOGNISER: "+currentState.getCurrentPlayer().getRacer());
+//            System.out.println("finished?: "+currentState.getCurrentPlayer().isFinished());
             if(currentState.getCurrentPlayer().isFinished()){
                 initialState.setAiSolverMode(false);    // todo do I actually need this? this is the cloned state so it wont be used anyway
                 System.out.println("PLAYER FINISHED");
-                return calculateMoves(initialState, currentState); // fixme CAN JUST USE RACERS POINT ROUTE SURELY???
+                return calculateMoves(initialState, currentState); // fixme CAN JUST CLONE SUCCESSFUL RACER'S POINT ROUTE SURELY???
             }
 
             visited.add(encodeVisited(currentState.getStateNumber(), currentState.getCurrentPlayer()));
@@ -58,13 +60,12 @@ public class BreadthFirstSearch extends AbstractSolver {
             for(State child: children){
 //                System.out.println("CURRENT CHILD: "+child.hashCode()+" currentPlayer"+child.getCurrentPlayer().hashCode()+" R"+child.getCurrentPlayer().getRacer().getPosition().getY()+" C"+child.getCurrentPlayer().getRacer().getPosition().getY());
                 int encodedChild = encodeVisited(child.getStateNumber(), child.getCurrentPlayer());
-                int currentRow = player.getRacer().getPosition().getY();
-                int currentCol = player.getRacer().getPosition().getX();
+//                int currentRow = player.getRacer().getPosition().getY();
+//                int currentCol = player.getRacer().getPosition().getX();
                 if((child != null) && (!visited.contains(encodedChild))){
                     agenda.add(child);
                 }
             }
-            System.out.println(agenda.size());
 
 //            try{
 //                Thread.sleep(1000);

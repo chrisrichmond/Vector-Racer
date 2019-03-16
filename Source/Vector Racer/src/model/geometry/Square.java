@@ -14,7 +14,11 @@ public class Square {
     public Square(Square original){
         this.start = new Point(original.getStart());
         this.end = new Point(original.getEnd());
-        this.corners = new ArrayList<Point>(original.getCorners());
+        this.corners = new ArrayList<>(original.getCorners());
+//        this.corners = new ArrayList<Point>();  // fixme added deep cloning, do I need it? PROBABLY NOT, DON'T ADD BACK IN
+//        for(Point point: original.getCorners()) {
+//            this.corners.add(new Point(point));
+//        }
     }
 
     public Square(Point start){

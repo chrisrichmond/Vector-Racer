@@ -33,24 +33,27 @@ public class Model implements ModelAPI {
         Queue<PlayerAPI> players = new LinkedList<PlayerAPI>();
         System.out.println("Adding Player 1: "+player1name+ " "+VectorConstants.P1_COLOR.toString());
         players.add(new Player(player1name, new Racer(racetrack.getStartPosition()), VectorConstants.P1_COLOR, false));
+        System.out.println(players.peek().getName());
         if(player2ai){
-            System.out.println("Add");
             System.out.println("Adding Player 2 (AI): "+player2name+ " "+VectorConstants.P2_COLOR.toString());
             PlayerAPI p2 = new AIPlayer(player2name, new Racer(racetrack.getStartPosition()), VectorConstants.P2_COLOR, VectorConstants.AI_ALGORITHM);
-            PlayerAPI p1 = players.poll();
-            players.add(p2);
-            players.add(p1);
+//            PlayerAPI p1 = players.poll();
+//            players.add(p2);
+//            players.add(p1);
         }else{
             System.out.println("Adding Player 2 (Human): "+player2name+ " "+VectorConstants.P2_COLOR.toString());
             players.add(new Player(player2name, new Racer(racetrack.getStartPosition()), VectorConstants.P2_COLOR, player2ai));
         }
 
         currentState = new State(players, racetrack, 0, null, null, false);
+        System.out.println("Before finding solution current player is "+currentState.getCurrentPlayer().getName());
         for(PlayerAPI currentPlayer: players){
+            System.out.println(currentPlayer.getName());
             if(currentPlayer.isAI()){
                 ((AIPlayer)currentPlayer).findSolution(currentState);
             }
         }
+        System.out.println("After finding solution current player is "+currentState.getCurrentPlayer().getName());
     }
 
     @Override

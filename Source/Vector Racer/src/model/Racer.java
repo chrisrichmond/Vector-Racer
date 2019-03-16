@@ -145,16 +145,12 @@ public class Racer implements RacerAPI{
                     totalResistance = totalResistance + currentTerrain.getResistance();
                 }
                 if (currentTerrain instanceof CheckpointTile) {
-//     fixme               System.out.println("CURRENT ZONE IS "+currentZone);
-//                    System.out.println("PASSED THROUGH CHECKPOINT TILE OF ZONE "+((CheckpointTile) currentTerrain).getZoneNumber());
                     if (((CheckpointTile) currentTerrain).getZoneNumber() == (currentZone + 1)) {
-//   fixme                     System.out.println("PROGRESSING TO NEXT ZONE ("+((CheckpointTile) currentTerrain).getZoneNumber()+")");
                         nextZone();
                     } else if (((((CheckpointTile) currentTerrain).getZoneNumber() == 0) && (currentZone == racetrack.getFinalZone()))) {
                         finished = true;
                         System.out.println("PLAYER FINISHED (in Racer)");
                         System.out.println(this);
-                        // todo setPosition(new Point( ((Tile)currentTerrain).getStartX(), ((Tile)currentTerrain).getStartY()));
                         killVelocity();
                         return;
                     }

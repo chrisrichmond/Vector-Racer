@@ -68,7 +68,7 @@ public class AIPlayer extends Player {
         if (solved) {
             System.out.println("getting move: R"+solution.peek().getY()+" C"+solution.peekLast().getX());
             for(Point currentMove: solution){
-                System.out.println("current solution move: R"+currentMove.getY()+" C"+currentMove.getX());
+//                System.out.println("current solution move: R"+currentMove.getY()+" C"+currentMove.getX());
             }
             return new Move(this, solution.removeLast());
         }else{

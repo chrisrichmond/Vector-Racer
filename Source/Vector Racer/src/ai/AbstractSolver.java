@@ -34,8 +34,8 @@ public abstract class AbstractSolver {
         while(!(from.equals(to))){                  // loop while the State we're going to is not the State we were originally coming from (as in the first State)
             System.out.println("depth: "+depth++);  // increase depth count by 1
             State next = to.getParent();            // use temporary State variable to store the parent State of the State we were going to
-//            moves.push(next.calculateMoveTo(to));   // push the Move required to get from the parent State to the State we are currently going to, onto the top of the Stack
-           moves.push(to.getDelta());
+            moves.push(next.calculateMoveTo(to));   // push the Move required to get from the parent State to the State we are currently going to, onto the top of the Stack
+            moves.push(to.getDelta());
             to = next;                              // set the State we're going to to the Parent
         }
         solveDuration = System.currentTimeMillis() - startTime;

@@ -48,11 +48,9 @@ public class Model implements ModelAPI {
         currentState = new State(players, racetrack, 0, null, null, false);
         for(PlayerAPI currentPlayer: players){
             if(currentPlayer.isAI()){
-
                 ((AIPlayer)currentPlayer).findSolution(currentState);
             }
         }
-
     }
 
     @Override
@@ -136,6 +134,7 @@ public class Model implements ModelAPI {
 
     @Override
     public void gridPointInput(double row, double col) {
+        System.out.println("in gridpointinput");
         for(Point currentPoint: currentState.getCurrentPlayer().getRacer().getPossibleNextPoints(racetrack)){
             // this could be improved through usage of a structured array rather than arraylist so as to make collection searching more efficient
             double rowLow = currentPoint.getY() - 0.5;
@@ -145,7 +144,7 @@ public class Model implements ModelAPI {
 
             if( (row >= rowLow) && (row <= rowHigh) && (col >= colLow) && (col <= colHigh) ){
 
-                history.push(currentState); // todo incorporate mechanism for this on AI side too
+                history.push(currentState); // todo incorporate mechanism for this on AI side too?
                 currentState = currentState.makeMove(new Move(currentState.getCurrentPlayer(), new Point((int)col, (int)row)));
                 if(currentState.isGameOver()){
                     System.out.println("GAME OVER ALL PLAYERS HAVE FINISHED");

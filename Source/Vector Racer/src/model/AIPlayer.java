@@ -2,6 +2,7 @@ package model;
 
 import ai.*;
 import javafx.scene.paint.Color;
+import model.geometry.Point;
 
 import java.lang.reflect.Field;
 import java.util.ArrayDeque;
@@ -11,7 +12,7 @@ public class AIPlayer extends Player {
 
     protected AbstractSolver algorithm;
     protected boolean solved;
-    protected Deque<Move> solution;
+    protected Deque<Point> solution;
 
     public AIPlayer(AIPlayer original){
         super(new String(original.getName()),
@@ -29,11 +30,11 @@ public class AIPlayer extends Player {
         if(algorithmName.toLowerCase().equals("bfs")) {
             this.algorithm = new BreadthFirstSearch();
         }else if(algorithmName.toLowerCase().equals("dfs")) {
-            this.algorithm = new DepthFirstSearch();
+//            this.algorithm = new DepthFirstSearch();
         }else if(algorithmName.toLowerCase().equals("bfswz")) {
-            this.algorithm = new BreadthFirstSearchWithZoning();
+//            this.algorithm = new BreadthFirstSearchWithZoning();
         }else if(algorithmName.toLowerCase().equals("dfswz")) {
-            this.algorithm = new DepthFirstSearchWithZoning();
+//            this.algorithm = new DepthFirstSearchWithZoning();
         }else{
             System.out.println("SEARCH ALGORITHM DEFAULTING TO BFS");
             this.algorithm = new BreadthFirstSearch();
@@ -43,7 +44,7 @@ public class AIPlayer extends Player {
         this.solution = new ArrayDeque<>();
     }
 
-    public Deque<Move> getSolution(){
+    public Deque<Point> getSolution(){
         return solution;
     }
 
@@ -58,12 +59,13 @@ public class AIPlayer extends Player {
                 solved = true;
             }
         }
+        System.out.println("S O L V E D");
         return solved;
     }
 
     public Move getMove() {
         if (solved) {
-            return solution.pop();
+            return new Move(this, solution.poll());
         }else{
             System.out.println("Cannot get AI move as no solution exists yet!");
             return null;

@@ -1,6 +1,7 @@
 package ai;
 
 import model.*;
+import model.geometry.Point;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
@@ -21,7 +22,7 @@ public abstract class AbstractSolver {
     protected long solveDuration;
     protected int nodeCount;
 
-    public abstract Deque<Move> solve(PlayerAPI player, State initialState);
+    public abstract Deque<Point> solve(PlayerAPI player, State initialState);
 
     /**
      * Produces a stack of Move objects to get from one State to another
@@ -44,7 +45,7 @@ public abstract class AbstractSolver {
         return moves;
     }
 
-    public Deque<Move> fail(){
+    public Deque<Point> fail(){
         solveDuration = System.currentTimeMillis() - startTime;
         System.out.println("AI couldn't find goal state solution after searching "+nodeCount+" nodes in "+solveDuration/1000+" seconds");
         return null;

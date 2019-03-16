@@ -45,15 +45,6 @@ public class State {
         this.delta = delta;
         this.aiSolverMode = aiSolverMode;
 
-//        this.currentPlayer = new Player(players.peek());
-//        this.players = new LinkedList<>(players);
-//        this.racetrack = new Racetrack(racetrack);
-//        this.stateNumber = stateNumber;
-//        this.parent = parent;
-//        if(delta != null)
-//            this.delta = new Move(delta);
-//        this.aiSolverMode = aiSolverMode;
-
         int skipCount = 0;
         if(!isAiSolverMode()) {
             while (getCurrentPlayer().isFinished()) {

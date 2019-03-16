@@ -7,7 +7,7 @@ import java.util.*;
 
 public class BreadthFirstSearch extends AbstractSolver {
 
-    public Deque<Move> solve(PlayerAPI player, State initState){
+    public Deque<Point> solve(PlayerAPI player, State initState){
 //        Player player = new Player(playerToSolveFor);
         State initialState = new State(initState);
         // SETTING STATE GRAPH INTO AI MODE
@@ -52,7 +52,8 @@ public class BreadthFirstSearch extends AbstractSolver {
             if(currentState.getCurrentPlayer().isFinished()){
                 initialState.setAiSolverMode(false);    // todo do I actually need this? this is the cloned state so it wont be used anyway
                 System.out.println("PLAYER FINISHED (in BFS)");
-                return calculateMoves(initialState, currentState); // fixme CAN JUST CLONE SUCCESSFUL RACER'S POINT ROUTE SURELY???
+//                return calculateMoves(initialState, currentState); // fixme CAN JUST CLONE SUCCESSFUL RACER'S POINT ROUTE SURELY???
+                return currentState.getCurrentPlayer().getRacer().getPointRoute();
             }
 
             visited.add(encodeVisited(currentState.getStateNumber(), currentState.getCurrentPlayer()));

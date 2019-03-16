@@ -15,7 +15,7 @@ public class AIPlayer extends Player {
 
     public AIPlayer(AIPlayer original){
         super(new String(original.getName()),
-                new Racer((Racer)original.getRacer()),
+                new Racer(original.getRacer()),
                 original.getColor(),
                 true);
         this.algorithm = original.getAlgorithm();

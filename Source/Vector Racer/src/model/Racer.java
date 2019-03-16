@@ -15,7 +15,10 @@ public class Racer implements RacerAPI{
     public Racer(RacerAPI original){
         this.velocity = new Vect(original.getVelocity());
         this.finished = original.isFinished();
-        this.pointRoute = new ArrayDeque<>(original.getPointRoute());
+        this.pointRoute = new ArrayDeque<>();
+        for(Point point: original.getPointRoute()) {    // fixme added this for deep cloning(?)
+            this.pointRoute.add(new Point(point));
+        }
         this.currentZone = original.getCurrentZone();
     }
 
@@ -149,6 +152,7 @@ public class Racer implements RacerAPI{
                     } else if (((((CheckpointTile) currentTerrain).getZoneNumber() == 0) && (currentZone == racetrack.getFinalZone()))) {
                         finished = true;
                         System.out.println("PLAYER FINISHED");
+                        System.out.println(this);
                         // todo setPosition(new Point( ((Tile)currentTerrain).getStartX(), ((Tile)currentTerrain).getStartY()));
                         killVelocity();
                         return;

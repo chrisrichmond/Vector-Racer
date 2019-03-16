@@ -29,6 +29,7 @@ public class BreadthFirstSearch extends AbstractSolver {
         agenda.addAll(initialState.getChildren());
 //        System.out.println(agenda.size());
         visited.add(encodeVisited(initialState.getStateNumber(), player));
+        int currentZone = 0;
         while(!agenda.isEmpty()){
             State currentState = agenda.poll();
             nodeCount++;
@@ -36,14 +37,20 @@ public class BreadthFirstSearch extends AbstractSolver {
 //            System.out.println("currentState being explored in agenda ");
 //            System.out.println("HASHCODE: "+ currentState.hashCode());
 //            System.out.println("CURRENT PLAYER: "+currentState.getCurrentPlayer() + " " + currentState.getCurrentPlayer().hashCode());
-            System.out.println("ROW: "+currentState.getCurrentPlayer().getRacer().getPosition().getY()+" COL: "+currentState.getCurrentPlayer().getRacer().getPosition().getX()+" ZONE: "+currentState.getCurrentPlayer().getRacer().getCurrentZone());
+//            System.out.println("ROW: "+currentState.getCurrentPlayer().getRacer().getPosition().getY()+" COL: "+currentState.getCurrentPlayer().getRacer().getPosition().getX()+" ZONE: "+currentState.getCurrentPlayer().getRacer().getCurrentZone());
 //            System.out.println("PARENT STATE: " +currentState.getParent());
 
+            if(currentState.getCurrentPlayer().getRacer().getCurrentZone()>currentZone){
+                System.out.println("incrementing currentZone from "+currentZone+" to "+(++currentZone));
+                agenda.clear();
+            }
+
             // GOAL STATE RECOGNISER
+            System.out.println("BEFORE GOAL STATE RECOGNISER: "+currentState.getCurrentPlayer().getRacer());
             if(currentState.getCurrentPlayer().isFinished()){
                 initialState.setAiSolverMode(false);    // todo do I actually need this? this is the cloned state so it wont be used anyway
                 System.out.println("PLAYER FINISHED");
-                return calculateMoves(initialState, currentState);
+                return calculateMoves(initialState, currentState); // fixme CAN JUST USE RACERS POINT ROUTE SURELY???
             }
 
             visited.add(encodeVisited(currentState.getStateNumber(), currentState.getCurrentPlayer()));
@@ -57,6 +64,7 @@ public class BreadthFirstSearch extends AbstractSolver {
                     agenda.add(child);
                 }
             }
+            System.out.println(agenda.size());
 
 //            try{
 //                Thread.sleep(1000);

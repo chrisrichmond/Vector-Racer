@@ -223,11 +223,11 @@ public class State {
 
     public Set<State> getChildren() {
 //        List<State> children = new ArrayList<>();
-        for (State currentNextLegalState : getNextLegalStates()){
+//        for (State currentNextLegalState : getNextLegalStates()){
 //            System.out.print("[child state hash "+currentNextLegalState.hashCode()+" "+currentNextLegalState.getCurrentPlayer().getName()+ " R"+currentNextLegalState.getCurrentPlayer().getRacer().getPosition().getY()+" C"+currentNextLegalState.getCurrentPlayer().getRacer().getPosition().getX()+"]   ");
 //            System.out.println("hash for currentPlayer in currentNextLegalState: "+currentNextLegalState.getCurrentPlayer().hashCode());
             //            children.add(new State(currentNextLegalState));
-        }
+//        }
 //        return children;
 
         return getNextLegalStates();

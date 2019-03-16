@@ -37,7 +37,7 @@ public class Racer implements RacerAPI{
 
     @Override
     public boolean isFinished() {
-        System.out.println("finished in Racer: "+finished);
+//        System.out.println("finished in Racer: "+finished);
         return finished;
     }
 
@@ -152,7 +152,7 @@ public class Racer implements RacerAPI{
                         nextZone();
                     } else if (((((CheckpointTile) currentTerrain).getZoneNumber() == 0) && (currentZone == racetrack.getFinalZone()))) {
                         finished = true;
-                        System.out.println("PLAYER FINISHED");
+                        System.out.println("PLAYER FINISHED (in Racer)");
                         System.out.println(this);
                         // todo setPosition(new Point( ((Tile)currentTerrain).getStartX(), ((Tile)currentTerrain).getStartY()));
                         killVelocity();

@@ -46,12 +46,12 @@ public class BreadthFirstSearch extends AbstractSolver {
             }
 
             // GOAL STATE RECOGNISER
-            System.out.println("exploring currentState: "+currentState);
+//            System.out.println("exploring currentState: "+currentState);
 //            System.out.println("BEFORE GOAL STATE RECOGNISER: "+currentState.getCurrentPlayer().getRacer());
 //            System.out.println("finished?: "+currentState.getCurrentPlayer().isFinished());
             if(currentState.getCurrentPlayer().isFinished()){
                 initialState.setAiSolverMode(false);    // todo do I actually need this? this is the cloned state so it wont be used anyway
-                System.out.println("PLAYER FINISHED");
+                System.out.println("PLAYER FINISHED (in BFS)");
                 return calculateMoves(initialState, currentState); // fixme CAN JUST CLONE SUCCESSFUL RACER'S POINT ROUTE SURELY???
             }
 

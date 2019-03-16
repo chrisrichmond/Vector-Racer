@@ -55,14 +55,16 @@ public class State {
 //        this.aiSolverMode = aiSolverMode;
 
         int skipCount = 0;
-        while(getCurrentPlayer().isFinished()){
-            if(skipCount >= players.size()){
-                // ALL PLAYERS HAVE FINISHED
-                gameOver = true;
-                break;
-            }else{
-                skipCurrentPlayer();
-                skipCount++;
+        if(!isAiSolverMode()) {
+            while (getCurrentPlayer().isFinished()) {
+                if (skipCount >= players.size()) {
+                    // ALL PLAYERS HAVE FINISHED
+                    gameOver = true;
+                    break;
+                } else {
+                    skipCurrentPlayer();
+                    skipCount++;
+                }
             }
         }
 
@@ -121,6 +123,10 @@ public class State {
             if(!aiSolverMode){  // fixme changed from this states players manipulation to cloned players manipulation
                 PlayerAPI currentClonePlayer = playersClone.poll();                 // todo these could cause issues, do we want to leave the old state with altered attributes, yes/no?
                 playersClone.add(currentClonePlayer);
+            }
+
+            if(playersClone.peek().isFinished()){
+                System.out.println("PLAYER IS FINISHED IN MAKEMOVE");
             }
 
             return new State(playersClone, racetrack, stateNumber+1, this, move, aiSolverMode);

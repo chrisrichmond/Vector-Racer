@@ -1,32 +1,54 @@
 package model.geometry;
 
-import model.RacerAPI;
-import model.Terrain;
-
 import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
+/**
+ * Class which represents a single point in 2-dimensional Cartesian space.
+ */
 public class Point {
 
+    /**
+     * The horizontal component of this Point.
+     */
     private int x;
+
+    /**
+     * The vertical component of this Point.
+     */
     private int y;
 
+    /**
+     * Copy constructor - creates a new instance of Point.
+     * @param original the Point to deep copy
+     */
     public Point(Point original){
         this.x = original.getX();
         this.y = original.getY();
     }
 
+    /**
+     * Creates a new instance of Point.
+     * @param x the horizontal component of this Point
+     * @param y the vertical component of this Point
+     */
     public Point(int x, int y){
         this.x = x;
         this.y = y;
     }
 
+    /**
+     * Returns the horizontal component of this Point.
+     * @return the x coordinate
+     */
     public int getX(){
         return x;
     }
 
+    /**
+     * Returns the vertical component of this Point.
+     * @return the y coordinate
+     */
     public int getY() {
         return y;
     }

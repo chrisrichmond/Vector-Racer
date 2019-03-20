@@ -86,22 +86,16 @@ public class View implements ViewAPI{
         mainMenuPane = new AnchorPane();
 
         mainMenuPane.setPrefSize(600.0, 350.0);
-        ImageView backgroundImageView = new ImageView();
-//        try {
-//            URL url = new URL("file:vrsplash.jpg");
-//            System.out.println(url);
-//        }catch (Exception e) {
-//            e.printStackTrace();
-//        }
-        Image image = new Image(Paths.get("vrsplash.png").toUri().toString());
-//        System.out.println(backgroundImageView);
-        backgroundImageView.setImage(image);
-//        backgroundImageView.setCache(true);
+        Image image = new Image("file:"+ "images/vrsplash.png");
+        System.out.println(image.isError());
+        ImageView backgroundImageView = new ImageView(image);
         backgroundImageView.setFitWidth(600.0);
         backgroundImageView.setFitHeight(400.0);
         backgroundImageView.setPickOnBounds(true);
         backgroundImageView.setPreserveRatio(true);
 
+        System.out.println(backgroundImageView.getFitHeight());
+        System.out.println(backgroundImageView);
 
         VBox vbox = new VBox();
         vbox.setPrefSize(178.0, 200.0);

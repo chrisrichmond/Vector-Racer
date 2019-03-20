@@ -1,16 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Full geometry package commentary">
-      <change afterPath="$PROJECT_DIR$/resources/fxml/mainmenu.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/vrsplash.jpg" afterDir="false" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="bump, many attempts at integrating new menu to no avail as of current">
+      <change afterPath="$PROJECT_DIR$/resources/images/vrsplash.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vector Racer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Vector Racer.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/images/vector racer edit.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/resources/images/vrsplash.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/View.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/ViewAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ViewAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/mainmenu.fxml" beforeDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -66,21 +60,21 @@
     <favorites_list name="JavaFxApplication" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5237838">
+    <splitter split-orientation="horizontal" split-proportion="0.7194595">
       <split-first>
         <leaf>
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/view/View.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="279">
-                  <caret line="95" column="65" selection-start-line="95" selection-start-column="65" selection-end-line="95" selection-end-column="65" />
+                <state relative-caret-position="129">
+                  <caret line="88" column="61" selection-start-line="88" selection-start-column="61" selection-end-line="88" selection-end-column="61" />
                   <folding>
                     <element signature="e#6108#6109#0" expanded="true" />
                     <element signature="e#6143#6144#0" expanded="true" />
                     <element signature="e#6197#6198#0" expanded="true" />
                     <element signature="e#6232#6233#0" expanded="true" />
-                    <element signature="e#6721#6722#0" expanded="true" />
-                    <element signature="e#6994#6995#0" expanded="true" />
+                    <element signature="e#6539#6540#0" expanded="true" />
+                    <element signature="e#6812#6813#0" expanded="true" />
                     <element signature="e#6663#6664#0" expanded="true" />
                     <element signature="e#6709#6710#0" expanded="true" />
                   </folding>
@@ -366,7 +360,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553065878806" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553067350424" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/fxml" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -383,6 +377,7 @@
       <recent name="utilities" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\CASR1\Documents\Git Repos\EE475\Vector-Racer\Source\Vector Racer\resources\images" />
       <recent name="C:\Users\CASR1\Documents\Git Repos\EE475\Vector-Racer\Source\Vector Racer\src\view" />
       <recent name="C:\Users\CASR1\Documents\Git Repos\EE475\Vector-Racer\Source\Vector Racer\resources\racetracks" />
       <recent name="C:\Users\CASR1\Documents\Git Repos\EE475\Vector-Racer\Source\Vector Racer\src\model\racetracks" />
@@ -590,13 +585,6 @@
       <workItem from="1547566384896" duration="3847000" />
       <workItem from="1549298180766" duration="13715000" />
       <workItem from="1551463240268" duration="5765000" />
-    </task>
-    <task id="LOCAL-00116" summary="bump">
-      <created>1551378047824</created>
-      <option name="number" value="00116" />
-      <option name="presentableId" value="LOCAL-00116" />
-      <option name="project" value="LOCAL" />
-      <updated>1551378047825</updated>
     </task>
     <task id="LOCAL-00117" summary="fixed issues with equals and hashcode methods in Tile that were causing issues when removing tiles from the racetrack to overwrite with checkpoints, pretty much at v1.0.0 now, just need to put in checks for all players finishing the race, then final testing/debugging, then can start on styling and AI for v1.1.0">
       <created>1551554175544</created>
@@ -934,7 +922,14 @@
       <option name="project" value="LOCAL" />
       <updated>1553023512581</updated>
     </task>
-    <option name="localTasksCounter" value="165" />
+    <task id="LOCAL-00165" summary="bump, many attempts at integrating new menu to no avail as of current">
+      <created>1553066013237</created>
+      <option name="number" value="00165" />
+      <option name="presentableId" value="LOCAL-00165" />
+      <option name="project" value="LOCAL" />
+      <updated>1553066013238</updated>
+    </task>
+    <option name="localTasksCounter" value="166" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -953,7 +948,7 @@
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" weight="0.2372973" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.2372973" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" weight="0.32972974" />
       <window_info id="Designer" order="3" />
@@ -962,7 +957,7 @@
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.30274135" />
-      <window_info active="true" anchor="bottom" x="926" y="494" width="472" height="266" id="Run" order="2" visible="true" weight="0.19189511" />
+      <window_info anchor="bottom" x="926" y="494" width="472" height="266" id="Run" order="2" visible="true" weight="0.19189511" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.7353993" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1035,7 +1030,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
-    <MESSAGE value="AI work" />
     <MESSAGE value="Node.getChildren()" />
     <MESSAGE value="AI work on Node, AbstractSolver, and BFS" />
     <MESSAGE value="Player refactor" />
@@ -1060,7 +1054,8 @@
     <MESSAGE value="AI makes it partially around minimonza, crashing at different points depending on the solution list that was generated, seems to be an issue regarding returning the pointroute to the solution, so when getMove() is called on the AI it may return a point whose next turn will result in an imminent crash and therefore make the next point in the list unreachable due to a reset of velocity" />
     <MESSAGE value="bump" />
     <MESSAGE value="Full geometry package commentary" />
-    <option name="LAST_COMMIT_MESSAGE" value="Full geometry package commentary" />
+    <MESSAGE value="bump, many attempts at integrating new menu to no avail as of current" />
+    <option name="LAST_COMMIT_MESSAGE" value="bump, many attempts at integrating new menu to no avail as of current" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -1500,15 +1495,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/view/View.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="95" column="65" selection-start-line="95" selection-start-column="65" selection-end-line="95" selection-end-column="65" />
+        <state relative-caret-position="129">
+          <caret line="88" column="61" selection-start-line="88" selection-start-column="61" selection-end-line="88" selection-end-column="61" />
           <folding>
             <element signature="e#6108#6109#0" expanded="true" />
             <element signature="e#6143#6144#0" expanded="true" />
             <element signature="e#6197#6198#0" expanded="true" />
             <element signature="e#6232#6233#0" expanded="true" />
-            <element signature="e#6721#6722#0" expanded="true" />
-            <element signature="e#6994#6995#0" expanded="true" />
+            <element signature="e#6539#6540#0" expanded="true" />
+            <element signature="e#6812#6813#0" expanded="true" />
             <element signature="e#6663#6664#0" expanded="true" />
             <element signature="e#6709#6710#0" expanded="true" />
           </folding>

@@ -4,6 +4,7 @@ import javafx.geometry.Rectangle2D;
 import javafx.scene.paint.Color;
 import javafx.stage.Screen;
 
+import java.net.URL;
 import java.util.List;
 
 public class VectorConstants {
@@ -18,6 +19,7 @@ public class VectorConstants {
     public static final boolean AI_MODE = true;
     public static final String AI_ALGORITHM = "bfs";
 
+    public static final String MAINMENU_SPLASH = "file:..\\..\\resources\\images\\vrsplash.png";
     public static final Rectangle2D PRIMARY_SCREEN_BOUNDS = Screen.getPrimary().getVisualBounds();
     public static final int GP_PREFWIDTH = (int) PRIMARY_SCREEN_BOUNDS.getWidth();   // preferred width of the game pane
     public static final int GP_PREFHEIGHT = (int) PRIMARY_SCREEN_BOUNDS.getHeight();  // preferred height of the game pane

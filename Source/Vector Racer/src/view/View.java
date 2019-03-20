@@ -51,6 +51,9 @@ public class View implements ViewAPI{
     private GridPane playMenuPane;
     private BorderPane gamePane;
 
+    private Image mainMenuSplash;
+    private ImageView backgroundImageView;
+
 
     public View(ModelAPI model, Stage primaryStage) throws Exception{
 
@@ -70,7 +73,6 @@ public class View implements ViewAPI{
 
         // Views (Full Screen Content Panes)
         createMainMenuPane();
-        createPlayMenuPane();
 
         // Create main scene with main menu as default root content, and show
         primaryStage.setMaximized(false);
@@ -86,70 +88,96 @@ public class View implements ViewAPI{
 
         mainMenuPane = new AnchorPane();
 
-        Image image = new Image("file:..\\..\\resources\\images\\vrsplash.png");
-        System.out.println(image.isError());
-        ImageView backgroundImageView = new ImageView(image);
+        mainMenuSplash = new Image(VectorConstants.MAINMENU_SPLASH);
+        backgroundImageView = new ImageView(mainMenuSplash);
         backgroundImageView.setFitWidth(600.0);
         backgroundImageView.setFitHeight(400.0);
         backgroundImageView.setPickOnBounds(true);
         backgroundImageView.setPreserveRatio(true);
 
-        System.out.println(backgroundImageView.getFitHeight());
-        System.out.println(backgroundImageView);
+        mainMenuPane.getChildren().addAll(backgroundImageView);
+        mainMenuPane.setStyle("-fx-padding: -5");
+        showFirstMenu();
+    }
 
-        VBox vbox = new VBox(15);
-        vbox.setPrefSize(178.0, 200.0);
+    private void showFirstMenu(){
+        VBox firstVbox = new VBox(15);
+        firstVbox.setPrefSize(178.0, 200.0);
 
         JFXButton playButton = new JFXButton();
         playButton.setPrefSize(171, 37);
         playButton.setText("PLAY");
         playButton.setFont(new Font("Consolas Bold Italic", 20.0));
+        playButton.setOnAction(e -> {
+            mainMenuPane.getChildren().clear();
+            mainMenuPane.getChildren().add(backgroundImageView);
+            showSecondMenu();
+        });
+
         JFXButton quitButton = new JFXButton();
         quitButton.setPrefSize(171, 37);
         quitButton.setText("QUIT");
         quitButton.setFont(new Font("Consolas Bold Italic", 20.0));
-
-        vbox.getChildren().addAll(playButton, quitButton);
-
-        mainMenuPane.getChildren().addAll(backgroundImageView, vbox);
+        quitButton.setOnAction(e -> primaryStage.close());
 
         AnchorPane.setTopAnchor(playButton, 20.0);
         AnchorPane.setLeftAnchor(playButton, 5.0);
         AnchorPane.setTopAnchor(quitButton, 60.0);
         AnchorPane.setLeftAnchor(quitButton, 5.0);
-        mainMenuPane.setStyle("-fx-padding: -5");
 
-//        mainMenuPane = new GridPane(); // fixme
-//
-//        Button playButton = new Button("Play");
-//        Button testButton = new Button("test");
-//        Button quitButton = new Button("Quit");
-//
-//        playButton.setOnAction(e -> changeRootContent(playMenuPane));
-//        testButton.setOnAction(e -> System.out.println("TEST BUTTON CLICK"));
-//        quitButton.setOnAction(e -> primaryStage.close());
-//
-//        GridPane.setConstraints(playButton, 1,1);
-//        GridPane.setConstraints(testButton, 1,2);
-//        GridPane.setConstraints(quitButton, 1,3);
-//        ColumnConstraints column0 = new ColumnConstraints();
-//        ColumnConstraints column1 = new ColumnConstraints();
-//        ColumnConstraints column2 = new ColumnConstraints();
-//        column0.setPercentWidth(25);
-//        column1.setPercentWidth(50);
-//        column2.setPercentWidth(25);
-//        mainMenuPane.getColumnConstraints().addAll(column0, column1, column2);
-//
-//        mainMenuPane.getChildren().addAll(playButton, testButton, quitButton);
-//
-//        mainMenuPane.setMinSize(500, 500);
+        firstVbox.getChildren().addAll(playButton, quitButton);
+
+        mainMenuPane.getChildren().add(firstVbox);
+    }
+
+    private void showSecondMenu(){
+        VBox secondVbox = new VBox(15);
+        secondVbox.setPrefSize(178.0, 200.0);
+
+        JFXButton pvpButton = new JFXButton();
+        pvpButton.setPrefSize(171, 37);
+        pvpButton.setText("PLAYER vs PLAYER");
+        pvpButton.setFont(new Font("Consolas Bold Italic", 20.0));
+        pvpButton.setOnAction(e -> {
+            fileChooser.setTitle("Choose a Racetrack to load");
+            File selectedFile = fileChooser.showOpenDialog(primaryStage);
+            if(selectedFile != null) {
+                try {
+                    model.setup(selectedFile, "player1", "player2", VectorConstants.AI_MODE);
+                    createGamePane();
+                    changeRootContent(gamePane);
+                    model.start();
+                } catch (Exception ex) {
+                    System.out.println("file not found");
+                    ex.printStackTrace();
+                }
+            }
+        });
+        JFXButton backButton = new JFXButton();
+        backButton.setPrefSize(171, 37);
+        backButton.setText("BACK");
+        backButton.setFont(new Font("Consolas Bold Italic", 20.0));
+        backButton.setOnAction(e -> {
+            mainMenuPane.getChildren().clear();
+            mainMenuPane.getChildren().add(backgroundImageView);
+            showFirstMenu();
+        });
+
+        AnchorPane.setTopAnchor(pvpButton, 20.0);
+        AnchorPane.setLeftAnchor(pvpButton, 5.0);
+        AnchorPane.setTopAnchor(backButton, 60.0);
+        AnchorPane.setLeftAnchor(backButton, 5.0);
+
+        secondVbox.getChildren().addAll(pvpButton, backButton);
+
+        mainMenuPane.getChildren().add(secondVbox);
     }
 
     @Override
     public void createPlayMenuPane(){
         playMenuPane = new GridPane();
 
-        Button pvpButton = new Button("Player vs Player");
+        JFXButton pvpButton = new JFXButton("Player vs Player");
 
         pvpButton.setOnAction(e -> {
             fileChooser.setTitle("Choose a Racetrack to load");

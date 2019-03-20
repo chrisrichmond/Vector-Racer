@@ -29,7 +29,7 @@ public interface ViewAPI {
      * Gets the main menu pane
      * @return reference to the main menu pane
      */
-    AnchorPane getMainMenuPane();
+    AnchorPane getMainMenuPane(); // fixme
 
     /**
      * Gets the play menu pane

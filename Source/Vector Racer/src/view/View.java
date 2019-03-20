@@ -47,7 +47,7 @@ public class View implements ViewAPI{
 
     // Views (Full Screen Content Panes)
     private AnchorPane mainMenuPane;
-//    private GridPane mainMenuPane;
+//    private GridPane mainMenuPane; // fixme
     private GridPane playMenuPane;
     private BorderPane gamePane;
 
@@ -83,10 +83,10 @@ public class View implements ViewAPI{
 
     @Override
     public void createMainMenuPane(){
+
         mainMenuPane = new AnchorPane();
 
-        mainMenuPane.setPrefSize(600.0, 350.0);
-        Image image = new Image("file:"+ "images/vrsplash.png");
+        Image image = new Image("file:..\\..\\resources\\images\\vrsplash.png");
         System.out.println(image.isError());
         ImageView backgroundImageView = new ImageView(image);
         backgroundImageView.setFitWidth(600.0);
@@ -97,24 +97,29 @@ public class View implements ViewAPI{
         System.out.println(backgroundImageView.getFitHeight());
         System.out.println(backgroundImageView);
 
-        VBox vbox = new VBox();
+        VBox vbox = new VBox(15);
         vbox.setPrefSize(178.0, 200.0);
 
         JFXButton playButton = new JFXButton();
-        playButton.setPrefSize(171, 25);
+        playButton.setPrefSize(171, 37);
         playButton.setText("PLAY");
         playButton.setFont(new Font("Consolas Bold Italic", 20.0));
         JFXButton quitButton = new JFXButton();
-        playButton.setPrefSize(171, 37);
-        playButton.setText("QUIT");
-        playButton.setFont(new Font("Consolas Bold Italic", 20.0));
+        quitButton.setPrefSize(171, 37);
+        quitButton.setText("QUIT");
+        quitButton.setFont(new Font("Consolas Bold Italic", 20.0));
 
         vbox.getChildren().addAll(playButton, quitButton);
 
         mainMenuPane.getChildren().addAll(backgroundImageView, vbox);
 
+        AnchorPane.setTopAnchor(playButton, 20.0);
+        AnchorPane.setLeftAnchor(playButton, 5.0);
+        AnchorPane.setTopAnchor(quitButton, 60.0);
+        AnchorPane.setLeftAnchor(quitButton, 5.0);
+        mainMenuPane.setStyle("-fx-padding: -5");
 
-//        mainMenuPane = new GridPane();
+//        mainMenuPane = new GridPane(); // fixme
 //
 //        Button playButton = new Button("Play");
 //        Button testButton = new Button("test");
@@ -185,7 +190,7 @@ public class View implements ViewAPI{
     }
 
     @Override
-    public AnchorPane getMainMenuPane(){
+    public AnchorPane getMainMenuPane(){ // fixme
         return mainMenuPane;
     }
 

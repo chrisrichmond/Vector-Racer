@@ -1,6 +1,8 @@
 package view;
 
+import controller.Controller;
 import javafx.event.EventHandler;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
@@ -27,7 +29,7 @@ public interface ViewAPI {
      * Gets the main menu pane
      * @return reference to the main menu pane
      */
-    GridPane getMainMenuPane();
+    AnchorPane getMainMenuPane();
 
     /**
      * Gets the play menu pane

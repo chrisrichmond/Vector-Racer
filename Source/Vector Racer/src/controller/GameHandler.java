@@ -36,16 +36,18 @@ public class GameHandler implements Handler {
 
     @Override
     public void handle(Event event) {
-        // only handle mouse events if current player is NOT an AI
-        if(!(model.getCurrentState().getCurrentPlayer().isAI())) {
-            double x = ((MouseEvent) event).getX();
-            double y = ((MouseEvent) event).getY();
+        if(!model.getCurrentState().isGameOver()) {
+            // only handle mouse events if current player is NOT an AI
+            if (!(model.getCurrentState().getCurrentPlayer().isAI())) {
+                double x = ((MouseEvent) event).getX();
+                double y = ((MouseEvent) event).getY();
 
-            if (event instanceof MouseEvent) {
-                double row = screenToModelCoord(y);
-                double col = screenToModelCoord(x);
+                if (event instanceof MouseEvent) {
+                    double row = screenToModelCoord(y);
+                    double col = screenToModelCoord(x);
 
-                model.gridPointInput(row, col);
+                    model.gridPointInput(row, col);
+                }
             }
         }
     }
@@ -67,7 +69,12 @@ public class GameHandler implements Handler {
             view.getInfoLabel().setText("GAME OVER - "+model.getWinner().getName()+" wins!");
             view.getInfoLabel().setTextFill(model.getWinner().getColor());
         }else {
-            view.getInfoLabel().setText(model.getCurrentState().getCurrentPlayer().getName() + " to move");
+            String message;
+            if(model.getCurrentState().getCurrentPlayer().getRacer().getCurrentZone() == model.getRacetrack().getFinalZone()){
+                view.getInfoLabel().setText(model.getCurrentState().getCurrentPlayer().getName() + " to move - next checkpoint is the finish line!");
+            }else{
+                view.getInfoLabel().setText(model.getCurrentState().getCurrentPlayer().getName() + " to move - next checkpoint is "+(model.getCurrentState().getCurrentPlayer().getRacer().getCurrentZone()+1));
+            }
             view.getInfoLabel().setTextFill(model.getCurrentState().getCurrentPlayer().getColor());
         }
 

@@ -67,6 +67,7 @@ public class RacetrackPane extends Pane implements RacetrackPaneAPI {
                 Color zoneColor = (VectorConstants.CHECKPOINT_COLORS[((CheckpointTile)currentTile).getZoneNumber()]);
                 Rectangle topCorner = new Rectangle(tileSize/2, tileSize/2);
                 Rectangle bottomCorner = new Rectangle(tileSize/2, tileSize/2);
+                Text zoneText = new Text(""+(((CheckpointTile) currentTile).getZoneNumber()));
 
                 topCorner.setStroke(zoneColor);
                 topCorner.setFill(zoneColor);
@@ -78,7 +79,7 @@ public class RacetrackPane extends Pane implements RacetrackPaneAPI {
                 bottomCorner.setTranslateX(-(tileSize/4));
                 bottomCorner.setTranslateY(tileSize/4);
 
-                currentTileSprite.getChildren().addAll(topCorner, bottomCorner);
+                currentTileSprite.getChildren().addAll(topCorner, bottomCorner, zoneText);
 
                 currentTileSprite.getTile().toFront();
             }

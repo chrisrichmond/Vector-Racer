@@ -195,15 +195,6 @@ public class View implements ViewAPI{
         vbox.getChildren().addAll(racetrackPane, infoLabel);
         gamePane.getChildren().add(vbox);
         vbox.setAlignment(Pos.CENTER);
-//        gamePane.setBackground(new Background(new BackgroundFill(Color.RED, CornerRadii.EMPTY, Insets.EMPTY)));
-
-//        infoTextArea = new TextArea(); // fixme
-//        infoTextArea.setText(model.getRacetrack().getStartPosition().toString());
-//        BorderPane.setAlignment(racetrackPane, Pos.CENTER);
-//        BorderPane.setAlignment(infoTextArea, Pos.BASELINE_CENTER);
-//        gamePane.getChildren().add(racetrackPane); // fixme
-//        gamePane.getChildren().add(infoTextArea);
-
 
         gamePane.setPrefWidth(model.getRacetrack().getCols()*VectorConstants.TILESIZE);
         racetrackPane.addEventFilter(MouseEvent.MOUSE_PRESSED, gameHandler);

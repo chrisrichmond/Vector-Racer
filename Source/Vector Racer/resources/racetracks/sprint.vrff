@@ -1,0 +1,98 @@
+racetrack 6 40 3 2 1
+tile wall 0 0
+tile wall 1 0
+tile wall 2 0
+tile wall 3 0
+tile wall 4 0
+tile wall 5 0
+tile wall 0 1
+tile wall 5 1
+tile wall 0 2
+tile wall 5 2
+tile wall 0 3
+tile wall 5 3
+tile wall 0 4
+tile wall 5 4
+tile wall 0 5
+tile wall 5 5
+tile wall 0 6
+tile wall 5 6
+tile wall 0 7
+tile wall 5 7
+tile wall 0 8
+tile wall 5 8
+tile wall 0 9
+tile wall 5 9
+tile wall 0 10
+tile wall 5 10
+tile wall 0 11
+tile wall 5 11
+tile wall 0 12
+tile wall 5 12
+tile wall 0 13
+tile wall 5 13
+tile wall 0 14
+tile wall 5 14
+tile wall 0 15
+tile wall 5 15
+tile wall 0 16
+tile wall 5 16
+tile wall 0 17
+tile wall 5 17
+tile wall 0 18
+tile wall 5 18
+tile wall 0 19
+tile wall 5 19
+tile wall 0 20
+tile wall 5 20
+tile wall 0 21
+tile wall 5 21
+tile wall 0 22
+tile wall 5 22
+tile wall 0 23
+tile wall 5 23
+tile wall 0 24
+tile wall 5 24
+tile wall 0 25
+tile wall 5 25
+tile wall 0 26
+tile wall 5 26
+tile wall 0 27
+tile wall 5 27
+tile wall 0 28
+tile wall 5 28
+tile wall 0 29
+tile wall 5 29
+tile wall 0 30
+tile wall 5 30
+tile wall 0 31
+tile wall 5 31
+tile wall 0 32
+tile wall 5 32
+tile wall 0 33
+tile wall 5 33
+tile wall 0 34
+tile wall 5 34
+tile wall 0 35
+tile wall 5 35
+tile wall 0 36
+tile wall 5 36
+tile wall 0 37
+tile wall 5 37
+tile wall 0 38
+tile wall 5 38
+tile wall 0 39
+tile wall 1 39
+tile wall 2 39
+tile wall 3 39
+tile wall 4 39
+tile wall 5 39
+tile checkpoint 1 4 1
+tile checkpoint 2 4 1
+tile checkpoint 3 4 1
+tile checkpoint 4 4 1
+tile checkpoint 1 35 0
+tile checkpoint 2 35 0
+tile checkpoint 3 35 0
+tile checkpoint 4 35 0
+fillremainder air

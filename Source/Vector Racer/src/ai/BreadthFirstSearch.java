@@ -40,7 +40,7 @@ public class BreadthFirstSearch extends AbstractSolver {
 //            System.out.println("ROW: "+currentState.getCurrentPlayer().getRacer().getPosition().getY()+" COL: "+currentState.getCurrentPlayer().getRacer().getPosition().getX()+" ZONE: "+currentState.getCurrentPlayer().getRacer().getCurrentZone());
 //            System.out.println("PARENT STATE: " +currentState.getParent());
 
-            if(currentState.getCurrentPlayer().getRacer().getCurrentZone()>currentZone){
+            if(currentState.getCurrentPlayer().getRacer().getCurrentZone()>currentZone){ // fixme
                 System.out.println("incrementing currentZone from "+currentZone+" to "+(++currentZone));
                 agenda.clear();
             }

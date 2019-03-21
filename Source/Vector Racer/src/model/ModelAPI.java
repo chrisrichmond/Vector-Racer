@@ -39,4 +39,6 @@ public interface ModelAPI extends Observable {
 
     void setStartPosition(int row, int col);
 
+    PlayerAPI getWinner();
+
 }

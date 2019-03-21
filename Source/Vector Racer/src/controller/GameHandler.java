@@ -2,7 +2,12 @@ package controller;
 
 import javafx.event.Event;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import model.ModelAPI;
 import utilities.Observer;
@@ -31,7 +36,6 @@ public class GameHandler implements Handler {
 
     @Override
     public void handle(Event event) {
-        System.out.println("MOOUSE CLICK: "+event);
         // only handle mouse events if current player is NOT an AI
         if(!(model.getCurrentState().getCurrentPlayer().isAI())) {
             double x = ((MouseEvent) event).getX();
@@ -58,5 +62,16 @@ public class GameHandler implements Handler {
     public void update() {
         view.getRacetrackPane().drawNextPossiblePositions(model.getCurrentState().getCurrentPlayer());
         view.getRacetrackPane().drawRacerSprites((List) model.getCurrentState().getPlayers());
+
+        if(model.getCurrentState().isGameOver()){
+            view.getInfoLabel().setText("GAME OVER - "+model.getWinner().getName()+" wins!");
+            view.getInfoLabel().setTextFill(model.getWinner().getColor());
+        }else {
+            view.getInfoLabel().setText(model.getCurrentState().getCurrentPlayer().getName() + " to move");
+            view.getInfoLabel().setTextFill(model.getCurrentState().getCurrentPlayer().getColor());
+        }
+
+
+
     }
 }

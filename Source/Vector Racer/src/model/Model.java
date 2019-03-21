@@ -19,11 +19,13 @@ public class Model implements ModelAPI {
     private Deque<State> history;
     private State currentState;
     private RacetrackAPI racetrack;
+    private PlayerAPI winner;
 
     public Model(){
         fileHandler = new VectorFileHandler(this);
         observers = new ArrayList<>();
         history = new LinkedList<>();
+        winner = null;
     }
 
     @Override
@@ -147,17 +149,18 @@ public class Model implements ModelAPI {
 
             if( (row >= rowLow) && (row <= rowHigh) && (col >= colLow) && (col <= colHigh) ){
 
-                history.push(currentState); // todo incorporate mechanism for this on AI side too?
-//                System.out.println("currentState BEFORE player makeMove(): "+currentState);
+                history.push(currentState);
                 currentState = currentState.makeMove(new Move(currentState.getCurrentPlayer(), new Point((int)col, (int)row)));
-//                System.out.println("currentState AFTER player makeMove(): "+currentState);
+                if((currentState.getCurrentPlayer().isFinished()) && (winner == null)){
+                    winner = currentState.getCurrentPlayer();
+                }
 
                 if(currentState.getCurrentPlayer().isAI()){
-                    System.out.println("CURRENT PLAYER IS AI");
                     history.push(currentState);
-//                    System.out.println("currentState BEFORE AI makeMove(): "+currentState);
                     currentState = currentState.makeMove(((AIPlayer) currentState.getCurrentPlayer()).getMove());
-//                    System.out.println("currentState AFTER AI makeMove(): "+currentState);
+                    if((currentState.getCurrentPlayer().isFinished()) && (winner == null)){
+                        winner = currentState.getCurrentPlayer();
+                    }
                 }
 
                 if(currentState.isGameOver()){
@@ -172,6 +175,11 @@ public class Model implements ModelAPI {
     @Override
     public void setStartPosition(int row, int col) {
         racetrack.setStartPosition(new Point(col, row));
+    }
+
+    @Override
+    public PlayerAPI getWinner() {
+        return winner;
     }
 
     @Override

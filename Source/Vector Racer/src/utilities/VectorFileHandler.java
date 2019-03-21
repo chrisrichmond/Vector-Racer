@@ -40,6 +40,7 @@ public class VectorFileHandler {
                 }
             }
 
+            model.getRacetrack().setName(filename.getName().replaceFirst("[.][^.]+$", "").toUpperCase());
 
             br.close();
         }catch(IOException iox){

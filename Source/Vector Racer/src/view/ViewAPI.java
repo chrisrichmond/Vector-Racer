@@ -2,6 +2,7 @@ package view;
 
 import controller.Controller;
 import javafx.event.EventHandler;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
@@ -30,7 +31,7 @@ public interface ViewAPI {
      * Gets the game pane
      * @return reference to the game pane
      */
-    BorderPane getGamePane();
+    AnchorPane getGamePane();
 
     /**
      * Changes the current root node of the main Scene Graph attributed to the primary Stage
@@ -49,5 +50,7 @@ public interface ViewAPI {
      * @param gameHandler the Handler to assign
      */
     void setGameHandler(EventHandler gameHandler);
+
+    Label getInfoLabel();
 
 }

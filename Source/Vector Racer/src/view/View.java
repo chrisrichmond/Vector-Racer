@@ -6,16 +6,19 @@ import com.jfoenix.controls.JFXRippler;
 import controller.Controller;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.effect.Reflection;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -45,11 +48,11 @@ public class View implements ViewAPI{
 
     // Racetrack Game Area Pane and Info TextArea
     private RacetrackPane racetrackPane;
-    private TextArea infoTextArea;
+    private Label infoLabel;
 
     // Views (Full Screen Content Panes)
     private AnchorPane mainMenuPane;
-    private BorderPane gamePane;
+    private AnchorPane gamePane;
 
     private Image mainMenuSplash;
     private ImageView backgroundImageView;
@@ -184,18 +187,25 @@ public class View implements ViewAPI{
 
     @Override
     public void createGamePane(){
-        gamePane = new BorderPane();
+        gamePane = new AnchorPane();
         racetrackPane = new RacetrackPane(model.getRacetrack());
-        infoTextArea = new TextArea();
-        infoTextArea.setText(model.getRacetrack().getStartPosition().toString());
-        BorderPane.setAlignment(racetrackPane, Pos.CENTER);
-        BorderPane.setAlignment(infoTextArea, Pos.BASELINE_CENTER);
+        VBox vbox  = new VBox();
+        infoLabel = new Label("You are now playing on '"+model.getRacetrack().getName()+"'");
 
-        Reflection reflection = new Reflection();
-        reflection.setFraction(0.25);
-//        racetrackPane.setEffect(reflection);
-        gamePane.getChildren().add(racetrackPane);
-        gamePane.getChildren().add(infoTextArea);
+        vbox.getChildren().addAll(racetrackPane, infoLabel);
+        gamePane.getChildren().add(vbox);
+        vbox.setAlignment(Pos.CENTER);
+//        gamePane.setBackground(new Background(new BackgroundFill(Color.RED, CornerRadii.EMPTY, Insets.EMPTY)));
+
+//        infoTextArea = new TextArea(); // fixme
+//        infoTextArea.setText(model.getRacetrack().getStartPosition().toString());
+//        BorderPane.setAlignment(racetrackPane, Pos.CENTER);
+//        BorderPane.setAlignment(infoTextArea, Pos.BASELINE_CENTER);
+//        gamePane.getChildren().add(racetrackPane); // fixme
+//        gamePane.getChildren().add(infoTextArea);
+
+
+        gamePane.setPrefWidth(model.getRacetrack().getCols()*VectorConstants.TILESIZE);
         racetrackPane.addEventFilter(MouseEvent.MOUSE_PRESSED, gameHandler);
 
     }
@@ -206,7 +216,7 @@ public class View implements ViewAPI{
     }
 
     @Override
-    public BorderPane getGamePane() {
+    public AnchorPane getGamePane() {
         return gamePane;
     }
 
@@ -226,6 +236,11 @@ public class View implements ViewAPI{
     @Override
     public void setGameHandler(EventHandler gameHandler){
         this.gameHandler = gameHandler;
+    }
+
+    @Override
+    public Label getInfoLabel() {
+        return infoLabel;
     }
 
 }

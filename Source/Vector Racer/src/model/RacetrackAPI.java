@@ -141,6 +141,10 @@ public interface RacetrackAPI {
 
     boolean isVertexTraversable(Point vertex);
 
+    String getName();
+
+    void setName(String name);
+
     @Override
     boolean equals(Object o);
 

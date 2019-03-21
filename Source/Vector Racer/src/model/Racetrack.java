@@ -19,6 +19,7 @@ public class Racetrack implements RacetrackAPI{
     private int cols;
     private Point startPosition;
     private int finalZone;
+    private String name;
 
     public Racetrack(RacetrackAPI original){
 
@@ -29,32 +30,11 @@ public class Racetrack implements RacetrackAPI{
         this.wallTiles = new ArrayList<>(original.getWallTiles());
         this.checkpointTiles = new ArrayList<>(original.getCheckpointTiles());
 
-//        this.tiles = new ArrayList<>();
-//        this.airTiles = new ArrayList<>();
-//        this.sandTiles = new ArrayList<>();
-//        this.iceTiles = new ArrayList<>();
-//        this.wallTiles = new ArrayList<>();
-//        this.checkpointTiles = new ArrayList<>();
-//        for(Tile origTile: original.getTiles()){
-//            if(origTile instanceof AirTile){
-//                Tile newTile = new AirTile(origTile.getStartX(), origTile.getStartY());
-//            }else if(origTile instanceof SandTile){
-//                Tile newTile = new SandTile(origTile.getStartX(), origTile.getStartY());
-//            }else if(origTile instanceof IceTile){
-//                Tile newTile = new IceTile(origTile.getStartX(), origTile.getStartY());
-//            }else if(origTile instanceof WallTile){
-//                Tile newTile = new WallTile(origTile.getStartX(), origTile.getStartY());
-//            }else if(origTile instanceof CheckpointTile){
-//                Tile newTile = new CheckpointTile((CheckpointTile)origTile);
-//            }else{
-//                Tile newTile = new AirTile(origTile.getStartX(), origTile.getStartY());
-//            }
-//        }
-
         this.rows = original.getRows();
         this.cols = original.getCols();
         this.startPosition = new Point(original.getStartPosition());
         this.finalZone = original.getFinalZone();
+        this.name = name;
     }
 
     public Racetrack(int rows, int cols, Point startPosition, int finalZone){
@@ -68,6 +48,7 @@ public class Racetrack implements RacetrackAPI{
         this.cols = cols;
         this.startPosition = startPosition;
         this.finalZone = finalZone;
+        this.name = name;
     }
 
     @Override
@@ -391,6 +372,16 @@ public class Racetrack implements RacetrackAPI{
         }catch(Exception e){
             return false;
         }
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public void setName(String name) {
+        this.name = name;
     }
 
 //    @Override

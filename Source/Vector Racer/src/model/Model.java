@@ -151,20 +151,25 @@ public class Model implements ModelAPI {
 
                 history.push(currentState);
                 currentState = currentState.makeMove(new Move(currentState.getCurrentPlayer(), new Point((int)col, (int)row)));
-                if((currentState.getCurrentPlayer().isFinished()) && (winner == null)){
-                    winner = currentState.getCurrentPlayer();
-                }
 
                 if(currentState.getCurrentPlayer().isAI()){
                     history.push(currentState);
                     currentState = currentState.makeMove(((AIPlayer) currentState.getCurrentPlayer()).getMove());
-                    if((currentState.getCurrentPlayer().isFinished()) && (winner == null)){
-                        winner = currentState.getCurrentPlayer();
-                    }
                 }
 
                 if(currentState.isGameOver()){
                     System.out.println("GAME OVER ALL PLAYERS HAVE FINISHED");
+                    int lowestScore = 100000;
+                    for(PlayerAPI player: currentState.getPlayers()){
+                        if(player.getRacer().getScore() == lowestScore){
+                            System.out.println("same score");
+                            winner = null;
+                        }else if(player.getRacer().getScore() < lowestScore){
+                            System.out.println("lower score");
+                            winner = player;
+                            lowestScore = player.getRacer().getScore();
+                        }
+                    }
                 }
                 notifyObservers();
                 break;

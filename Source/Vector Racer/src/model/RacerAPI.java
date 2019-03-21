@@ -63,6 +63,10 @@ public interface RacerAPI {
 
     public void killVelocity();
 
+    int getCrashCount();
+
+    int getScore();
+
     @Override
     boolean equals(Object o);
 

@@ -1,18 +1,11 @@
 package view;
 
 import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXDecorator;
-import com.jfoenix.controls.JFXRippler;
-import controller.Controller;
 import javafx.event.EventHandler;
-import javafx.fxml.FXMLLoader;
-import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
 import javafx.scene.effect.Reflection;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -24,11 +17,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import model.ModelAPI;
 import utilities.VectorConstants;
-
 import java.io.File;
-import java.io.FileInputStream;
-import java.net.URL;
-import java.nio.file.Paths;
 
 public class View implements ViewAPI{
 
@@ -189,8 +178,13 @@ public class View implements ViewAPI{
     public void createGamePane(){
         gamePane = new AnchorPane();
         racetrackPane = new RacetrackPane(model.getRacetrack());
+        Reflection reflection = new Reflection();
+        reflection.setFraction(0.25);
+        racetrackPane.setEffect(reflection);
+
         VBox vbox  = new VBox();
         infoLabel = new Label("You are now playing on '"+model.getRacetrack().getName()+"'");
+        infoLabel.setEffect(reflection);
 
         vbox.getChildren().addAll(racetrackPane, infoLabel);
         gamePane.getChildren().add(vbox);

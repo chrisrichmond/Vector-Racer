@@ -11,6 +11,7 @@ public class Racer implements RacerAPI{
     private boolean finished;
     private Deque<Point> pointRoute;
     private int currentZone;
+    private int crashCount;
 
     public Racer(RacerAPI original){
         this.velocity = new Vect(original.getVelocity());
@@ -20,6 +21,7 @@ public class Racer implements RacerAPI{
             this.pointRoute.add(new Point(point));
         }
         this.currentZone = original.getCurrentZone();
+        this.crashCount = original.getCrashCount();
     }
 
     public Racer(Point startPosition){
@@ -28,6 +30,7 @@ public class Racer implements RacerAPI{
         pointRoute = new LinkedList<>();
         pointRoute.push(startPosition);
         this.currentZone = 0;
+        this.crashCount = 0;
     }
 
     @Override
@@ -58,6 +61,16 @@ public class Racer implements RacerAPI{
     }
 
     @Override
+    public int getCrashCount() {
+        return crashCount;
+    }
+
+    @Override
+    public int getScore() {
+        return pointRoute.size()+crashCount;
+    }
+
+    @Override
     public Deque<Point> getPointRoute() {
         return pointRoute;
     }
@@ -81,26 +94,24 @@ public class Racer implements RacerAPI{
         int centralX = getNextCentralPoint().getX();
         int centralY = getNextCentralPoint().getY();
 
+//        boolean traversablePath = true; // fixme
         for(int y = (centralY-1); y <= (centralY+1); y++){
             for(int x = (centralX-1); x <= (centralX+1); x++){
                 if(racetrack.isVertexTraversable(new Point(x, y))) {
-                    possibleNextPoints.add(new Point(x, y));
+//      fixme              Set<Terrain> terrainBetween = racetrack.getTerrainBetween(this.getPosition(), new Point(x,y));
+//                    for(Terrain currentTerrain: terrainBetween){
+//                        if(!currentTerrain.isTraversable()){
+//                            traversablePath = false;
+//                        }
+//                    }
+//                    if(traversablePath) {
+                        possibleNextPoints.add(new Point(x, y));
+//                    }
                 }
             }
         }
         if(possibleNextPoints.size() == 0){
-//            if(centralX <= 0){
-//                centralX = 1;
-//            }else if(centralX > racetrack.getCols()-1){
-//                centralX = racetrack.getCols()-2;
-//            }
-//            if(centralY <= 0){
-//                centralY = 1;
-//            }else if(centralY > racetrack.getCols()-1){
-//                centralY = racetrack.getCols()-2;
-//            }
-//            possibleNextPoints.add(new Point(centralX, centralY));
-
+            crashCount++;
             possibleNextPoints.add(getPosition());
             killVelocity();
         }

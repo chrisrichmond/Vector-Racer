@@ -1,5 +1,8 @@
 package controller;
 
+import javafx.application.Platform;
+import javafx.concurrent.Task;
+import javafx.concurrent.WorkerStateEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -10,6 +13,7 @@ import javafx.scene.layout.CornerRadii;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import model.ModelAPI;
+import model.PlayerAPI;
 import utilities.Observer;
 import utilities.VectorConstants;
 import view.ViewAPI;
@@ -25,11 +29,14 @@ public class GameHandler implements Handler {
     private ModelAPI model;
     private ViewAPI view;
     private Stage primaryStage;
+    private int playerInfoIndex;
+    private List<PlayerAPI> credits;
 
     public GameHandler(ModelAPI model, ViewAPI view, Stage primaryStage){
         this.model = model;
         this.view = view;
         this.primaryStage = primaryStage;
+        this.playerInfoIndex = 0;
 
         model.attach(this);
     }
@@ -49,6 +56,11 @@ public class GameHandler implements Handler {
                     model.gridPointInput(row, col);
                 }
             }
+        }else{
+            if(credits == null){
+                credits = new ArrayList<>(model.getCurrentState().getPlayers());
+            }
+            endGame();
         }
     }
 
@@ -66,8 +78,13 @@ public class GameHandler implements Handler {
         view.getRacetrackPane().drawRacerSprites((List) model.getCurrentState().getPlayers());
 
         if(model.getCurrentState().isGameOver()){
-            view.getInfoLabel().setText("GAME OVER - "+model.getWinner().getName()+" wins!");
-            view.getInfoLabel().setTextFill(model.getWinner().getColor());
+            if(model.getWinner() != null) {
+                view.getInfoLabel().setText("GAME OVER - " + model.getWinner().getName() + " wins!");
+                view.getInfoLabel().setTextFill(model.getWinner().getColor());
+            }else{
+                view.getInfoLabel().setText("GAME OVER - it was a draw");
+                view.getInfoLabel().setTextFill(Color.BLACK);
+            }
         }else {
             String message;
             if(model.getCurrentState().getCurrentPlayer().getRacer().getCurrentZone() == model.getRacetrack().getFinalZone()){
@@ -77,8 +94,20 @@ public class GameHandler implements Handler {
             }
             view.getInfoLabel().setTextFill(model.getCurrentState().getCurrentPlayer().getColor());
         }
+    }
 
-
-
+    public void endGame(){
+        PlayerAPI player = credits.get(playerInfoIndex);
+        String message = "";
+        if ((model.getWinner() != null) && (model.getWinner().equals(player))) {
+            message = "WINNNER: ";
+        }
+        view.getInfoLabel().setText(message + player.getName() + ", Score: " + player.getRacer().getScore() + ", Crashes: " + player.getRacer().getCrashCount());
+        view.getInfoLabel().setTextFill(player.getColor());
+        if(playerInfoIndex == 0){
+            playerInfoIndex = 1;
+        }else if(playerInfoIndex == 1){
+            playerInfoIndex = 0;
+        }
     }
 }

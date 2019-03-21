@@ -79,7 +79,12 @@ public class RacetrackPane extends Pane implements RacetrackPaneAPI {
                 bottomCorner.setTranslateX(-(tileSize/4));
                 bottomCorner.setTranslateY(tileSize/4);
 
-                currentTileSprite.getChildren().addAll(topCorner, bottomCorner, zoneText);
+                currentTileSprite.getChildren().addAll(topCorner, bottomCorner);
+                if(((CheckpointTile) currentTile).getZoneNumber() != 0) {
+                    topCorner.setOpacity(0.5);
+                    bottomCorner.setOpacity(0.5);
+                    currentTileSprite.getChildren().add(zoneText);
+                }
 
                 currentTileSprite.getTile().toFront();
             }

@@ -2,6 +2,7 @@ package utilities;
 
 import javafx.geometry.Rectangle2D;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.stage.Screen;
 
 import java.net.URL;
@@ -20,10 +21,13 @@ public class VectorConstants {
     public static final String AI_ALGORITHM = "bfs";
 
     public static final String MAINMENU_SPLASH = "file:..\\..\\resources\\images\\vrsplash.png";
+    public static final String STYLESHEET = "/view/vector1.css";
     public static final Rectangle2D PRIMARY_SCREEN_BOUNDS = Screen.getPrimary().getVisualBounds();
     public static final int GP_PREFWIDTH = (int) PRIMARY_SCREEN_BOUNDS.getWidth();   // preferred width of the game pane
     public static final int GP_PREFHEIGHT = (int) PRIMARY_SCREEN_BOUNDS.getHeight();  // preferred height of the game pane
     public static final int TILESIZE = 20;
+
+    public static final Font MENU_FONT = new Font("Consolas Bold Italic", 20.0);
 
     public static final int MAX_ROWS = (int) ((GP_PREFHEIGHT*0.75)/TILESIZE);
     public static final int MAX_COLS = (int) ((GP_PREFWIDTH*0.75)/TILESIZE);

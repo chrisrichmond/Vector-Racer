@@ -16,11 +16,6 @@ public interface ViewAPI {
     void createMainMenuPane();
 
     /**
-     * Creates the play menu from which the user selects Player vs Player gameplay or Player vs AI gameplay
-     */
-    void createPlayMenuPane();
-
-    /**
      * Creates the game area including the region displaying the chosen racetrack and accompanying dialog
      */
     void createGamePane();
@@ -30,12 +25,6 @@ public interface ViewAPI {
      * @return reference to the main menu pane
      */
     AnchorPane getMainMenuPane(); // fixme
-
-    /**
-     * Gets the play menu pane
-     * @return reference to the play menu pane
-     */
-    GridPane getPlayMenuPane();
 
     /**
      * Gets the game pane

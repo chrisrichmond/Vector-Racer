@@ -1,6 +1,8 @@
 package view;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXDecorator;
+import com.jfoenix.controls.JFXRippler;
 import controller.Controller;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -47,8 +49,6 @@ public class View implements ViewAPI{
 
     // Views (Full Screen Content Panes)
     private AnchorPane mainMenuPane;
-//    private GridPane mainMenuPane; // fixme
-    private GridPane playMenuPane;
     private BorderPane gamePane;
 
     private Image mainMenuSplash;
@@ -69,17 +69,17 @@ public class View implements ViewAPI{
         // Primary Stage
         this.primaryStage = primaryStage;
 
-        // Racetrack Game Area Pane
-
         // Views (Full Screen Content Panes)
         createMainMenuPane();
 
         // Create main scene with main menu as default root content, and show
         primaryStage.setMaximized(false);
         primaryStage.resizableProperty().setValue(Boolean.FALSE);
-        primaryStage.setScene(new Scene(mainMenuPane));
-        primaryStage.show();
 
+        Scene scene = new Scene(mainMenuPane);
+        scene.getStylesheets().add(VectorConstants.STYLESHEET);
+        primaryStage.setScene(scene);
+        primaryStage.show();
 
     }
 
@@ -107,7 +107,6 @@ public class View implements ViewAPI{
         JFXButton playButton = new JFXButton();
         playButton.setPrefSize(171, 37);
         playButton.setText("PLAY");
-        playButton.setFont(new Font("Consolas Bold Italic", 20.0));
         playButton.setOnAction(e -> {
             mainMenuPane.getChildren().clear();
             mainMenuPane.getChildren().add(backgroundImageView);
@@ -117,13 +116,7 @@ public class View implements ViewAPI{
         JFXButton quitButton = new JFXButton();
         quitButton.setPrefSize(171, 37);
         quitButton.setText("QUIT");
-        quitButton.setFont(new Font("Consolas Bold Italic", 20.0));
         quitButton.setOnAction(e -> primaryStage.close());
-
-        AnchorPane.setTopAnchor(playButton, 20.0);
-        AnchorPane.setLeftAnchor(playButton, 5.0);
-        AnchorPane.setTopAnchor(quitButton, 60.0);
-        AnchorPane.setLeftAnchor(quitButton, 5.0);
 
         firstVbox.getChildren().addAll(playButton, quitButton);
 
@@ -132,18 +125,18 @@ public class View implements ViewAPI{
 
     private void showSecondMenu(){
         VBox secondVbox = new VBox(15);
-        secondVbox.setPrefSize(178.0, 200.0);
+        secondVbox.setPrefSize(300, 200.0);
 
-        JFXButton pvpButton = new JFXButton();
-        pvpButton.setPrefSize(171, 37);
-        pvpButton.setText("PLAYER vs PLAYER");
-        pvpButton.setFont(new Font("Consolas Bold Italic", 20.0));
-        pvpButton.setOnAction(e -> {
+        JFXButton pvplayerButton = new JFXButton();
+        pvplayerButton.setPrefSize(250, 37);
+        pvplayerButton.setText("PLAYER vs PLAYER");
+        pvplayerButton.setFont(VectorConstants.MENU_FONT);
+        pvplayerButton.setOnAction(e -> {
             fileChooser.setTitle("Choose a Racetrack to load");
             File selectedFile = fileChooser.showOpenDialog(primaryStage);
             if(selectedFile != null) {
                 try {
-                    model.setup(selectedFile, "player1", "player2", VectorConstants.AI_MODE);
+                    model.setup(selectedFile, "Player 1", "Player 2", false);
                     createGamePane();
                     changeRootContent(gamePane);
                     model.start();
@@ -153,6 +146,27 @@ public class View implements ViewAPI{
                 }
             }
         });
+
+        JFXButton pvcomputerButton = new JFXButton();
+        pvcomputerButton.setPrefSize(250, 37);
+        pvcomputerButton.setText("PLAYER vs COMPUTER");
+        pvcomputerButton.setFont(VectorConstants.MENU_FONT);
+        pvcomputerButton.setOnAction(e -> {
+            fileChooser.setTitle("Choose a Racetrack to load");
+            File selectedFile = fileChooser.showOpenDialog(primaryStage);
+            if(selectedFile != null) {
+                try {
+                    model.setup(selectedFile, "Player 1", "Player 2", true);
+                    createGamePane();
+                    changeRootContent(gamePane);
+                    model.start();
+                } catch (Exception ex) {
+                    System.out.println("file not found");
+                    ex.printStackTrace();
+                }
+            }
+        });
+
         JFXButton backButton = new JFXButton();
         backButton.setPrefSize(171, 37);
         backButton.setText("BACK");
@@ -163,40 +177,9 @@ public class View implements ViewAPI{
             showFirstMenu();
         });
 
-        AnchorPane.setTopAnchor(pvpButton, 20.0);
-        AnchorPane.setLeftAnchor(pvpButton, 5.0);
-        AnchorPane.setTopAnchor(backButton, 60.0);
-        AnchorPane.setLeftAnchor(backButton, 5.0);
-
-        secondVbox.getChildren().addAll(pvpButton, backButton);
+        secondVbox.getChildren().addAll(pvplayerButton, pvcomputerButton, backButton);
 
         mainMenuPane.getChildren().add(secondVbox);
-    }
-
-    @Override
-    public void createPlayMenuPane(){
-        playMenuPane = new GridPane();
-
-        JFXButton pvpButton = new JFXButton("Player vs Player");
-
-        pvpButton.setOnAction(e -> {
-            fileChooser.setTitle("Choose a Racetrack to load");
-            File selectedFile = fileChooser.showOpenDialog(primaryStage);
-            if(selectedFile != null) {
-                try {
-                    model.setup(selectedFile, "player1", "player2", VectorConstants.AI_MODE);
-                    createGamePane();
-                    changeRootContent(gamePane);
-                    model.start();
-                } catch (Exception ex) {
-                    System.out.println("file not found");
-                    ex.printStackTrace();
-                }
-            }
-        });
-
-        playMenuPane.getChildren().addAll(pvpButton);
-        playMenuPane.setMinSize(600, 600);
     }
 
     @Override
@@ -220,11 +203,6 @@ public class View implements ViewAPI{
     @Override
     public AnchorPane getMainMenuPane(){ // fixme
         return mainMenuPane;
-    }
-
-    @Override
-    public GridPane getPlayMenuPane(){
-        return playMenuPane;
     }
 
     @Override

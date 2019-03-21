@@ -193,7 +193,7 @@ public class View implements ViewAPI{
 
         Reflection reflection = new Reflection();
         reflection.setFraction(0.25);
-        racetrackPane.setEffect(reflection);
+//        racetrackPane.setEffect(reflection);
         gamePane.getChildren().add(racetrackPane);
         gamePane.getChildren().add(infoTextArea);
         racetrackPane.addEventFilter(MouseEvent.MOUSE_PRESSED, gameHandler);

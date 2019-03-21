@@ -144,7 +144,7 @@ public class VectorFileHandler {
     public String getOpcode(String line){
         try {
             return getTokens(line).get(0);
-        }catch(NullPointerException e){
+        }catch(Exception e){
             return "blank";
         }
     }
@@ -161,11 +161,11 @@ public class VectorFileHandler {
             operands.remove(0);
             try{
                 return operands;
-            }catch(NullPointerException e){
+            }catch(Exception e){
                 operands.add("blank");
                 return operands;
             }
-        }catch(NullPointerException e){
+        }catch(Exception e){
             operands.add("blank");
             return operands;
         }

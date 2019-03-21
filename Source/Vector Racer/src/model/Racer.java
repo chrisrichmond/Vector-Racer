@@ -171,7 +171,8 @@ public class Racer implements RacerAPI{
         }
         destinationAfterEffects = new Point(currentPosition.getX()+xVelo, currentPosition.getY()+yVelo);
 
-        setPosition(destinationAfterEffects);
+//        setPosition(destinationAfterEffects); //fixme
+        setPosition(destinationBeforeEffects);
     }
 
     @Override

@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="menu navigation finally smoothed out well">
-      <change afterPath="$PROJECT_DIR$/src/view/test.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/vector1.css" afterDir="false" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="some css styling">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/fxml/mainmenu.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utilities/VectorConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilities/VectorConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Racer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Racer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utilities/VectorFileHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilities/VectorFileHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/View.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/ViewAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ViewAPI.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -65,11 +62,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/view/View.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="78" selection-start-line="78" selection-end-line="78" />
+            <state relative-caret-position="280">
+              <caret line="196" column="46" lean-forward="true" selection-start-line="196" selection-start-column="46" selection-end-line="196" selection-end-column="46" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -85,8 +82,43 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/utilities/VectorConstants.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="121">
-              <caret line="23" column="52" selection-start-line="23" selection-start-column="52" selection-end-line="23" selection-end-column="52" />
+            <state relative-caret-position="24">
+              <caret line="44" column="36" lean-forward="true" selection-start-line="44" selection-start-column="36" selection-end-line="44" selection-end-column="36" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/utilities/VectorFileHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="149">
+              <caret line="167" column="24" selection-start-line="167" selection-start-column="24" selection-end-line="167" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/model/Racer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="417">
+              <caret line="174" column="44" selection-start-line="174" selection-start-column="44" selection-end-line="174" selection-end-column="44" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#962#963#0" expanded="true" />
+                <element signature="e#993#994#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/model/Model.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="75" selection-start-line="75" selection-end-line="75" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -107,8 +139,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>player1</find>
-      <find>player</find>
       <find>currentplayer().isai</find>
       <find>makemove</find>
       <find>grid</find>
@@ -137,6 +167,8 @@
       <find>changer</find>
       <find>createpla</find>
       <find>new scene</find>
+      <find>refl</find>
+      <find>movew</find>
     </findStrings>
     <dirStrings>
       <dir>C:\Users\CASR1\Documents\Git Repos\EE475\Vector-Racer\Source\Vector Racer\resources\images</dir>
@@ -163,7 +195,6 @@
         <option value="$PROJECT_DIR$/src/model/SandTile.java" />
         <option value="$PROJECT_DIR$/src/model/IceTile.java" />
         <option value="$PROJECT_DIR$/src/model/racetracks/minimonza.vrff" />
-        <option value="$PROJECT_DIR$/src/utilities/VectorFileHandler.java" />
         <option value="$PROJECT_DIR$/src/controller/MainMenuController.java" />
         <option value="$PROJECT_DIR$/src/controller/Handler.java" />
         <option value="$PROJECT_DIR$/src/controller/MainMenuHandler.java" />
@@ -186,7 +217,6 @@
         <option value="$PROJECT_DIR$/src/controller/GameHandler.java" />
         <option value="$PROJECT_DIR$/src/model/State.java" />
         <option value="$PROJECT_DIR$/src/model/Model.java" />
-        <option value="$PROJECT_DIR$/src/model/Racer.java" />
         <option value="$PROJECT_DIR$/src/ai/BreadthFirstSearch.java" />
         <option value="$PROJECT_DIR$/src/model/AIPlayer.java" />
         <option value="$PROJECT_DIR$/src/ai/AbstractSolver.java" />
@@ -204,6 +234,8 @@
         <option value="$PROJECT_DIR$/src/utilities/VectorConstants.java" />
         <option value="$PROJECT_DIR$/src/view/vector1.css" />
         <option value="$PROJECT_DIR$/src/view/View.java" />
+        <option value="$PROJECT_DIR$/src/utilities/VectorFileHandler.java" />
+        <option value="$PROJECT_DIR$/src/model/Racer.java" />
       </list>
     </option>
   </component>
@@ -252,6 +284,12 @@
               <item name="Vector Racer" type="b2602c69:ProjectViewProjectNode" />
               <item name="Vector Racer" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="utilities" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Vector Racer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Vector Racer" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="view" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -276,7 +314,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553128341980" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553134237588" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/fxml" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -501,13 +539,6 @@
       <workItem from="1547566384896" duration="3847000" />
       <workItem from="1549298180766" duration="13715000" />
       <workItem from="1551463240268" duration="5765000" />
-    </task>
-    <task id="LOCAL-00120" summary="partially fixed game over infinite recursion bug">
-      <created>1551813437143</created>
-      <option name="number" value="00120" />
-      <option name="presentableId" value="LOCAL-00120" />
-      <option name="project" value="LOCAL" />
-      <updated>1551813437143</updated>
     </task>
     <task id="LOCAL-00121" summary="racetrack files bump">
       <created>1551825247618</created>
@@ -845,7 +876,14 @@
       <option name="project" value="LOCAL" />
       <updated>1553076592300</updated>
     </task>
-    <option name="localTasksCounter" value="169" />
+    <task id="LOCAL-00169" summary="some css styling">
+      <created>1553128406620</created>
+      <option name="number" value="00169" />
+      <option name="presentableId" value="LOCAL-00169" />
+      <option name="project" value="LOCAL" />
+      <updated>1553128406622</updated>
+    </task>
+    <option name="localTasksCounter" value="170" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -873,7 +911,7 @@
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.30154946" />
-      <window_info active="true" anchor="bottom" x="926" y="494" width="472" height="266" id="Run" order="2" visible="true" weight="0.11799762" />
+      <window_info active="true" anchor="bottom" x="926" y="494" width="472" height="266" id="Run" order="2" visible="true" weight="0.077473186" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.7353993" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -947,7 +985,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
-    <MESSAGE value="Player refactor" />
     <MESSAGE value="more AI integration work" />
     <MESSAGE value="depth-first search stuff" />
     <MESSAGE value="zoning bump" />
@@ -972,23 +1009,14 @@
     <MESSAGE value="bump" />
     <MESSAGE value="main menu splash now working" />
     <MESSAGE value="menu navigation finally smoothed out well" />
-    <option name="LAST_COMMIT_MESSAGE" value="menu navigation finally smoothed out well" />
+    <MESSAGE value="some css styling" />
+    <option name="LAST_COMMIT_MESSAGE" value="some css styling" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/model/RacerAPI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="45" column="16" selection-start-line="45" selection-start-column="16" selection-end-line="45" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ai/DepthFirstSearch.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="313">
@@ -1139,18 +1167,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/Racer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="153" selection-start-line="153" selection-end-line="153" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#962#963#0" expanded="true" />
-            <element signature="e#993#994#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/model/PlayerAPI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="279">
@@ -1182,16 +1198,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1250">
           <caret line="53" column="58" selection-start-line="53" selection-start-column="58" selection-end-line="53" selection-end-column="58" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/Model.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3400">
-          <caret line="151" column="93" selection-start-line="151" selection-start-column="93" selection-end-line="151" selection-end-column="93" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1394,25 +1400,54 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/utilities/VectorConstants.java">
+    <entry file="file://$PROJECT_DIR$/src/view/vector1.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/View.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="121">
-          <caret line="23" column="52" selection-start-line="23" selection-start-column="52" selection-end-line="23" selection-end-column="52" />
+        <state relative-caret-position="280">
+          <caret line="196" column="46" lean-forward="true" selection-start-line="196" selection-start-column="46" selection-end-line="196" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/vector1.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/View.java">
+    <entry file="file://$PROJECT_DIR$/src/utilities/VectorConstants.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="78" selection-start-line="78" selection-end-line="78" />
+        <state relative-caret-position="24">
+          <caret line="44" column="36" lean-forward="true" selection-start-line="44" selection-start-column="36" selection-end-line="44" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Model.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="75" selection-start-line="75" selection-end-line="75" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utilities/VectorFileHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="167" column="24" selection-start-line="167" selection-start-column="24" selection-end-line="167" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Racer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="417">
+          <caret line="174" column="44" selection-start-line="174" selection-start-column="44" selection-end-line="174" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#962#963#0" expanded="true" />
+            <element signature="e#993#994#0" expanded="true" />
           </folding>
         </state>
       </provider>

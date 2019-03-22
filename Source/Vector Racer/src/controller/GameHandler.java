@@ -44,19 +44,16 @@ public class GameHandler implements Handler {
 
     @Override
     public void handle(Event event) {
-        if(!gameOverOverride) {
-            if(!model.getCurrentState().isGameOver()) {
-                // only handle mouse events if current player is NOT an AI
-                if (!(model.getCurrentState().getCurrentPlayer().isAI())) {
-                    double x = ((MouseEvent) event).getX();
-                    double y = ((MouseEvent) event).getY();
+        if((!gameOverOverride) && (!model.getCurrentState().isGameOver())) {
+            // only handle mouse events if current player is NOT an AI
+            if (!(model.getCurrentState().getCurrentPlayer().isAI())) {
+                double x = ((MouseEvent) event).getX();
+                double y = ((MouseEvent) event).getY();
+                if (event instanceof MouseEvent) {
+                    double row = screenToModelCoord(y);
+                    double col = screenToModelCoord(x);
 
-                    if (event instanceof MouseEvent) {
-                        double row = screenToModelCoord(y);
-                        double col = screenToModelCoord(x);
-
-                        model.gridPointInput(row, col);
-                    }
+                    model.gridPointInput(row, col);
                 }
             }
         }else{

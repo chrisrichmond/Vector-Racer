@@ -88,26 +88,31 @@ public class Racer implements RacerAPI{
     }
 
     @Override
-    public List<Point> getPossibleNextPoints(RacetrackAPI racetrack) {
+    public List<Point> getPossibleNextPoints(RacetrackAPI racetrack, boolean ai) {
         List<Point> possibleNextPoints = new ArrayList<>();
 
         int centralX = getNextCentralPoint().getX();
         int centralY = getNextCentralPoint().getY();
 
-//        boolean traversablePath = true; // fixme
+        boolean traversablePath = true; // fixme
         for(int y = (centralY-1); y <= (centralY+1); y++){
             for(int x = (centralX-1); x <= (centralX+1); x++){
                 if(racetrack.isVertexTraversable(new Point(x, y))) {
-//      fixme              Set<Terrain> terrainBetween = racetrack.getTerrainBetween(this.getPosition(), new Point(x,y));
-//                    for(Terrain currentTerrain: terrainBetween){
-//                        if(!currentTerrain.isTraversable()){
-//                            traversablePath = false;
-//                        }
-//                    }
-//                    if(traversablePath) {
+                    if(ai) {
+                        Set<Terrain> terrainBetween = racetrack.getTerrainBetween(this.getPosition(), new Point(x, y));
+                        for (Terrain currentTerrain : terrainBetween) {
+                            if (!currentTerrain.isTraversable()) {
+                                traversablePath = false;
+                            }
+                        }
+                    }
+                    if(traversablePath) {
                         possibleNextPoints.add(new Point(x, y));
-//                    }
+                    }
                 }
+
+
+
             }
         }
         if(possibleNextPoints.size() == 0){
@@ -120,7 +125,7 @@ public class Racer implements RacerAPI{
     }
 
     @Override
-    public List<Point> getImpossibleNextPoints(RacetrackAPI racetrack){
+    public List<Point> getImpossibleNextPoints(RacetrackAPI racetrack, boolean ai){
         List<Point> impossibleNextPoints = new ArrayList<>();
 
         int centralX = getNextCentralPoint().getX();
@@ -129,7 +134,7 @@ public class Racer implements RacerAPI{
         for(int y = (centralY-1); y <= (centralY+1); y++){
             for(int x = (centralX-1); x <= (centralX+1); x++){
                 Point currentPoint = new Point(x, y);
-                if(!getPossibleNextPoints(racetrack).contains(currentPoint)) {
+                if(!getPossibleNextPoints(racetrack, ai).contains(currentPoint)) {
                     impossibleNextPoints.add(new Point(x, y));
                 }
             }

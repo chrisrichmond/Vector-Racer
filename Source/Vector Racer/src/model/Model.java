@@ -140,7 +140,7 @@ public class Model implements ModelAPI {
     @Override
     public void gridPointInput(double row, double col) {
         System.out.println("in gridpointinput");
-        for(Point currentPoint: currentState.getCurrentPlayer().getRacer().getPossibleNextPoints(racetrack)){
+        for(Point currentPoint: currentState.getCurrentPlayer().getRacer().getPossibleNextPoints(racetrack, currentState.getCurrentPlayer().isAI())){
             // this could be improved through usage of a structured array rather than arraylist so as to make collection searching more efficient
             double rowLow = currentPoint.getY() - 0.5;
             double rowHigh = currentPoint.getY() + 0.5;
@@ -152,9 +152,13 @@ public class Model implements ModelAPI {
                 history.push(currentState);
                 currentState = currentState.makeMove(new Move(currentState.getCurrentPlayer(), new Point((int)col, (int)row)));
 
-                if(currentState.getCurrentPlayer().isAI()){
-                    history.push(currentState);
-                    currentState = currentState.makeMove(((AIPlayer) currentState.getCurrentPlayer()).getMove());
+                try {
+                    if (currentState.getCurrentPlayer().isAI()) {
+                        history.push(currentState);
+                        currentState = currentState.makeMove(((AIPlayer) currentState.getCurrentPlayer()).getMove());
+                    }
+                }catch (NullPointerException e){
+                    System.out.println("AI is finished");
                 }
 
                 if(currentState.isGameOver()){

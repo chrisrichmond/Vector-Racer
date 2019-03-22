@@ -153,7 +153,7 @@ public class State {
 
         boolean legal = true;
 
-        if(!(move.getPlayerToMove().getRacer().getPossibleNextPoints(racetrack).contains(move.getDestination()))){
+        if(!(move.getPlayerToMove().getRacer().getPossibleNextPoints(racetrack, move.getPlayerToMove().isAI()).contains(move.getDestination()))){
             // the offered destination is not one of the Player to be moved's next valid positions
 //            System.out.println("the offered destination is not one of the Player to be moved's next valid positions");
             legal = false;
@@ -168,7 +168,7 @@ public class State {
 
     private Set<State> getNextLegalStates(){
         Set<State> nextLegalStates = new HashSet<>();
-        List<Point> possibleNextPoints = getCurrentPlayer().getRacer().getPossibleNextPoints(racetrack);
+        List<Point> possibleNextPoints = getCurrentPlayer().getRacer().getPossibleNextPoints(racetrack, getCurrentPlayer().isAI());
 
         for(Point possiblePoint: possibleNextPoints){
             Move possibleMove = new Move(getCurrentPlayer(), possiblePoint);

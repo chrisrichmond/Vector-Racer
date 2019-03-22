@@ -43,9 +43,9 @@ public interface RacerAPI {
      * Get the 9 next possible positions that the Racer could move to based on its current position and velocity
      * @return a list of Points representing the next possible positions in no particular order
      */
-    List<Point> getPossibleNextPoints(RacetrackAPI racetrack);
+    List<Point> getPossibleNextPoints(RacetrackAPI racetrack, boolean ai);
 
-    List<Point> getImpossibleNextPoints(RacetrackAPI racetrack);
+    List<Point> getImpossibleNextPoints(RacetrackAPI racetrack, boolean ai);
 
     Point getNextCentralPoint();
 

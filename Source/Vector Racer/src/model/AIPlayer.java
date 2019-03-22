@@ -66,12 +66,12 @@ public class AIPlayer extends Player {
 
     public Move getMove() {
         if (solved) {
-            System.out.println("getting move: R"+solution.peek().getY()+" C"+solution.peekLast().getX());
-            for(Point currentMove: solution){
-//                System.out.println("current solution move: R"+currentMove.getY()+" C"+currentMove.getX());
+            System.out.println("getting move: R" + solution.peek().getY() + " C" + solution.peekLast().getX());
+            for (Point currentMove : solution) {
+//              System.out.println("current solution move: R"+currentMove.getY()+" C"+currentMove.getX());
             }
             return new Move(this, solution.removeLast());
-        }else{
+        } else {
             System.out.println("Cannot get AI move as no solution exists yet!");
             return null;
         }

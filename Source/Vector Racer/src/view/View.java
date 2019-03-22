@@ -180,11 +180,11 @@ public class View implements ViewAPI{
         racetrackPane = new RacetrackPane(model.getRacetrack());
         Reflection reflection = new Reflection();
         reflection.setFraction(0.25);
-        racetrackPane.setEffect(reflection);
+//        racetrackPane.setEffect(reflection);
 
         VBox vbox  = new VBox();
         infoLabel = new Label("You are now playing on '"+model.getRacetrack().getName()+"'");
-        infoLabel.setEffect(reflection);
+//        infoLabel.setEffect(reflection);
 
         vbox.getChildren().addAll(racetrackPane, infoLabel);
         gamePane.getChildren().add(vbox);

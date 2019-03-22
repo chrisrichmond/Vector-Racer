@@ -99,16 +99,16 @@ public class RacetrackPane extends Pane implements RacetrackPaneAPI {
 
         List<CircleSprite> circleSelectors = new ArrayList<>();
 
-        for(int i = 0; i < player.getRacer().getPossibleNextPoints(racetrack).size(); i++){
-            int row = player.getRacer().getPossibleNextPoints(racetrack).get(i).getY();
-            int col = player.getRacer().getPossibleNextPoints(racetrack).get(i).getX();
+        for(int i = 0; i < player.getRacer().getPossibleNextPoints(racetrack, player.isAI()).size(); i++){
+            int row = player.getRacer().getPossibleNextPoints(racetrack, player.isAI()).get(i).getY();
+            int col = player.getRacer().getPossibleNextPoints(racetrack, player.isAI()).get(i).getX();
             circleSelectors.add(new CircleSprite(row, col, VectorConstants.CIRCLESELECTOR_COLOR, null, 1, 2.0));
         }
 
         // draw impossible circles
-        for(int i = 0; i < player.getRacer().getImpossibleNextPoints(racetrack).size(); i++){
-            int row = player.getRacer().getImpossibleNextPoints(racetrack).get(i).getY();
-            int col = player.getRacer().getImpossibleNextPoints(racetrack).get(i).getX();
+        for(int i = 0; i < player.getRacer().getImpossibleNextPoints(racetrack, player.isAI()).size(); i++){
+            int row = player.getRacer().getImpossibleNextPoints(racetrack, player.isAI()).get(i).getY();
+            int col = player.getRacer().getImpossibleNextPoints(racetrack, player.isAI()).get(i).getX();
             circleSelectors.add(new CircleSprite(row, col, VectorConstants.CIRCLEIMPOSSIBLE_COLOR, null, 0.8, 1.2));
         }
 

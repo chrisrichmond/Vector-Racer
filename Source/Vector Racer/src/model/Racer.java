@@ -115,8 +115,10 @@ public class Racer implements RacerAPI{
 
             }
         }
+
         if(possibleNextPoints.size() == 0){
-            crashCount++;
+            if(!isFinished())
+                crashCount++;
             possibleNextPoints.add(getPosition());
             killVelocity();
         }
@@ -168,7 +170,7 @@ public class Racer implements RacerAPI{
                         System.out.println("PLAYER FINISHED (in Racer)");
                         System.out.println(this);
                         killVelocity();
-                        return;
+//                        return;
                     }
                 }
             }

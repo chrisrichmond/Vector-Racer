@@ -41,4 +41,6 @@ public interface ModelAPI extends Observable {
 
     PlayerAPI getWinner();
 
+    boolean isPlayer2Ai();
+
 }

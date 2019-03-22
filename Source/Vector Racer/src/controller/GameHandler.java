@@ -31,6 +31,7 @@ public class GameHandler implements Handler {
     private Stage primaryStage;
     private int playerInfoIndex;
     private List<PlayerAPI> credits;
+    private boolean gameOverOverride;
 
     public GameHandler(ModelAPI model, ViewAPI view, Stage primaryStage){
         this.model = model;
@@ -43,17 +44,19 @@ public class GameHandler implements Handler {
 
     @Override
     public void handle(Event event) {
-        if(!model.getCurrentState().isGameOver()) {
-            // only handle mouse events if current player is NOT an AI
-            if (!(model.getCurrentState().getCurrentPlayer().isAI())) {
-                double x = ((MouseEvent) event).getX();
-                double y = ((MouseEvent) event).getY();
+        if(!gameOverOverride) {
+            if(!model.getCurrentState().isGameOver()) {
+                // only handle mouse events if current player is NOT an AI
+                if (!(model.getCurrentState().getCurrentPlayer().isAI())) {
+                    double x = ((MouseEvent) event).getX();
+                    double y = ((MouseEvent) event).getY();
 
-                if (event instanceof MouseEvent) {
-                    double row = screenToModelCoord(y);
-                    double col = screenToModelCoord(x);
+                    if (event instanceof MouseEvent) {
+                        double row = screenToModelCoord(y);
+                        double col = screenToModelCoord(x);
 
-                    model.gridPointInput(row, col);
+                        model.gridPointInput(row, col);
+                    }
                 }
             }
         }else{
@@ -61,6 +64,15 @@ public class GameHandler implements Handler {
                 credits = new ArrayList<>(model.getCurrentState().getPlayers());
             }
             endGame();
+        }
+        if(model.isPlayer2Ai()){
+            for(PlayerAPI player: model.getCurrentState().getPlayers()){
+                if((player.isFinished())){
+                    view.getInfoLabel().setText("GAME OVER - " + player.getName() + " wins!");
+                    view.getInfoLabel().setTextFill(player.getColor());
+                    gameOverOverride = true;
+                }
+            }
         }
     }
 

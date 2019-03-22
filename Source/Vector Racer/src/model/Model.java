@@ -20,6 +20,7 @@ public class Model implements ModelAPI {
     private State currentState;
     private RacetrackAPI racetrack;
     private PlayerAPI winner;
+    private boolean player2ai;
 
     public Model(){
         fileHandler = new VectorFileHandler(this);
@@ -36,6 +37,7 @@ public class Model implements ModelAPI {
         System.out.println("Adding Player 1: "+player1name+ " "+VectorConstants.P1_COLOR.toString());
         players.add(new Player(player1name, new Racer(racetrack.getStartPosition()), VectorConstants.P1_COLOR, false));
         System.out.println(players.peek().getName());
+        this.player2ai = player2ai;
         if(player2ai){
             System.out.println("Adding Player 2 (AI): "+player2name+ " "+VectorConstants.P2_COLOR.toString());
             PlayerAPI p2 = new AIPlayer(player2name, new Racer(racetrack.getStartPosition()), VectorConstants.P2_COLOR, VectorConstants.AI_ALGORITHM);
@@ -149,7 +151,6 @@ public class Model implements ModelAPI {
 
             if( (row >= rowLow) && (row <= rowHigh) && (col >= colLow) && (col <= colHigh) ){
 
-
                 history.push(currentState);
                 currentState = currentState.makeMove(new Move(currentState.getCurrentPlayer(), new Point((int)col, (int)row)));
 
@@ -190,6 +191,11 @@ public class Model implements ModelAPI {
     @Override
     public PlayerAPI getWinner() {
         return winner;
+    }
+
+    @Override
+    public boolean isPlayer2Ai() {
+        return player2ai;
     }
 
     @Override

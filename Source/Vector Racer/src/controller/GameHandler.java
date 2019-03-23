@@ -1,38 +1,59 @@
 package controller;
 
-import javafx.application.Platform;
-import javafx.concurrent.Task;
-import javafx.concurrent.WorkerStateEvent;
 import javafx.event.Event;
-import javafx.event.EventHandler;
-import javafx.geometry.Insets;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.CornerRadii;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import model.ModelAPI;
 import model.PlayerAPI;
-import utilities.Observer;
 import utilities.VectorConstants;
 import view.ViewAPI;
-
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
+/**
+ * Class representing a handler for game events.
+ */
 public class GameHandler implements Handler {
 
+    /**
+     * The ModelAPI associated with this GameHandler.
+     */
     private ModelAPI model;
+
+    /**
+     * The ViewAPI associated with this GameHandler.
+     */
     private ViewAPI view;
+
+    /**
+     * The Stage associated with this GameHandler.
+     */
     private Stage primaryStage;
+
+    /**
+     * The index governing which PlayerAPI's information to display in the credits reel at the end of the game.
+     */
     private int playerInfoIndex;
+
+    /**
+     * The credits reel to cycle through PlayerAPI info at the end of the game
+     */
     private List<PlayerAPI> credits;
+
+    /**
+     * Whether or not the game has been overridden as being over.
+     */
     private boolean gameOverOverride;
 
+    /**
+     * Creates a new instance of GameHandler.
+     * @param model the ModelAPI to associate with this GameHandler
+     * @param view the ViewAPI to associate with this GameHandler
+     * @param primaryStage the main Stage on which UI data is being displayed and received
+     */
     public GameHandler(ModelAPI model, ViewAPI view, Stage primaryStage){
         this.model = model;
         this.view = view;
@@ -73,6 +94,11 @@ public class GameHandler implements Handler {
         }
     }
 
+    /**
+     * Converts and returns screen coordinates to their equivalent model positions .
+     * @param coord the screen coordinate
+     * @return the model coordinate
+     */
     private double screenToModelCoord(double coord){
         DecimalFormat df = new DecimalFormat("#.##");
         df.setRoundingMode(RoundingMode.CEILING);
@@ -105,6 +131,9 @@ public class GameHandler implements Handler {
         }
     }
 
+    /**
+     * Cycles through player stats at the end of the game.
+     */
     public void endGame(){
         PlayerAPI player = credits.get(playerInfoIndex);
         String message = "";

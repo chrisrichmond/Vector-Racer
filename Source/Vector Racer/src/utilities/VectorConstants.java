@@ -5,9 +5,10 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Screen;
 
-import java.net.URL;
-import java.util.List;
-
+/**
+ * Class containing Vector Racer global constants.
+ * Refrain from altering values unless certain of the scope of their impact.
+ */
 public class VectorConstants {
 
     public static final boolean IS_DEBUG_MODE = false;

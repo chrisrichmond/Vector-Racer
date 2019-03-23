@@ -35,7 +35,7 @@ public abstract class AbstractSolver {
      * @param initialState the State to begin solving from
      * @return a double-ended queue
      */
-    public abstract Deque<Point> solve(State initialState); // fixme changed signature to remove player parameter and this can be derived from current player of initial state
+    public abstract Deque<Point> solve(State initialState);
 
     /**
      * Produces a stack of Move objects to get from one State to another
@@ -58,12 +58,22 @@ public abstract class AbstractSolver {
         return moves;
     }
 
+    /**
+     * Fail method, called when solution could not be found
+     * @return null
+     */
     public Deque<Point> fail(){
         solveDuration = System.currentTimeMillis() - startTime;
         System.out.println("AI couldn't find goal state solution after searching "+nodeCount+" nodes in "+solveDuration/1000+" seconds");
         return null;
     }
 
+    /**
+     * Encodes data by hashing, would be used specifically to form a group "visited" data
+     * @param stateNumber the state number to encode
+     * @param player the player whose data will encoded
+     * @return an integer representing the hashed data
+     */
     public int encodeVisited(int stateNumber, PlayerAPI player){
         int xVelo = player.getRacer().getVelocity().getXVelo();
         int yVelo = player.getRacer().getVelocity().getYVelo();
@@ -73,14 +83,40 @@ public abstract class AbstractSolver {
         return stateDetails.hashCode();
     }
 
-    private class StateDetails{ // fixme re-added velocity and statenumber hashing
+    /**
+     * Local class representing a set of data that can be hashed
+     */
+    private class StateDetails{
 
 //        private int stateNumber;
+        /**
+         * xVelo data value
+         */
         private int xVelo;
+
+        /**
+         * yVelo data value
+         */
         private int yVelo;
+
+        /**
+         * xPos data value
+         */
         private int xPos;
+
+        /**
+         * yPos data value
+         */
         private int yPos;
 
+        /**
+         * Creates a new instance of StateDetails
+         * @param stateNumber data value
+         * @param xPos data value
+         * @param yPos data value
+         * @param xVelo data value
+         * @param yVelo data value
+         */
         StateDetails(int stateNumber, int xPos, int yPos, int xVelo, int yVelo){
 //            this.stateNumber = stateNumber;
             this.xVelo = xVelo;
@@ -94,7 +130,7 @@ public abstract class AbstractSolver {
             if (this == o) return true;
             if (!(o instanceof StateDetails)) return false;
             StateDetails that = (StateDetails) o;
-//    fixme        return stateNumber == that.stateNumber &&
+//            return stateNumber == that.stateNumber &&
             return        xVelo == that.xVelo &&
                     yVelo == that.yVelo &&
                     xPos == that.xPos &&

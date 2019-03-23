@@ -10,17 +10,31 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
+/**
+ * Class representing a file handler used specifically for loading Vector Racer files into the game model.
+ */
 public class VectorFileHandler {
 
+    /**
+     * The ModelAPI to load objects from file into.
+     */
     private ModelAPI model;
+
+    /**
+     * A list of tokens used for retrieving each line command from file and delimiting
+     */
     private List<String> tokenList;
 
+    /**
+     * Creates a new instance of VectorFileHandler
+     * @param model the ModelAPI to load into
+     */
     public VectorFileHandler(ModelAPI model){
         this.model = model;
     }
 
     /**
-     * Loads model objects from file into current model
+     * Loads file objects from into associated ModelAPI
      * @param filename
      */
     public void loadFromFile(File filename){
@@ -47,21 +61,6 @@ public class VectorFileHandler {
             System.out.println("Error reading from file '"+filename+"': ");
             iox.printStackTrace();
         }
-    }
-
-    /**
-     * Saves current model objects to file
-     * @param filename the filename to save model objects to
-     */
-    public void saveToFile(String filename){    // todo String filename or File filename?
-        String outputToFile;
-
-
-
-
-        // todo
-
-
     }
 
     /**

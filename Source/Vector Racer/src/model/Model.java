@@ -1,27 +1,61 @@
 package model;
 
-import javafx.beans.property.ObjectProperty;
-import javafx.scene.paint.Color;
 import model.geometry.Point;
 import utilities.Observer;
 import utilities.VectorConstants;
 import utilities.VectorFileHandler;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
 
+/**
+ * Class representing an instance of the game itself.
+ */
 public class Model implements ModelAPI {
 
+    /**
+     * The file handler object for loading racetrack data into the Model.
+     */
     private VectorFileHandler fileHandler;
+
+    /**
+//     * The list of all objects observing this instance of Model for change.
+     */
     private List<Observer> observers;
+
+    /**
+     * A boolean flag denoting change in this instance of Model.
+     */
     private boolean changed;
+
+    /**
+     * The Deque representing a history of past States that have been associated with this Model.
+     */
     private Deque<State> history;
+
+    /**
+     * The current State associated with this Model.
+     */
     private State currentState;
+
+    /**
+     * The RacetrackAPI associated with this Model.
+     */
     private RacetrackAPI racetrack;
+
+    /**
+     * The PlayerAPI who has won the game, null if there is currently no winner.
+     */
     private PlayerAPI winner;
+
+    /**
+     * Whether or not the second player in this Model is an AI.
+     */
     private boolean player2ai;
 
+    /**
+     * Creates a new instance of model.
+     */
     public Model(){
         fileHandler = new VectorFileHandler(this);
         observers = new ArrayList<>();
@@ -36,7 +70,7 @@ public class Model implements ModelAPI {
         Queue<PlayerAPI> players = new LinkedList<PlayerAPI>();
         System.out.println("Adding Player 1: "+player1name+ " "+VectorConstants.P1_COLOR.toString());
         players.add(new Player(player1name, new Racer(racetrack.getStartPosition()), VectorConstants.P1_COLOR, false));
-        System.out.println(players.peek().getName());
+
         this.player2ai = player2ai;
         if(player2ai){
             System.out.println("Adding Player 2 (AI): "+player2name+ " "+VectorConstants.P2_COLOR.toString());
@@ -78,7 +112,6 @@ public class Model implements ModelAPI {
     @Override
     public void loadFile(File filename) throws FileNotFoundException {
         fileHandler.loadFromFile(filename);
-        // currentRacetrack.clear();
     }
 
     @Override
@@ -91,7 +124,6 @@ public class Model implements ModelAPI {
         if(racetrack.addAirTile(new AirTile(col, row))){
             System.out.println("Successfully added new AIR tile to model at row "+row+", col "+col);
         }
-
     }
 
     @Override
@@ -141,7 +173,6 @@ public class Model implements ModelAPI {
 
     @Override
     public void gridPointInput(double row, double col) {
-        System.out.println("in gridpointinput");
         for(Point currentPoint: currentState.getCurrentPlayer().getRacer().getPossibleNextPoints(racetrack, currentState.getCurrentPlayer().isAI())){
             // this could be improved through usage of a structured array rather than arraylist so as to make collection searching more efficient
             double rowLow = currentPoint.getY() - 0.5;
@@ -168,10 +199,8 @@ public class Model implements ModelAPI {
                     int lowestScore = 100000;
                     for(PlayerAPI player: currentState.getPlayers()){
                         if(player.getRacer().getScore() == lowestScore){
-                            System.out.println("same score");
                             winner = null;
                         }else if(player.getRacer().getScore() < lowestScore){
-                            System.out.println("lower score");
                             winner = player;
                             lowestScore = player.getRacer().getScore();
                         }

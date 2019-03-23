@@ -5,9 +5,13 @@ import model.geometry.Point;
 
 import java.util.*;
 
+/**
+ * Class for representing a Breadth-First Search solver algorithm using the Vector Racer State system
+ */
 public class BreadthFirstSearch extends AbstractSolver {
 
-    public Deque<Point> solve(State initState){ // fixme changed signature to remove player parameter and this can be derived from current player of initial state
+    @Override
+    public Deque<Point> solve(State initState){
         State initialState = new State(initState);
         // SETTING STATE GRAPH INTO AI MODE
         initialState.setAiSolverMode(true);
@@ -17,7 +21,7 @@ public class BreadthFirstSearch extends AbstractSolver {
 
         startTime = System.currentTimeMillis();
         agenda.addAll(initialState.getChildren());
-        visited.add(encodeVisited(initialState.getStateNumber(), initialState.getCurrentPlayer())); // fixme changed from player to initialState.getCurrentPlayer()
+        visited.add(encodeVisited(initialState.getStateNumber(), initialState.getCurrentPlayer()));
         int currentZone = 0;
         while(!agenda.isEmpty()){
             State currentState = agenda.poll();

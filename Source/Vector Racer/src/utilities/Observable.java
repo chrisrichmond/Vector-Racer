@@ -1,5 +1,8 @@
 package utilities;
 
+/**
+ * Interface implemented by objects who wish to be observed by Observer object instances
+ */
 public interface Observable {
 
     /**

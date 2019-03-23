@@ -5,25 +5,55 @@ import model.geometry.Vect;
 
 import java.util.*;
 
+/**
+ * Class representing a racer in the game.
+ */
 public class Racer implements RacerAPI{
 
+    /**
+     * The Vect representing the velocity this Racer is travelling at.
+     */
     private Vect velocity;
+
+    /**
+     * Whether or not this Racer has finished.
+     */
     private boolean finished;
+
+    /**
+     * The Deque of Points representing the positions that the Racer has been in each game state so far.
+     */
     private Deque<Point> pointRoute;
+
+    /**
+     * The value of the checkpoint zone that this Racer is currently in.
+     */
     private int currentZone;
+
+    /**
+     * The number of times this Racer has crashed.
+     */
     private int crashCount;
 
+    /**
+     * Copy constructor - creates a new instance of Racer
+     * @param original the Racer to copy
+     */
     public Racer(RacerAPI original){
         this.velocity = new Vect(original.getVelocity());
         this.finished = original.isFinished();
         this.pointRoute = new LinkedList<>();
-        for(Point point: original.getPointRoute()) {    // fixme added this for deep cloning(?)
+        for(Point point: original.getPointRoute()) {
             this.pointRoute.add(new Point(point));
         }
         this.currentZone = original.getCurrentZone();
         this.crashCount = original.getCrashCount();
     }
 
+    /**
+     * Creates a new instance of Racer
+     * @param startPosition the Point at which to spawn this Racer
+     */
     public Racer(Point startPosition){
         this.velocity = new Vect(startPosition, startPosition);
         this.finished = false;
@@ -94,7 +124,7 @@ public class Racer implements RacerAPI{
         int centralX = getNextCentralPoint().getX();
         int centralY = getNextCentralPoint().getY();
 
-        boolean traversablePath = true; // fixme
+        boolean traversablePath = true;
         for(int y = (centralY-1); y <= (centralY+1); y++){
             for(int x = (centralX-1); x <= (centralX+1); x++){
                 if(racetrack.isVertexTraversable(new Point(x, y))) {
@@ -110,9 +140,6 @@ public class Racer implements RacerAPI{
                         possibleNextPoints.add(new Point(x, y));
                     }
                 }
-
-
-
             }
         }
 
@@ -170,13 +197,12 @@ public class Racer implements RacerAPI{
                         System.out.println("PLAYER FINISHED (in Racer)");
                         System.out.println(this);
                         killVelocity();
-//                        return;
                     }
                 }
             }
         }
 
-        // todo set destinationAfterEffects based on velocity with applied resistance
+        // TODO (currently broken) set destinationAfterEffects based on velocity with applied resistance
 
         Vect tempVelo = new Vect(currentPosition, destinationBeforeEffects);
         int xVelo = tempVelo.getXVelo();

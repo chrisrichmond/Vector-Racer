@@ -6,12 +6,30 @@ import model.geometry.Point;
 import java.util.Deque;
 import java.util.LinkedList;
 
+/**
+ * Class representing an AI player in the game.
+ */
 public class AIPlayer extends Player {
 
+    /**
+     * The algorithm this AI will apply when attempting to find a solution
+     */
     protected AbstractSolver algorithm;
+
+    /**
+     * Whether or not this AIPlayer has found a solution
+     */
     protected boolean solved;
+
+    /**
+     * The Deque of Points representing a solution to a Point in a goal State
+     */
     protected Deque<Point> solution;
 
+    /**
+     * Copy constructor - creates a new instance of AIPlayer.
+     * @param original the AIPlayer to deep copy
+     */
     public AIPlayer(AIPlayer original){
         super(new String(original.getName()),
                 new Racer(original.getRacer()),
@@ -22,6 +40,13 @@ public class AIPlayer extends Player {
         this.solution = new LinkedList<>(original.getSolution());
     }
 
+    /**
+     * Creates a new instance of AIPlayer.
+     * @param name the name of this AIPlayer
+     * @param racer the Racer associated with this AIPlayer
+     * @param color the Color associated with this AIPlayer
+     * @param algorithmName the abbreviated name of the algorithm to use when this AIPlayer is solving
+     */
     public AIPlayer(String name, RacerAPI racer, Color color, String algorithmName) {
         super(name, racer, color, true);
 
@@ -52,7 +77,7 @@ public class AIPlayer extends Player {
 
     public boolean findSolution(State initialState){
         if(!solved){
-            solution = algorithm.solve(initialState); // fixme changed to remove passing of this player
+            solution = algorithm.solve(initialState);
             if(solution != null){
                 solved = true;
             }

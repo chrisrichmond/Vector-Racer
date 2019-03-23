@@ -13,8 +13,6 @@ public interface ModelAPI extends Observable {
 
     void start();
 
-    //public ObjectProperty<RacetrackAPI> racetrackProperty();
-
     RacetrackAPI getRacetrack();
 
     State getCurrentState();

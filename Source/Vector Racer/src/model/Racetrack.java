@@ -81,9 +81,16 @@ public class Racetrack implements RacetrackAPI{
         this.cols = original.getCols();
         this.startPosition = new Point(original.getStartPosition());
         this.finalZone = original.getFinalZone();
-        this.name = name;
+        this.name = original.getName();
     }
 
+    /**
+     * Creates a new instance of Racetrack.
+     * @param rows the number of rows
+     * @param cols the number of columns
+     * @param startPosition the position Racers will spawn at
+     * @param finalZone the last zone before the finish
+     */
     public Racetrack(int rows, int cols, Point startPosition, int finalZone){
         tiles = new ArrayList<>();
         airTiles = new ArrayList<>();
@@ -101,7 +108,6 @@ public class Racetrack implements RacetrackAPI{
     @Override
     public boolean addTile(Tile newTile){
         if( (newTile.getStartX()<0) || (newTile.getStartX()>=cols) || (newTile.getStartY()<0) || (newTile.getStartY()>=rows)){
-            System.out.println("Tile to be added was outside Racetrack dimensions");
             return false;
         }
 
@@ -110,7 +116,6 @@ public class Racetrack implements RacetrackAPI{
         positionCheck:
         for (Tile currentTile: tiles) {
             if( (newTile.getStartX() == currentTile.getStartX()) && (newTile.getStartY() == currentTile.getStartY()) ){
-                //System.out.println("Tile already exists");
                 success = false;
                 break positionCheck;
             }
@@ -284,7 +289,6 @@ public class Racetrack implements RacetrackAPI{
 
     @Override
     public Set<Terrain> getTerrainBetween(Point start, Point end) {
-        // todo must do validation checking before calling this function to ensure Points are within racetrack bounds
         Vect line = new Vect(start, end);
         Set<Terrain> terrain = new HashSet<>();
         if(start.getX() > end.getX()){
@@ -335,11 +339,7 @@ public class Racetrack implements RacetrackAPI{
                         terrain.add(getTile(y, x));
                     }
                 }
-
-
-
             }
-
         }
 
         if(start.getY() > end.getY()){
@@ -430,13 +430,6 @@ public class Racetrack implements RacetrackAPI{
     public void setName(String name) {
         this.name = name;
     }
-
-//    @Override
-//    public boolean isWithinBounds(Point position) {
-//
-//
-//        return false;
-//    }
 
     @Override
     public List<Tile> getTiles() {

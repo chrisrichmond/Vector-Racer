@@ -1,0 +1,5 @@
+racetrack 20 40 2 2 6
+
+tile air 1 1 18 38
+
+fillremainder wall

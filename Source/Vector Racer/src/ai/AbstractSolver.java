@@ -5,20 +5,36 @@ import model.geometry.Point;
 
 import java.util.*;
 
+/**
+ * Abstract class for presenting a template for AI solver algorithms to follow in order to solve Vector Racer State graphs.
+ */
 public abstract class AbstractSolver {
 
-
-    // TODO NEED TO IMPLEMENT MECHANISM FOR SKIPPING CURRENT PLAYER IN STATES WHERE CURRENT PLAYER IS NOT THE AI
-    // OR DO I?
-    // MIGHT BE BETTER OFF IN SUBCLASSES OF THIS
-
-
-
+    /**
+     * The player this solver will attempt to solve for.
+     */
     protected PlayerAPI player;
+
+    /**
+     * The system time in milliseconds that solving begins at.
+     */
     protected long startTime;
+
+    /**
+     * The duration in milliseconds that solving takes to either resolve or fail.
+     */
     protected long solveDuration;
+
+    /**
+     * The number of State nodes visited so far during solving.
+     */
     protected int nodeCount;
 
+    /**
+     * Algorithm for solving to a goal State from a given initial State in the scope of the Vector Racer game.
+     * @param initialState the State to begin solving from
+     * @return a double-ended queue
+     */
     public abstract Deque<Point> solve(State initialState); // fixme changed signature to remove player parameter and this can be derived from current player of initial state
 
     /**

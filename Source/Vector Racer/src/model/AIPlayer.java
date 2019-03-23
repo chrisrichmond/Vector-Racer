@@ -3,9 +3,6 @@ package model;
 import ai.*;
 import javafx.scene.paint.Color;
 import model.geometry.Point;
-
-import java.lang.reflect.Field;
-import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.LinkedList;
 
@@ -66,10 +63,6 @@ public class AIPlayer extends Player {
 
     public Move getMove() {
         if (solved) {
-            System.out.println("getting move: R" + solution.peek().getY() + " C" + solution.peekLast().getX());
-            for (Point currentMove : solution) {
-//              System.out.println("current solution move: R"+currentMove.getY()+" C"+currentMove.getX());
-            }
             return new Move(this, solution.removeLast());
         } else {
             System.out.println("Cannot get AI move as no solution exists yet!");
@@ -80,34 +73,5 @@ public class AIPlayer extends Player {
     public boolean isSolved(){
         return solved;
     }
-
-//    public String toString() {
-//        StringBuilder result = new StringBuilder();
-//        String newLine = System.getProperty("line.separator");
-//
-//        result.append( this.getClass().getName() );
-//        result.append( " Object {" );
-//        result.append(newLine);
-//
-//        //determine fields declared in this class only (no fields of superclass)
-//        Field[] fields = this.getClass().getDeclaredFields();
-//
-//        //print field names paired with their values
-//        for ( Field field : fields  ) {
-//            result.append("  ");
-//            try {
-//                result.append( field.getName() );
-//                result.append(": ");
-//                //requires access to private field:
-//                result.append( field.get(this) );
-//            } catch ( IllegalAccessException ex ) {
-//                System.out.println(ex);
-//            }
-//            result.append(newLine);
-//        }
-//        result.append("}");
-//
-//        return result.toString();
-//    }
 
 }

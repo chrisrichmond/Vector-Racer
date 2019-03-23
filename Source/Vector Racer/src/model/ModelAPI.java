@@ -1,15 +1,12 @@
 package model;
 
-
-import model.geometry.Point;
 import utilities.Observable;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 
 /**
- * Interface representing the game itself.
- * All functionality and data structures for running the game are either associated directly to this class or indirectly through others.
+ * Interface representing main model component of the Vector Racer system, it is the game data and logic.
+ * Implementing classes should handle all functionality and data structures for running the game.
  */
 public interface ModelAPI extends Observable {
 

@@ -1,14 +1,14 @@
 package view;
 
-import controller.Controller;
 import javafx.event.EventHandler;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
-import utilities.Observer;
 
+/**
+ * Interface representing the main view component of the Vector Racer system.
+ * Implementing classes should present the user interface.
+ */
 public interface ViewAPI {
 
     /**
@@ -25,7 +25,7 @@ public interface ViewAPI {
      * Gets the main menu pane
      * @return reference to the main menu pane
      */
-    AnchorPane getMainMenuPane(); // fixme
+    AnchorPane getMainMenuPane();
 
     /**
      * Gets the game pane
@@ -51,6 +51,10 @@ public interface ViewAPI {
      */
     void setGameHandler(EventHandler gameHandler);
 
+    /**
+     * Returns the label used for displaying information to the user during gameplay
+     * @return the info label
+     */
     Label getInfoLabel();
 
 }

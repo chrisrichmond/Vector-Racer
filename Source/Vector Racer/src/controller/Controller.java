@@ -6,7 +6,8 @@ import utilities.Observer;
 import view.ViewAPI;
 
 /**
- * Class representing the main controller object from which user input events on the view are handled.
+ * Class representing the main controller object of the Vector Racer system.
+ * Handles user input events on the view.
  */
 public class Controller implements Observer {
 

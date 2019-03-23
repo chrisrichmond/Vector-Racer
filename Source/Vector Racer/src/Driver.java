@@ -12,6 +12,9 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+/**
+ * Application class which initialises all MVC components and launches the Vector Racer game.
+ */
 public class Driver extends Application {
 
     public static void main(String[] args){
@@ -57,6 +60,11 @@ public class Driver extends Application {
         Controller controller = new Controller(model, view, primaryStage);
     }
 
+    /**
+     * Copies resource racetracks to users Vector Racer files directory
+     * @param dir racetracks directory
+     * @param destinationDir Vector Racer files directory
+     */
     private void copyAllFilesFromDir(File dir, File destinationDir){
         for(File currentFile: dir.listFiles()){
             if(currentFile.isDirectory()){

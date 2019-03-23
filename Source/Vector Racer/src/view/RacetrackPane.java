@@ -13,23 +13,64 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import model.*;
 import model.geometry.Point;
-import utilities.Observer;
 import utilities.VectorConstants;
 
 import java.util.*;
 
+/**
+ * Class representing a racetrack display panel in the view.
+ */
 public class RacetrackPane extends Pane implements RacetrackPaneAPI {
 
+    /**
+     * The border of the RacetrackPane.
+     */
     private Rectangle trackBorder;
+
+    /**
+     * The number of rows of display tiles.
+     */
     private int rows;
+
+    /**
+     * The number of columns of display tiles.
+     */
     private int cols;
+
+    /**
+     * The size of display tiles.
+     */
     private int tileSize;
+
+    /**
+     * The RacetrackAPI to draw for.
+     */
     private RacetrackAPI racetrack;
+
+    /**
+     * The list of TileSprites.
+     */
     private List<TileSprite> tileSprites;
+
+    /**
+     * The list of RacerSprites.
+     */
     private List<RacerSprite> racerSprites;
+
+    /**
+     * A drop shadown effect that can be applied to sprites.
+     */
     private DropShadow dropShadow;
+
+    /**
+     * An inner shadow effect that can be applied to sprites.
+     */
     private InnerShadow innerShadow = new InnerShadow();
 
+    /**
+     * Creates a new instance of RacetrackPane
+     * @param racetrack the RacetrackAPI to draw
+     */
     public RacetrackPane(RacetrackAPI racetrack){
         this.rows = racetrack.getRows();
         this.cols = racetrack.getCols();
@@ -45,7 +86,6 @@ public class RacetrackPane extends Pane implements RacetrackPaneAPI {
         innerShadow.setOffsetX(2.0f);
         innerShadow.setOffsetY(2.0f);
 
-
         trackBorder.setStroke(Color.BLACK);
         trackBorder.setFill(null);
         getChildren().add(trackBorder);
@@ -60,6 +100,7 @@ public class RacetrackPane extends Pane implements RacetrackPaneAPI {
 
     }
 
+    @Override
     public void drawTiles(){
         for (Tile currentTile: racetrack.getTiles()){
             TileSprite currentTileSprite = new TileSprite(currentTile.getStartY(), currentTile.getStartX(), currentTile.getColor());
@@ -94,6 +135,7 @@ public class RacetrackPane extends Pane implements RacetrackPaneAPI {
         }
     }
 
+    @Override
     public void drawNextPossiblePositions(PlayerAPI player){
         clearCircleSelectorsFromTrack();
 
@@ -115,6 +157,7 @@ public class RacetrackPane extends Pane implements RacetrackPaneAPI {
         getChildren().addAll(circleSelectors);
     }
 
+    @Override
     public void drawRacerSprites(List<PlayerAPI> players){
         clearRacerSpritesFromTrack();
 
@@ -146,6 +189,9 @@ public class RacetrackPane extends Pane implements RacetrackPaneAPI {
         getChildren().addAll(racerSprites);
     }
 
+    /**
+     * Clears all RacerSprites from this RacetrackPane.
+     */
     private void clearRacerSpritesFromTrack(){
 
         for(Iterator<Node> iterator = getChildren().iterator(); iterator.hasNext();){
@@ -158,6 +204,9 @@ public class RacetrackPane extends Pane implements RacetrackPaneAPI {
         racerSprites.clear();
     }
 
+    /**
+     * Clears all next possible position circle selectors from this RacetrackPane.
+     */
     private void clearCircleSelectorsFromTrack(){
 
         for(Iterator<Node> iterator = getChildren().iterator(); iterator.hasNext();){
@@ -172,30 +221,75 @@ public class RacetrackPane extends Pane implements RacetrackPaneAPI {
 
     }
 
+    /**
+     * Local class for representing a player's vehicle on screen.
+     */
     private class RacerSprite extends CircleSprite {
 
+        /**
+         * Creates a new instance of RacerSprite.
+         * @param row the row to draw on
+         * @param col the column to draw on
+         * @param color the Color to draw the sprite
+         * @param fill the Color to fill the sprite
+         * @param opacity the opacity value of the sprite
+         */
         public RacerSprite(int row, int col, Color color, Color fill, double opacity) {
             super(row, col, color, fill, opacity, 1.0);
         }
     }
 
+    /**
+     * Local class for representing lines on screen.
+     */
     private class LineSprite extends Line {
 
+        /**
+         * Creates a new instance of LineSprite.
+         * @param startRow the row to start drawing on
+         * @param startCol the column to start drawing on
+         * @param endRow the row to finish drawing on
+         * @param endCol the column to finish drawing on
+         * @param color the Color to draw the sprite
+         * @param thickness the stroke width value of the sprite
+         */
         public LineSprite(int startRow, int startCol, int endRow, int endCol, Color color, double thickness){
             super(startCol*tileSize, startRow*tileSize, endCol*tileSize, endRow*tileSize);
 
             setStroke(color);
             setStrokeWidth(thickness);
         }
-
     }
 
+    /**
+     * Local class for representing circles on screen as a StackPane.
+     */
     private class CircleSprite extends StackPane {
 
+        /**
+         * The row to draw on.
+         */
         private int row;
+
+        /**
+         * The column to draw on.
+         */
         private int col;
+
+        /**
+         * The circle representing this CircleSprite.
+         */
         private Ellipse circle;
 
+        /**
+         * Creates a new instance of CircleSprite.
+         * @param row the row to draw on
+         * @param col the column to draw on
+         * @param color the Color to draw the sprite
+         * @param fill the Color to fill the sprite
+         * @param opacity the opacity value of the sprite
+         * @param borderThickness the stroke width value of the border of the sprite
+         */
         public CircleSprite(int row, int col, Color color, Color fill, double opacity, double borderThickness){
             this.row = row;
             this.col = col;
@@ -213,19 +307,43 @@ public class RacetrackPane extends Pane implements RacetrackPaneAPI {
         }
     }
 
+    /**
+     * Local class representing for representing Tiles on screen as a StackPane.
+     */
     private class TileSprite extends StackPane {
 
+        /**
+         * The row to draw on.
+         */
         private int row;
+
+        /**
+         * The column to draw on.
+         */
         private int col;
+
+        /**
+         * The Rectangle representing this TileSprite.
+         */
         private Rectangle tile;
+
+        /**
+         * Debug coordinate overlay text.
+         */
         private Text debugCoord;
 
+        /**
+         * Creates a new instance of TileSprite
+         * @param row the row to draw on
+         * @param col the column to draw on
+         * @param color the Color to draw the sprite
+         */
         public TileSprite(int row, int col, Color color){
             this.row = row;
             this.col = col;
             this.tile = new Rectangle(tileSize, tileSize);
 
-            tile.setStroke(VectorConstants.GRIDLINE_COLOR); // todo look into css or other global styling
+            tile.setStroke(VectorConstants.GRIDLINE_COLOR);
             tile.setFill(color);
 
             debugCoord = new Text();
@@ -241,6 +359,10 @@ public class RacetrackPane extends Pane implements RacetrackPaneAPI {
 
         }
 
+        /**
+         * Returns the Rectangle representing this TileSprite
+         * @return the tile rectangle
+         */
         public Rectangle getTile() {
             return tile;
         }

@@ -19,35 +19,73 @@ import model.ModelAPI;
 import utilities.VectorConstants;
 import java.io.File;
 
+/**
+ * Class for representing the ViewAPI, responsible in some way for all user interface components.
+ */
 public class View implements ViewAPI{
 
-    // File Handling
+    /**
+     * Object for allowing file selection to take place.
+     */
     private FileChooser fileChooser;
+
+    /**
+     * The default directory when choosing files.
+     */
     private File vrDir;
 
-    // Model Backend
+    /**
+     * The ModelAPI associated with this View.
+     */
     private ModelAPI model;
 
-    // Content Handlers
+    /**
+     * The object for handling user interaction at game time.
+     * Is not set by the view itself, should be dictated externally.
+     */
     private EventHandler gameHandler;
 
-    // Primary Stage and Root Content Node
+    /**
+     * The main Stage window on which it holds a Scene with display content.
+     */
     private Stage primaryStage;
-    private Parent root;
 
-    // Racetrack Game Area Pane and Info TextArea
+    /**
+     * The RacetrackPane used to display racetrack data on screen.
+     */
     private RacetrackPane racetrackPane;
+
+    /**
+     * The Label used to display information to the user during gameplay.
+     */
     private Label infoLabel;
 
-    // Views (Full Screen Content Panes)
+    /**
+     * The main menu screen content.
+     */
     private AnchorPane mainMenuPane;
+
+    /**
+     * The game screen content.
+     */
     private AnchorPane gamePane;
 
+    /**
+     * The main menu splash image.
+     */
     private Image mainMenuSplash;
+
+    /**
+     * The main menu splash image container.
+     */
     private ImageView backgroundImageView;
 
-
-    public View(ModelAPI model, Stage primaryStage) throws Exception{
+    /**
+     * Creates a new instance of View
+     * @param model the ModelAPI to associate with this View
+     * @param primaryStage the main Stage
+     */
+    public View(ModelAPI model, Stage primaryStage) {
 
         // File Handling
         fileChooser = new FileChooser();
@@ -92,6 +130,9 @@ public class View implements ViewAPI{
         showFirstMenu();
     }
 
+    /**
+     * Displays the first set of options on the main menu.
+     */
     private void showFirstMenu(){
         VBox firstVbox = new VBox(15);
         firstVbox.setPrefSize(178.0, 200.0);
@@ -115,6 +156,9 @@ public class View implements ViewAPI{
         mainMenuPane.getChildren().add(firstVbox);
     }
 
+    /**
+     * Displays the second set of options on the main menu.
+     */
     private void showSecondMenu(){
         VBox secondVbox = new VBox(15);
         secondVbox.setPrefSize(300, 200.0);
@@ -227,5 +271,4 @@ public class View implements ViewAPI{
     public Label getInfoLabel() {
         return infoLabel;
     }
-
 }

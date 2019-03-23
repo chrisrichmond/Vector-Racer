@@ -9,7 +9,7 @@ import java.io.FileNotFoundException;
 import java.util.*;
 
 /**
- * Class representing an instance of the game itself.
+ * Class representing an instance of the ModelAPI, all backend data and logic, the game itself.
  */
 public class Model implements ModelAPI {
 

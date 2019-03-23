@@ -32,10 +32,6 @@ public class Square {
         this.start = new Point(original.getStart());
         this.end = new Point(original.getEnd());
         this.corners = new ArrayList<>(original.getCorners());
-//        this.corners = new ArrayList<Point>();  // fixme added deep cloning, do I need it? PROBABLY NOT, DON'T ADD BACK IN
-//        for(Point point: original.getCorners()) {
-//            this.corners.add(new Point(point));
-//        }
     }
 
     /**
@@ -44,7 +40,7 @@ public class Square {
      */
     public Square(Point start){
         this.start = start;
-        this.end = new Point(start.getX()+1, start.getY()+1);       //todo need to check which way axes go etc, all this kind of shit might not work properly in JavaFX, used to Swing directions
+        this.end = new Point(start.getX()+1, start.getY()+1);
 
         corners = new ArrayList<>();
         corners.add(start);

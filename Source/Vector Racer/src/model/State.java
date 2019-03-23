@@ -1,21 +1,55 @@
 package model;
 
 import model.geometry.Point;
-import model.geometry.Vect;
-
 import java.lang.reflect.Field;
 import java.util.*;
 
+/**
+ * Class which represents a game state in which the current game players, racetrack, and AI mode are held.
+ * State can hold reference to either zero or one parent States, and can also hold reference to zero to many child States.
+ * State space can be constructed and explored using parent/child relationships.
+ */
 public class State {
 
-    private Queue<PlayerAPI> players; // all players currently existing in this State
-    private RacetrackAPI racetrack; // the racetrack existing in this State
+    /**
+     * The Queue representing all the Players in this State, front of the Queue is the current Player.
+     */
+    private Queue<PlayerAPI> players;
+
+    /**
+     * The RacetrackAPI associated with this State.
+     */
+    private RacetrackAPI racetrack;
+
+    /**
+     * The number of this State.
+     */
     private int stateNumber;
+
+    /**
+     * Whether the game is over or not in this State.
+     */
     private boolean gameOver;
+
+    /**
+     * The parent State of this State, null by default unless assigned.
+     */
     private State parent = null;
+
+    /**
+     * The Move that was made in order to generate this State, null by default unless assigned.
+     */
     private Move delta = null;
+
+    /**
+     * Whether or not this State is currently participating in an AI solver State graph
+     */
     private boolean aiSolverMode = false;
 
+    /**
+     * Copy constructor - creates a new instance of State.
+     * @param original the State to deep copy
+     */
     public State(State original){
         this.players = new LinkedList<>();
         for(PlayerAPI p: original.getPlayers()){
@@ -28,14 +62,21 @@ public class State {
         this.racetrack = original.getRacetrack();
         this.stateNumber = original.getStateNumber();
         this.gameOver = original.isGameOver();
-//        if(original.getParent() != null)
-//            this.parent = new State(original.getParent());
         this.parent = original.parent;
         if(original.getDelta() != null)
             this.delta = new Move(original.getDelta());
         this.aiSolverMode = original.isAiSolverMode();
     }
 
+    /**
+     * Creates a new instance of State, checks if the game is over, and moves any players in non-traversable Terrain back to a previous Point
+     * @param players the Queue of Players in this State with the current Player at the front
+     * @param racetrack the RacetrackAPI associated with this State
+     * @param stateNumber the number of this State
+     * @param parent the parent State of this State, may be null
+     * @param delta the Move that was made to enter this State, may be null
+     * @param aiSolverMode whether or not this State is in an AI solver State graph
+     */
     public State(Queue<PlayerAPI> players, RacetrackAPI racetrack, int stateNumber, State parent, Move delta, boolean aiSolverMode){
         this.players = players;
         this.racetrack = racetrack;
@@ -59,8 +100,6 @@ public class State {
             }
         }
 
-//        System.out.println("**************************");
-//        System.out.println(currentPlayer.getName()+" R"+currentPlayer.getRacer().getPosition().getY()+" C"+currentPlayer.getRacer().getPosition().getX());
         for(PlayerAPI player: players){
             if(racetrack.isTouchingWall(player.getRacer())){
                 if(!player.isFinished()) {
@@ -70,36 +109,50 @@ public class State {
                 }
             }
         }
-//        System.out.println(currentPlayer.getName()+" R"+currentPlayer.getRacer().getPosition().getY()+" C"+currentPlayer.getRacer().getPosition().getX());
-
-//        System.out.println("***************************");
     }
 
+    /**
+     * Returns the current Player in this State.
+     * @return the Player at the front of the players Queue
+     */
     public PlayerAPI getCurrentPlayer(){
         return players.peek();
     }
 
+    /**
+     * Sets whether this State is flagged as solving for an AI algorithm or not.
+     * @param aiSolverMode true to set mode, false to set off
+     */
     public void setAiSolverMode(boolean aiSolverMode){
         this.aiSolverMode = aiSolverMode;
     }
 
+    /**
+     * Returns whether or not this State is flagged as solving for an AI algorithm or not.
+     * @return true if in solver mode, false if not
+     */
     public boolean isAiSolverMode(){
         return aiSolverMode;
     }
 
     /**
-     * Called when the current player has already finished the race and so the turn is passed to the following player
+     * Called when the current player has already finished the race and so the turn is passed to the following player.
      */
     public void skipCurrentPlayer(){
         PlayerAPI previousPlayer = players.poll();
         players.add(previousPlayer);
     }
 
+    /**
+     * Uses this State in conjunction with a specified Move to attempt to advance to another State if the Move is legal.
+     * Will attempt to move the current player.
+     * @param move details of the Player to move and the destination Point to move to
+     * @return a new State in which it is the following player in the Queue's turn and players' attributes may have changed
+     */
     public State makeMove(Move move){
         if(isMoveLegal(move)){
 
             Queue<PlayerAPI> playersClone = new LinkedList<>();
-
             for (PlayerAPI p : players) {
                 if (p.isAI()) {
                     playersClone.add(new AIPlayer((AIPlayer) p));
@@ -111,8 +164,8 @@ public class State {
             playersClone.peek().getRacer().moveWhilstApplyingEffects(racetrack, move.getDestination());
 
             // only switch players if not in AI solver mode
-            if(!aiSolverMode){  // fixme changed from this states players manipulation to cloned players manipulation
-                PlayerAPI currentClonePlayer = playersClone.poll();                 // todo these could cause issues, do we want to leave the old state with altered attributes, yes/no?
+            if(!aiSolverMode){
+                PlayerAPI currentClonePlayer = playersClone.poll();
                 playersClone.add(currentClonePlayer);
             }
 
@@ -122,8 +175,6 @@ public class State {
 
             return new State(playersClone, racetrack, stateNumber+1, this, move, aiSolverMode);
         }else{
-//            System.out.println(stateNumber);
-//            System.out.println("Illegal move! "+move.getPlayerToMove().getName() + " R"+move.getDestination().getY()+ " C"+move.getDestination().getX());
             return this;
         }
     }
@@ -148,56 +199,76 @@ public class State {
         return Objects.hash(getCurrentPlayer(), getPlayers(), getRacetrack(), getStateNumber(), isGameOver(), getParent(), getDelta(), isAiSolverMode());
     }
 
+    /**
+     * Returns whether or not a move is legal or not in this State.
+     * @param move the Move to test for legality
+     * @return true if legal, false if not
+     */
     public boolean isMoveLegal(Move move){
-        // compare position/vector of Player in next state against a list of the 9 next legal positions based on the current position of the Player in the current State
 
         boolean legal = true;
-
         if(!(move.getPlayerToMove().getRacer().getPossibleNextPoints(racetrack, move.getPlayerToMove().isAI()).contains(move.getDestination()))){
-            // the offered destination is not one of the Player to be moved's next valid positions
-//            System.out.println("the offered destination is not one of the Player to be moved's next valid positions");
             legal = false;
         }else if( (move.getDestination().getX() < 0) || (move.getDestination().getX() >= racetrack.getCols()) || (move.getDestination().getY() < 0) || (move.getDestination().getY() >= racetrack.getRows()) ){
-            // the offered destination is outwith the bounds of the racetrack
-//            System.out.println("the offered destination is outwith the bounds of the racetrack");
             legal = false;
         }
 
         return legal;
     }
 
+    /**
+     * Returns a Set of legal child States from this State.
+     * @return the Set of children
+     */
     private Set<State> getNextLegalStates(){
         Set<State> nextLegalStates = new HashSet<>();
         List<Point> possibleNextPoints = getCurrentPlayer().getRacer().getPossibleNextPoints(racetrack, getCurrentPlayer().isAI());
 
         for(Point possiblePoint: possibleNextPoints){
             Move possibleMove = new Move(getCurrentPlayer(), possiblePoint);
-            nextLegalStates.add(this.makeMove(possibleMove));   // todo could lead to duplicate states being added, which doesn't present an immediate issue but could be inefficient so maybe consider some kind of redesign to remove dupes
+            nextLegalStates.add(this.makeMove(possibleMove));
         }
 
         return nextLegalStates;
     }
 
+    /**
+     * Returns the RacetrackAPI associated with this State.
+     * @return the RacetrackAPI
+     */
     public RacetrackAPI getRacetrack() {
         return racetrack;
     }
 
+    /**
+     * Returns the Queue of PlayerAPIs associated with this State.
+     * @return the Queue of PlayerAPIs
+     */
     public Queue<PlayerAPI> getPlayers(){
         return players;
     }
 
+    /**
+     * Returns whether or not the game is over in this State.
+     * @return true if game is over, false if not
+     */
     public boolean isGameOver(){
         return gameOver;
     }
 
+    /**
+     * Returns the parent State of this State
+     * @return the parent of this State, null if State has no parent
+     */
     public State getParent(){
         return parent;
     }
 
     /**
-     *
+     * Performs a check on child States of this State and if it is not a child then returns null,
+     * If is a child then return the Move that was made in order to get to it from this State
      * @param to the State to get to, must be a child of this State
-     * @return
+     * @return the delta of the parameter State or null if condition is not met
      */
     public Move calculateMoveTo(State to){
         if(!getNextLegalStates().contains(to)){
@@ -207,14 +278,12 @@ public class State {
         return to.getDelta();
     }
 
+    /**
+     * Convenience and debug method for getNextLegalStates()
+     * @return the children of this State
+     */
     public Set<State> getChildren() {
-//        List<State> children = new ArrayList<>();
-//        for (State currentNextLegalState : getNextLegalStates()){
-//            System.out.print("[child state hash "+currentNextLegalState.hashCode()+" "+currentNextLegalState.getCurrentPlayer().getName()+ " R"+currentNextLegalState.getCurrentPlayer().getRacer().getPosition().getY()+" C"+currentNextLegalState.getCurrentPlayer().getRacer().getPosition().getX()+"]   ");
-//            System.out.println("hash for currentPlayer in currentNextLegalState: "+currentNextLegalState.getCurrentPlayer().hashCode());
-            //            children.add(new State(currentNextLegalState));
-//        }
-//        return children;
+
         Set<State> children = getNextLegalStates();
 
         for(State currentChild: children){
@@ -226,10 +295,18 @@ public class State {
         return children;
     }
 
+    /**
+     * Returns the Move that was made from this State's parent to produce this State, or null if no parent State
+     * @return the delta of this State
+     */
     public Move getDelta(){
         return delta;
     }
 
+    /**
+     * Returns the number of this State
+     * @return this State's number
+     */
     public int getStateNumber() {
         return stateNumber;
     }

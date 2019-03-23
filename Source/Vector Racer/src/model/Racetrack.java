@@ -2,25 +2,72 @@ package model;
 
 import model.geometry.Point;
 import model.geometry.Vect;
-import utilities.VectorConstants;
-
-import java.lang.reflect.Field;
 import java.util.*;
 
+/**
+ * Class representing a racetrack in the game.
+ */
 public class Racetrack implements RacetrackAPI{
 
+    /**
+     * The List of all Tiles in this Racetrack.
+     */
     private List<Tile> tiles;
+
+    /**
+     * The List of all AirTiles in this Racetrack.
+     */
     private List<AirTile> airTiles;
+
+    /**
+     * The List of all SandTiles in this Racetrack.
+     */
     private List<SandTile> sandTiles;
+
+    /**
+     * The List of all IceTiles in this Racetrack.
+     */
     private List<IceTile> iceTiles;
+
+    /**
+     * The List of all WallTiles in this Racetrack.
+     */
     private List<WallTile> wallTiles;
+
+    /**
+     * The List of all CheckpointTiles in this Racetrack.
+     */
     private List<CheckpointTile> checkpointTiles;
+
+    /**
+     * The number of rows in this Racetrack.
+     */
     private int rows;
+
+    /**
+     * The number of colummns in this Racetrack.
+     */
     private int cols;
+
+    /**
+     * The Point representing the position on this Racetrack where Racers will spawn.
+     */
     private Point startPosition;
+
+    /**
+     * The value of the last zone that a Racer must be in before they can finish the race.
+     */
     private int finalZone;
+
+    /**
+     * The name of this Racetrack.
+     */
     private String name;
 
+    /**
+     * Copy constructor - creates a new instance of Racetrack.
+     * @param original the Racetrack to deep copy
+     */
     public Racetrack(RacetrackAPI original){
 
         this.tiles = new ArrayList<>(original.getTiles());

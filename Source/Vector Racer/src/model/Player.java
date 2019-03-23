@@ -1,21 +1,37 @@
 package model;
 
 import javafx.scene.paint.Color;
-import model.geometry.Point;
-import model.geometry.Vect;
-
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
+/**
+ * Class which represents a player in the game.
+ */
 public class Player implements PlayerAPI{
 
+    /**
+     * The player's name.
+     */
     protected String name;
+
+    /**
+     * The Racer associated with this Player.
+     */
     protected Racer racer;
+
+    /**
+     * The Color associated with this Player.
+     */
     protected Color color;
+
+    /**
+     * Whether or not this Player is an AI.
+     */
     protected boolean ai;
 
+    /**
+     * Copy constructor - creates new instance of Player.
+     * @param original the Player to deep copy
+     */
     public Player(PlayerAPI original){
         this.name = new String(original.getName());
         this.racer = new Racer(original.getRacer());
@@ -23,6 +39,13 @@ public class Player implements PlayerAPI{
         this.ai = original.isAI();
     }
 
+    /**
+     * Creates new instance of Player.
+     * @param name the name to assign to this Player
+     * @param racer the racer to associate with this Player
+     * @param color the color to associate with this Player
+     * @param ai whether or not this Player is an AI
+     */
     public Player(String name, RacerAPI racer, Color color, boolean ai) {
         this.name = name;
         this.racer = (Racer) racer;
@@ -75,33 +98,5 @@ public class Player implements PlayerAPI{
         return Objects.hash(name, getRacer(), getColor());
     }
 
-//    @Override
-//    public String toString() {
-//        StringBuilder result = new StringBuilder();
-//        String newLine = System.getProperty("line.separator");
-//
-//        result.append( this.getClass().getName() );
-//        result.append( " Object {" );
-//        result.append(newLine);
-//
-//        //determine fields declared in this class only (no fields of superclass)
-//        Field[] fields = this.getClass().getDeclaredFields();
-//
-//        //print field names paired with their values
-//        for ( Field field : fields  ) {
-//            result.append("  ");
-//            try {
-//                result.append( field.getName() );
-//                result.append(": ");
-//                //requires access to private field:
-//                result.append( field.get(this) );
-//            } catch ( IllegalAccessException ex ) {
-//                System.out.println(ex);
-//            }
-//            result.append(newLine);
-//        }
-//        result.append("}");
-//
-//        return result.toString();
-//    }
+
 }

@@ -1,0 +1,64 @@
+racetrack 11 10 2 2 2
+tile wall 0 0
+tile wall 1 0
+tile wall 2 0
+tile wall 3 0
+tile wall 4 0
+tile wall 5 0
+tile wall 6 0
+tile wall 7 0
+tile wall 8 0
+tile wall 9 0
+tile wall 10 0
+tile wall 0 1
+tile sand 4 1
+tile wall 5 1
+tile ice 6 1
+tile wall 10 1
+tile wall 0 2
+tile sand 4 2
+tile wall 5 2
+tile ice 6 2
+tile wall 10 2
+tile wall 0 3
+tile sand 4 3
+tile wall 5 3
+tile ice 6 3
+tile wall 10 3
+tile wall 0 4
+tile wall 4 4
+tile wall 5 4
+tile wall 6 4
+tile wall 10 4
+tile wall 0 5
+tile wall 4 5
+tile wall 5 5
+tile wall 6 5
+tile wall 10 5
+tile wall 0 6
+tile wall 10 6
+tile wall 0 7
+tile wall 10 7
+tile wall 0 8
+tile wall 10 8
+tile wall 0 9
+tile wall 1 9
+tile wall 2 9
+tile wall 3 9
+tile wall 4 9
+tile wall 5 9
+tile wall 6 9
+tile wall 7 9
+tile wall 8 9
+tile wall 9 9
+tile wall 10 9
+tile checkpoint 7 4 0
+tile checkpoint 8 4 0
+tile checkpoint 9 4 0
+tile checkpoint 1 5 1
+tile checkpoint 2 5 1
+tile checkpoint 3 5 1
+tile checkpoint 5 6 2
+tile checkpoint 5 7 2
+tile checkpoint 5 8 2
+fillremainder air

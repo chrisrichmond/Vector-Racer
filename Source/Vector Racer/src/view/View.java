@@ -1,6 +1,7 @@
 package view;
 
 import com.jfoenix.controls.JFXButton;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
@@ -18,6 +19,7 @@ import javafx.stage.Stage;
 import model.ModelAPI;
 import utilities.VectorConstants;
 import java.io.File;
+import java.net.URI;
 
 /**
  * Class for representing the ViewAPI, responsible in some way for all user interface components.
@@ -91,8 +93,13 @@ public class View implements ViewAPI{
         fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Vector Racer Files (*"+VectorConstants.VR_FILE_EXTENSION+")", ("*"+VectorConstants.VR_FILE_EXTENSION)));
         vrDir = new File(VectorConstants.VR_PATH);
-        fileChooser.setInitialDirectory(vrDir);
-
+        try {
+            URI uri = View.class.getProtectionDomain().getCodeSource().getLocation().toURI();
+            URI parent = uri.getPath().endsWith("/") ? uri.resolve("..") : uri.resolve(".");
+            fileChooser.setInitialDirectory(new File(parent));
+        }catch(Exception e){
+            e.printStackTrace();
+        }
         // Model Backend
         this.model = model;
 
@@ -107,7 +114,7 @@ public class View implements ViewAPI{
         primaryStage.resizableProperty().setValue(Boolean.FALSE);
 
         Scene scene = new Scene(mainMenuPane);
-        scene.getStylesheets().add(VectorConstants.STYLESHEET);
+        scene.getStylesheets().add(View.class.getResource(VectorConstants.STYLESHEET).toString());
         primaryStage.setScene(scene);
         primaryStage.show();
 
@@ -118,7 +125,7 @@ public class View implements ViewAPI{
 
         mainMenuPane = new AnchorPane();
 
-        mainMenuSplash = new Image(VectorConstants.MAINMENU_SPLASH);
+        mainMenuSplash = new Image(View.class.getResource(VectorConstants.MAINMENU_SPLASH).toString());
         backgroundImageView = new ImageView(mainMenuSplash);
         backgroundImageView.setFitWidth(600.0);
         backgroundImageView.setFitHeight(400.0);
@@ -140,6 +147,18 @@ public class View implements ViewAPI{
         JFXButton playButton = new JFXButton();
         playButton.setPrefSize(171, 37);
         playButton.setText("PLAY");
+
+        // Without Lambda Expression
+        playButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                showSecondMenu();
+            }
+        });
+
+        // With Lambda Expression
+        playButton.setOnAction(e -> showSecondMenu());
+
         playButton.setOnAction(e -> {
             mainMenuPane.getChildren().clear();
             mainMenuPane.getChildren().add(backgroundImageView);
@@ -169,6 +188,7 @@ public class View implements ViewAPI{
         pvplayerButton.setFont(VectorConstants.MENU_FONT);
         pvplayerButton.setOnAction(e -> {
             fileChooser.setTitle("Choose a Racetrack to load");
+            System.out.println(fileChooser.getInitialDirectory());
             File selectedFile = fileChooser.showOpenDialog(primaryStage);
             if(selectedFile != null) {
                 try {

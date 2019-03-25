@@ -122,35 +122,35 @@ public class Model implements ModelAPI {
     @Override
     public void addAirTile(int row, int col) {
         if(racetrack.addAirTile(new AirTile(col, row))){
-            System.out.println("Successfully added new AIR tile to model at row "+row+", col "+col);
+//            System.out.println("Successfully added new AIR tile to model at row "+row+", col "+col);
         }
     }
 
     @Override
     public void addSandTile(int row, int col) {
         if(racetrack.addSandTile(new SandTile(col, row))){
-            System.out.println("Successfully added new SAND tile to model at row "+row+", col "+col);
+//            System.out.println("Successfully added new SAND tile to model at row "+row+", col "+col);
         }
     }
 
     @Override
     public void addIceTile(int row, int col) {
         if(racetrack.addIceTile(new IceTile(col, row))){
-            System.out.println("Successfully added new ICE tile to model at row "+row+", col "+col);
+//            System.out.println("Successfully added new ICE tile to model at row "+row+", col "+col);
         }
     }
 
     @Override
     public void addWallTile(int row, int col) {
         if(racetrack.addWallTile(new WallTile(col, row))){
-            System.out.println("Successfully added new WALL tile to model at row "+row+", col "+col);
+//            System.out.println("Successfully added new WALL tile to model at row "+row+", col "+col);
         }
     }
 
     @Override
     public void addCheckpointTile(int row, int col, int zoneNumber) {
         if(racetrack.addCheckpointTile(new CheckpointTile(col, row, zoneNumber))){
-            System.out.println("Successfully added new CHECKPOINT tile to model at row"+row+", col "+col+" - zone "+zoneNumber);
+//            System.out.println("Successfully added new CHECKPOINT tile to model at row"+row+", col "+col+" - zone "+zoneNumber);
         }
     }
 

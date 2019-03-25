@@ -103,7 +103,7 @@ public class State {
         for(PlayerAPI player: players){
             if(racetrack.isTouchingWall(player.getRacer())){
                 if(!player.isFinished()) {
-                    System.out.println("IN WALL, POPPING");
+//                    System.out.println("IN WALL, POPPING");
                     player.getRacer().getPointRoute().pop();
                     player.getRacer().killVelocity();
                 }
@@ -288,7 +288,7 @@ public class State {
 
         for(State currentChild: children){
             if(currentChild.getCurrentPlayer().isFinished()){
-                System.out.println(currentChild.getCurrentPlayer()+" is finished in this child: "+currentChild);
+//                System.out.println(currentChild.getCurrentPlayer()+" is finished in this child: "+currentChild);
             }
         }
 

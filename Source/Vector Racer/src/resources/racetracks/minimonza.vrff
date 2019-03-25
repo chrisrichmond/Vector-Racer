@@ -1,0 +1,60 @@
+racetrack 20 40 18 23 6
+
+tile sand 1 1 1 3
+tile sand 2 1
+tile sand 7 1 8 1
+tile sand 6 3
+tile sand 7 4
+tile sand 13 1 14 1
+tile sand 15 2 16 2
+tile sand 17 3
+tile sand 18 4
+tile sand 12 17 12 18
+tile sand 13 23
+tile sand 14 23 14 25
+tile sand 12 36 12 38
+tile sand 13 37 13 38
+tile sand 14 38 16 38
+tile sand 18 36
+tile sand 15 12
+tile sand 16 9
+
+tile air 1 1 3 5
+tile air 4 1 8 2
+tile air 7 3 9 4
+tile air 10 2 16 4
+tile air 14 5 18 5
+tile air 15 6 18 6
+tile air 16 7 18 7
+tile air 17 4
+tile air 17 8 18 14
+tile air 16 10 16 18
+tile air 15 13 15 18
+tile air 17 16 18 35
+tile air 16 33 17 37
+tile air 12 34 15 37
+tile air 12 23 14 33
+tile air 11 22 11 27
+tile air 10 21 10 25
+tile air 9 14 9 24
+tile air 8 18 8 22
+tile air 10 15 10 19
+tile air 11 16 11 18
+tile air 8 13 8 16
+tile air 7 12 7 15
+tile air 6 11 6 14
+tile air 5 10 5 13
+tile air 4 9 4 12
+tile air 3 8 3 11
+tile air 1 6 2 9
+tile air 2 10
+
+tile checkpoint 17 25 18 25 0
+tile checkpoint 15 15 16 15 1
+tile checkpoint 17 8 18 8 2
+tile checkpoint 9 3 9 4 3
+tile checkpoint 1 6 2 6 4
+tile checkpoint 8 20 9 20 5
+tile checkpoint 12 32 14 32 6
+
+fillremainder wall

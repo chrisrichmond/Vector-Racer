@@ -1,17 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="ANALYZE_TEST_SOURCES" value="false" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="full system tidied up and javadoc'd except view package">
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="filesystem and resource all">
+      <change afterPath="$PROJECT_DIR$/../../Executables/VectorRacer.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/css/vector1.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/css/vector1.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/images/vrsplash.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/racetracks/crazymaze.vrff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/racetracks/empty.vrff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/racetracks/maze1.vrff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/racetracks/minimonza.vrff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/racetracks/splitter.vrff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/racetracks/sprint.vrff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/racetracks/testingtrack.vrff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/racetracks/wiggler.vrff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vector Racer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Vector Racer.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Driver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Model.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/ModelAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ModelAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/RacetrackPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/RacetrackPane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/RacetrackPaneAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/RacetrackPaneAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/State.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/State.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utilities/VectorConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilities/VectorConstants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/View.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/ViewAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ViewAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/test.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing/model/ModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/testing/model/ModelTest.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -69,10 +83,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/view/ViewAPI.java">
+        <entry file="file://$PROJECT_DIR$/src/utilities/VectorConstants.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="25">
-              <caret line="1" selection-start-line="1" selection-end-line="1" />
+            <state relative-caret-position="275">
+              <caret line="28" selection-start-line="28" selection-end-line="28" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -81,34 +95,33 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/view/View.java">
+        <entry file="file://$PROJECT_DIR$/src/Driver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="272" column="5" selection-start-line="272" selection-start-column="5" selection-end-line="272" selection-end-column="5" />
+            <state relative-caret-position="-168">
+              <caret line="51" column="30" lean-forward="true" selection-start-line="51" selection-start-column="30" selection-end-line="51" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#7661#7662#0" expanded="true" />
-                <element signature="e#7705#7706#0" expanded="true" />
-                <element signature="e#7758#7759#0" expanded="true" />
-                <element signature="e#7789#7790#0" expanded="true" />
-                <element signature="e#8026#8027#0" expanded="true" />
-                <element signature="e#8062#8063#0" expanded="true" />
-                <element signature="e#8136#8137#0" expanded="true" />
-                <element signature="e#8182#8183#0" expanded="true" />
-                <element signature="e#8231#8232#0" expanded="true" />
-                <element signature="e#8263#8264#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Driver.java">
+        <entry file="file://$PROJECT_DIR$/src/view/View.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="546">
-              <caret line="65" column="57" selection-start-line="65" selection-start-column="57" selection-end-line="65" selection-end-column="57" />
+            <state relative-caret-position="216">
+              <caret line="98" column="59" selection-start-line="98" selection-start-column="59" selection-end-line="98" selection-end-column="59" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#4364#4365#0" expanded="true" />
+                <element signature="e#4411#4412#0" expanded="true" />
+                <element signature="e#8346#8347#0" expanded="true" />
+                <element signature="e#8390#8391#0" expanded="true" />
+                <element signature="e#8642#8643#0" expanded="true" />
+                <element signature="e#8915#8916#0" expanded="true" />
+                <element signature="e#8821#8822#0" expanded="true" />
+                <element signature="e#8867#8868#0" expanded="true" />
+                <element signature="e#9116#9117#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -120,16 +133,14 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="FxmlFile" />
         <option value="JUnit4 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>label</find>
-      <find>GRIDPOINT</find>
       <find>isgame</find>
       <find>gameover</find>
       <find>check</find>
@@ -142,7 +153,6 @@
       <find>getter</find>
       <find>.istraversa</find>
       <find>crash</find>
-      <find>file</find>
       <find>reflect</find>
       <find>getmove</find>
       <find>possiblenextpoints</find>
@@ -158,6 +168,9 @@
       <find>activehandler</find>
       <find>test.fxml</find>
       <find>root</find>
+      <find>file</find>
+      <find>FileUtils</find>
+      <find>system.out</find>
     </findStrings>
     <dirStrings>
       <dir>C:\Users\CASR1\Documents\Git Repos\EE475\Vector-Racer\Source\Vector Racer\resources\images</dir>
@@ -176,9 +189,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/ai/Node.java" />
-        <option value="$PROJECT_DIR$/src/model/geometry/Point.java" />
-        <option value="$PROJECT_DIR$/src/model/geometry/Vect.java" />
         <option value="$PROJECT_DIR$/src/view/mainmenu.fxml" />
         <option value="$PROJECT_DIR$/resources/fxml/mainmenu.fxml" />
         <option value="$PROJECT_DIR$/src/view/test.fxml" />
@@ -188,7 +198,6 @@
         <option value="$PROJECT_DIR$/testing/model/geometry/PointTest.java" />
         <option value="$PROJECT_DIR$/testing/model/geometry/VectTest.java" />
         <option value="$PROJECT_DIR$/testing/model/AIPlayerTest.java" />
-        <option value="$PROJECT_DIR$/testing/model/ModelTest.java" />
         <option value="$PROJECT_DIR$/resources/racetracks/empty.vrff" />
         <option value="$PROJECT_DIR$/src/model/geometry/Square.java" />
         <option value="$PROJECT_DIR$/src/model/PlayerAPI.java" />
@@ -200,7 +209,6 @@
         <option value="$PROJECT_DIR$/src/model/RacetrackAPI.java" />
         <option value="$PROJECT_DIR$/src/model/Player.java" />
         <option value="$PROJECT_DIR$/src/model/Tile.java" />
-        <option value="$PROJECT_DIR$/src/model/State.java" />
         <option value="$PROJECT_DIR$/src/model/Racetrack.java" />
         <option value="$PROJECT_DIR$/src/model/AIPlayer.java" />
         <option value="$PROJECT_DIR$/src/model/CheckpointTile.java" />
@@ -217,16 +225,21 @@
         <option value="$PROJECT_DIR$/src/ai/BreadthFirstSearchWithZoning.java" />
         <option value="$PROJECT_DIR$/src/utilities/Observer.java" />
         <option value="$PROJECT_DIR$/src/utilities/Observable.java" />
-        <option value="$PROJECT_DIR$/src/utilities/VectorConstants.java" />
         <option value="$PROJECT_DIR$/src/utilities/VectorFileHandler.java" />
-        <option value="$PROJECT_DIR$/src/Driver.java" />
         <option value="$PROJECT_DIR$/src/view/RacetrackPaneAPI.java" />
         <option value="$PROJECT_DIR$/src/view/RacetrackPane.java" />
         <option value="$PROJECT_DIR$/src/model/ModelAPI.java" />
         <option value="$PROJECT_DIR$/src/controller/Controller.java" />
         <option value="$PROJECT_DIR$/src/view/ViewAPI.java" />
-        <option value="$PROJECT_DIR$/src/model/Model.java" />
+        <option value="$PROJECT_DIR$/testing/model/ModelTest.java" />
+        <option value="$PROJECT_DIR$/src/utilities/InputStreamToFile.java" />
+        <option value="$PROJECT_DIR$/src/main/model/Model.java" />
+        <option value="$PROJECT_DIR$/src/utilities/ResourceExporter.java" />
         <option value="$PROJECT_DIR$/src/view/View.java" />
+        <option value="$PROJECT_DIR$/src/utilities/VectorConstants.java" />
+        <option value="$PROJECT_DIR$/src/Driver.java" />
+        <option value="$PROJECT_DIR$/src/model/Model.java" />
+        <option value="$PROJECT_DIR$/src/model/State.java" />
       </list>
     </option>
   </component>
@@ -244,10 +257,9 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-11" />
-    <option name="y" value="-11" />
-    <option name="width" value="1942" />
-    <option name="height" value="1042" />
+    <option name="x" value="-10" />
+    <option name="width" value="980" />
+    <option name="height" value="1030" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -255,8 +267,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -267,18 +277,23 @@
             <path>
               <item name="Vector Racer" type="b2602c69:ProjectViewProjectNode" />
               <item name="Vector Racer" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Vector Racer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Vector Racer" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Vector Racer" type="b2602c69:ProjectViewProjectNode" />
               <item name="Vector Racer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="racetracks" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Vector Racer" type="b2602c69:ProjectViewProjectNode" />
               <item name="Vector Racer" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Vector Racer" type="b2602c69:ProjectViewProjectNode" />
@@ -286,27 +301,12 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="model" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Vector Racer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Vector Racer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="utilities" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Vector Racer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Vector Racer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Vector Racer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Vector Racer" type="462c0819:PsiDirectoryNode" />
-              <item name="testing" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -323,16 +323,16 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553379750961" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553509583901" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/fxml" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/out/artifacts" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.language" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
@@ -348,23 +348,23 @@
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="utilities" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\CASR1\Documents\Git Repos\EE475-NEW\Vector-Racer\Source\Vector Racer\resources\racetracks" />
-      <recent name="C:\Users\CASR1\Documents\Git Repos\EE475\Vector-Racer\Source\Vector Racer\resources\racetracks" />
-      <recent name="C:\Users\CASR1\Documents\Git Repos\EE475\Vector-Racer\Source\Vector Racer\resources\images" />
-      <recent name="C:\Users\CASR1\Documents\Git Repos\EE475\Vector-Racer\Source\Vector Racer\src\view" />
-      <recent name="C:\Users\CASR1\Documents\Git Repos\EE475\Vector-Racer\Source\Vector Racer\src\model\racetracks" />
-    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="ai" />
       <recent name="controller" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\CASR1\Documents\Git Repos\EE475-NEW\Vector-Racer\Source\Vector Racer\src" />
+      <recent name="C:\Users\CASR1\Documents\Git Repos\EE475-NEW\Vector-Racer\Source\Vector Racer\resources\css" />
+      <recent name="C:\Users\CASR1\Documents\Git Repos\EE475-NEW\Vector-Racer\Source\Vector Racer\resources\racetracks" />
+      <recent name="C:\Users\CASR1\Documents\Git Repos\EE475\Vector-Racer\Source\Vector Racer\resources\racetracks" />
+      <recent name="C:\Users\CASR1\Documents\Git Repos\EE475\Vector-Racer\Source\Vector Racer\resources\images" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\CASR1\Documents\Git Repos\EE475-NEW\Vector-Racer\Source\Vector Racer\src\main" />
       <recent name="C:\Users\CASR1\Documents\Git Repos\EE475\Vector-Racer\Source\Vector Racer\resources\fxml" />
       <recent name="C:\Users\CASR1\Documents\Git Repos\EE475\Vector-Racer\Source\Vector Racer\resources\racetracks" />
       <recent name="C:\Users\CASR1\Documents\Git Repos\EE475\Vector-Racer\Source\Vector Racer" />
       <recent name="$PROJECT_DIR$/src/view" />
-      <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -394,6 +394,20 @@
     </configuration>
     <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CircleSelectApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="prototypes.circleselection.CircleSelectApp" />
+      <module name="Vector Racer" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="prototypes.circleselection.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -429,20 +443,6 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="prototypes.tileselection.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="View" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="prototypes.mouseeventhandling.View" />
-      <module name="Vector Racer" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="prototypes.mouseeventhandling.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -528,18 +528,18 @@
     <list>
       <item itemvalue="Application.Main" />
       <item itemvalue="Application.TileSelectApp" />
-      <item itemvalue="Application.View" />
       <item itemvalue="Application.Driver" />
+      <item itemvalue="Application.CircleSelectApp" />
       <item itemvalue="JUnit.VectTest" />
       <item itemvalue="JUnit.ModelTest.createEmptyRacetrack" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Driver" />
+        <item itemvalue="Application.TileSelectApp" />
+        <item itemvalue="Application.CircleSelectApp" />
         <item itemvalue="JUnit.ModelTest.createEmptyRacetrack" />
         <item itemvalue="JUnit.VectTest" />
-        <item itemvalue="Application.TileSelectApp" />
-        <item itemvalue="Application.View" />
       </list>
     </recent_temporary>
   </component>
@@ -569,13 +569,6 @@
       <workItem from="1547566384896" duration="3847000" />
       <workItem from="1549298180766" duration="13715000" />
       <workItem from="1551463240268" duration="5765000" />
-    </task>
-    <task id="LOCAL-00133" summary="AI work on Node, AbstractSolver, and BFS">
-      <created>1552169096743</created>
-      <option name="number" value="00133" />
-      <option name="presentableId" value="LOCAL-00133" />
-      <option name="project" value="LOCAL" />
-      <updated>1552169096744</updated>
     </task>
     <task id="LOCAL-00134" summary="Player refactor">
       <created>1552351714859</created>
@@ -913,7 +906,14 @@
       <option name="project" value="LOCAL" />
       <updated>1553376841407</updated>
     </task>
-    <option name="localTasksCounter" value="182" />
+    <task id="LOCAL-00182" summary="full system is now tidy and fully javadoc'd (this doesn't include prototypes)">
+      <created>1553379827640</created>
+      <option name="number" value="00182" />
+      <option name="presentableId" value="LOCAL-00182" />
+      <option name="project" value="LOCAL" />
+      <updated>1553379827640</updated>
+    </task>
+    <option name="localTasksCounter" value="183" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -943,7 +943,7 @@
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.19135135" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.18324324" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" weight="0.32972974" />
       <window_info id="Designer" order="3" />
@@ -952,7 +952,7 @@
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.30154946" />
-      <window_info anchor="bottom" x="926" y="494" width="472" height="266" id="Run" order="2" visible="true" weight="0.058402862" />
+      <window_info anchor="bottom" x="926" y="494" width="472" height="266" id="Run" order="2" visible="true" weight="0.077473186" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.7353993" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -965,7 +965,7 @@
       <window_info anchor="bottom" id="Event Log" order="12" weight="0.32896304" />
       <window_info anchor="bottom" id="Messages" order="13" weight="0.1215733" />
       <window_info anchor="bottom" id="Database Changes" order="14" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="15" weight="0.32896304" />
+      <window_info anchor="bottom" id="Terminal" order="15" weight="0.10607866" />
       <window_info anchor="bottom" id="Statistic" order="16" weight="0.37067938" />
       <window_info anchor="bottom" id="Thumbnails" order="17" weight="0.32896304" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -980,6 +980,7 @@
       <window_info anchor="right" id="Theme Preview" order="9" />
       <window_info anchor="right" id="Maven" order="10" weight="0.32972974" />
       <window_info anchor="right" id="PlantUML" order="11" weight="0.32972974" />
+      <window_info anchor="right" id="simpleUML" order="12" weight="0.5108108" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1027,7 +1028,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
-    <MESSAGE value="refactored State to remove currentPlayer field and attempted to return new State in State.makeMove() with cloned players property instead of same values" />
     <MESSAGE value="bump some fixes" />
     <MESSAGE value="algorithm seems to spread out from start point to explore every legal avenue possible but seems to have trouble recognising a goal state and also seems to revisit too many other states it's already visited - need to look into the visited hashing again and work out exactly what makes a 'visited' state" />
     <MESSAGE value="more work on fixing referencing between objects, checking deep cloning, also should note that I realised I can just use a successful racer's point route instead of calculate moves once a goal has been reached" />
@@ -1052,35 +1052,14 @@
     <MESSAGE value="some tests, some tidy up" />
     <MESSAGE value="tidy up and javadoc" />
     <MESSAGE value="full system tidied up and javadoc'd except view package" />
-    <option name="LAST_COMMIT_MESSAGE" value="full system tidied up and javadoc'd except view package" />
+    <MESSAGE value="full system is now tidy and fully javadoc'd (this doesn't include prototypes)" />
+    <option name="LAST_COMMIT_MESSAGE" value="full system is now tidy and fully javadoc'd (this doesn't include prototypes)" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/view/vector1.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/racetracks/maze1.vrff">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/racetracks/minimonza.vrff">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1225">
-          <caret line="49" column="13" selection-start-line="49" selection-start-column="13" selection-end-line="49" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/racetracks/wiggler.vrff">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/model/geometry/PointTest.java" />
-    <entry file="file://$PROJECT_DIR$/testing/model/geometry/PointTest.java" />
     <entry file="file://$PROJECT_DIR$/testing/model/geometry/VectTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="172">
@@ -1092,24 +1071,10 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/testing/model/AIPlayerTest.java" />
-    <entry file="file://$PROJECT_DIR$/testing/model/ModelTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/racetracks/empty.vrff">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="20" selection-start-column="20" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/geometry/Vect.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="7" column="14" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -1144,23 +1109,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="12" column="76" selection-start-line="12" selection-start-column="76" selection-end-line="12" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/Terrain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/Tile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="50">
-          <caret line="29" column="44" selection-start-line="29" selection-start-column="44" selection-end-line="29" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1232,13 +1180,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/IceTile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="12" column="75" selection-start-line="12" selection-start-column="75" selection-end-line="12" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/model/CheckpointTile.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="650">
@@ -1256,46 +1197,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/Move.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-74">
-          <caret line="54" column="36" selection-start-line="54" selection-start-column="36" selection-end-line="54" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1209#1210#0" expanded="true" />
-            <element signature="e#1243#1244#0" expanded="true" />
-            <element signature="e#1387#1388#0" expanded="true" />
-            <element signature="e#1422#1423#0" expanded="true" />
-            <element signature="e#1465#1466#0" expanded="true" />
-            <element signature="e#1527#1528#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/model/RacetrackAPI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="325">
           <caret line="13" column="74" selection-start-line="13" selection-start-column="74" selection-end-line="13" selection-end-column="74" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/Racer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4800">
-          <caret line="204" column="17" selection-start-line="204" selection-start-column="17" selection-end-line="204" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/Racetrack.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10175">
-          <caret line="431" column="5" selection-start-line="431" selection-start-column="5" selection-end-line="431" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1362,16 +1267,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/utilities/VectorConstants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-682">
-          <caret line="9" column="76" selection-start-line="9" selection-start-column="76" selection-end-line="9" selection-end-column="76" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/utilities/VectorFileHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2611">
@@ -1408,14 +1303,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/test.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="5" column="1" lean-forward="true" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/test.fxml" />
     <entry file="file://$PROJECT_DIR$/src/view/RacetrackPaneAPI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="574">
@@ -1468,20 +1356,98 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/Model.java">
+    <entry file="file://$PROJECT_DIR$/Vector Racer.plantuml" />
+    <entry file="file://$PROJECT_DIR$/src/model/geometry/Vect.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="11" column="79" selection-start-line="11" selection-start-column="79" selection-end-line="11" selection-end-column="79" />
+        <state relative-caret-position="625">
+          <caret line="134" column="5" selection-start-line="110" selection-start-column="4" selection-end-line="134" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Terrain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Tile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="575">
+          <caret line="29" column="44" selection-start-line="29" selection-start-column="44" selection-end-line="29" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Driver.java">
+    <entry file="file://$PROJECT_DIR$/src/model/Racer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="65" column="57" selection-start-line="65" selection-start-column="57" selection-end-line="65" selection-end-column="57" />
+        <state relative-caret-position="2245">
+          <caret line="204" column="17" selection-start-line="204" selection-start-column="17" selection-end-line="204" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testing/model/ModelTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="545">
+          <caret line="50" selection-start-line="50" selection-end-line="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/prototypes/circleselection/CircleSelectApp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="18" column="37" lean-forward="true" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/css/vector1.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/IceTile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="12" column="75" selection-start-line="12" selection-start-column="75" selection-end-line="12" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Move.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="993">
+          <caret line="54" column="36" selection-start-line="54" selection-start-column="36" selection-end-line="54" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1527#1528#0" expanded="true" />
+            <element signature="e#1589#1590#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Model.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="230" column="23" selection-start-line="230" selection-start-column="23" selection-end-line="230" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/css/vector1.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Racetrack.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="118">
+          <caret line="303" column="62" selection-start-line="303" selection-start-column="62" selection-end-line="303" selection-end-column="62" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1490,20 +1456,56 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/view/View.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="272" column="5" selection-start-line="272" selection-start-column="5" selection-end-line="272" selection-end-column="5" />
+        <state relative-caret-position="216">
+          <caret line="98" column="59" selection-start-line="98" selection-start-column="59" selection-end-line="98" selection-end-column="59" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#7661#7662#0" expanded="true" />
-            <element signature="e#7705#7706#0" expanded="true" />
-            <element signature="e#7758#7759#0" expanded="true" />
-            <element signature="e#7789#7790#0" expanded="true" />
-            <element signature="e#8026#8027#0" expanded="true" />
-            <element signature="e#8062#8063#0" expanded="true" />
-            <element signature="e#8136#8137#0" expanded="true" />
-            <element signature="e#8182#8183#0" expanded="true" />
-            <element signature="e#8231#8232#0" expanded="true" />
-            <element signature="e#8263#8264#0" expanded="true" />
+            <element signature="e#4364#4365#0" expanded="true" />
+            <element signature="e#4411#4412#0" expanded="true" />
+            <element signature="e#8346#8347#0" expanded="true" />
+            <element signature="e#8390#8391#0" expanded="true" />
+            <element signature="e#8642#8643#0" expanded="true" />
+            <element signature="e#8915#8916#0" expanded="true" />
+            <element signature="e#8821#8822#0" expanded="true" />
+            <element signature="e#8867#8868#0" expanded="true" />
+            <element signature="e#9116#9117#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utilities/VectorConstants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utilities/InputStreamToFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="15" column="27" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utilities/ResourceExporter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Driver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-168">
+          <caret line="51" column="30" lean-forward="true" selection-start-line="51" selection-start-column="30" selection-end-line="51" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1513,8 +1515,13 @@
     <states>
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
-          <artifact-editor />
-          <last-edited>JavaFXApp</last-edited>
+          <artifact-editor>
+            <show-content>
+              <type id="library" />
+              <type id="artifact" />
+            </show-content>
+          </artifact-editor>
+          <last-edited>VectorRacer</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1596,5 +1603,57 @@
         </settings>
       </state>
     </states>
+  </component>
+  <component name="simpleUML.UMLToolWindowPlugin">
+    <General>
+      <option name="birdViewUpdateDelay" value="2000" />
+      <option name="knownFile1" value="file://$PROJECT_DIR$/../VectorRacer.suml" />
+      <option name="knownFile0" value="file://$PROJECT_DIR$/../VR.suml" />
+      <option name="defaultFileLocation" value="file://$PROJECT_DIR$/.." />
+    </General>
+    <Classdiagram>
+      <option name="diagramTitleFont" value="SansSerif,1,12" />
+      <option name="diagramFont" value="SansSerif,0,10" />
+      <option name="defaultFieldsExpanded" value="false" />
+      <option name="defaultContructorsExpanded" value="false" />
+      <option name="defaultMethodsExpanded" value="false" />
+      <option name="showParameters" value="true" />
+      <option name="showTooltip" value="true" />
+      <option name="showReturnValues" value="true" />
+      <option name="longModifier" value="true" />
+      <option name="implementsBehaviour" value="1" />
+      <option name="extendsBehaviour" value="1" />
+      <option name="compartmentBehaviour" value="1" />
+      <option name="interfaceBackgroundColor" value="-6494306" />
+      <option name="abstractClassBackgroundColor" value="-1580132" />
+      <option name="classBackgroundColor" value="-6508057" />
+      <option name="diagramBackgroundColor" value="-1" />
+      <option name="useAntialiasedConnectors" value="true" />
+      <option name="quickSourceLinkColor" value="-16776961" />
+      <option name="quickDiagramLinkColor" value="-8454144" />
+      <option name="drawDecorations" value="false" />
+      <option name="hideFieldList" value="" />
+      <option name="showFieldList" value="" />
+      <option name="hideConstructorList" value="" />
+      <option name="showConstructorList" value="" />
+      <option name="hideMethodList" value="" />
+      <option name="showMethodList" value="" />
+      <option name="minimumFigureSize" value="0,0" />
+    </Classdiagram>
+    <Dependencydiagram>
+      <option name="diagramTitleFont" value="SansSerif,1,12" />
+      <option name="diagramFont" value="SansSerif,0,10" />
+      <option name="diagramBackgroundColor" value="-1" />
+      <option name="useAntialiasedConnectors" value="true" />
+      <option name="packageNameCompressionLevel" value="0" />
+    </Dependencydiagram>
+    <Packagediagram>
+      <option name="diagramTitleFont" value="SansSerif,0,12" />
+      <option name="diagramFont" value="SansSerif,0,10" />
+      <option name="packageBackgroundColor" value="-4144960" />
+      <option name="diagramBackgroundColor" value="-1" />
+      <option name="useAntialiasedConnectors" value="true" />
+      <option name="packageNameCompressionLevel" value="2" />
+    </Packagediagram>
   </component>
 </project>

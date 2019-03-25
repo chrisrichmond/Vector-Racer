@@ -53,7 +53,8 @@ public class Driver extends Application {
             vrDir.mkdir();
         }
 
-        copyAllFilesFromDir(new File("./resources/racetracks"), vrDir);
+//        copyAllFilesFromDir(new File((Driver.class.getResource(VectorConstants.RACETRACKS).toURI())), new File(VectorConstants.VR_PATH));
+
 
         ModelAPI model = new Model();
         ViewAPI view = new View(model, primaryStage);

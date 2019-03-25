@@ -47,6 +47,8 @@ public class ModelTest {
 
     @Test
     public void addAirTile() {
+        RacetrackAPI racetrack = new Racetrack(20, 40, new Point(10, 10), 3);
+
     }
 
     @Test

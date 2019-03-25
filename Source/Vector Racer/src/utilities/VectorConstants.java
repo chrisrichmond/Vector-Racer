@@ -5,6 +5,8 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Screen;
 
+import java.io.File;
+
 /**
  * Class containing Vector Racer global constants.
  * Refrain from altering values unless certain of the scope of their impact.
@@ -21,8 +23,12 @@ public class VectorConstants {
     public static final boolean AI_MODE = true;
     public static final String AI_ALGORITHM = "bfs";
 
-    public static final String MAINMENU_SPLASH = "file:..\\..\\resources\\images\\vrsplash.png";
-    public static final String STYLESHEET = "/view/vector1.css";
+    public static final String MAINMENU_SPLASH = "/resources/images/vrsplash.png";
+    public static final String STYLESHEET = "/resources/css/vector1.css";
+//    public static final String RACETRACKS = "/";
+
+//    public static final String MAINMENU_SPLASH = "file:..\\..\\resources\\images\\vrsplash.png";
+//    public static final String STYLESHEET = "/view/vector1.css";
     public static final Rectangle2D PRIMARY_SCREEN_BOUNDS = Screen.getPrimary().getVisualBounds();
     public static final int GP_PREFWIDTH = (int) PRIMARY_SCREEN_BOUNDS.getWidth();   // preferred width of the game pane
     public static final int GP_PREFHEIGHT = (int) PRIMARY_SCREEN_BOUNDS.getHeight();  // preferred height of the game pane

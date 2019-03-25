@@ -1,0 +1,398 @@
+racetrack 20 40 3 3 6
+tile wall 0 0
+tile wall 1 0
+tile wall 2 0
+tile wall 3 0
+tile wall 4 0
+tile wall 5 0
+tile wall 6 0
+tile wall 7 0
+tile wall 8 0
+tile wall 9 0
+tile wall 10 0
+tile wall 11 0
+tile wall 12 0
+tile wall 13 0
+tile wall 14 0
+tile wall 15 0
+tile wall 16 0
+tile wall 17 0
+tile wall 18 0
+tile wall 19 0
+tile wall 0 1
+tile wall 1 1
+tile wall 2 1
+tile wall 3 1
+tile wall 4 1
+tile wall 5 1
+tile wall 6 1
+tile wall 7 1
+tile wall 8 1
+tile wall 9 1
+tile wall 10 1
+tile wall 11 1
+tile wall 12 1
+tile wall 13 1
+tile wall 14 1
+tile wall 15 1
+tile wall 16 1
+tile wall 17 1
+tile wall 18 1
+tile wall 19 1
+tile wall 0 2
+tile wall 1 2
+tile wall 4 2
+tile wall 5 2
+tile wall 6 2
+tile wall 7 2
+tile wall 8 2
+tile wall 9 2
+tile wall 10 2
+tile wall 11 2
+tile wall 12 2
+tile wall 13 2
+tile wall 16 2
+tile wall 17 2
+tile wall 18 2
+tile wall 19 2
+tile wall 0 3
+tile wall 5 3
+tile wall 6 3
+tile wall 7 3
+tile wall 8 3
+tile wall 9 3
+tile wall 10 3
+tile wall 11 3
+tile wall 12 3
+tile wall 17 3
+tile wall 18 3
+tile wall 19 3
+tile wall 0 4
+tile wall 5 4
+tile wall 6 4
+tile wall 7 4
+tile wall 8 4
+tile wall 9 4
+tile wall 10 4
+tile wall 11 4
+tile wall 18 4
+tile wall 19 4
+tile wall 0 5
+tile wall 5 5
+tile wall 6 5
+tile wall 7 5
+tile wall 8 5
+tile wall 9 5
+tile wall 10 5
+tile wall 19 5
+tile wall 0 6
+tile wall 5 6
+tile wall 6 6
+tile wall 7 6
+tile wall 8 6
+tile wall 9 6
+tile wall 13 6
+tile wall 19 6
+tile wall 0 7
+tile wall 5 7
+tile wall 6 7
+tile wall 7 7
+tile wall 8 7
+tile wall 12 7
+tile wall 13 7
+tile wall 14 7
+tile wall 19 7
+tile wall 0 8
+tile wall 5 8
+tile wall 6 8
+tile wall 7 8
+tile wall 11 8
+tile wall 12 8
+tile wall 13 8
+tile wall 14 8
+tile wall 19 8
+tile wall 0 9
+tile wall 5 9
+tile wall 6 9
+tile wall 10 9
+tile wall 11 9
+tile wall 12 9
+tile wall 13 9
+tile wall 14 9
+tile wall 19 9
+tile wall 0 10
+tile wall 5 10
+tile wall 9 10
+tile wall 10 10
+tile wall 11 10
+tile wall 12 10
+tile wall 13 10
+tile wall 14 10
+tile wall 19 10
+tile wall 0 11
+tile wall 8 11
+tile wall 9 11
+tile wall 10 11
+tile wall 11 11
+tile wall 12 11
+tile wall 13 11
+tile wall 14 11
+tile wall 19 11
+tile wall 0 12
+tile wall 7 12
+tile wall 8 12
+tile wall 9 12
+tile wall 10 12
+tile wall 11 12
+tile wall 12 12
+tile wall 13 12
+tile wall 14 12
+tile wall 19 12
+tile wall 0 13
+tile wall 7 13
+tile wall 8 13
+tile wall 9 13
+tile wall 10 13
+tile wall 11 13
+tile wall 12 13
+tile wall 13 13
+tile wall 14 13
+tile wall 19 13
+tile wall 0 14
+tile wall 7 14
+tile wall 8 14
+tile wall 9 14
+tile wall 10 14
+tile wall 11 14
+tile wall 12 14
+tile wall 13 14
+tile wall 14 14
+tile wall 19 14
+tile wall 0 15
+tile wall 8 15
+tile wall 9 15
+tile wall 10 15
+tile wall 11 15
+tile wall 12 15
+tile wall 13 15
+tile wall 14 15
+tile wall 19 15
+tile wall 0 16
+tile wall 9 16
+tile wall 10 16
+tile wall 11 16
+tile wall 12 16
+tile wall 13 16
+tile wall 14 16
+tile wall 19 16
+tile wall 0 17
+tile wall 10 17
+tile wall 11 17
+tile wall 12 17
+tile wall 13 17
+tile wall 14 17
+tile wall 19 17
+tile wall 0 18
+tile wall 11 18
+tile wall 12 18
+tile wall 13 18
+tile wall 19 18
+tile wall 0 19
+tile wall 5 19
+tile wall 12 19
+tile wall 19 19
+tile wall 0 20
+tile wall 5 20
+tile wall 6 20
+tile wall 19 20
+tile wall 0 21
+tile wall 5 21
+tile wall 6 21
+tile wall 7 21
+tile wall 19 21
+tile wall 0 22
+tile wall 5 22
+tile wall 6 22
+tile wall 7 22
+tile wall 8 22
+tile wall 19 22
+tile wall 0 23
+tile wall 5 23
+tile wall 6 23
+tile wall 7 23
+tile wall 8 23
+tile wall 9 23
+tile wall 19 23
+tile wall 0 24
+tile wall 5 24
+tile wall 6 24
+tile wall 7 24
+tile wall 8 24
+tile wall 9 24
+tile wall 10 24
+tile wall 19 24
+tile wall 0 25
+tile wall 5 25
+tile wall 6 25
+tile wall 7 25
+tile wall 8 25
+tile wall 9 25
+tile wall 10 25
+tile wall 11 25
+tile wall 19 25
+tile wall 0 26
+tile wall 6 26
+tile wall 7 26
+tile wall 8 26
+tile wall 9 26
+tile wall 10 26
+tile wall 11 26
+tile wall 12 26
+tile wall 19 26
+tile wall 0 27
+tile wall 7 27
+tile wall 8 27
+tile wall 9 27
+tile wall 10 27
+tile wall 11 27
+tile wall 12 27
+tile wall 13 27
+tile wall 19 27
+tile wall 0 28
+tile wall 8 28
+tile wall 9 28
+tile wall 10 28
+tile wall 11 28
+tile wall 12 28
+tile wall 13 28
+tile wall 14 28
+tile wall 19 28
+tile wall 0 29
+tile wall 5 29
+tile wall 9 29
+tile wall 10 29
+tile wall 11 29
+tile wall 12 29
+tile wall 13 29
+tile wall 14 29
+tile wall 19 29
+tile wall 0 30
+tile wall 5 30
+tile wall 6 30
+tile wall 10 30
+tile wall 11 30
+tile wall 12 30
+tile wall 13 30
+tile wall 14 30
+tile wall 19 30
+tile wall 0 31
+tile wall 5 31
+tile wall 6 31
+tile wall 7 31
+tile wall 11 31
+tile wall 12 31
+tile wall 13 31
+tile wall 14 31
+tile wall 19 31
+tile wall 0 32
+tile wall 6 32
+tile wall 7 32
+tile wall 8 32
+tile wall 12 32
+tile wall 13 32
+tile wall 14 32
+tile wall 19 32
+tile wall 0 33
+tile wall 7 33
+tile wall 8 33
+tile wall 9 33
+tile wall 13 33
+tile wall 19 33
+tile wall 0 34
+tile wall 19 34
+tile wall 0 35
+tile wall 1 35
+tile wall 19 35
+tile wall 0 36
+tile wall 1 36
+tile wall 2 36
+tile wall 19 36
+tile wall 0 37
+tile wall 1 37
+tile wall 2 37
+tile wall 3 37
+tile wall 19 37
+tile wall 0 38
+tile wall 1 38
+tile wall 2 38
+tile wall 3 38
+tile wall 4 38
+tile wall 19 38
+tile wall 0 39
+tile wall 1 39
+tile wall 2 39
+tile wall 3 39
+tile wall 4 39
+tile wall 5 39
+tile wall 6 39
+tile wall 7 39
+tile wall 8 39
+tile wall 9 39
+tile wall 10 39
+tile wall 11 39
+tile wall 12 39
+tile wall 13 39
+tile wall 14 39
+tile wall 15 39
+tile wall 16 39
+tile wall 17 39
+tile wall 18 39
+tile wall 19 39
+tile checkpoint 7 9 6
+tile checkpoint 1 10 1
+tile checkpoint 2 10 1
+tile checkpoint 3 10 1
+tile checkpoint 4 10 1
+tile checkpoint 7 10 6
+tile checkpoint 7 11 6
+tile checkpoint 15 11 0
+tile checkpoint 16 11 0
+tile checkpoint 17 11 0
+tile checkpoint 18 11 0
+tile checkpoint 15 12 0
+tile checkpoint 16 12 0
+tile checkpoint 17 12 0
+tile checkpoint 18 12 0
+tile checkpoint 15 13 0
+tile checkpoint 16 13 0
+tile checkpoint 17 13 0
+tile checkpoint 18 13 0
+tile checkpoint 7 15 2
+tile checkpoint 7 16 2
+tile checkpoint 7 17 2
+tile checkpoint 7 18 2
+tile checkpoint 7 19 2
+tile checkpoint 7 20 2
+tile checkpoint 12 20 6
+tile checkpoint 12 21 6
+tile checkpoint 1 22 5
+tile checkpoint 2 22 5
+tile checkpoint 3 22 5
+tile checkpoint 4 22 5
+tile checkpoint 12 22 6
+tile checkpoint 12 23 6
+tile checkpoint 12 24 6
+tile checkpoint 12 25 6
+tile checkpoint 15 28 3
+tile checkpoint 16 28 3
+tile checkpoint 17 28 3
+tile checkpoint 18 28 3
+tile checkpoint 10 33 4
+tile checkpoint 11 33 4
+tile checkpoint 12 33 4
+tile checkpoint 9 34 4
+tile checkpoint 9 35 4
+tile checkpoint 9 36 4
+tile checkpoint 9 37 4
+tile checkpoint 9 38 4
+fillremainder air
